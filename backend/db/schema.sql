@@ -1,9 +1,9 @@
-DROP DATABASE MERAKI_Academy_Project_5;
+-- DROP DATABASE MERAKI_Academy_Project_5;
 CREATE DATABASE MERAKI_Academy_Project_5;
 
 USE MERAKI_Academy_Project_5;
 
-
+   
 Create table roles (
  role_id INT AUTO_INCREMENT NOT NULL,
  role VARCHAR(255) NOT NULL,
