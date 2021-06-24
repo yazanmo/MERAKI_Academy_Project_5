@@ -7,6 +7,7 @@ const cors = require("cors");
 const registerRouter = require("./routers/routes/auth/signUp");
 const loginRouter = require("./routers/routes/auth/login");
 const registerDoctorRouter = require("./routers/routes/dashboard");
+const storyRouter = require("./routers/routes/story")
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(cors());
 app.use(registerRouter);
 app.use(loginRouter);
 app.use(registerDoctorRouter);
+app.use(storyRouter)
 
 const PORT = process.env.PORT || 5000;
 
