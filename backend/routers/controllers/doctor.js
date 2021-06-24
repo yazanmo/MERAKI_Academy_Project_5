@@ -9,7 +9,7 @@ const getAllDoctors = (req, res) => {
   });
 };
 
-
+// this function to get doctor by id
 const getDoctorById=(req,res)=>{
     const id=req.params.id
     const query=`SELECT * FROM users WHERE role_id=2 AND id=${id}`
