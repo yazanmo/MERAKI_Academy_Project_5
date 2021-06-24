@@ -2,7 +2,7 @@ const db = require("./../../../db/db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
-
+   
 const login = (req, res) => {
   const { email, password } = req.body;
   const query = `SELECT * FROM users WHERE email = ?`;
