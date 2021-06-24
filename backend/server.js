@@ -7,7 +7,7 @@ const cors = require("cors");
 const registerRouter = require("./routers/routes/auth/signUp");
 const loginRouter = require("./routers/routes/auth/login");
 const registerDoctorRouter = require("./routers/routes/dashboard");
-
+const doctorRouter=require("./routers/routes/doctor")
 const app = express();
 
 //built-in middlewares
@@ -20,7 +20,7 @@ app.use(cors());
 app.use(registerRouter);
 app.use(loginRouter);
 app.use(registerDoctorRouter);
-
+app.use(doctorRouter)
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

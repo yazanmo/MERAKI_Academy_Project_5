@@ -1,6 +1,6 @@
 const db = require("./../../../db/db");
 const bcrypt = require("bcrypt");
-
+    
 const register = (req, res) => {
   const { firstName, lastName, age, email, password, role_id, img } = req.body;
 
