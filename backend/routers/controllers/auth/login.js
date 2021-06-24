@@ -8,8 +8,7 @@ const login = (req, res) => {
   const query = `SELECT * FROM users WHERE email = ?`;
   const data = [email];
   db.query(query, data, (err, result) => {
-    console.log(result[0]);
-    if (err) return re.send("email is not exist");
+    if (err) return res.send("email is not exist");
     if (result[0]) {
       bcrypt.compare(password, result[0].password, (err, result2) => {
         if (err) throw err;
@@ -23,7 +22,7 @@ const login = (req, res) => {
           const option = {
             expiresIn: "60m",
           };
-          res.json(jwt.sign(payload, SECRET, option));
+          res.json({ token: jwt.sign(payload, SECRET, option) });
         }
       });
     }
