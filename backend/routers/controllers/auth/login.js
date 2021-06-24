@@ -22,7 +22,7 @@ const login = (req, res) => {
           const option = {
             expiresIn: "60m",
           };
-          res.json({ token: jwt.sign(payload, SECRET, option) });
+          res.json(jwt.sign(payload, SECRET, option));
         }
       });
     }
