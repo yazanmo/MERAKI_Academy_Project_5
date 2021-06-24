@@ -1,7 +1,11 @@
+
 const express = require("express");
 require("dotenv").config();
 require("./db/db");
 const cors = require("cors");
+
+
+
 
 //routers
 const registerRouter = require("./routers/routes/auth/signUp");
@@ -21,6 +25,7 @@ app.use(express.json());
 
 //third-party middleware
 app.use(cors());
+
 
 //app routers
 app.use(registerRouter);
