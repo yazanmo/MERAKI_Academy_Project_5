@@ -11,6 +11,8 @@ db.query(query,(err,result)=>{
 })
 }
 
+
+//this function for update information for user
  const updateUserInformationById=(req,res)=>{
     const id=req.token.id;
     const {firstName ,lastName,age ,email,password,role_id,img}=req.body
@@ -24,7 +26,22 @@ db.query(query,(err,result)=>{
     })
  }
 
+
+ const deleteUserById=(req,res)=>{
+     const id =req.token.id;
+     const query=`DELETE FROM users
+     WHERE id = ${id}`
+    
+     db.query(query,(err,result)=>{
+         if(err) res.status(404).send(err)
+         res.status(200).json(result)
+     })
+ }
+
+
+ 
 module.exports={
     getUserInformation,
-    updateUserInformationById
+    updateUserInformationById,
+    deleteUserById
 }
