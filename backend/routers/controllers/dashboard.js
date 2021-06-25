@@ -25,7 +25,17 @@ const createUserDoctor = (req, res) => {
     }
   });
 };
+const deleteDoctorById = (req, res) => {
+  const id = req.body.id;
+  const query = `DELETE FROM users WHERE id = ? AND role_id=2`;
+  const data = [id];
 
+  db.query(query, data, (err, result) => {
+    if (err) res.status(404).send("id is not exist");
+    res.status(200).send("deleted is done");
+  });
+};
 module.exports = {
   createUserDoctor,
+  deleteDoctorById,
 };

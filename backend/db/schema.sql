@@ -1,9 +1,9 @@
-DROP DATABASE MERAKI_Academy_Project_5;
+-- DROP DATABASE MERAKI_Academy_Project_5;
 CREATE DATABASE MERAKI_Academy_Project_5;
 
 USE MERAKI_Academy_Project_5;
 
-
+   
 Create table roles (
  role_id INT AUTO_INCREMENT NOT NULL,
  role VARCHAR(255) NOT NULL,
@@ -74,8 +74,8 @@ is_deleted TINYINT DEFAULT 0,
 CREATE TABLE reviews(
  id INT AUTO_INCREMENT NOT NULL,
  comment VARCHAR(255),
- doctorsService_id INT,
- FOREIGN KEY ( doctorsService_id ) REFERENCES doctorsDetails(id),
+ doctor_id INT,
+ FOREIGN KEY ( doctor_id ) REFERENCES doctorsDetails(id),
  commenter_id INT,
  rating INT ,
  FOREIGN KEY (commenter_id) REFERENCES users(id),
