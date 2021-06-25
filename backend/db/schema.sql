@@ -44,6 +44,9 @@ CREATE TABLE doctorsDetails (
  name VARCHAR(255),
  description VARCHAR(255),
  price INT,
+Qualifications VARCHAR (255) ,
+ practicalExperiences VARCHAR(255) , 
+ qualificationsFile VARCHAR(255),
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
  primary key (id)
