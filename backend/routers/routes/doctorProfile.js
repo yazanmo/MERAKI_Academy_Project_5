@@ -1,11 +1,14 @@
 const express = require("express");
 const authentication = require("./../middlewares/authentication");
 
-const {createDetails,updateDetailsById} = require ('./../controllers/doctorProfile')
+const {createDetails,updateDetailsById,deleteDetailsById,getDoctorProfile} = require ('./../controllers/doctorProfile')
 
 const doctorDetailsRouter = express.Router()
-doctorDetailsRouter.post('/doctor/details/:id',authentication,createDetails)
-doctorDetailsRouter.put('/doctor/details/:id',authentication,updateDetailsById)
+doctorDetailsRouter.get('/doctor/details',authentication,getDoctorProfile)
+doctorDetailsRouter.post('/doctor/details',authentication,createDetails)
+doctorDetailsRouter.put('/doctor/details',authentication,updateDetailsById)
+doctorDetailsRouter.delete('/doctor/details',authentication,deleteDetailsById)
+
 
 
 module.exports = doctorDetailsRouter

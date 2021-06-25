@@ -11,7 +11,7 @@ const cors = require("cors");
 const registerRouter = require("./routers/routes/auth/signUp");
 const loginRouter = require("./routers/routes/auth/login");
 const registerDoctorRouter = require("./routers/routes/dashboard");
-
+const doctorDetailsRouter=require('./routers/routes/doctorProfile')
 const foodTrackerRouter = require("./routers/routes/foodTracker");
 const reviewRouter=require("./routers/routes/review")
 
@@ -33,7 +33,7 @@ app.use(registerRouter);
 app.use(loginRouter);
 app.use(registerDoctorRouter);
 app.use(reviewRouter)
-
+app.use(doctorDetailsRouter)
 app.use(foodTrackerRouter);
 
 
