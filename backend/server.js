@@ -14,7 +14,7 @@ const registerDoctorRouter = require("./routers/routes/dashboard");
 const doctorDetailsRouter=require('./routers/routes/doctorProfile')
 const foodTrackerRouter = require("./routers/routes/foodTracker");
 const reviewRouter=require("./routers/routes/review")
-
+// const storyRouter = require("./routers/routes/story")
 
 const doctorRouter=require("./routers/routes/doctor")
 const userRouter=require('./routers/routes/user')
@@ -33,6 +33,7 @@ app.use(registerRouter);
 app.use(loginRouter);
 app.use(registerDoctorRouter);
 app.use(reviewRouter)
+// app.use(storyRouter)
 app.use(doctorDetailsRouter)
 app.use(foodTrackerRouter);
 
