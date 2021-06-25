@@ -33,7 +33,7 @@ const deleteStoryById=(req,res)=>{
     const user_id=req.token.id
 const command=`DELETE FROM success WHERE user_id=? `
 const arr = [user_id]
-db.query(command,(err,result)=>{
+db.query(command,arr,(err,result)=>{
     if(err)res.status(404).send(err)
     res.status(202).json("Deleted successfully")
 })
