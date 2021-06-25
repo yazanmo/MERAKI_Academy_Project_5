@@ -1,4 +1,4 @@
--- DROP DATABASE MERAKI_Academy_Project_5;
+ DROP DATABASE MERAKI_Academy_Project_5;
 CREATE DATABASE MERAKI_Academy_Project_5;
 
 USE MERAKI_Academy_Project_5;
@@ -41,9 +41,11 @@ CREATE TABLE doctors (
 
 CREATE TABLE doctorsDetails (
  id INT AUTO_INCREMENT NOT NULL,
- name VARCHAR(255),
  description VARCHAR(255),
  price INT,
+Qualifications VARCHAR (255) ,
+ practicalExperiences VARCHAR(255) , 
+ qualificationsFile VARCHAR(255),
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
  primary key (id)
