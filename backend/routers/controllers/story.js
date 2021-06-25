@@ -17,8 +17,30 @@ db.query(command,arr,(err,result)=>{
 }
 
 
+//As a user, I should be able to get all successful stories
 
+const getAllSuccessStories = (req,res)=>{
+    const command =`SELECT * FROM success WHERE is_deleted=0`
+    db.query(command,(err,result)=>{
+        if (err) res.status(404).send(err)
+        res.status(200).json(result)
+    })
+}
+
+//as a user, I can delete my story
+
+const deleteStoryById=(req,res)=>{
+    const user_id=req.token.id
+const command=`DELETE FROM success WHERE user_id=? `
+const arr = [user_id]
+db.query(command,(err,result)=>{
+    if(err)res.status(404).send(err)
+    res.status(202).json("Deleted successfully")
+})
+}
 
 module.exports={
-    createSuccessStory
+    createSuccessStory,
+    getAllSuccessStories,
+    deleteStoryById
 }

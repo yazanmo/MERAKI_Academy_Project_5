@@ -66,6 +66,7 @@ CREATE TABLE Success (
  Success_id INT AUTO_INCREMENT NOT NULL,
  description VARCHAR(255),
  user_id INT,
+is_deleted TINYINT DEFAULT 0,
  FOREIGN KEY (user_id) REFERENCES users(id),
  primary key (Success_id )
 );
