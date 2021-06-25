@@ -68,6 +68,7 @@ CREATE TABLE Success (
  Success_id INT AUTO_INCREMENT NOT NULL,
  description VARCHAR(255),
  user_id INT,
+is_deleted TINYINT DEFAULT 0,
  FOREIGN KEY (user_id) REFERENCES users(id),
  primary key (Success_id )
 );
@@ -102,3 +103,4 @@ INSERT INTO roles (role) VALUES ("admin");
 INSERT INTO users (firstName,lastName,age,email,password,role_id,img) VALUES ("customer","last",23,"cutomer.com","123456",1,"https://www.pngkey.com/png/full/804-8049827_input-black-male-avatar.png");
 INSERT INTO users (firstName,lastName,age,email,password,role_id,img) VALUES ("doctor","last",23,"doctor.com","123456",2,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZk6bwrMvpCsKucQ5NrRLTxa0T0B0Nlrn9CA&usqp=CAU");
 INSERT INTO users (firstName,lastName,age,email,password,role_id,img) VALUES ("admin","last",23,"admin.com","123456",3,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPZob-roOCV5Q54sF9k0oRrvRZ846yMMAtJg&usqp=CAU");
+
