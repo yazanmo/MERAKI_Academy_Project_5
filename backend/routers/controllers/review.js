@@ -16,7 +16,6 @@ const getAllReviews = (req, res) => {
   const query = `SELECT *  FROM  reviews where is_deleted=0 AND doctor_id =${id}`;
   db.query(query, (err, result) => {
     if (err) res.status(500).send(err);
-
     res.status(200).json(result);
   });
 };
@@ -39,7 +38,6 @@ const deleteReviewById = (req, res) => {
   const commenter_id = req.token.id;
 
   const query = `UPDATE reviews SET is_deteted=1 WHERE id=${id}  AND commenter_id= ${commenter_id}`;
-
   db.query(query, (err, results) => {
     if (err) res.status(404).send(err);
     res.status(500).send("deleted is done");
