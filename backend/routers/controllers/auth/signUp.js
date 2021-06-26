@@ -1,16 +1,24 @@
 const db = require("./../../../db/db");
 const bcrypt = require("bcrypt");
-    
+
 const register = (req, res) => {
   const { firstName, lastName, age, email, password, role_id, img } = req.body;
 
-  const q = `SELECT email FROM users WHERE email = ?`;
+  const query = `SELECT email FROM users WHERE email = ? AND is_deleted =0`;
   const data = [email];
-  db.query(q, data, async (err, result) => {
+  db.query(query, data, async (err, result) => {
     if (result.length == 0) {
       const query = `INSERT INTO users (firstName,lastName,age,email,password,role_id,img) VALUES (?,?,?,?,?,1,?);`;
       let pass = await bcrypt.hash(password, 10);
-      const arr = [firstName, lastName, age, email, pass, role_id, img];
+      const arr = [
+        firstName,
+        lastName,
+        age,
+        email.toLowerCase(),
+        pass,
+        role_id,
+        img,
+      ];
       db.query(query, arr, (err1, result) => {
         if (err1) throw err1;
         const query = `SELECT * FROM users WHERE email = ?;`;

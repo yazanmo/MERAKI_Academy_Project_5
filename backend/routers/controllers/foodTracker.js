@@ -16,9 +16,8 @@ const createFoodTracker = (req, res) => {
     user_id,
   ];
   db.query(query, data, (err, result) => {
-    if (err) throw err;
-    console.log(result);
-    res.json(result);
+    if (err) res.status(500).send("insert is not done");
+    res.status(200).json(result);
   });
 };
 
@@ -39,8 +38,8 @@ const updateFoodTracker = (req, res) => {
   ];
 
   db.query(query, data, (err, result) => {
-    if (err) throw err;
-    res.json(result);
+    if (err) res.status(500).send("update is not done");
+    res.status(200).json(result);
   });
 };
 
