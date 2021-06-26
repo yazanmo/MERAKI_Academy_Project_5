@@ -7,13 +7,13 @@ const createNewReview = (req, res) => {
   const data = [comment, rating, doctor_id, commenter_id];
   db.query(query, data, (err, results) => {
     if (err) res.status(404);
-    res.json(results);
+    res.status(201).json(result);
   });
 };
 
 const getAllReviews = (req, res) => {
   const id = req.params.id;
-  const query = `SELECT *  FROM  reviews where doctor_id =${id}`;
+  const query = `SELECT *  FROM  reviews where is_deleted=0 AND doctor_id =${id}`;
   db.query(query, (err, result) => {
     if (err) res.status(404).send(err);
 
@@ -38,7 +38,8 @@ const deleteReviewById = (req, res) => {
   const id = req.params.id;
   const commenter_id = req.token.id;
 
-  const query = `DELETE FROM reviews WHERE id=${id}  AND commenter_id= ${commenter_id}`;
+  const query = `UPDATE reviews SET is_deteted=1 WHERE id=${id}  AND commenter_id= ${commenter_id}`;
+
   db.query(query, (err, results) => {
     if (err) res.status(404).send(err);
     res.status(200).send("deleted is done");
