@@ -40,7 +40,7 @@ app.use(registerDoctorRouter);
 
 
 app.use(reviewRouter)
-// app.use(storyRouter)
+app.use(storyRouter)
 app.use(doctorDetailsRouter)
 app.use(foodTrackerRouter);
 

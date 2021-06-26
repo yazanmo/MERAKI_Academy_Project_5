@@ -10,4 +10,5 @@ storyRouter.post('/stories',authentication,createSuccessStory)
 storyRouter.delete('/stories',authentication,deleteStoryById)
 storyRouter.get('/stories',getAllSuccessStories)
 storyRouter.delete('/stories',authentication,deleteStoryById)
+
 module.exports= storyRouter
