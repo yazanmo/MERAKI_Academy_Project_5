@@ -12,10 +12,9 @@ console.log("user_id",user_id);
 const command = `INSERT INTO Success (description,user_id) VALUES (?,?)`
 const arr= [description,user_id]
 db.query(command,arr,(err,result)=>{
-    if (err) res.status(404).send(err)
+    if (err) res.status(400).send(err)
     res.status(201).json(result);
 })
-
 }
 
 
@@ -33,11 +32,12 @@ const getAllSuccessStories = (req,res)=>{
 
 const deleteStoryById=(req,res)=>{
     const user_id=req.token.id
-const command=`DELETE FROM success WHERE user_id=? `
+const command=`UPDATE success SET
+is_deleted= 1 WHERE user_id=?`
 const arr = [user_id]
 db.query(command,arr,(err,result)=>{
-    if(err)res.status(404).send(err)
-    res.status(202).json("Deleted successfully")
+    if(err)res.status(400).send(err)
+    res.status(200).json("Deleted successfully")
 })
 }
 
