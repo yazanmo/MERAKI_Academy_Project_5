@@ -46,7 +46,7 @@ CREATE TABLE doctorsDetails (
  practicalExperiences VARCHAR(255) , 
  price INT,
  user_id INT,
-  is_deleted TINYINT DEFAULT 0,
+ is_deleted TINYINT DEFAULT 0,
  FOREIGN KEY (user_id) REFERENCES users(id),
  primary key (id)
 );
@@ -59,6 +59,7 @@ CREATE TABLE foodTraker (
  dinner VARCHAR(255),
  glassesOfWater INT ,
  activeTime VARCHAR(255),
+ is_deleted TINYINT DEFAULT 0,
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
  primary key (id)
@@ -68,7 +69,7 @@ CREATE TABLE Success (
  Success_id INT AUTO_INCREMENT NOT NULL,
  description VARCHAR(255),
  user_id INT,
-is_deleted TINYINT DEFAULT 0,
+ is_deleted TINYINT DEFAULT 0,
  FOREIGN KEY (user_id) REFERENCES users(id),
  primary key (Success_id )
 );
@@ -80,6 +81,7 @@ CREATE TABLE reviews(
  FOREIGN KEY ( doctorsService_id ) REFERENCES doctorsDetails(id),
  commenter_id INT,
  rating INT ,
+ is_deleted TINYINT DEFAULT 0,
  FOREIGN KEY (commenter_id) REFERENCES users(id),
  is_deleted TINYINT DEFAULT 0,
  PRIMARY KEY (id)
@@ -89,6 +91,7 @@ CREATE TABLE purchased(
  id INT AUTO_INCREMENT NOT NULL,
  doctorsService_id INT,
  user_id INT,
+ is_deleted TINYINT DEFAULT 0,
  FOREIGN KEY ( doctorsService_id ) REFERENCES doctorsDetails(id),
  FOREIGN KEY ( user_id  ) REFERENCES users(id),
  is_deleted TINYINT DEFAULT 0,
