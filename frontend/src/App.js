@@ -4,9 +4,9 @@ import Login from "./components/login/login";
 const App = () => {
   return (
     <>
-      <Switch>
+      <div className="App">
         <Route exact path="/login" render={() => <Login />} />
-      </Switch>
+		</div>
     </>
   );
 };
