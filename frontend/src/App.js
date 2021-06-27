@@ -1,7 +1,14 @@
-import React from 'react';
-import Login from "./components/login/login"
+import React from "react";
+import { Switch, Route, Link, useParams, useHistory } from "react-router-dom";
+import Login from "./components/login/login";
 const App = () => {
-	return <div className="App"><Login/></div>;
+  return (
+    <>
+      <Switch>
+        <Route exact path="/login" render={() => <Login />} />
+      </Switch>
+    </>
+  );
 };
 
 export default App;
