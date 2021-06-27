@@ -22,14 +22,14 @@ const Navigation = () => {
       <Link to="/nutrition" className="links">
         Our nutrition
       </Link>
-      <Link to="/" className="links">
+      <Link to="/success" className="links">
         Stories
       </Link>
       <Link to="/" className="links">
         Contact Us
       </Link>
 
-      {token && parsedToken.role_id == 1 ? (
+      {state.token && parsedToken.role_id == 1 ? (
         <>
           <Link to="/profile" className="links">
             Profile
@@ -37,7 +37,7 @@ const Navigation = () => {
           <Link to="/" className="links">
             Log out
           </Link>{" "}
-          {token && parsedToken.role_id == 2 ? (
+          {state.token && parsedToken.role_id == 2 ? (
             <>
               <Link to="/profile" className="links">
                 Profile
