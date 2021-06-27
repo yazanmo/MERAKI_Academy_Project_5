@@ -2,9 +2,9 @@ const db = require("./../../db/db");
 
 // this function to get all doctors 
 const getAllDoctors = (req, res) => {
-  const query = `SELECT * FROM users WHERE role_id=2`;
+  const query = `SELECT * FROM users WHERE role_id=2 AND is_deleted=0`;
   db.query(query, (err, result) => {
-    if (err) res.status(404).send(err);
+    if (err) res.status(400).send(err);
     res.status(200).json(result);
   });
 };
@@ -14,7 +14,7 @@ const getDoctorById=(req,res)=>{
     const id=req.params.id
     const query=`SELECT * FROM users WHERE role_id=2 AND id=${id}`
     db.query(query, (err,result)=>{
-        if(err) res.status(404).send(err);
+        if(err) res.status(400).send(err);
         res.status(200).json(result);
     })
 }
