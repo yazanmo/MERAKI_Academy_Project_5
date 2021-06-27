@@ -83,7 +83,6 @@ CREATE TABLE reviews(
  rating INT ,
  is_deleted TINYINT DEFAULT 0,
  FOREIGN KEY (commenter_id) REFERENCES users(id),
- is_deleted TINYINT DEFAULT 0,
  PRIMARY KEY (id)
 );
 
@@ -94,7 +93,6 @@ CREATE TABLE purchased(
  is_deleted TINYINT DEFAULT 0,
  FOREIGN KEY ( doctorsService_id ) REFERENCES doctorsDetails(id),
  FOREIGN KEY ( user_id  ) REFERENCES users(id),
- is_deleted TINYINT DEFAULT 0,
  PRIMARY KEY (id)
 );
 
