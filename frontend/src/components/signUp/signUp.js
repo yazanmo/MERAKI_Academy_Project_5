@@ -4,44 +4,48 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 
 const SignUp = () => {
-  const [fistName, setFistName] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState(0);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [state, setState] = useState(false);
-
+  const [show, setShow] = useState(false);
+  const [message, setMessage] = useState("");
   const history = useHistory();
-  const signUpButton = () => {
+  const signUpButton = (e) => {
+      e.preventDefault();
     axios
       .post("http://localhost:5000/register", {
-        fistName,
+        firstName,
         lastName,
         age,
         email,
         password,
       })
       .then((result) => {
-        //history.push("/login");
+        console.log(result);
+        history.push("/login");
       })
       .catch((err) => {
-        console.log(err);
-        setState(true);
+        setShow(true);
+        setMessage(err.response.data)
       });
   };
   return (
     <>
-      <div className="signUp">
+      <form onSubmit={signUpButton} className="signUp">
         <input
           type="text"
           placeholder=" First Name "
+          required
           onChange={(e) => {
-            setFistName(e.target.value);
+            setFirstName(e.target.value);
           }}
         />
         <input
           type="text"
           placeholder=" Last Name "
+          required
           onChange={(e) => {
             setLastName(e.target.value);
           }}
@@ -49,14 +53,16 @@ const SignUp = () => {
         <input
           type="number"
           placeholder=" Age "
+          required
           onChange={(e) => {
             setAge(e.target.value);
           }}
         />
-        
+
         <input
           type="email"
           placeholder=" Email "
+          required
           onChange={(e) => {
             setEmail(e.target.value);
           }}
@@ -64,16 +70,15 @@ const SignUp = () => {
         <input
           type="password"
           placeholder=" Password "
+          required
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         />
-        <button onClick={signUpButton}>Sign Up</button>
-      </div>
-      {state == true ? (
-        <div className="falseRegister">
-          Error happened while register, please try again
-        </div>
+        <button >Sign Up</button>
+      </form>
+      {show  ? (
+        <p>{message}</p>
       ) : (
         ""
       )}
