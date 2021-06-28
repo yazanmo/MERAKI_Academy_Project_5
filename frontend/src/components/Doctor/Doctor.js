@@ -25,7 +25,24 @@ const Doctor = (props) => {
 
   return (
     <>
-     
+      <div className="parantDoctor">
+        {Doctor && Doctor.map((elem, i) => {
+          return (<div className="childDoctor" key={i} >
+              
+            <div className="imag">
+              <img src={`${elem.img}`} />
+            </div>
+            <div className="par">
+              <h2>{elem.firstName} {elem.lastName}</h2>
+              <h2>{elem.price}</h2>
+              <p>{elem.description}</p>
+              
+             
+            </div>
+        
+          </div>)
+        })}
+      </div>
 
     </>
   );
