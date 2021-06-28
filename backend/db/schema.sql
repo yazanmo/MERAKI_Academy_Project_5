@@ -52,61 +52,56 @@ CREATE TABLE doctorsDetails (
 );
 
 CREATE TABLE breakfast (
- id INT AUTO_INCREMENT NOT NULL,
+ breakfast_id INT AUTO_INCREMENT NOT NULL,
  name varchar(255),
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
- primary key (id)
+ primary key (breakfast_id)
 
 );
 
 CREATE TABLE snack (
- id INT AUTO_INCREMENT NOT NULL,
+ snack_id INT AUTO_INCREMENT NOT NULL,
  name varchar(255),
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
- primary key (id)
-
+ primary key (snack_id)
 );
 
 CREATE TABLE lunch (
- id INT AUTO_INCREMENT NOT NULL,
+ lunch_id INT AUTO_INCREMENT NOT NULL,
  name varchar(255),
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
- primary key (id)
-
+ primary key (lunch_id)
 );
 
 CREATE TABLE dinner (
- id INT AUTO_INCREMENT NOT NULL,
+ dinner_id INT AUTO_INCREMENT NOT NULL,
  name varchar(255),
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
- primary key (id)
-
+ primary key (dinner_id)
 );
 
 CREATE TABLE glassesOfWater (
- id INT AUTO_INCREMENT NOT NULL,
+ glassesOfWater_id INT AUTO_INCREMENT NOT NULL,
  name varchar(255),
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
- primary key (id)
-
+ primary key (glassesOfWater_id)
 );
 
 CREATE TABLE activeTime (
- id INT AUTO_INCREMENT NOT NULL,
+ activeTime_id INT AUTO_INCREMENT NOT NULL,
  name varchar(255),
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
- primary key (id)
-
+ primary key (activeTime_id)
 );
 
 CREATE TABLE foodTraker (
- id INT AUTO_INCREMENT NOT NULL,
+ foodTraker_id INT AUTO_INCREMENT NOT NULL,
  breakfast_id INT,
  snack_id INT,
  lunch_id INT,
@@ -116,13 +111,13 @@ CREATE TABLE foodTraker (
  is_deleted TINYINT DEFAULT 0,
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
- FOREIGN KEY (breakfast_id) REFERENCES breakfast(id),
- FOREIGN KEY (snack_id) REFERENCES snack(id),
- FOREIGN KEY (lunch_id) REFERENCES lunch(id),
- FOREIGN KEY (dinner_id) REFERENCES dinner(id),
- FOREIGN KEY (glassesOfWater_id) REFERENCES glassesOfWater(id),
- FOREIGN KEY (activeTime_id) REFERENCES activeTime(id),
- primary key (id)
+ FOREIGN KEY (breakfast_id) REFERENCES breakfast(breakfast_id),
+ FOREIGN KEY (snack_id) REFERENCES snack(snack_id),
+ FOREIGN KEY (lunch_id) REFERENCES lunch(lunch_id),
+ FOREIGN KEY (dinner_id) REFERENCES dinner(dinner_id),
+ FOREIGN KEY (glassesOfWater_id) REFERENCES glassesOfWater(glassesOfWater_id),
+ FOREIGN KEY (activeTime_id) REFERENCES activeTime(activeTime_id),
+ primary key (foodTraker_id)
 );
 
 CREATE TABLE Success (
