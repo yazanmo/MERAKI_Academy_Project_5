@@ -4,7 +4,8 @@ import Login from "./components/login/login";
 
 import Navigation from "./components/navigation";
 
-import SignUp from "./components/signUp/signUp"
+import SignUp from "./components/signUp/signUp";
+import Home from "./components/Home"
 
 const App = () => {
   return (
@@ -12,7 +13,7 @@ const App = () => {
       <div className="App">
 
 		  <Navigation/>
-        
+      <Home/>
 
         <Route exact path="/login" render={() => <Login />} />
 		<Route exact path="/register" render={() => <SignUp />} />

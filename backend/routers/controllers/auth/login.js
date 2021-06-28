@@ -22,7 +22,7 @@ const login = (req, res) => {
           const option = {
             expiresIn: "60m",
           };
-          res.json({ token: jwt.sign(payload, SECRET, option) });
+          res.json({ token: jwt.sign(payload, SECRET, option) ,role_id: result[0].role_id, });
         } else {
           res.status(500).send("password is not exist");
         }

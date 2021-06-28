@@ -3,6 +3,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setToken } from "./../../reducers/login";
 import { Link, useHistory } from "react-router-dom";
+import Navigation from "../navigation";
 
 const Login = () => {
   const [email, setEmail] = useState();
@@ -12,6 +13,8 @@ const Login = () => {
     axios
       .post("http://localhost:5000/login", { email, password })
       .then((result) => {
+        localStorage.setItem("token", result.data.token);
+
         dispatch(setToken(result.data.token));
       })
       .catch((err) => {
