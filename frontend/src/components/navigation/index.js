@@ -1,27 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import jwt from 'jsonwebtoken'
-import { useEffect , useState } from "react";
+import jwt from "jsonwebtoken";
+import { useEffect, useState } from "react";
 require("dotenv").config();
-
-
-
 
 const Navigation = () => {
   const state = useSelector((state) => {
     return { token: state.login.token };
   });
   let token = localStorage.getItem("token");
-  const [parsedToken, setParsedToken] = useState("")
+  const [parsedToken, setParsedToken] = useState("");
   useEffect(() => {
     if (token) {
       console.log(token);
-      setParsedToken(jwt.verify(token, process.env.REACT_APP_SECRET))
-      console.log(parsedToken);
-     
+      setParsedToken(jwt.verify(token, process.env.REACT_APP_SECRET));
+    } else {
+      setParsedToken({ role_id: 5 });
     }
-      else{console.log("ttttttttt"); setParsedToken({role_id : 5})  }
   }, []);
 
   // console.log(state.token,process.env.REACT_APP_SECRET);
@@ -45,7 +41,7 @@ const Navigation = () => {
         Contact Us
       </Link>
 
-      {token  ? (
+      {token ? (
         <>
           <Link to="/profile" className="links">
             Profile
@@ -53,9 +49,8 @@ const Navigation = () => {
           <Link to="/" className="links">
             Log out
           </Link>{" "}
-          { parsedToken.role_id === 2 ? (
+          {parsedToken.role_id === 2 ? (
             <>
-
               <Link to="/messages" className="links">
                 messages
               </Link>
@@ -79,10 +74,11 @@ const Navigation = () => {
           </Link>
           <Link to="/logUp" className="links">
             Log up
-          </Link>{" "}  </>
+          </Link>{" "}
+        </>
       )}
     </div>
-   );
+  );
 };
 
 export default Navigation;
