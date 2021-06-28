@@ -11,7 +11,7 @@ const {
 const reviewRouter = express.Router();
 
 reviewRouter.post("/doctor/review", authentication, createNewReview);
-reviewRouter.get("/doctor/reviwes/:id", authentication, getAllReviews);
+reviewRouter.get("/doctor/reviwes/:id", getAllReviews);
 reviewRouter.put("/doctor/review/:id", authentication, updateReviewById);
 reviewRouter.delete("/doctor/review/:id", authentication, deleteReviewById);
 
