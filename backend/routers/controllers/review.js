@@ -2,20 +2,26 @@ const db = require("./../../db/db");
 
 const createNewReview = (req, res) => {
   const commenter_id = req.token.id;
-  const { comment, rating, doctor_id } = req.body;
-  const query = `INSERT INTO reviews (comment, rating,doctor_id,commenter_id ) VALUES (?,?,?,?)`;
-  const data = [comment, rating, doctor_id, commenter_id];
+  const { comment, rating, doctorsService_id } = req.body;
+  const query = `INSERT INTO reviews (comment, rating,doctorsService_id,commenter_id ) VALUES (?,?,?,?)`;
+  const data = [comment, rating, doctorsService_id, commenter_id];
   db.query(query, data, (err, results) => {
     if (err) res.status(400);
-    res.status(201).json(result);
+    res.status(201).json(results);
   });
 };
 
 const getAllReviews = (req, res) => {
   const id = req.params.id;
-  const query = `SELECT *  FROM  reviews where is_deleted=0 AND doctor_id =${id}`;
+
+  const query = `SELECT reviews.* , users.* FROM reviews 
+  INNER JOIN users ON reviews.commenter_id = users.id 
+  where reviews.is_deleted=0 AND reviews.doctorsService_id =${id}
+  `;
+
   db.query(query, (err, result) => {
     if (err) res.status(500).send(err);
+    ``;
     res.status(200).json(result);
   });
 };

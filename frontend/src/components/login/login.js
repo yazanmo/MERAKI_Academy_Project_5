@@ -12,6 +12,8 @@ const Login = () => {
       .post("http://localhost:5000/login", { email, password })
       .then((result) => {
         dispatch(setToken(result.data.token));
+        console.log(result.data.token);
+        localStorage.setItem("token", result.data.token);
       })
       .catch((err) => {
         throw err;
