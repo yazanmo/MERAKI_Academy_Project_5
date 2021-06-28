@@ -76,6 +76,8 @@ const SignUp = () => {
           }}
         />
         <button >Sign Up</button>
+        <din className="singUp" ><p style={{marginTop:"20px",fontStyle:"bold"}}>You already have an account ?<span><Link to="/login"> log in</Link></span></p> </din>
+
       </form>
       {show  ? (
         <p>{message}</p>
