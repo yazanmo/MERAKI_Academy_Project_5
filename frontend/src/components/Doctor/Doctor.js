@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import {useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import "./Doctor.css";
 
@@ -20,7 +20,10 @@ const Doctor = (props) => {
       })
   }, [])
 
- 
+  const func = (id) => {
+    return (history.push(`/doctor/${id}`)
+    )
+  }
  
 
   return (
@@ -36,7 +39,7 @@ const Doctor = (props) => {
               <h2>{elem.firstName} {elem.lastName}</h2>
               <h2>{elem.price}</h2>
               <p>{elem.description}</p>
-              
+              <button onClick={() => { func(elem.id) }}>more details</button>
              
             </div>
         
