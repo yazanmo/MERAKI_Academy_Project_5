@@ -51,18 +51,73 @@ CREATE TABLE doctorsDetails (
  primary key (id)
 );
 
+CREATE TABLE breakfast (
+ breakfast_id INT AUTO_INCREMENT NOT NULL,
+ name varchar(255),
+ user_id INT,
+ FOREIGN KEY (user_id) REFERENCES users(id),
+ primary key (breakfast_id)
+
+);
+
+CREATE TABLE snack (
+ snack_id INT AUTO_INCREMENT NOT NULL,
+ name varchar(255),
+ user_id INT,
+ FOREIGN KEY (user_id) REFERENCES users(id),
+ primary key (snack_id)
+);
+
+CREATE TABLE lunch (
+ lunch_id INT AUTO_INCREMENT NOT NULL,
+ name varchar(255),
+ user_id INT,
+ FOREIGN KEY (user_id) REFERENCES users(id),
+ primary key (lunch_id)
+);
+
+CREATE TABLE dinner (
+ dinner_id INT AUTO_INCREMENT NOT NULL,
+ name varchar(255),
+ user_id INT,
+ FOREIGN KEY (user_id) REFERENCES users(id),
+ primary key (dinner_id)
+);
+
+CREATE TABLE glassesOfWater (
+ glassesOfWater_id INT AUTO_INCREMENT NOT NULL,
+ name varchar(255),
+ user_id INT,
+ FOREIGN KEY (user_id) REFERENCES users(id),
+ primary key (glassesOfWater_id)
+);
+
+CREATE TABLE activeTime (
+ activeTime_id INT AUTO_INCREMENT NOT NULL,
+ name varchar(255),
+ user_id INT,
+ FOREIGN KEY (user_id) REFERENCES users(id),
+ primary key (activeTime_id)
+);
+
 CREATE TABLE foodTraker (
- id INT AUTO_INCREMENT NOT NULL,
- breakfast VARCHAR(255),
- snack VARCHAR(255),
- lunch VARCHAR(255),
- dinner VARCHAR(255),
- glassesOfWater INT ,
- activeTime VARCHAR(255),
+ foodTraker_id INT AUTO_INCREMENT NOT NULL,
+ breakfast_id INT,
+ snack_id INT,
+ lunch_id INT,
+ dinner_id INT,
+ glassesOfWater_id INT,
+ activeTime_id INT,
  is_deleted TINYINT DEFAULT 0,
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
- primary key (id)
+ FOREIGN KEY (breakfast_id) REFERENCES breakfast(breakfast_id),
+ FOREIGN KEY (snack_id) REFERENCES snack(snack_id),
+ FOREIGN KEY (lunch_id) REFERENCES lunch(lunch_id),
+ FOREIGN KEY (dinner_id) REFERENCES dinner(dinner_id),
+ FOREIGN KEY (glassesOfWater_id) REFERENCES glassesOfWater(glassesOfWater_id),
+ FOREIGN KEY (activeTime_id) REFERENCES activeTime(activeTime_id),
+ primary key (foodTraker_id)
 );
 
 CREATE TABLE Success (
@@ -99,9 +154,3 @@ CREATE TABLE purchased(
 INSERT INTO roles (role) VALUES ("user");
 INSERT INTO roles (role) VALUES ("doctor");
 INSERT INTO roles (role) VALUES ("admin");
-
-
-INSERT INTO users (firstName,lastName,age,email,password,role_id,img) VALUES ("customer","last",23,"cutomer.com","123456",1,"https://www.pngkey.com/png/full/804-8049827_input-black-male-avatar.png");
-INSERT INTO users (firstName,lastName,age,email,password,role_id,img) VALUES ("doctor","last",23,"doctor.com","123456",2,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZk6bwrMvpCsKucQ5NrRLTxa0T0B0Nlrn9CA&usqp=CAU");
-INSERT INTO users (firstName,lastName,age,email,password,role_id,img) VALUES ("admin","last",23,"admin.com","123456",3,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPZob-roOCV5Q54sF9k0oRrvRZ846yMMAtJg&usqp=CAU");
-
