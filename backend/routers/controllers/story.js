@@ -21,7 +21,7 @@ db.query(command,arr,(err,result)=>{
 //As a user, I should be able to get all successful stories
 
 const getAllSuccessStories = (req,res)=>{
-    const command =`SELECT * FROM success WHERE is_deleted=0`
+    const command =`SELECT users.lastName ,Success.description  FROM Success INNER JOIN users ON users.id=Success.user_id WHERE is_deleted=0 `
     db.query(command,(err,result)=>{
         if (err) res.status(404).send(err)
         res.status(200).json(result)
