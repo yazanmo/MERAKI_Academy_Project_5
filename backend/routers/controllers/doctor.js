@@ -47,8 +47,28 @@ const getDoctorById = (req, res) => {
   });
 };
 
+
+
+const allInfoOfDoctor = (req, res) => {
+
+  const { FirstName, lastName, age, email,password,description,
+    Qualifications,practicalExperiences,qualificationsFile } = req.body;
+    const arr = [
+      FirstName, lastName, age, email,password,description,
+      Qualifications,practicalExperiences,qualificationsFile];
+
+      const command = `INSERT INTO doctors  (FirstName, lastName, description,email,
+        Qualifications,practicalExperiences,qualificationsFile) VALUES (?,?,?,?,?,?,?)`;
+      db.query(command, arr, (err, result) => {
+        if (err) res.status(400).send(err);
+        res.status(201).json(result);
+      });
+}
+
+
 module.exports = {
   getAllDoctors,
   getDoctorById,
   doctorDetailsFilter,
+  allInfoOfDoctor,
 };

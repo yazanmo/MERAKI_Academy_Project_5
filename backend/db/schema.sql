@@ -28,7 +28,7 @@ CREATE TABLE users(
 
 CREATE TABLE doctors (
  doctor_id INT AUTO_INCREMENT NOT NULL,
- FirstName VARCHAR(255) ,
+ firstName VARCHAR(255) ,
  lastName Varchar(255),
  description TEXT,
  email VARCHAR(255) NOT NULL,
