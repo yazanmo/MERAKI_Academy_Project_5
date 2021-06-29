@@ -10,18 +10,8 @@ const Navigation = () => {
     return { token: state.login.token };
   });
   let token = localStorage.getItem("token");
-  const [parsedToken, setParsedToken] = useState("");
-  useEffect(() => {
-    if (token) {
-      console.log(token);
-      setParsedToken(jwt.verify(token, process.env.REACT_APP_SECRET));
-    } else {
-      setParsedToken({ role_id: 5 });
-    }
-  }, []);
+   let role_id = localStorage.getItem("role_id");
 
-  // console.log(state.token,process.env.REACT_APP_SECRET);
-  // let parsedToken = jwt.verify(state.token, process.env.REACT_APP_SECRET);
 
   return (
     <div className="navBar">
@@ -49,7 +39,7 @@ const Navigation = () => {
           <Link to="/" className="links">
             Log out
           </Link>{" "}
-          {parsedToken.role_id === 2 ? (
+          {role_id === 2 ? (
             <>
               <Link to="/messages" className="links">
                 messages
