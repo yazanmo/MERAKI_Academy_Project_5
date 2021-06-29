@@ -24,14 +24,11 @@ const DoctorDetails = () => {
     };
   });
 
-  console.log(state);
-  //   store.getState();
 
   useEffect(() => {
     axios
       .get(`http://localhost:5000/doctor/${id}`)
       .then((result) => {
-        // console.log(result.data[0]);
         setResult(result.data[0]);
       })
       .catch((err) => {});
