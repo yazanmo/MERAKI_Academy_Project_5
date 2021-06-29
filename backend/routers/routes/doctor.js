@@ -10,6 +10,6 @@ const doctorRouter = express.Router();
 //APIs
 doctorRouter.get("/doctor",getAllDoctors);
 doctorRouter.get('/doctor/:id',getDoctorById);
-
+doctorRouter.post('/doctors',doctorDetailsFilter);
 
 module.exports = doctorRouter;
