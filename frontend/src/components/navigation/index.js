@@ -62,7 +62,13 @@ const Navigation = () => {
                 </li>
                 <li>
                   {" "}
-                  <Link to="/" className="links">
+                  <Link
+                    to="/"
+                    className="links"
+                    onClick={() => {
+                      localStorage.clear();
+                    }}
+                  >
                     Log out
                   </Link>{" "}
                 </li>
