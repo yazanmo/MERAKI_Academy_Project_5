@@ -8,7 +8,7 @@ import Doctor from "./components/Doctor/Doctor";
 
 
 import Navigation from "./components/navigation";
-
+import DoctorProfile from "./components/doctor_profile/doctor_profile"
 import SignUp from "./components/signUp/signUp";
 import Home from "./components/Home"
 
@@ -30,7 +30,7 @@ const App = () => {
         <Route exact path="/doctor" render={() => <Doctor/>} />
 
 		<Route exact path="/register" render={() => <SignUp />} />
-
+     <Route exact path="/doctorProfile" render={() =><DoctorProfile/>}/>
 
 
 		</div>

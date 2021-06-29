@@ -54,7 +54,7 @@ const DoctorDetails = () => {
           rating,
           doctorsService_id,
         },
-
+    
         {
           headers: {
             authorization: "Bearer " + token,

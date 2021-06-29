@@ -4,15 +4,16 @@ const db = require("../../db/db");
 
 const getDoctorProfile = (req, res) => {
   const user_id = req.token.id;
-  const command = `SELECT users.firstName ,users.lastName,users.age,users.email,doctorsDetails.price,
+
+  const command = `SELECT users.firstName ,users.lastName,users.age,users.email,users.img,doctorsDetails.price,
 doctorsDetails.Qualifications,doctorsDetails.practicalExperiences
 FROM users 
 INNER JOIN doctorsDetails ON users.id = doctorsDetails.user_id WHERE users.is_deleted =0 AND  user_id = ?`;
   const arr = [user_id];
   db.query(command, arr, (err, result) => {
-    if (err) res.status(400).send(err);
-    if (result.length === 0) {
-      res.status(200).json("doctor profile has been deleted");
+    if (err) return res.status(400).send(err);
+    if (!result.length) {
+      return res.status(200).json("doctor profile has been deleted");
     }
     res.status(200).json(result);
   });

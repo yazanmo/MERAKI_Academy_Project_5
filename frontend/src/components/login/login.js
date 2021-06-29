@@ -3,7 +3,6 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setToken } from "./../../reducers/login";
 import { Link, useHistory } from "react-router-dom";
-import Navigation from "../navigation";
 
 const Login = () => {
   const history = useHistory();
