@@ -20,7 +20,7 @@ const DoctorProfile = () => {
       });
   },[]);
 
-  return(<><div>fvfsdfsdssdfsdfdsffssf</div></>)
+  return(<><div></div></>)
   
 };
 

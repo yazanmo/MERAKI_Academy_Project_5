@@ -138,31 +138,7 @@ const Navigation = () => {
             ) : (
               <></>
             )}
-            {token ? (
-              <>
-                {role_id ==3 ? (
-                  <>
-                    
-                    <li>
-                      {" "}
-                      <Link
-                        to="/"
-                        className="links"
-                        onClick={() => {
-                          localStorage.clear();
-                        }}
-                      >
-                        Log out
-                      </Link>{" "}
-                    </li>
-                  </>
-                ) : (
-                  <></>
-                )}
-              </>
-            ) : (
-              <></>
-            )}
+            
           </ul>
         </div>
       </div>
