@@ -6,7 +6,22 @@ import axios from "axios";
 const AddStory = () => {
   const token = localStorage.getItem("token");
   const [description, setDescription] = useState("");
-
+  const addStory = () => {
+    axios
+      .post(
+        "http://localhost:5000/story",
+        { description },
+        {
+          headers: {
+            authorization: "Bearer " + token,
+          },
+        }
+      )
+      .then((result) => {})
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div>
       <input
