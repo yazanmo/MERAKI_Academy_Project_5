@@ -7,7 +7,10 @@ const createNewReview = (req, res) => {
   const data = [comment, rating, doctorsService_id, commenter_id];
   db.query(query, data, (err, results) => {
     if (err) res.status(400);
-    res.status(201).json(results);
+    const query = `SELECT * FROM reviews WHERE id=${results.insertId} `;
+    db.query(query, (err, result) => {
+      res.status(201).json(result);
+    });
   });
 };
 

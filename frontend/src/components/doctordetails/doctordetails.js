@@ -4,8 +4,10 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 // import the actions
 import { createTodo, setTodos } from "./../../reducers/review";
+
 const DoctorDetails = () => {
   const { id } = useParams();
+  const history = useHistory();
 
   const [result, setResult] = useState([]);
   const [comment, setComment] = useState("");
@@ -16,11 +18,20 @@ const DoctorDetails = () => {
   let doctorsService_id = parseInt(id);
   const dispatch = useDispatch();
 
+  const state = useSelector((state) => {
+    return {
+      review: state.review.review,
+    };
+  });
+
+  console.log(state);
+  //   store.getState();
+
   useEffect(() => {
     axios
       .get(`http://localhost:5000/doctor/${id}`)
       .then((result) => {
-        console.log(result.data[0]);
+        // console.log(result.data[0]);
         setResult(result.data[0]);
       })
       .catch((err) => {});
@@ -29,7 +40,7 @@ const DoctorDetails = () => {
     axios
       .get(`http://localhost:5000/doctor/review/${id}`)
       .then((result) => {
-        console.log(result.data);
+        // console.log(result.data);
         setAllComment(result.data);
       })
       .catch((err) => {
@@ -54,7 +65,9 @@ const DoctorDetails = () => {
         }
       )
       .then((result) => {
-        console.log(result.data);
+        // console.log(result.data);
+        dispatch(createTodo(result.data));
+        window.location.reload();
       })
       .catch((err) => {
         console.log(err);
@@ -86,9 +99,10 @@ const DoctorDetails = () => {
       <button onClick={createComment}>ok</button>
 
       <div>
+        <p>{state.id}</p>
         <p>
           {allComment.map((element, index) => {
-            console.log(element);
+            // console.log(element);
 
             return (
               <div>
@@ -98,6 +112,14 @@ const DoctorDetails = () => {
             );
           })}
         </p>
+
+        <button
+          onClick={() => {
+            history.push(`./${id}/payment`);
+          }}
+        >
+          Subscribe
+        </button>
       </div>
     </div>
   );
