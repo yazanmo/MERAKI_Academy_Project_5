@@ -1,10 +1,10 @@
 const db = require("../../db/db");
 
 //as a doctor, I can see my profile
-
+    
 const getDoctorProfile = (req, res) => {
   const user_id = req.token.id;
-  const command = `SELECT users.firstName ,users.lastName,users.age,users.email,doctorsDetails.price,
+  const command = `SELECT users.firstName ,users.lastName,users.age,users.email,users.img, doctorsDetails.price,
 doctorsDetails.Qualifications,doctorsDetails.practicalExperiences
 FROM users 
 INNER JOIN doctorsDetails ON users.id = doctorsDetails.user_id WHERE users.is_deleted =0 AND  doctorsDetails.user_id = ?;`;

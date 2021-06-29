@@ -5,6 +5,13 @@ import { setToken } from "./../../reducers/login";
 import { Link, useHistory } from "react-router-dom";
 let token = localStorage.getItem("token");
 const DoctorProfile = () => {
+  const [firstName, setfirstName] = useState("");
+  const [LastName, setLastName] = useState("");
+  const [age, setAge] = useState("");
+  const [img, setImg] = useState("");
+  const [price,setPrice]=useState("");
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
   useEffect(() => {
     axios
       .get("http://localhost:5000/doctor/details", {
