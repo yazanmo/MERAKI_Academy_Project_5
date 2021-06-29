@@ -13,11 +13,10 @@ const Login = () => {
     axios
       .post("http://localhost:5000/login", { email, password })
       .then((result) => {
+      
         localStorage.setItem("token", result.data.token);
-
+        localStorage.setItem("role_id", result.data.role_id);
         dispatch(setToken(result.data.token));
-        console.log(result.data.token);
-        localStorage.setItem("token", result.data.token);
       })
       .catch((err) => {
         throw err;
