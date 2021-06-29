@@ -14,7 +14,7 @@ const Navigation = () => {
   let role_id = localStorage.getItem("role_id");
 
   return (
-    <>
+    
       <div className="navBar">
         <div className="logo">
           <p>HEALTH CARE</p>
@@ -138,10 +138,35 @@ const Navigation = () => {
             ) : (
               <></>
             )}
+            {token ? (
+              <>
+                {role_id ==3 ? (
+                  <>
+                    
+                    <li>
+                      {" "}
+                      <Link
+                        to="/"
+                        className="links"
+                        onClick={() => {
+                          localStorage.clear();
+                        }}
+                      >
+                        Log out
+                      </Link>{" "}
+                    </li>
+                  </>
+                ) : (
+                  <></>
+                )}
+              </>
+            ) : (
+              <></>
+            )}
           </ul>
         </div>
       </div>
-    </>
+    
   );
 };
 
