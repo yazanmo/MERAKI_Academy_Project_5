@@ -72,6 +72,8 @@
     padding-top: 6%;
     justify-content: center;
     background-color: #f8f9fd ;
+    box-sizing: border-box;
+
 
 }
 
@@ -80,11 +82,15 @@
     grid-template-columns: 1fr 1fr 1fr;
     align-items: flex-start;
     gap: 50px;
+    box-sizing: border-box;
+
 }
 
 .ul{
     margin-top: 5rem;
     list-style-type: none;
     border: 1px solid white;
+    box-sizing: border-box;
+
 
 }
