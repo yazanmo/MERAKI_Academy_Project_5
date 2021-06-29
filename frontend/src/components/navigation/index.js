@@ -93,6 +93,12 @@ const Navigation = () => {
                         Booking schedule
                       </Link>{" "}
                     </li>
+                    <li>
+                      {" "}
+                      <Link to="/doctorProfile" className="links">
+                        profileeeeeeee
+                      </Link>{" "}
+                    </li>
                   </>
                 ) : (
                   <></>
