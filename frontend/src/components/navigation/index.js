@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import jwt from "jsonwebtoken";
 import { useEffect, useState } from "react";
+import "./navigation.css";
 require("dotenv").config();
 
 const Navigation = () => {
@@ -10,64 +11,101 @@ const Navigation = () => {
     return { token: state.login.token };
   });
   let token = localStorage.getItem("token");
-   let role_id = localStorage.getItem("role_id");
-
+  let role_id = localStorage.getItem("role_id");
 
   return (
-    <div className="navBar">
-      <Link to="/" className="links">
-        Home
-      </Link>
-      <Link to="/" className="links">
-        About
-      </Link>
-      <Link to="/nutrition" className="links">
-        Our nutrition
-      </Link>
-      <Link to="/success" className="links">
-        Stories
-      </Link>
-      <Link to="/" className="links">
-        Contact Us
-      </Link>
+    <>
+      <div className="navBar">
+        <div className="logo">
+          <p>HEALTH CARE</p>
+        </div>
 
-      {token ? (
-        <>
-          <Link to="/profile" className="links">
-            Profile
-          </Link>
-          <Link to="/" className="links">
-            Log out
-          </Link>{" "}
-          {role_id === 2 ? (
-            <>
-              <Link to="/messages" className="links">
-                messages
-              </Link>
+        <div className="nav">
+          <ul>
+            <li>
+              {" "}
+              <Link to="/" className="links">
+                Home
+              </Link>{" "}
+            </li>
+            <li>
+              {" "}
+              <Link to="/" className="links">
+                About
+              </Link>{" "}
+            </li>
+            <li>
+              {" "}
+              <Link to="/doctor" className="links">
+                Our nutrition
+              </Link>{" "}
+            </li>
+            <li>
+              <Link to="/success" className="links">
+                Stories
+              </Link>{" "}
+            </li>
+            <li>
+              {" "}
+              <Link to="/" className="links">
+                Contact Us
+              </Link>{" "}
+            </li>
 
-              <Link to="/patient" className="links">
-                My patient
-              </Link>
+            {token ? (
+              <>
+                <li>
+                  {" "}
+                  <Link to="/profile" className="links">
+                    Profile
+                  </Link>{" "}
+                </li>
+                <li>
+                  {" "}
+                  <Link to="/" className="links">
+                    Log out
+                  </Link>{" "}
+                </li>
+                {role_id === 2 ? (
+                  <>
+                    <li>
+                      {" "}
+                      <Link to="/messages" className="links">
+                        messages
+                      </Link>{" "}
+                    </li>
 
-              <Link to="/schedule" className="links">
-                Booking schedule
-              </Link>
-            </>
-          ) : (
-            <></>
-          )}{" "}
-        </>
-      ) : (
-        <>
-          <Link to="/logIn" className="links">
-            Log in
-          </Link>
-          <Link to="/logUp" className="links">
-            Log up
-          </Link>{" "}
-        </>
-      )}
-    </div>
+                    <li>
+                      <Link to="/patient" className="links">
+                        My patient
+                      </Link>{" "}
+                    </li>
+
+                    <li>
+                      {" "}
+                      <Link to="/schedule" className="links">
+                        Booking schedule
+                      </Link>{" "}
+                    </li>
+                  </>
+                ) : (
+                  <></>
+                )}{" "}
+              </>
+            ) : (
+              <>
+                <li>
+                  {" "}
+                  <Link to="/logIn" className="links">
+                    Log in
+                  </Link>{" "}
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
+      </div>
+    </>
   );
 };
 
