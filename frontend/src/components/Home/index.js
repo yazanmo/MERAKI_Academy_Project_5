@@ -5,6 +5,7 @@ import { setStories } from "../../reducers/story";
 import health from "./health.jpg";
 import health2 from "./health2.png";
 import "./home.css";
+import happy from "./happy.jpg";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ export default function Home() {
     };
   });
   return (
-    <div>
+    <div className="home">
       <section className="About">
         <img className="img" src={health} alt="healthy life" />
         <div className="paragraph">
@@ -52,15 +53,22 @@ export default function Home() {
         </div>
       </section>
 
-      {state.stories.map((story) => {
-        return (
-          <ul>
-            {" "}
-            <li>{story.lastName}</li>
-            <li>{story.description}</li>
-          </ul>
-        );
-      })}
+      <section className="stories">
+        <span className="welcome">STORIES</span>
+        <h3 className="h3">Successfull Stories</h3>
+        <div className="storyCard">
+          {state.stories.map((story, index) => {
+            return (
+              <ul key={index} className="ul">
+                {" "}
+                <img src={happy} alt="happy" />
+                <li>{story.description}</li>
+                <li>{story.lastName}</li>
+              </ul>
+            );
+          })}
+        </div>
+      </section>
     </div>
   );
 }

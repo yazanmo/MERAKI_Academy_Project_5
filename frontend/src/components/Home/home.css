@@ -1,3 +1,9 @@
+.home{
+    display: flex ;
+    flex-direction: column;
+   gap: 5rem;
+}
+/* about section */
 .About{
     
     display: flex;
@@ -10,10 +16,10 @@
    margin-top: 2%;
    padding-left: 1.5%;
    padding-top: 1%;
-  display: flex ;
+  ;display: flex ;
   flex-direction: column;
   column-gap: 20px;
-  row-gap: 20px;
+  row-gap: 20px
   
 
 }
@@ -56,3 +62,29 @@
     box-sizing: border-box;
 }
 
+
+/* Story section */
+.stories{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6%;
+    justify-content: center;
+    background-color: #f8f9fd ;
+
+}
+
+.storyCard{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.ul{
+    margin-top: 5rem;
+    list-style-type: none;
+    border: 1px solid white;
+
+}
