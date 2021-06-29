@@ -1,24 +1,23 @@
 const db = require("../../db/db");
 
 //as a doctor, I can see my profile
-    
+
 const getDoctorProfile = (req, res) => {
   const user_id = req.token.id;
-  console.log(user_id)
+
   const command = `SELECT users.firstName ,users.lastName,users.age,users.email,users.img,doctorsDetails.price,
 doctorsDetails.Qualifications,doctorsDetails.practicalExperiences
 FROM users 
 INNER JOIN doctorsDetails ON users.id = doctorsDetails.user_id WHERE users.is_deleted =0 AND  user_id = ?`;
   const arr = [user_id];
   db.query(command, arr, (err, result) => {
-    if (err)return res.status(400).send(err);
+    if (err) return res.status(400).send(err);
     if (!result.length) {
-     return res.status(200).json("doctor profile has been deleted");
+      return res.status(200).json("doctor profile has been deleted");
     }
     res.status(200).json(result);
   });
 };
-
 
 //as a doctor, after the admin accept me I can full my information
 

@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { setToken } from "./../../reducers/login";
-import { Link, useHistory } from "react-router-dom";
 let token = localStorage.getItem("token");
 const DoctorProfile = () => {
   const [firstName, setFirstName] = useState("");
@@ -20,11 +17,13 @@ const DoctorProfile = () => {
         },
       })
       .then((result) => {
-          console.log("44444444444444",result)
         setFirstName(result.data[0].firstName);
         setLastName(result.data[0].lastName);
         setAge(result.data[0].age);
         setImg(result.data[0].img);
+        setPrice(result.data[0].price);
+        setEmail(result.data[0].email);
+        setPassword(result.data[0].password);
       })
       .catch((err) => {
         throw err;
