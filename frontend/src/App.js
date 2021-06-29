@@ -6,7 +6,7 @@ import Doctor from "./components/Doctor/Doctor";
 import Navigation from "./components/navigation";
 import SignUp from "./components/signUp/signUp";
 import Profile from "./components/profile/profile";
-
+import AddStory from "./components/profile/addstory";
 import Home from "./components/Home";
 
 const App = () => {
@@ -14,16 +14,18 @@ const App = () => {
     <>
       <div className="App">
         <Navigation />
-        <Home />
+        <Switch>
+          <Route exact path="/" render={() => <Home />} />
+          <Route exact path="/login" render={() => <Login />} />
 
-        <Route exact path="/login" render={() => <Login />} />
+          <Route exact path="/profile" render={() => <Profile />} />
 
-        <Route exact path="/doctor/:id" render={() => <DoctorDetails />} />
-        <Route exact path="/profile" render={() => <Profile />} />
+          <Route exact path="/doctor" render={() => <Doctor />} />
+          <Route exact path="/addyourstory" render={() => <AddStory />} />
 
-        <Route exact path="/doctor" render={() => <Doctor />} />
-
-        <Route exact path="/register" render={() => <SignUp />} />
+          <Route exact path="/register" render={() => <SignUp />} />
+          <Route exact path="/doctor/:id" render={() => <DoctorDetails />} />
+        </Switch>
       </div>
     </>
   );

@@ -6,7 +6,7 @@ function Profile() {
   const token = localStorage.getItem("token");
 
   const [result, setResult] = useState([]);
-  const [des, setDes] = useState("");
+  const history = useHistory();
 
   useEffect(() => {
     axios
@@ -22,20 +22,6 @@ function Profile() {
         console.log(err);
       });
   });
-  axios
-    .get(
-      "http://localhost:5000/stories",
-      {},
-      {
-        headers: {
-          authorization: "Bearer " + token,
-        },
-      }
-    )
-    .then((result) => {})
-    .catch((err) => {
-      console.log(err);
-    });
 
   return (
     <div>
@@ -49,7 +35,13 @@ function Profile() {
         <p>{result.email}</p>
       </div>
 
-      <button>you story</button>
+      <button
+        onClick={() => {
+          history.push("./addyourstory");
+        }}
+      >
+        you story
+      </button>
       <button>your food</button>
     </div>
   );
