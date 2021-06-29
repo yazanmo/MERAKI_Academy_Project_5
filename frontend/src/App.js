@@ -1,40 +1,30 @@
 import React from "react";
 import { Switch, Route, Link, useParams, useHistory } from "react-router-dom";
 import Login from "./components/login/login";
-
 import DoctorDetails from "./components/doctordetails/doctordetails";
 import Doctor from "./components/Doctor/Doctor";
-
-
-
 import Navigation from "./components/navigation";
-
 import SignUp from "./components/signUp/signUp";
-import Home from "./components/Home"
+import Profile from "./components/profile/profile";
 
+import Home from "./components/Home";
 
 const App = () => {
   return (
     <>
       <div className="App">
-
-		  <Navigation/>
-      <Home/>
+        <Navigation />
+        <Home />
 
         <Route exact path="/login" render={() => <Login />} />
- 
+
         <Route exact path="/doctor/:id" render={() => <DoctorDetails />} />
-    
+        <Route exact path="/profile" render={() => <Profile />} />
 
+        <Route exact path="/doctor" render={() => <Doctor />} />
 
-        <Route exact path="/doctor" render={() => <Doctor/>} />
-
-		<Route exact path="/register" render={() => <SignUp />} />
-
-
-
-		</div>
-
+        <Route exact path="/register" render={() => <SignUp />} />
+      </div>
     </>
   );
 };

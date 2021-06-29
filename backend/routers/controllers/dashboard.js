@@ -8,10 +8,9 @@ const createUserDoctor = (req, res) => {
   const data = [email];
   db.query(query, data, async (err, result) => {
     if (result.length == 0) {
-      
       const query = `INSERT INTO users (firstName,lastName,age,email,img,password,role_id) VALUES (?,?,?,?,?,?,2);`;
       let pass = await bcrypt.hash(password, 10);
-      const arr = [firstName, lastName, age, email, img, pass,role_id];
+      const arr = [firstName, lastName, age, email, img, pass, role_id];
       db.query(query, arr, (err1, result) => {
         if (err1) res.status(500);
         const query = `SELECT * FROM users WHERE email = ?;`;
@@ -26,6 +25,7 @@ const createUserDoctor = (req, res) => {
     }
   });
 };
+
 const deleteDoctorById = (req, res) => {
   const id = req.body.id;
   const query = `UPDATE users SET is_deleted = 1 WHERE id = ? AND role_id=2`;
@@ -36,6 +36,8 @@ const deleteDoctorById = (req, res) => {
     res.status(200).send("deleted is done");
   });
 };
+
+const createDoctorDetiles = () => {};
 
 module.exports = {
   createUserDoctor,
