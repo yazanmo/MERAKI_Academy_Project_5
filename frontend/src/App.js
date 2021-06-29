@@ -9,7 +9,8 @@ import Doctor from "./components/Doctor/Doctor";
 
 import Navigation from "./components/navigation";
 
-import SignUp from "./components/signUp/signUp"
+import SignUp from "./components/signUp/signUp";
+import Home from "./components/Home"
 
 
 const App = () => {
@@ -18,7 +19,7 @@ const App = () => {
       <div className="App">
 
 		  <Navigation/>
-        
+      <Home/>
 
         <Route exact path="/login" render={() => <Login />} />
  

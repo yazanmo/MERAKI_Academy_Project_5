@@ -4,7 +4,7 @@ import axios from "axios";
 import { setStories } from "../../reducers/story";
 
 export default function Home() {
-  useDispatch = dispatch();
+  const dispatch =useDispatch();
   useEffect(() => {
     axios
       .get(`http://localhost:5000/stories`)
@@ -12,7 +12,7 @@ export default function Home() {
         dispatch(setStories(result.data));
       })
       .catch((err) => {
-        res.send(err);
+        dispatch(setStories("some thing bad"));
       });
   }, []);
 
