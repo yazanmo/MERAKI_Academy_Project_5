@@ -54,25 +54,44 @@ const Navigation = () => {
 
             {token ? (
               <>
+                {role_id ==1 ? (
+                  <>
+                    <li>
+                      {" "}
+                      <Link to="/profile" className="links">
+                        Profile
+                      </Link>{" "}
+                    </li>
+                    <li>
+                      {" "}
+                      <Link
+                        to="/"
+                        className="links"
+                        onClick={() => {
+                          localStorage.clear();
+                        }}
+                      >
+                        Log out
+                      </Link>{" "}
+                    </li>
+                  </>
+                ) : (
+                  <></>
+                )}
+              </>
+            ) : (
+              <>
                 <li>
                   {" "}
-                  <Link to="/profile" className="links">
-                    Profile
+                  <Link to="/logIn" className="links">
+                    Log in
                   </Link>{" "}
                 </li>
-                <li>
-                  {" "}
-                  <Link
-                    to="/"
-                    className="links"
-                    onClick={() => {
-                      localStorage.clear();
-                    }}
-                  >
-                    Log out
-                  </Link>{" "}
-                </li>
-                {role_id === 2 ? (
+              </>
+            )}
+            {token ? (
+              <>
+                {role_id ==2 ? (
                   <>
                     <li>
                       {" "}
@@ -96,23 +115,28 @@ const Navigation = () => {
                     <li>
                       {" "}
                       <Link to="/doctorProfile" className="links">
-                        profileeeeeeee
+                        Profile
+                      </Link>{" "}
+                    </li>
+                    <li>
+                      {" "}
+                      <Link
+                        to="/"
+                        className="links"
+                        onClick={() => {
+                          localStorage.clear();
+                        }}
+                      >
+                        Log out
                       </Link>{" "}
                     </li>
                   </>
                 ) : (
                   <></>
-                )}{" "}
+                )}
               </>
             ) : (
-              <>
-                <li>
-                  {" "}
-                  <Link to="/logIn" className="links">
-                    Log in
-                  </Link>{" "}
-                </li>
-              </>
+              <></>
             )}
           </ul>
         </div>

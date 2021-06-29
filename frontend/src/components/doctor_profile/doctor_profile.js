@@ -20,7 +20,8 @@ const DoctorProfile = () => {
       });
   },[]);
 
-  return;
+  return(<><div>fvfsdfsdssdfsdfdsffssf</div></>)
+  
 };
 
 export default DoctorProfile;
