@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route, Link, useParams, useHistory } from "react-router-dom";
 import Login from "./components/login/login";
 
+import DoctorDetails from "./components/doctordetails/doctordetails";
 import Doctor from "./components/Doctor/Doctor";
 
 
@@ -20,6 +21,10 @@ const App = () => {
         
 
         <Route exact path="/login" render={() => <Login />} />
+ 
+        <Route exact path="/doctor/:id" render={() => <DoctorDetails />} />
+    
+
 
         <Route exact path="/doctor" render={() => <Doctor/>} />
 
@@ -28,6 +33,7 @@ const App = () => {
 
 
 		</div>
+
     </>
   );
 };
