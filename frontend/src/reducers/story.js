@@ -1,0 +1,26 @@
+const initialState = {
+    stories=[]
+}
+
+//Reducer
+const storiesReducer = (state=initialState , {type,payload})=>{
+    switch(type){
+        case "SET_STORIES" :
+        return {stories : [...payload] }
+
+        default:
+        return state;
+    }
+
+};
+
+export default storiesReducer ;
+
+//Actions
+
+export const setStories = (stories)=>{
+return {
+    type : "SET_STORIES",
+    payload :stories
+}
+}
