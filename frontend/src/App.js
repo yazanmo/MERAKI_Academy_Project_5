@@ -6,7 +6,7 @@ import DoctorDetails from "./components/doctordetails/doctordetails";
 import Doctor from "./components/Doctor/Doctor";
 
 
-
+import Admin from "./components/Admin/admin";
 import Navigation from "./components/navigation";
 import DoctorProfile from "./components/doctor_profile/doctor_profile"
 import SignUp from "./components/signUp/signUp";
@@ -25,7 +25,7 @@ const App = () => {
  
         <Route exact path="/doctor/:id" render={() => <DoctorDetails />} />
     
-
+        <Route exact path="/admin" render={()=> <Admin />}/>
 
         <Route exact path="/doctor" render={() => <Doctor/>} />
 
