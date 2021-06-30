@@ -43,7 +43,7 @@ const createDetails = (req, res) => {
 
 const updateDetailsById = (req, res) => {
   const user_id = req.token.id;
-  console.log("sssssssssssssssssssss",user_id);
+  
   const {
     description,
     Qualifications,
@@ -72,10 +72,10 @@ const updateDetailsById = (req, res) => {
     FROM users 
     INNER JOIN doctorsDetails ON users.id = doctorsDetails.user_id WHERE users.is_deleted =0 AND doctorsDetails.user_id = ? `;
       const data2 = [user_id];
-console.log("111111111111111",result_1);
+
       db.query(query1, data2, (err, result_2) => {
         if (err) res.status(400).send(err);
-        console.log("222222222222222222222",result_2);
+        
         res.status(200).json(result_2);
       });
     });

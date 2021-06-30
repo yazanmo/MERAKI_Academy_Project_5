@@ -20,14 +20,11 @@ const UpdateDoctorProfile = () => {
   const dispatch = useDispatch();
 
   const editProfile = () => {
+    
     axios
       .put(
         "http://localhost:5000/doctor/details",
-        {
-          headers: {
-            authorization: "Bearer " + token,
-          },
-        },
+
         {
           firstName,
           lastName,
@@ -35,11 +32,22 @@ const UpdateDoctorProfile = () => {
           img,
           price,
           email,
+        },
+        {
+          headers: {
+            authorization: "Bearer " + token,
+          },
         }
       )
       .then((result) => {
         setFirstName(profile.doctor.firstName);
+        setLastName(profile.doctor.lastName);
+        setAge(profile.doctor.age);
+        setImg(profile.doctor.img);
+        setPrice(profile.doctor.price);
+        setEmail(profile.doctor.email);
         dispatch(updateData(result.data));
+      
       })
       .catch((err) => {
         console.log(err);
@@ -49,7 +57,7 @@ const UpdateDoctorProfile = () => {
   return (
     <>
       <div className="profile_page">
-        <h3 style={{ float: "left" }}>FirstName :</h3>
+        <h3 >FirstName :</h3>
         <input
           className="inputs"
           type="text"
@@ -86,6 +94,7 @@ const UpdateDoctorProfile = () => {
           className="inputs"
           type="text"
           placeholder="email here"
+          readOnly
           defaultValue={data.email}
           onChange={(e) => {
             setEmail(e.target.value);
@@ -111,7 +120,7 @@ const UpdateDoctorProfile = () => {
             setPrice(e.target.value);
           }}
         />
-        <button onClick={editProfile}></button>
+        <button onClick={editProfile}>Edit Profile</button>
       </div>
     </>
   );
