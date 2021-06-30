@@ -8,9 +8,12 @@ const DoctorAdmin = () => {
   const [Doctor, setDoctor] = useState()
   const [DoctorName, setRDoctorName] = useState()
   const [Delete, setDelete] = useState()
-  
+  const [info, setInfo] = useState(false);
 
  const [id, setId] = useState(0)
+
+console.log(id)
+
 
   useEffect(() => {
     axios.get(`http://localhost:5000/doctoradmin`)
@@ -21,13 +24,18 @@ const DoctorAdmin = () => {
       }).catch((err) => {
         console.log("Error")
       })
-  }, [])
+  }, [info])
 
   
 const  deleteComment = (doctor_id)=>{
     setId(doctor_id)
+    console.log(id)
     axios.put("http://localhost:5000/doctordelete",{id}).then((res)=>{
-        
+        if (info) {
+            setInfo(false);
+          } else {
+            setInfo(true);
+          }
     }).catch((err)=>{
         console.log(err.message)
     })
@@ -50,7 +58,7 @@ const  deleteComment = (doctor_id)=>{
               <p>{elem.qualificationsFile}</p>
               
               <button >accept</button>
-              <button onClick={() => 
+              <button  onDoubleClick={() => console.log("on double click")} onClick={() => 
                 { deleteComment(elem.doctor_id) }} >rejected</button>
                
             </div>
