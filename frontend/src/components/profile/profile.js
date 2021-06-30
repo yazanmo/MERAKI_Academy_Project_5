@@ -49,7 +49,7 @@ function Profile() {
       >
         your food
       </button>
-      <h1>{storedNames.items[0].name}</h1>
+      {/* <h1>{storedNames.items[0].name}</h1> */}
     </div>
   );
 }
