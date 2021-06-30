@@ -147,6 +147,17 @@ const Navigation = () => {
             <>
               {role_id == 3 ? (
                 <>
+
+                    <li>
+                    {" "}
+                    <Link
+                      to="/accept"
+                      className="links"
+                    >
+                     accept doctor
+                    </Link>{" "}
+                  </li>
+
                   <li>
                     {" "}
                     <Link
@@ -159,6 +170,9 @@ const Navigation = () => {
                       Log out
                     </Link>{" "}
                   </li>
+                  
+                 
+
                 </>
               ) : (
                 <></>
