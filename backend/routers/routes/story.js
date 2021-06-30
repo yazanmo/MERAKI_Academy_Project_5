@@ -1,14 +1,17 @@
 const express = require("express");
-const authentication = require("./../middlewares/authentication")
+const authentication = require("./../middlewares/authentication");
 
-const { createSuccessStory,getAllSuccessStories,deleteStoryById } = require("./../controllers/story");
-
+const {
+  createSuccessStory,
+  getAllSuccessStories,
+  deleteStoryById,
+} = require("./../controllers/story");
 
 const storyRouter = express.Router();
 
-storyRouter.post('/stories',authentication,createSuccessStory)
-storyRouter.delete('/stories',authentication,deleteStoryById)
-storyRouter.get('/stories',getAllSuccessStories)
-storyRouter.delete('/stories',authentication,deleteStoryById)
+storyRouter.post("/story", authentication, createSuccessStory);
+storyRouter.delete("/stories", authentication, deleteStoryById);
+storyRouter.get("/stories", getAllSuccessStories);
+storyRouter.delete("/stories", authentication, deleteStoryById);
 
-module.exports= storyRouter
+module.exports = storyRouter;
