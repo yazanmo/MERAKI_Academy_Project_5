@@ -57,6 +57,16 @@ const allInfoOfDoctor = (req, res) => {
      
 }
 
+const getAllDoctorsAdmin = (req, res) => {
+
+  const query = `SELECT  doctors.* FROM doctors where is_deleted =0 `;
+
+  db.query(query, (err, result) => {
+    if (err) res.status(500).send(err);
+    ;
+    res.status(200).json(result);
+  });
+};
 
 
 module.exports = {
@@ -64,5 +74,5 @@ module.exports = {
   getDoctorById,
   doctorDetailsFilter,
   allInfoOfDoctor,
-  
+  getAllDoctorsAdmin,
 };
