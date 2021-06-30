@@ -4,10 +4,10 @@ import { Switch, Route, Link, useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 function Profile() {
   const token = localStorage.getItem("token");
-
+  const storedNames = JSON.parse(localStorage.getItem("result"));
   const [result, setResult] = useState([]);
   const history = useHistory();
-
+  // console.log("asssssssssssssss", storedNames.items[0].name);
   useEffect(() => {
     axios
       .get("http://localhost:5000/profile", {
@@ -42,7 +42,14 @@ function Profile() {
       >
         you story
       </button>
-      <button>your food</button>
+      <button
+        onClick={() => {
+          history.push("./foodtracker");
+        }}
+      >
+        your food
+      </button>
+      {/* <h1>{storedNames.items[0].name}</h1> */}
     </div>
   );
 }
