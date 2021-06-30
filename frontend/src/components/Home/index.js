@@ -135,7 +135,18 @@ export default function Home() {
  
  <h3>Health<span>Care</span></h3>
  
+ <p class="footer-links">
+ <a href="/">Home</a>
+ ·
+ <a href="/doctor"> Our nutrition</a>
+ ·
+ <a href="/success">Stories</a>
+ ·
+ <a href="#">About</a>
+ ·
+ <a href="/logIn">logIn</a>
  
+ </p>
  
  <p class="footer-company-name">The A_TEAM &copy; 2021</p>
  </div>
