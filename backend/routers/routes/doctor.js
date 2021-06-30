@@ -13,7 +13,7 @@ doctorRouter.get('/doctor/:id',getDoctorById);
 doctorRouter.post('/doctors',doctorDetailsFilter);
 doctorRouter.post('/info',allInfoOfDoctor);
 doctorRouter.get("/doctoradmin",getAllDoctorsAdmin);
-doctorRouter.delete("/doctordelete/:id", deleteDoctorAdmin);;
+doctorRouter.put("/doctordelete", deleteDoctorAdmin);;
 
 
 module.exports = doctorRouter;

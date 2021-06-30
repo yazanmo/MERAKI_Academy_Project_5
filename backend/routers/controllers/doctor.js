@@ -60,7 +60,6 @@ const allInfoOfDoctor = (req, res) => {
 const getAllDoctorsAdmin = (req, res) => {
 
   const query = `SELECT  doctors.* FROM doctors where is_deleted =0 `;
-
   db.query(query, (err, result) => {
     if (err) res.status(500).send(err);
     ;
@@ -69,12 +68,12 @@ const getAllDoctorsAdmin = (req, res) => {
 };
 
 const deleteDoctorAdmin = (req, res) => {
-  const id = req.params.id;
-  
-  const query = `UPDATE doctors SET is_deleted=1 WHERE doctor_id=${id} `;
+ 
+  const doctor_id = req.body.id;
+  const query = `UPDATE doctors SET is_deleted=1 WHERE doctor_id=${doctor_id} `;
   db.query(query, (err, results) => {
-    if (err) res.status(404).send(err);
-    res.status(500).send("deleted is done");
+    if (err) res.status(400).send(err);
+    res.status(200).send("deleted is done");
   });
 };
 
