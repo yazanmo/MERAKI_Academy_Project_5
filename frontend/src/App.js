@@ -10,6 +10,7 @@ import SignUp from "./components/signUp/signUp";
 import Profile from "./components/profile/profile";
 import AddStory from "./components/profile/addstory";
 import Home from "./components/Home";
+import CreateStories from "./components/storie"
 
 const App = () => {
   return (
@@ -25,7 +26,7 @@ const App = () => {
           <Route exact path="/doctor" render={() => <Doctor />} />
           <Route exact path="/register" render={() => <SignUp />} />
           <Route exact path="/doctorProfile" render={() => <DoctorProfile />} />
-          <Route exact path="/addyourstory" render={() => <AddStory />} />
+          <Route exact path="/create/stories" render={() => <CreateStories />} />
         </Switch>
       </div>
     </>

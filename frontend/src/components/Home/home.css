@@ -91,6 +91,7 @@
     list-style-type: none;
     border: 1px solid white;
     box-sizing: border-box;
+}
 
 /* Services */
 
@@ -110,4 +111,4 @@ margin: 5rem;
     gap: 2rem;
     text-align: center;
     
-}
+} 
