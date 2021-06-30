@@ -30,6 +30,7 @@ export default function Home() {
       stories: state.storiesReducer.stories,
     };
   });
+  
   return (
     <div className="home">
       <section className="About">
