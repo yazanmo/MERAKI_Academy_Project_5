@@ -1,125 +1,68 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 import "./admin.css";
 
 
-const Admin = () => {
-    const [FirstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [age, setAge] = useState(0);
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [description, setdescription] = useState("");
-    const [Qualifications, setQualifications] = useState("");
-    const [practicalExperiences, setpracticalExperiences] = useState("");
-    const [qualificationsFile, setqualificationsFile] = useState("");
-    
-   
-    
-    const info = () => {
-       
-      axios
-        .post("http://localhost:5000/info", {
-          FirstName,
-          lastName,
-          age,
-          email,
-          password,
-          description,
-          Qualifications,
-          practicalExperiences,
-          qualificationsFile
-        })
-        .then((result) => {
-          console.log(result.data);
-        })
-        .catch((err) => {
-          
-        });
-    };
-    return (
-      <>
-        <form >
-        <input
-            type="text"
-            placeholder=" First Name "
-            required
-            onChange={(e) => {
-            setFirstName(e.target.value);
-            }}
-          />
-          <input
-            type="text"
-            placeholder=" Last Name "
-            required
-            onChange={(e) => {
-              setLastName(e.target.value);
-            }}
-          />
-          <input
-            type="number"
-            placeholder=" Age "
-            required
-            onChange={(e) => {
-              setAge(e.target.value);
-            }}
-          />
-  
-          <input
-            type="email"
-            placeholder=" Email "
-            required
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <input
-            type="password"
-            placeholder=" Password "
-            required
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
+const DoctorAdmin = () => {
+  const [Doctor, setDoctor] = useState()
+  const [info, setInfo] = useState(false);
+  const [id, setId] = useState(0)
 
-           <input
-            type="text"
-            placeholder=" description "
-            required
-            onChange={(e) => {
-                setdescription(e.target.value);
-            }}
-          />
-           <input
-            type="text"
-            placeholder=" Qualifications "
-            required
-            onChange={(e) => {
-               setQualifications(e.target.value);
-            }}
-          />
-           <input
-            type="text"
-            placeholder=" practicalExperiences "
-            required
-            onChange={(e) => {
-              setpracticalExperiences(e.target.value);
-            }}
-          />
-           <input
-            type="text"
-            placeholder=" qualificationsFile "
-            required
-            onChange={(e) => {
-              setqualificationsFile(e.target.value);
-            }}
-          />
-          <button onClick={info}>ok</button>
-          <din className="info" ><p></p> </din>
-  
-        </form>
+
+
+
+  useEffect(() => {
+    axios.get(`http://localhost:5000/doctoradmin`)
+      .then((response) => {
+        
+        setDoctor(response.data)
+        
+      }).catch((err) => {
        
-      </>
-    );
-  };
-export default Admin
+      })
+  }, [info])
+
+  
+const deleteComment = (doctor_id)=>{
+    setId(doctor_id)
+    axios.put("http://localhost:5000/doctordelete",{id}).then((res)=>{
+        if (info) {
+            setInfo(false);
+          } else {
+            setInfo(true);
+          }
+    }).catch((err)=>{
+      
+    })
+}
+
+
+
+  return (
+    <>
+      <div className="parantDoctor">
+        {Doctor && Doctor.map((elem, i) => {
+          return (<div className="childDoctor" key={i} >
+              
+            <div className="par">
+              <h2>{elem.firstName} {elem.lastName}</h2>
+              <p>{elem.description}</p>
+              <p>{elem.email}</p>
+              <p>{elem.Qualifications}</p>
+              <p>{elem.practicalExperiences}</p>
+              <p>{elem.qualificationsFile}</p>
+              
+              <button >accept</button>
+              <button  onDoubleClick={() => console.log("on double click")} onClick={() => 
+                { deleteComment(elem.doctor_id) }} >rejected</button>
+               
+            </div>
+
+          </div>)
+        })}
+      </div>
+
+    </>
+  );
+}
+export default DoctorAdmin
