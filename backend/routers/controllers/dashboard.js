@@ -80,4 +80,6 @@ module.exports = {
   createUserDoctor,
   deleteDoctorById,
   creatAdmin,
+
 };
+
