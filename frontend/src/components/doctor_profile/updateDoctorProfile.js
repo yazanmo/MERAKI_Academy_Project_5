@@ -9,8 +9,8 @@ const UpdateDoctorProfile = () => {
   const profile = useSelector((state) => {
     return { doctor: state.doctorProfile.data };
   });
-  console.log("profile", profile.doctor.firstName);
-  const [firstName, setFirstName] = useState("");
+  console.log("profile", profile.doctor);
+  const [firstName, setFirstName] = useState( profile.doctor.firstName);
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState("");
   const [img, setImg] = useState("");
@@ -19,28 +19,42 @@ const UpdateDoctorProfile = () => {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
 
+  console.log("aaaaaaaaaaaaaaaaaaaaaaaa",profile.doctor);
+//   useEffect(() => {
+//     axios
+//       .put("http://localhost:5000/details",{ headers: {
+//         authorization: "Bearer " + token,
+//       },}, {
+//         firstName,
+//         lastName,
+//         age,
+//         img,
+//         price,
+//         email,
+//         password,
+//       })
+//       .then((result) => {
+//         // dispatch(updateData(result.data))
+//         console.log("llllllllllllllll",result.data[0].firstName)
+//         //setFirstName(profile.doctor.firstName);
+        
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   },[]);
   useEffect(() => {
-    axios
-      .put("http://localhost:5000/doctor/details",{ headers: {
-        authorization: "Bearer " + token,
-      },}, {
-        firstName,
-        lastName,
-        age,
-        img,
-        price,
-        email,
-        password,
-      })
-      .then((result) => {
-        dispatch(updateData(result.data))
-        setFirstName(profile.doctor.firstName);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  },[]);
 
+  axios.put("http://localhost:5000/details", {firstName},{ headers: {
+    authorization: "Bearer " + token, 
+  },}).then((res)=>{
+              dispatch(updateData(res.data))
+        console.log("llllllllllllllll",res.data[0].age)
+    // setFirstName(profile.doctor.firstName);
+  }).catch((err)=>{
+      console.log(err);
+  })
+},[]);
   return <><div><input
   className="inputs"
   type="text"
