@@ -68,6 +68,16 @@ const getAllDoctorsAdmin = (req, res) => {
   });
 };
 
+const deleteDoctorAdmin = (req, res) => {
+  const id = req.params.id;
+  
+  const query = `UPDATE doctors SET is_deleted=1 WHERE doctor_id=${id} `;
+  db.query(query, (err, results) => {
+    if (err) res.status(404).send(err);
+    res.status(500).send("deleted is done");
+  });
+};
+
 
 module.exports = {
   getAllDoctors,
@@ -75,4 +85,5 @@ module.exports = {
   doctorDetailsFilter,
   allInfoOfDoctor,
   getAllDoctorsAdmin,
+  deleteDoctorAdmin,
 };
