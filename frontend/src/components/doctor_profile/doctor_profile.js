@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { setData } from "../../reducers/doctorProfile";
 let token = localStorage.getItem("token");
 const DoctorProfile = () => {
   const [firstName, setFirstName] = useState("");
@@ -9,6 +11,7 @@ const DoctorProfile = () => {
   const [price, setPrice] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch=useDispatch()
   useEffect(() => {
     axios
       .get("http://localhost:5000/doctor/details", {
@@ -17,6 +20,7 @@ const DoctorProfile = () => {
         },
       })
       .then((result) => {
+        setData(result.data[0])
         setFirstName(result.data[0].firstName);
         setLastName(result.data[0].lastName);
         setAge(result.data[0].age);
