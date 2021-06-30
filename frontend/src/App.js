@@ -10,6 +10,7 @@ import SignUp from "./components/signUp/signUp";
 import Profile from "./components/profile/profile";
 import AddStory from "./components/profile/addstory";
 import Home from "./components/Home";
+import FoodTracker from "./components/profile/foodtracker";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route exact path="/register" render={() => <SignUp />} />
           <Route exact path="/doctorProfile" render={() => <DoctorProfile />} />
           <Route exact path="/addyourstory" render={() => <AddStory />} />
+          <Route exact path="/foodtracker" render={() => <FoodTracker />} />
         </Switch>
       </div>
     </>
