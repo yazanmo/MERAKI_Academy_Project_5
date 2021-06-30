@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setData } from "../../reducers/doctorProfile";
+import { setData} from "../../reducers/doctorProfile";
+import { useHistory } from "react-router-dom";
 let token = localStorage.getItem("token");
 const DoctorProfile = () => {
+  const history = useHistory();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState("");
@@ -20,7 +22,7 @@ const DoctorProfile = () => {
         },
       })
       .then((result) => {
-        setData(result.data[0])
+        dispatch(setData(result.data[0]))
         setFirstName(result.data[0].firstName);
         setLastName(result.data[0].lastName);
         setAge(result.data[0].age);
@@ -109,6 +111,7 @@ const DoctorProfile = () => {
             setPrice(e.target.value);
           }}
         />
+        <button onClick={()=>{history.push("/editProfile")}}>edit</button>
       </div>
     </>
   );
