@@ -1,18 +1,14 @@
 import React, { useState, useEffect} from 'react';
-import { Link, useHistory ,useParams} from 'react-router-dom';
 import axios from 'axios';
 import "./admin.css";
 
 
 const DoctorAdmin = () => {
   const [Doctor, setDoctor] = useState()
-  const [DoctorName, setRDoctorName] = useState()
-  const [Delete, setDelete] = useState()
   const [info, setInfo] = useState(false);
+  const [id, setId] = useState(0)
 
- const [id, setId] = useState(0)
 
-console.log(id)
 
 
   useEffect(() => {
@@ -22,14 +18,13 @@ console.log(id)
         setDoctor(response.data)
         
       }).catch((err) => {
-        console.log("Error")
+       
       })
   }, [info])
 
   
-const  deleteComment = (doctor_id)=>{
+const deleteComment = (doctor_id)=>{
     setId(doctor_id)
-    console.log(id)
     axios.put("http://localhost:5000/doctordelete",{id}).then((res)=>{
         if (info) {
             setInfo(false);
@@ -37,7 +32,7 @@ const  deleteComment = (doctor_id)=>{
             setInfo(true);
           }
     }).catch((err)=>{
-        console.log(err.message)
+      
     })
 }
 
