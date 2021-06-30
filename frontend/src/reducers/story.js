@@ -26,3 +26,7 @@ return {
     payload :stories
 }
 }
+
+export const CreateStories = (stories)=>{
+    
+}
