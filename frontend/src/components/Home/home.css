@@ -96,4 +96,22 @@
 
 
 
+/* Services */
 
+.line{
+    display: grid;
+    text-align: center;
+}
+.allServices{
+display: grid;
+grid-template-columns: repeat(4,1fr);
+gap: 5rem;
+margin: 5rem;
+}
+
+.once{
+    display: grid;
+    gap: 2rem;
+    text-align: center;
+    
+}
