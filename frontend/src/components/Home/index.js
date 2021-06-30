@@ -53,8 +53,9 @@ export default function Home() {
         </div>
       </section>
 
+
       <section className="stories">
-        <span className="welcome">STORIES</span>
+        <span className="welcome">STORIES</span>ش 
         <h3 className="h3">Successfull Stories</h3>
         <div className="storyCard">
           {state.stories.map((story, index) => {
@@ -67,6 +68,44 @@ export default function Home() {
               </ul>
             );
           })}
+ 
+      <section>
+        <div className="line">
+        <span className="welcome">OUR SERVICES</span>
+        <h3 className="h3">How it works?</h3>
+        </div>
+        <div className="allServices">
+        <div className="once">
+          <h5>Follow the program</h5>
+          <p>
+            Even the all-powerful Pointing has no control about the blind texts
+            it is an almost unorthographic.
+          </p>
+        </div>
+        <div className="once">
+          {" "}
+          <h5>Work for result</h5>
+          <p>
+            Even the all-powerful Pointing has no control about the blind texts
+            it is an almost unorthographic.
+          </p>
+        </div>
+        <div className="once">
+          {" "}
+          <h5>Eat healthy food</h5>
+          <p>
+            Even the all-powerful Pointing has no control about the blind texts
+            it is an almost unorthographic.
+          </p>
+        </div>
+        <div className="once" >
+          {" "}
+          <h5>Enjoy your life</h5>
+          <p>
+            Even the all-powerful Pointing has no control about the blind texts
+            it is an almost unorthographic.
+          </p>
+
         </div>
       </section>
     </div>

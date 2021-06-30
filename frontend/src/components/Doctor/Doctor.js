@@ -52,9 +52,7 @@ const Doctor = () => {
         <input onChange={(e)=>{setnum2(e.target.value);}}/>
         <button onClick={callType_1}>Filter</button>
       </div>
-              
-             
-
+            
       {filter && filter.map((elem, i) => {
                     return (<div className="childrestaurant" key={i}>
                         <div className="par">
