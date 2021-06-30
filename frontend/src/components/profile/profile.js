@@ -37,7 +37,7 @@ function Profile() {
 
       <button
         onClick={() => {
-          history.push("./addyourstory");
+          history.push("./create/stories");
         }}
       >
         you story
