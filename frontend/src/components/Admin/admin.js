@@ -10,6 +10,15 @@ const DoctorAdmin = () => {
   
 
 
+  useEffect(() => {
+    axios.get(`http://localhost:5000/doctoradmin`)
+      .then((response) => {
+       
+        setDoctor(response.data)
+      }).catch((err) => {
+        console.log("Error")
+      })
+  }, [])
 
 
   return (
