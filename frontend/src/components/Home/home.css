@@ -1,58 +1,110 @@
-.About{
-    
-    display: flex;
-    justify-content: space-between;
-    background-color: #f8f9fd ;
-
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+/* about section */
+.About {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f8f9fd;
 }
 
-.paragraph{
-   margin-top: 2%;
-   padding-left: 1.5%;
-   padding-top: 1%;
-  display: flex ;
+.paragraph {
+  margin-top: 2%;
+  padding-left: 1.5%;
+  padding-top: 1%;
+  display: flex;
   flex-direction: column;
   column-gap: 20px;
   row-gap: 20px;
-  
-
 }
 
-.welcome{
-    font-size: 12px;
-    display: block;
-    font-weight: 600;
-    color: #1089ff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    box-sizing: border-box
+.welcome {
+  font-size: 12px;
+  display: block;
+  font-weight: 600;
+  color: #1089ff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-sizing: border-box;
 }
 
-.h3{
-    font-family: inherit;
-    line-height: 1.5;
-    color: rgba(0, 0, 0, 0.8);
-    font-weight: 600;
-    box-sizing: border-box
+.h3 {
+  font-family: inherit;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 600;
+  box-sizing: border-box;
 }
 
-.p{
-    font-family: "Poppins", Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.8;
-    font-weight: 400;
-    color: gray;
-    box-sizing: border-box;
+.p {
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  font-weight: 400;
+  color: gray;
+  box-sizing: border-box;
 }
 
-.img{
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    margin-left: 4%;
+.img {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin-left: 4%;
 }
 
-.img2{
-    box-sizing: border-box;
+.img2 {
+  box-sizing: border-box;
 }
 
+/* Story section */
+.stories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6%;
+  justify-content: center;
+  background-color: #f8f9fd;
+  box-sizing: border-box;
+}
+
+.storyCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: flex-start;
+  gap: 50px;
+  box-sizing: border-box;
+}
+
+.ul {
+  margin-top: 5rem;
+  list-style-type: none;
+  border: 1px solid white;
+  box-sizing: border-box;
+}
+
+/* Services */
+
+.line {
+  display: grid;
+  text-align: center;
+}
+.allServices {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5rem;
+  margin: 5rem;
+}
+
+.once {
+  display: grid;
+  gap: 2rem;
+  text-align: center;
+}
+
+.serviceImg {
+  height: 7rem;
+  text-align: center;
+  box-sizing: border-box;
+}
