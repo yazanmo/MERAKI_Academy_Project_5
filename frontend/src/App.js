@@ -12,6 +12,9 @@ import DoctorAdmin from "./components/admin/admin"
 import Profile from "./components/profile/profile";
 import AddStory from "./components/profile/addstory";
 import Home from "./components/Home";
+import FoodTracker from "./components/profile/foodtracker";
+import Test from "./components/profile/test";
+=======
 import CreateStories from "./components/storie"
 
 
@@ -29,6 +32,8 @@ const App = () => {
           <Route exact path="/doctor" render={() => <Doctor />} />
           <Route exact path="/register" render={() => <SignUp />} />
           <Route exact path="/doctorProfile" render={() => <DoctorProfile />} />
+          <Route exact path="/addyourstory" render={() => <AddStory />} />
+          <Route exact path="/foodtracker" render={() => <FoodTracker />} />
           <Route exact path="/create/stories" render={() => <CreateStories />} />
           <Route exact path="/doctorAdmin" render={() => <DoctorAdmin/>} />
           <Route exact path="/doctorInfo" render={()=> <Info />}/>
