@@ -13,6 +13,7 @@ const DoctorDetails = () => {
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
   const [allComment, setAllComment] = useState([]);
+  const [sa, setSa] = useState(false);
 
   const token = localStorage.getItem("token");
   let doctorsService_id = parseInt(id);
@@ -23,7 +24,6 @@ const DoctorDetails = () => {
       review: state.review.review,
     };
   });
-
 
   useEffect(() => {
     axios
@@ -43,7 +43,7 @@ const DoctorDetails = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [sa]);
 
   const createComment = () => {
     axios
@@ -54,7 +54,7 @@ const DoctorDetails = () => {
           rating,
           doctorsService_id,
         },
-    
+
         {
           headers: {
             authorization: "Bearer " + token,
@@ -64,10 +64,15 @@ const DoctorDetails = () => {
       .then((result) => {
         // console.log(result.data);
         dispatch(createTodo(result.data));
-        window.location.reload();
+        if (sa) {
+          setSa(false);
+        } else {
+          setSa(true);
+        }
       })
       .catch((err) => {
         console.log(err);
+        setSa(true);
       });
   };
 

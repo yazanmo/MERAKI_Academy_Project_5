@@ -35,6 +35,7 @@ CREATE TABLE doctors (
  Qualifications VARCHAR (255) ,
  practicalExperiences VARCHAR(255) , 
  qualificationsFile VARCHAR(255),
+ is_deleted TINYINT DEFAULT 0,
  primary key(doctor_id)
 );
 
