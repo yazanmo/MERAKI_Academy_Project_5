@@ -3,7 +3,7 @@ import axios from 'axios';
 import "./admin.css";
 
 
-const DoctorAdmin = () => {
+const Accept = () => {
   const [Doctor, setDoctor] = useState()
   const [info, setInfo] = useState(false);
   const [id, setId] = useState(0)
@@ -65,4 +65,4 @@ const deleteComment = (doctor_id)=>{
     </>
   );
 }
-export default DoctorAdmin
+export default Accept
