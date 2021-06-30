@@ -22,7 +22,9 @@ const DoctorProfile = () => {
         },
       })
       .then((result) => {
+        console.log(result)
         dispatch(setData(result.data[0]))
+        
         setFirstName(result.data[0].firstName);
         setLastName(result.data[0].lastName);
         setAge(result.data[0].age);

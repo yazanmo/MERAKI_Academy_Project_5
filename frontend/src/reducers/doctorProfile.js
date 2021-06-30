@@ -1,13 +1,13 @@
 const initialState = {
-    data:[]
+    data:{}
 }
 //Reducer
 const doctorProfile = (state = initialState, { type, payload }) => {
     switch (type) {
       case "SET_DATA":
-        return { data: [...payload] };
+        return { data: payload };
   case "UPDATE_DATA":
-    return {data:[...payload]}
+    return {data:payload}
     
 
       default:
