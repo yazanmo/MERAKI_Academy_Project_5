@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useState, useEffect} from 'react';
+import { Link, useHistory ,useParams} from 'react-router-dom';
 import axios from 'axios';
 import "./admin.css";
 
@@ -7,18 +7,32 @@ import "./admin.css";
 const DoctorAdmin = () => {
   const [Doctor, setDoctor] = useState()
   const [DoctorName, setRDoctorName] = useState()
+  const [Delete, setDelete] = useState()
   
 
+ const [id, setId] = useState(0)
 
   useEffect(() => {
     axios.get(`http://localhost:5000/doctoradmin`)
       .then((response) => {
-       
+        
         setDoctor(response.data)
+        
       }).catch((err) => {
         console.log("Error")
       })
   }, [])
+
+  
+const  deleteComment = (doctor_id)=>{
+    setId(doctor_id)
+    axios.put("http://localhost:5000/doctordelete",{id}).then((res)=>{
+        
+    }).catch((err)=>{
+        console.log(err.message)
+    })
+}
+
 
 
   return (
@@ -36,7 +50,9 @@ const DoctorAdmin = () => {
               <p>{elem.qualificationsFile}</p>
               
               <button >accept</button>
-              <button >rejected</button>
+              <button onClick={() => 
+                { deleteComment(elem.doctor_id) }} >rejected</button>
+               
             </div>
 
           </div>)
