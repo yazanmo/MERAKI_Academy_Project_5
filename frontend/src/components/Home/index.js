@@ -4,6 +4,11 @@ import axios from "axios";
 import { setStories } from "../../reducers/story";
 import health from "./health.jpg";
 import health2 from "./health2.png";
+import win from "./win.png"
+import food from "./food.png"
+import checklist from "./checklist.png"
+import rules from "./rules.png"
+
 import "./home.css";
 import happy from "./happy.jpg";
 
@@ -53,6 +58,52 @@ export default function Home() {
         </div>
       </section>
 
+
+      <section>
+        <div className="line">
+          <span className="welcome">OUR SERVICES</span>
+          <h3 className="h3">How it works?</h3>
+        </div>
+        <div className="allServices">
+          <div className="once">
+            <img src ={rules} className="serviceImg" />
+            <h5>Follow the program</h5>
+            <p>
+              Even the all-powerful Pointing has no control about the blind
+              texts it is an almost unorthographic.
+            </p>
+          </div>
+          <div className="once">
+            {" "}
+            <img src ={checklist} className="serviceImg" />
+            <h5>Work for result</h5>
+            <p>
+              Even the all-powerful Pointing has no control about the blind
+              texts it is an almost unorthographic.
+            </p>
+          </div>
+          <div className="once">
+            {" "}
+            <img src ={food}   className="serviceImg"/>
+            <h5>Eat healthy food</h5>
+            <p>
+              Even the all-powerful Pointing has no control about the blind
+              texts it is an almost unorthographic.
+            </p>
+          </div>
+          <div className="once">
+            {" "}
+            <img src ={win} className="serviceImg" />
+            <h5>Enjoy your life</h5>
+            <p>
+              Even the all-powerful Pointing has no control about the blind
+              texts it is an almost unorthographic.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
       <section className="stories">
         <span className="welcome">STORIES</span>
         <h3 className="h3">Successfull Stories</h3>
@@ -70,45 +121,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
-        <div className="line">
-          <span className="welcome">OUR SERVICES</span>
-          <h3 className="h3">How it works?</h3>
-        </div>
-        <div className="allServices">
-          <div className="once">
-            <h5>Follow the program</h5>
-            <p>
-              Even the all-powerful Pointing has no control about the blind
-              texts it is an almost unorthographic.
-            </p>
-          </div>
-          <div className="once">
-            {" "}
-            <h5>Work for result</h5>
-            <p>
-              Even the all-powerful Pointing has no control about the blind
-              texts it is an almost unorthographic.
-            </p>
-          </div>
-          <div className="once">
-            {" "}
-            <h5>Eat healthy food</h5>
-            <p>
-              Even the all-powerful Pointing has no control about the blind
-              texts it is an almost unorthographic.
-            </p>
-          </div>
-          <div className="once">
-            {" "}
-            <h5>Enjoy your life</h5>
-            <p>
-              Even the all-powerful Pointing has no control about the blind
-              texts it is an almost unorthographic.
-            </p>
-          </div>
-        </div>
-      </section>
+      
     </div>
   );
 }
