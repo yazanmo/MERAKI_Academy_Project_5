@@ -57,7 +57,7 @@ export default function Home() {
         <span className="welcome">STORIES</span>
         <h3 className="h3">Successfull Stories</h3>
         <div className="storyCard">
-          {state.stories.map((story, index) => {
+          {state.stories && state.stories.map((story, index) => {
             return (
               <ul key={index} className="ul">
                 {" "}
