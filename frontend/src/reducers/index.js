@@ -6,4 +6,5 @@ import doctorProfile from "./doctorProfile"
 
 const reducers = combineReducers({ login, storiesReducer, review ,doctorProfile});
 const store = createStore(reducers);
+
 export default store;

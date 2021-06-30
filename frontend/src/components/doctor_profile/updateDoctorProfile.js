@@ -10,64 +10,110 @@ const UpdateDoctorProfile = () => {
     return { doctor: state.doctorProfile.data };
   });
   console.log("profile", profile.doctor);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [age, setAge] = useState("");
-  const [img, setImg] = useState("");
-  const [price, setPrice] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState(profile.doctor.firstName);
+  const [lastName, setLastName] = useState(profile.doctor.lastName);
+  const [age, setAge] = useState(profile.doctor.age);
+  const [img, setImg] = useState(profile.doctor.img);
+  const [price, setPrice] = useState(profile.doctor.price);
+  const [email, setEmail] = useState(profile.doctor.email);
+  const data = JSON.parse(localStorage.getItem("profile-data"));
   const dispatch = useDispatch();
 
-  console.log("aaaaaaaaaaaaaaaaaaaaaaaa",profile.doctor);
-//   useEffect(() => {
-//     axios
-//       .put("http://localhost:5000/details",{ headers: {
-//         authorization: "Bearer " + token,
-//       },}, {
-//         firstName,
-//         lastName,
-//         age,
-//         img,
-//         price,
-//         email,
-//         password,
-//       })
-//       .then((result) => {
-//         // dispatch(updateData(result.data))
-//         console.log("llllllllllllllll",result.data[0].firstName)
-//         //setFirstName(profile.doctor.firstName);
-        
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   },[]);
-  useEffect(() => {
-    setFirstName(profile.doctor.firstName)
-  axios.put("http://localhost:5000/doctor/details", {firstName},{ headers: {
-    authorization: "Bearer " + token, 
-    
-  },}).then((res)=>{
-              dispatch(updateData(res.data))
-        console.log("llllllllllllllll",res.data[0].age)
-     setFirstName(profile.doctor.firstName);
-  }).catch((err)=>{
-      console.log(err);
-  })
-},[]);
+  const editProfile = () => {
+    axios
+      .put(
+        "http://localhost:5000/doctor/details",
+        {
+          headers: {
+            authorization: "Bearer " + token,
+          },
+        },
+        {
+          firstName,
+          lastName,
+          age,
+          img,
+          price,
+          email,
+        }
+      )
+      .then((result) => {
+        setFirstName(profile.doctor.firstName);
+        dispatch(updateData(result.data));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
+  return (
+    <>
+      <div className="profile_page">
+        <h3 style={{ float: "left" }}>FirstName :</h3>
+        <input
+          className="inputs"
+          type="text"
+          placeholder="firstName here"
+          defaultValue={data.firstName}
+          onChange={(e) => {
+            setFirstName(e.target.value);
+          }}
+        />
 
+        <h3>LastName :</h3>
+        <input
+          className="inputs"
+          type="text"
+          placeholder="LastName here "
+          defaultValue={data.lastName}
+          onChange={(e) => {
+            setLastName(e.target.value);
+          }}
+        />
 
-  return <><div><input
-  className="inputs"
-  type="text"
-  placeholder="firstName here"
-  defaultValue={firstName}
-  onChange={(e) => {
-    setFirstName(e.target.value);
-  }}
-/>
-</div></>;
+        <h3>Image :</h3>
+        <input
+          className="inputs"
+          type="text"
+          placeholder="image here "
+          defaultValue={data.img}
+          onChange={(e) => {
+            setImg(e.target.value);
+          }}
+        />
+        <h3>Email :</h3>
+        <input
+          className="inputs"
+          type="text"
+          placeholder="email here"
+          defaultValue={data.email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+        <h3>Age :</h3>
+        <input
+          className="inputs"
+          type="number"
+          placeholder="Age here"
+          defaultValue={data.age}
+          onChange={(e) => {
+            setAge(e.target.value);
+          }}
+        />
+        <h3>Price :</h3>
+        <input
+          className="inputs"
+          type="number"
+          placeholder="Price here"
+          defaultValue={data.price}
+          onChange={(e) => {
+            setPrice(e.target.value);
+          }}
+        />
+        <button onClick={editProfile}></button>
+      </div>
+    </>
+  );
 };
 export default UpdateDoctorProfile;

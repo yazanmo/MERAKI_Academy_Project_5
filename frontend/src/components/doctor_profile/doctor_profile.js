@@ -13,7 +13,10 @@ const DoctorProfile = () => {
   const [price, setPrice] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [result,setResult]=useState("")
   const dispatch=useDispatch()
+  localStorage.setItem("profile-data",JSON.stringify(result))
+
   useEffect(() => {
     axios
       .get("http://localhost:5000/doctor/details", {
@@ -22,16 +25,10 @@ const DoctorProfile = () => {
         },
       })
       .then((result) => {
-        console.log("77777777777777777",result)
-       
         
-        setFirstName(result.data[0].firstName);
-        setLastName(result.data[0].lastName);
-        setAge(result.data[0].age);
-        setImg(result.data[0].img);
-        setPrice(result.data[0].price);
-        setEmail(result.data[0].email);
-        setPassword(result.data[0].password);
+       
+        setResult(result.data[0])
+        
         dispatch(setData(result.data[0]))
       })
       .catch((err) => {
@@ -43,77 +40,22 @@ const DoctorProfile = () => {
     <>
       <div className="profile_page">
         <h3 style={{ float: "left" }}>FirstName :</h3>
-        <input
-          className="inputs"
-          type="text"
-          placeholder="firstName here"
-          defaultValue={firstName}
-          onChange={(e) => {
-            setFirstName(e.target.value);
-          }}
-        />
+        
+          <p>{result.firstName}</p>
+         
 
         <h3>LastName :</h3>
-        <input
-          className="inputs"
-          type="text"
-          placeholder="LastName here "
-          defaultValue={lastName}
-          onChange={(e) => {
-            setLastName(e.target.value);
-          }}
-        />
-
+        <p>{result.lastName}</p>
         <h3>Image :</h3>
-        <input
-          className="inputs"
-          type="text"
-          placeholder="image here "
-          defaultValue={img}
-          onChange={(e) => {
-            setImg(e.target.value);
-          }}
-        />
+        <p>{result.img}</p>
         <h3>Email :</h3>
-        <input
-          className="inputs"
-          type="text"
-          placeholder="email here"
-          defaultValue={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
+        <p>{result.email}</p>
         <h3>Age :</h3>
-        <input
-          className="inputs"
-          type="number"
-          placeholder="Age here"
-          defaultValue={age}
-          onChange={(e) => {
-            setAge(e.target.value);
-          }}
-        />
+        <p>{result.age}</p>
         <h3>Password :</h3>
-        <input
-          className="inputs"
-          type="password"
-          placeholder="password here"
-          defaultValue={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
+        <p>{result.password}</p>
         <h3>Price :</h3>
-        <input
-          className="inputs"
-          type="number"
-          placeholder="Price here"
-          defaultValue={price}
-          onChange={(e) => {
-            setPrice(e.target.value);
-          }}
-        />
+        <p>{result.price}</p>
         <button onClick={()=>{history.push("/editProfile")}}>edit</button>
       </div>
     </>
