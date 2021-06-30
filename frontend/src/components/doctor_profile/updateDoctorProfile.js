@@ -10,7 +10,7 @@ const UpdateDoctorProfile = () => {
     return { doctor: state.doctorProfile.data };
   });
   console.log("profile", profile.doctor);
-  const [firstName, setFirstName] = useState( profile.doctor.firstName);
+  const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState("");
   const [img, setImg] = useState("");
@@ -44,17 +44,21 @@ const UpdateDoctorProfile = () => {
 //       });
 //   },[]);
   useEffect(() => {
-
-  axios.put("http://localhost:5000/details", {firstName},{ headers: {
+    setFirstName(profile.doctor.firstName)
+  axios.put("http://localhost:5000/doctor/details", {firstName},{ headers: {
     authorization: "Bearer " + token, 
+    
   },}).then((res)=>{
               dispatch(updateData(res.data))
         console.log("llllllllllllllll",res.data[0].age)
-    // setFirstName(profile.doctor.firstName);
+     setFirstName(profile.doctor.firstName);
   }).catch((err)=>{
       console.log(err);
   })
 },[]);
+
+
+
   return <><div><input
   className="inputs"
   type="text"

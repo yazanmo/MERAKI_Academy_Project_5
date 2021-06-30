@@ -43,6 +43,7 @@ const createDetails = (req, res) => {
 
 const updateDetailsById = (req, res) => {
   const user_id = req.token.id;
+  console.log("sssssssssssssssssssss",user_id);
   const {
     description,
     Qualifications,
@@ -60,20 +61,21 @@ const updateDetailsById = (req, res) => {
 
   db.query(query, data, (err, result) => {
     if (err) res.status(400).send(err);
-    const query = `UPDATE users SET
+    const query0 = `UPDATE users SET
     firstName=?, lastName=?,age=?,email=?,img=? WHERE id=? `;
     const data1 = [firstName, lastName, age, email, img, user_id];
 
-    db.query(query, data1, (err, result_1) => {
+    db.query(query0, data1, (err, result_1) => {
       if (err) res.status(400).send(err);
-      const query = `SELECT users.firstName ,users.lastName,users.age,users.email,users.img,doctorsDetails.price,
+      const query1 = `SELECT users.firstName, users.lastName,users.age,users.email,users.img,doctorsDetails.price,
     doctorsDetails.Qualifications,doctorsDetails.practicalExperiences
     FROM users 
     INNER JOIN doctorsDetails ON users.id = doctorsDetails.user_id WHERE users.is_deleted =0 AND doctorsDetails.user_id = ? `;
       const data2 = [user_id];
-
-      db.query(query, data2, (err, result_2) => {
+console.log("111111111111111",result_1);
+      db.query(query1, data2, (err, result_2) => {
         if (err) res.status(400).send(err);
+        console.log("222222222222222222222",result_2);
         res.status(200).json(result_2);
       });
     });

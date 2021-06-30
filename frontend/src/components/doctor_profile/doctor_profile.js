@@ -22,8 +22,8 @@ const DoctorProfile = () => {
         },
       })
       .then((result) => {
-        console.log(result)
-        dispatch(setData(result.data[0]))
+        console.log("77777777777777777",result)
+       
         
         setFirstName(result.data[0].firstName);
         setLastName(result.data[0].lastName);
@@ -32,6 +32,7 @@ const DoctorProfile = () => {
         setPrice(result.data[0].price);
         setEmail(result.data[0].email);
         setPassword(result.data[0].password);
+        dispatch(setData(result.data[0]))
       })
       .catch((err) => {
         throw err;
