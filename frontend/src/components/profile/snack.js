@@ -96,18 +96,18 @@ const Snack = () => {
           })}
       </form>
       {getBreakfast.map((element, index) => {
-]        return (
+        const id = element.snack_id;
+        // console.log("element", breakfast_id);
+        return (
           <div
+            id={element.snack}
             onClick={() => {
               axios
-                .delete(
-                  `http://localhost:5000/snack/${element.snack_id}`,
-                  {
-                    headers: {
-                      authorization: "Bearer " + token,
-                    },
-                  }
-                )
+                .delete(`http://localhost:5000/snack/${element.snack_id}`, {
+                  headers: {
+                    authorization: "Bearer " + token,
+                  },
+                })
                 .then((res) => {
                   console.log(res);
                 })
