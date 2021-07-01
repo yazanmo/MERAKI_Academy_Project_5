@@ -104,7 +104,7 @@ const Snack = () => {
             onClick={() => {
               axios
                 .delete(
-                  "http://localhost:5000/breakfast",
+                  "http://localhost:5000/snack",
                   {
                     headers: {
                       authorization: "Bearer " + token,
