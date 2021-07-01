@@ -3,6 +3,11 @@ import axios from "axios";
 import "./profile.css";
 
 const Lunch = () => {
+  const [query, setQuery] = useState("");
+  const [result, setResult] = useState([]);
+  const [infoFood, setInfoFood] = useState(false);
+  const [getBreakfast, setGetBreakfast] = useState([]);
+  const token = localStorage.getItem("token");
   //   console.log("getBreakfast", getBreakfast);
   useEffect(() => {
     axios
