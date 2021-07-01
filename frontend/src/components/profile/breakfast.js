@@ -4,10 +4,8 @@ import "./profile.css";
 const Breakfast = () => {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
-  const [infoFood, setInfoFood] = useState(false);
   const [getBreakfast, setGetBreakfast] = useState([]);
   const token = localStorage.getItem("token");
-  //   console.log("getBreakfast", getBreakfast);
   useEffect(() => {
     axios
       .get("http://localhost:5000/breakfast", {
@@ -38,16 +36,12 @@ const Breakfast = () => {
               console.log(res);
               setResult(res.data.items);
             })
-            .catch((err) => {
-              console.log(err);
-            });
+            .catch((err) => {});
         }}
       >
         <input
           id="input-breakfast"
           onChange={(e) => {
-            console.log(query);
-            console.log(result);
             setQuery(e.target.value);
           }}
         />
@@ -74,9 +68,7 @@ const Breakfast = () => {
                     .then((res) => {
                       setResult([]);
                     })
-                    .catch((err) => {
-                      console.log(err);
-                    });
+                    .catch((err) => {});
                   document.getElementById("input-breakfast").value = "";
                 }}
               >
@@ -96,18 +88,18 @@ const Breakfast = () => {
           })}
       </form>
       {getBreakfast.map((element, index) => {
-        const id = element.breakfast_id;
-        // console.log("element", breakfast_id);
         return (
           <div
-            id={element.breakfast_id}
             onClick={() => {
               axios
-                .delete(`http://localhost:5000/breakfast${element.snack_id}`, {
-                  headers: {
-                    authorization: "Bearer " + token,
-                  },
-                })
+                .delete(
+                  `http://localhost:5000/breakfast/${element.breakfast_id}`,
+                  {
+                    headers: {
+                      authorization: "Bearer " + token,
+                    },
+                  }
+                )
                 .then((res) => {
                   console.log(res);
                 })

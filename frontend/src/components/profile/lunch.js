@@ -97,8 +97,6 @@ const Lunch = () => {
           })}
       </form>
       {getSnack.map((element, index) => {
-        const id = element.lunch_id;
-        // console.log("element", breakfast_id);
         return (
           <div
             onClick={() => {

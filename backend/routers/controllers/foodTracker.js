@@ -178,11 +178,11 @@ const updateActiveTime = (req, res) => {
 const deleteToBreakfast = (req, res) => {
   const user_id = req.token.id;
   const id = req.params.id;
-  const query = `DELETE FROM foodTraker WHERE lunch_id = ? AND user_id= ?`;
+  const query = `DELETE FROM foodTraker WHERE breakfast_id = ? AND user_id= ?`;
   const data = [id, user_id];
   db.query(query, data, (err, result) => {
     if (err) throw err;
-    const query = `DELETE FROM breakfast WHERE lunch_id = ? AND user_id= ? `;
+    const query = `DELETE FROM breakfast WHERE breakfast_id = ? AND user_id= ? `;
     const data = [id, user_id];
     db.query(query, data, (err, result) => {
       if (err) res.status(400).send("DELETE is not done");
