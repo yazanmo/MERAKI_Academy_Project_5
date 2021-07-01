@@ -33,6 +33,7 @@ const App = () => {
           <Route exact path="/doctorProfile" render={() => <DoctorProfile />} />
           <Route exact path="/addyourstory" render={() => <AddStory />} />
           <Route exact path="/editProfile" render={() => <UpdateDoctorProfile />} />
+          
 
           <Route exact path="/foodtracker" render={() => <FoodTracker />} />
           <Route
