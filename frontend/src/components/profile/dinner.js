@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const Snack = () => {
+const dinner = () => {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
+  const [infoFood, setInfoFood] = useState(false);
   const [getBreakfast, setGetBreakfast] = useState([]);
   const token = localStorage.getItem("token");
   //   console.log("getBreakfast", getBreakfast);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/snack", {
+      .get("http://localhost:5000/dinner", {
         headers: {
           authorization: "Bearer " + token,
         },
@@ -62,7 +63,7 @@ const Snack = () => {
                 onClick={() => {
                   axios
                     .post(
-                      `http://localhost:5000/snack`,
+                      `http://localhost:5000/dinner`,
                       { name },
                       {
                         headers: {
@@ -95,14 +96,12 @@ const Snack = () => {
           })}
       </form>
       {getBreakfast.map((element, index) => {
-        const id = element.snack_id;
-        // console.log("element", breakfast_id);
         return (
           <div
-            id={element.snack}
+            id={element.dinner}
             onClick={() => {
               axios
-                .delete(`http://localhost:5000/snack/${element.snack_id}`, {
+                .delete(`http://localhost:5000/snack/${element.dinner_id}`, {
                   headers: {
                     authorization: "Bearer " + token,
                   },
@@ -115,7 +114,7 @@ const Snack = () => {
             key={index + 1}
             class="desc-food-tracker"
           >
-            {index + 1} {element.snack}
+            {index + 1} {element.dinner}
             <br />
           </div>
         );
@@ -124,4 +123,4 @@ const Snack = () => {
   );
 };
 
-export default Snack;
+export default dinner;
