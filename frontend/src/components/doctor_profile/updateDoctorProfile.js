@@ -3,13 +3,15 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { updateData } from "./../../reducers/doctorProfile";
 import { useHistory } from "react-router-dom";
-let token = localStorage.getItem("token");
 
 const UpdateDoctorProfile = () => {
   const profile = useSelector((state) => {
     return { doctor: state.doctorProfile.data };
   });
-  console.log("profile", profile.doctor);
+
+
+  let token = localStorage.getItem("token");
+
   const [firstName, setFirstName] = useState(profile.doctor.firstName);
   const [lastName, setLastName] = useState(profile.doctor.lastName);
   const [age, setAge] = useState(profile.doctor.age);
@@ -18,7 +20,7 @@ const UpdateDoctorProfile = () => {
   const [email, setEmail] = useState(profile.doctor.email);
   const [description,setDescription]=useState(profile.doctor.description)
     
-    const [Qualifications,setQualifications]=useState(profile.doctor.qualifications)
+    const [Qualifications,setQualifications]=useState(profile.doctor.Qualifications)
     const [practicalExperiences,setPracticalExperiences]=useState(profile.doctor.practicalExperiences)
   const data = JSON.parse(localStorage.getItem("profile-data"));
   const dispatch = useDispatch();
@@ -54,7 +56,7 @@ const UpdateDoctorProfile = () => {
         setPrice(profile.doctor.price);
         setEmail(profile.doctor.email);
         setDescription(profile.doctor.description)
-        setQualifications(profile.doctor.qualifications)
+        setQualifications(profile.doctor.Qualifications)
         setPracticalExperiences(profile.doctor.practicalExperiences)
         dispatch(updateData(result.data));
       
