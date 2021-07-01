@@ -52,9 +52,20 @@ CREATE TABLE doctorsDetails (
  primary key (id)
 );
 
+
 CREATE TABLE breakfast (
  breakfast_id INT AUTO_INCREMENT NOT NULL,
  name varchar(255),
+ calories varchar(255),
+ carbohydrates_total_g varchar(255),
+ cholesterol_mg varchar(255),
+ fat_saturated_g varchar(255),
+ fiber_g varchar(255),
+ potassium_mg varchar(255),
+ protein_g varchar(255),
+ serving_size_g varchar(255),
+ sodium_mg varchar(255),
+ sugar_g varchar(255),
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
  primary key (breakfast_id)
@@ -64,6 +75,16 @@ CREATE TABLE breakfast (
 CREATE TABLE snack (
  snack_id INT AUTO_INCREMENT NOT NULL,
  name varchar(255),
+  calories varchar(255),
+ carbohydrates_total_g varchar(255),
+ cholesterol_mg varchar(255),
+ fat_saturated_g varchar(255),
+ fiber_g varchar(255),
+ potassium_mg varchar(255),
+ protein_g varchar(255),
+ serving_size_g varchar(255),
+ sodium_mg varchar(255),
+ sugar_g varchar(255),
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
  primary key (snack_id)
@@ -72,6 +93,16 @@ CREATE TABLE snack (
 CREATE TABLE lunch (
  lunch_id INT AUTO_INCREMENT NOT NULL,
  name varchar(255),
+  calories varchar(255),
+ carbohydrates_total_g varchar(255),
+ cholesterol_mg varchar(255),
+ fat_saturated_g varchar(255),
+ fiber_g varchar(255),
+ potassium_mg varchar(255),
+ protein_g varchar(255),
+ serving_size_g varchar(255),
+ sodium_mg varchar(255),
+ sugar_g varchar(255),
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
  primary key (lunch_id)
@@ -80,6 +111,16 @@ CREATE TABLE lunch (
 CREATE TABLE dinner (
  dinner_id INT AUTO_INCREMENT NOT NULL,
  name varchar(255),
+  calories varchar(255),
+ carbohydrates_total_g varchar(255),
+ cholesterol_mg varchar(255),
+ fat_saturated_g varchar(255),
+ fiber_g varchar(255),
+ potassium_mg varchar(255),
+ protein_g varchar(255),
+ serving_size_g varchar(255),
+ sodium_mg varchar(255),
+ sugar_g varchar(255),
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
  primary key (dinner_id)
@@ -88,6 +129,16 @@ CREATE TABLE dinner (
 CREATE TABLE glassesOfWater (
  glassesOfWater_id INT AUTO_INCREMENT NOT NULL,
  name varchar(255),
+  calories varchar(255),
+ carbohydrates_total_g varchar(255),
+ cholesterol_mg varchar(255),
+ fat_saturated_g varchar(255),
+ fiber_g varchar(255),
+ potassium_mg varchar(255),
+ protein_g varchar(255),
+ serving_size_g varchar(255),
+ sodium_mg varchar(255),
+ sugar_g varchar(255),
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
  primary key (glassesOfWater_id)
@@ -96,6 +147,16 @@ CREATE TABLE glassesOfWater (
 CREATE TABLE activeTime (
  activeTime_id INT AUTO_INCREMENT NOT NULL,
  name varchar(255),
+ calories varchar(255),
+ carbohydrates_total_g varchar(255),
+ cholesterol_mg varchar(255),
+ fat_saturated_g varchar(255),
+ fiber_g varchar(255),
+ potassium_mg varchar(255),
+ protein_g varchar(255),
+ serving_size_g varchar(255),
+ sodium_mg varchar(255),
+ sugar_g varchar(255),
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
  primary key (activeTime_id)
