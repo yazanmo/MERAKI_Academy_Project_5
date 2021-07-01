@@ -10,7 +10,7 @@ const Snack = () => {
   //   console.log("getBreakfast", getBreakfast);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/breakfast", {
+      .get("http://localhost:5000/snack", {
         headers: {
           authorization: "Bearer " + token,
         },
