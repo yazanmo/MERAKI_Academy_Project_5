@@ -17,7 +17,7 @@ const createNewReview = (req, res) => {
 const getAllReviews = (req, res) => {
   const id = req.params.id;
 
-  const query = `SELECT reviews.* , users.* FROM reviews 
+  const query = `SELECT reviews.* , users.firstName ,users.lastName, users.img ,users.age FROM reviews 
   INNER JOIN users ON reviews.commenter_id = users.id 
   where reviews.is_deleted=0 AND reviews.doctorsService_id =${id}
   `;
@@ -46,9 +46,9 @@ const deleteReviewById = (req, res) => {
   const id = req.params.id;
   const commenter_id = req.token.id;
 
-  const query = `UPDATE reviews SET is_deteted=1 WHERE id=${id}  AND commenter_id= ${commenter_id}`;
+  const query = `UPDATE reviews SET  is_deleted=1 WHERE id=${id}  AND commenter_id= ${commenter_id}`;
   db.query(query, (err, results) => {
-    if (err) res.status(404).send(err);
+    if (err) res.status(400).send(err);
     res.status(500).send("deleted is done");
   });
 };
