@@ -16,6 +16,10 @@ const UpdateDoctorProfile = () => {
   const [img, setImg] = useState(profile.doctor.img);
   const [price, setPrice] = useState(profile.doctor.price);
   const [email, setEmail] = useState(profile.doctor.email);
+  const [description,setDescription]=useState(profile.doctor.description)
+    
+    const [Qualifications,setQualifications]=useState(profile.doctor.qualifications)
+    const [practicalExperiences,setPracticalExperiences]=useState(profile.doctor.practicalExperiences)
   const data = JSON.parse(localStorage.getItem("profile-data"));
   const dispatch = useDispatch();
 
@@ -32,6 +36,9 @@ const UpdateDoctorProfile = () => {
           img,
           price,
           email,
+          description,
+    Qualifications,
+    practicalExperiences,
         },
         {
           headers: {
@@ -46,6 +53,9 @@ const UpdateDoctorProfile = () => {
         setImg(profile.doctor.img);
         setPrice(profile.doctor.price);
         setEmail(profile.doctor.email);
+        setDescription(profile.doctor.description)
+        setQualifications(profile.doctor.qualifications)
+        setPracticalExperiences(profile.doctor.practicalExperiences)
         dispatch(updateData(result.data));
       
       })
@@ -118,6 +128,36 @@ const UpdateDoctorProfile = () => {
           defaultValue={data.price}
           onChange={(e) => {
             setPrice(e.target.value);
+          }}
+        />
+        <h3>Description :</h3>
+        <input
+          className="inputs"
+          type="text"
+          placeholder="description here"
+          defaultValue={data.description}
+          onChange={(e) => {
+            setDescription(e.target.value);
+          }}
+        />
+        <h3>Qualifications :</h3>
+        <input
+          className="inputs"
+          type="text"
+          placeholder="qualifications here"
+          defaultValue={data.Qualifications}
+          onChange={(e) => {
+            setQualifications(e.target.value);
+          }}
+        />
+        <h3>PracticalExperiences :</h3>
+        <input
+          className="inputs"
+          type="text"
+          placeholder="practicalExperiences here"
+          defaultValue={data.practicalExperiences}
+          onChange={(e) => {
+            setPracticalExperiences(e.target.value);
           }}
         />
         <button onClick={editProfile}>Edit Profile</button>

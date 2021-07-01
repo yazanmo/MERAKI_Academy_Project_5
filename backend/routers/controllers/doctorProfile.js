@@ -15,6 +15,7 @@ INNER JOIN doctorsDetails ON users.id = doctorsDetails.user_id WHERE users.is_de
     if (!result.length) {
       return res.status(200).json("doctor profile has been deleted");
     }
+    console.log(result);
     res.status(200).json(result);
   });
 };
