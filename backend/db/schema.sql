@@ -30,6 +30,7 @@ CREATE TABLE doctors (
  doctor_id INT AUTO_INCREMENT NOT NULL,
  firstName VARCHAR(255) ,
  lastName Varchar(255),
+ age Varchar(255),
  description TEXT,
  email VARCHAR(255) NOT NULL,
  Qualifications VARCHAR (255) ,
@@ -39,6 +40,7 @@ CREATE TABLE doctors (
  primary key(doctor_id)
 );
 
+-- INSERT INTO doctors (firstName,lastName,age,description,email,Qualifications,practicalExperiences) VALUES("ayham","moh",25,"bye","ayham@gmail.com","qwe","asd")
 
 CREATE TABLE doctorsDetails (
  id INT AUTO_INCREMENT NOT NULL,

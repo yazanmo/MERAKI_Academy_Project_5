@@ -1,9 +1,11 @@
 import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 import "./admin.css";
+import {useHistory} from "react-router-dom"
 
 
 const Accept = () => {
+  const history =useHistory() 
   const [Doctor, setDoctor] = useState()
   const [info, setInfo] = useState(false);
   const [id, setId] = useState(0)
@@ -51,8 +53,7 @@ const deleteComment = (doctor_id)=>{
               <p>{elem.Qualifications}</p>
               <p>{elem.practicalExperiences}</p>
               <p>{elem.qualificationsFile}</p>
-              
-              <button >accept</button>
+              <button onClick={()=>{history.push(`/accept/doctor/${elem.doctor_id}`)}} >accept</button>
               <button  onDoubleClick={() => console.log("on double click")} onClick={() => 
                 { deleteComment(elem.doctor_id) }} >rejected</button>
                

@@ -38,14 +38,14 @@ const getDoctorById = (req, res) => {
 
 const allInfoOfDoctor = (req, res) => {
 
-  const { FirstName, lastName, age, email,password,description,
+  const { firstName, lastName, age, email,password,description,
     Qualifications,practicalExperiences,qualificationsFile } = req.body;
     const arr = [
-      FirstName, lastName, age, email,password,description,
+      firstName, lastName, age, email,password,description,
       Qualifications,practicalExperiences,qualificationsFile];
 
-      const command = `INSERT INTO doctors  (FirstName, lastName, description,email,
-        Qualifications,practicalExperiences,qualificationsFile) VALUES (?,?,?,?,?,?,?)`;
+      const command = `INSERT INTO doctors  (firstName, lastName,age, description,email,
+        Qualifications,practicalExperiences,qualificationsFile) VALUES (?,?,?,?,?,?,?,?)`;
         
       
 
