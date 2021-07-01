@@ -96,6 +96,36 @@ const Lunch = () => {
             );
           })}
       </form>
+      {getBreakfast.map((element, index) => {
+        const id = element.breakfast_id;
+        // console.log("element", breakfast_id);
+        return (
+          <div
+            id={element.breakfast_id}
+            onClick={() => {
+              axios
+                .delete(
+                  "http://localhost:5000/breakfast",
+                  {
+                    headers: {
+                      authorization: "Bearer " + token,
+                    },
+                  },
+                  { id }
+                )
+                .then((res) => {
+                  console.log(res);
+                })
+                .catch((err) => {});
+            }}
+            key={index + 1}
+            class="desc-food-tracker"
+          >
+            {index + 1} {element.breakfast}
+            <br />
+          </div>
+        );
+      })}
     </div>
   );
 };
