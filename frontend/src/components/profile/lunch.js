@@ -9,18 +9,6 @@ const Lunch = () => {
   const [getBreakfast, setGetBreakfast] = useState([]);
   const token = localStorage.getItem("token");
   //   console.log("getBreakfast", getBreakfast);
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/breakfast", {
-        headers: {
-          authorization: "Bearer " + token,
-        },
-      })
-      .then((res) => {
-        setGetBreakfast(res.data);
-      })
-      .catch((err) => {});
-  }, [getBreakfast]);
 
   return (
     <div>
