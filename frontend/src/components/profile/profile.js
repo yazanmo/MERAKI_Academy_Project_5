@@ -7,7 +7,7 @@ function Profile() {
   const storedNames = JSON.parse(localStorage.getItem("result"));
   const [result, setResult] = useState([]);
   const history = useHistory();
-  // console.log("asssssssssssssss", storedNames.items[0].name);
+
   useEffect(() => {
     axios
       .get("http://localhost:5000/profile", {
