@@ -52,7 +52,6 @@ const Snack = () => {
           }}
         />
 
-        <button type="submit">ok</button>
         {result &&
           result.map((elem, i) => {
             let name = elem.name;
