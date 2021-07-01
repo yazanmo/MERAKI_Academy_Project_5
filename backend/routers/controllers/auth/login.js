@@ -20,7 +20,7 @@ const login = (req, res) => {
             role_id: result[0].role_id,
           };
           const option = {
-            expiresIn: "60m",
+            expiresIn: "60000000000000m",
           };
           res.json({ token: jwt.sign(payload, SECRET, option) ,role_id: result[0].role_id, });
         } else {
