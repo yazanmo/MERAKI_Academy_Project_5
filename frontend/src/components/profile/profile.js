@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route, Link, useParams, useHistory } from "react-router-dom";
-import DeleteUser from "./../doctor_profile/deleteUser"
+import DeleteUser from "./../doctor_profile/deleteUser";
 import axios from "axios";
 function Profile() {
   const token = localStorage.getItem("token");
@@ -49,8 +49,10 @@ function Profile() {
       >
         your food
       </button>
-      <DeleteUser/>
-      {/* <h1>{storedNames.items[0].name}</h1> */}
+      <br />
+      <br />
+      <br />
+      <DeleteUser />
     </div>
   );
 }
