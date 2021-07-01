@@ -96,11 +96,11 @@ const Snack = () => {
           })}
       </form>
       {getBreakfast.map((element, index) => {
-        const id = element.breakfast_id;
+        const id = element.snack_id;
         // console.log("element", breakfast_id);
         return (
           <div
-            id={element.breakfast_id}
+            id={element.snack}
             onClick={() => {
               axios
                 .delete(
@@ -120,7 +120,7 @@ const Snack = () => {
             key={index + 1}
             class="desc-food-tracker"
           >
-            {index + 1} {element.breakfast}
+            {index + 1} {element.snack}
             <br />
           </div>
         );

@@ -121,7 +121,7 @@ const Lunch = () => {
             key={index + 1}
             class="desc-food-tracker"
           >
-            {index + 1} {element.breakfast}
+            {index + 1} {element.snack}
             <br />
           </div>
         );
