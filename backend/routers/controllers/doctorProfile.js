@@ -6,7 +6,7 @@ const getDoctorProfile = (req, res) => {
   const user_id = req.token.id;
 
   const command = `SELECT users.firstName ,users.lastName,users.age,users.email,users.img,doctorsDetails.price,
-doctorsDetails.Qualifications,doctorsDetails.practicalExperiences
+doctorsDetails.Qualifications,doctorsDetails.practicalExperiences,doctorsDetails.description
 FROM users 
 INNER JOIN doctorsDetails ON users.id = doctorsDetails.user_id WHERE users.is_deleted =0 AND  user_id = ?`;
   const arr = [user_id];
