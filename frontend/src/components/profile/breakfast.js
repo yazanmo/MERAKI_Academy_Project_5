@@ -103,15 +103,11 @@ const Breakfast = () => {
             id={element.breakfast_id}
             onClick={() => {
               axios
-                .delete(
-                  "http://localhost:5000/breakfast",
-                  {
-                    headers: {
-                      authorization: "Bearer " + token,
-                    },
+                .delete(`http://localhost:5000/breakfast${element.snack_id}`, {
+                  headers: {
+                    authorization: "Bearer " + token,
                   },
-                  { id }
-                )
+                })
                 .then((res) => {
                   console.log(res);
                 })
