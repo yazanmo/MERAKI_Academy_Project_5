@@ -4,6 +4,7 @@ import "./profile.css";
 import Breakfast from "./breakfast";
 import Lunch from "./lunch";
 import Snack from "./snack";
+import Dinner from "./dinner";
 const FoodTracker = () => {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
@@ -19,6 +20,9 @@ const FoodTracker = () => {
         </th>
         <th>
           Snack <Snack />
+        </th>
+        <th>
+          Dinner <Dinner />
         </th>
       </table>
     </div>

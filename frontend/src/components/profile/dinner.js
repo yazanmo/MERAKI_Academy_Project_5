@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const dinner = () => {
+const Dinner = () => {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
   const [infoFood, setInfoFood] = useState(false);
@@ -101,7 +101,7 @@ const dinner = () => {
             id={element.dinner}
             onClick={() => {
               axios
-                .delete(`http://localhost:5000/snack/${element.dinner_id}`, {
+                .delete(`http://localhost:5000/dinner/${element.dinner_id}`, {
                   headers: {
                     authorization: "Bearer " + token,
                   },
@@ -123,4 +123,4 @@ const dinner = () => {
   );
 };
 
-export default dinner;
+export default Dinner;
