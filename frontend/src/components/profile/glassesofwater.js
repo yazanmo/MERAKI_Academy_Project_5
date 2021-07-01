@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import "./profile.css"
 const Dinner = () => {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
   const [infoFood, setInfoFood] = useState(false);
   const [getBreakfast, setGetBreakfast] = useState([]);
   const token = localStorage.getItem("token");
-  //   console.log("getBreakfast", getBreakfast);
+ 
   useEffect(() => {
     axios
       .get("http://localhost:5000/glassesofwater", {

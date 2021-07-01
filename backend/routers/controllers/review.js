@@ -32,10 +32,15 @@ const getAllReviews = (req, res) => {
 const updateReviewById = (req, res) => {
   const id = req.params.id;
   const commenter_id = req.token.id;
-  const { comment, rating } = req.body;
+  const { updateText, rating } = req.body;
+  console.log("id", id);
+  console.log("commenter_id", commenter_id);
+  console.log("updateText", updateText);
+
+  console.log("rating", rating);
 
   const query = `UPDATE reviews SET comment=?, rating = ? WHERE id=${id} AND commenter_id= ${commenter_id}`;
-  const data = [comment, rating];
+  const data = [updateText, rating];
   db.query(query, data, (err, results) => {
     if (err) res.status(500).send(err);
     res.status(200).json(results);

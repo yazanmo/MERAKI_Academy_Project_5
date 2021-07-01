@@ -14,13 +14,16 @@ const DoctorDetails = () => {
   const [rating, setRating] = useState(0);
   const [allComment, setAllComment] = useState([]);
   const [sa, setSa] = useState(false);
+  const [updateComment, setUpdateComment] = useState(false);
+  const [updateText, setUpdateCommentText] = useState("");
 
   const token = localStorage.getItem("token");
   const commenter_id = localStorage.getItem("user_id");
 
   let doctorsService_id = parseInt(id);
   const dispatch = useDispatch();
-
+  console.log(updateText);
+  console.log(comment);
   const state = useSelector((state) => {
     return {
       review: state.review.review,
@@ -76,6 +79,35 @@ const DoctorDetails = () => {
       });
   };
 
+  const updateComments = (id) => {
+    axios
+      .put(
+        `http://localhost:5000/doctor/review/${id}`,
+        {
+          updateText,
+          rating,
+        },
+
+        {
+          headers: {
+            authorization: "Bearer " + token,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+        setUpdateComment(false);
+        if (sa) {
+          setSa(false);
+        } else {
+          setSa(true);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className="doctor">
       <div className="img">
@@ -106,18 +138,41 @@ const DoctorDetails = () => {
       <div>
         <p>
           {allComment.map((element, index) => {
-            console.log(element);
             return (
               <div key={index + 1}>
                 <p>{element.firstName}</p>
                 <p>{element.rating}</p>
-                <p>{element.comment}</p>
+
+                {updateComment == false ? (
+                  <p>{element.comment}</p>
+                ) : (
+                  <div>
+                    {element.commenter_id == commenter_id ? (
+                      <>
+                        <textarea
+                          onChange={(e) => {
+                            setUpdateCommentText(e.target.value);
+                          }}
+                          defaultValue={element.comment}
+                        ></textarea>
+                        <button
+                          onClick={() => {
+                            updateComments(element.id);
+                          }}
+                        >
+                          update
+                        </button>
+                      </>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                )}
                 {element.commenter_id == commenter_id ? (
                   <>
                     <button
                       key={element.id}
                       onClick={() => {
-                        console.log(element.id);
                         axios
                           .delete(
                             `http://localhost:5000/review/${element.id}`,
@@ -142,7 +197,18 @@ const DoctorDetails = () => {
                     </button>
 
                     <br />
-                    <button onClick={() => {}}>update</button>
+
+                    {updateComment == false ? (
+                      <button
+                        onClick={() => {
+                          setUpdateComment(true);
+                        }}
+                      >
+                        update
+                      </button>
+                    ) : (
+                      ""
+                    )}
                   </>
                 ) : (
                   ""
