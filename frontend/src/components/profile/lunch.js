@@ -6,7 +6,7 @@ const Lunch = () => {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
   const [infoFood, setInfoFood] = useState(false);
-  const [getBreakfast, setGetBreakfast] = useState([]);
+  const [getSnack, setGetSnack] = useState([]);
   const token = localStorage.getItem("token");
   //   console.log("getBreakfast", getBreakfast);
   useEffect(() => {
@@ -17,10 +17,10 @@ const Lunch = () => {
         },
       })
       .then((res) => {
-        setGetBreakfast(res.data);
+        setGetSnack(res.data);
       })
       .catch((err) => {});
-  }, [getBreakfast]);
+  }, [getSnack]);
 
   return (
     <div>
@@ -96,7 +96,7 @@ const Lunch = () => {
             );
           })}
       </form>
-      {getBreakfast.map((element, index) => {
+      {getSnack.map((element, index) => {
         const id = element.lunch_id;
         // console.log("element", breakfast_id);
         return (
