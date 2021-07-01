@@ -101,27 +101,22 @@ const Lunch = () => {
         // console.log("element", breakfast_id);
         return (
           <div
-            id={element.lunch_id}
             onClick={() => {
               axios
-                .delete(
-                  "http://localhost:5000/lunch",
-                  {
-                    headers: {
-                      authorization: "Bearer " + token,
-                    },
+                .delete(`http://localhost:5000/lunch/${element.lunch_id}`, {
+                  headers: {
+                    authorization: "Bearer " + token,
                   },
-                  { id }
-                )
+                })
                 .then((res) => {
                   console.log(res);
                 })
                 .catch((err) => {});
             }}
-            key={index + 1}
+            key={element.lunch_id}
             class="desc-food-tracker"
           >
-            {index + 1} {element.snack}
+            {index + 1} {element.lunch}
             <br />
           </div>
         );

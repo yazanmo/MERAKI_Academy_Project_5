@@ -62,7 +62,7 @@ foodTracker.put("/activetime", authentication, updateActiveTime);
 //delete
 foodTracker.delete("/breakfast", authentication, deleteToBreakfast);
 foodTracker.delete("/snack", authentication, deleteToSnack);
-foodTracker.delete("/lunch", authentication, deleteToLunch);
+foodTracker.delete("/lunch/:id", authentication, deleteToLunch);
 foodTracker.delete("/dinner", authentication, deleteToDinner);
 foodTracker.delete("/glassesofwater", authentication, deleteToGlassesOfWater);
 foodTracker.delete("/activetime", authentication, deleteToActiveTime);
