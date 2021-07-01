@@ -173,8 +173,8 @@ export default function Home() {
  <div class="footer-right">
  
  <p class="footer-company-about">
- <span>About the company</span>
- test.
+ <span>About the website</span>
+ physicians featured are in private practice and, as independent practitioners, are not agents or employees of our.
  </p>
  
  <div class="footer-icons">
