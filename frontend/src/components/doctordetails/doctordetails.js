@@ -22,8 +22,7 @@ const DoctorDetails = () => {
 
   let doctorsService_id = parseInt(id);
   const dispatch = useDispatch();
-  console.log(updateText);
-  console.log(comment);
+
   const state = useSelector((state) => {
     return {
       review: state.review.review,
@@ -44,9 +43,7 @@ const DoctorDetails = () => {
       .then((result) => {
         setAllComment(result.data);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, [sa]);
 
   const createComment = () => {
@@ -74,7 +71,6 @@ const DoctorDetails = () => {
         }
       })
       .catch((err) => {
-        console.log(err);
         setSa(true);
       });
   };
@@ -95,7 +91,6 @@ const DoctorDetails = () => {
         }
       )
       .then((res) => {
-        console.log(res.data);
         setUpdateComment(false);
         if (sa) {
           setSa(false);
@@ -103,9 +98,24 @@ const DoctorDetails = () => {
           setSa(true);
         }
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
+  };
+
+  const deleteComment = (id) => {
+    axios
+      .delete(`http://localhost:5000/review/${id}`, {
+        headers: {
+          authorization: "Bearer " + token,
+        },
+      })
+      .then((res) => {
+        if (sa) {
+          setSa(false);
+        } else {
+          setSa(true);
+        }
+      })
+      .catch((err) => {});
   };
 
   return (
@@ -173,24 +183,7 @@ const DoctorDetails = () => {
                     <button
                       key={element.id}
                       onClick={() => {
-                        axios
-                          .delete(
-                            `http://localhost:5000/review/${element.id}`,
-                            {
-                              headers: {
-                                authorization: "Bearer " + token,
-                              },
-                            }
-                          )
-                          .then((res) => {
-                            console.log(res);
-                            if (sa) {
-                              setSa(false);
-                            } else {
-                              setSa(true);
-                            }
-                          })
-                          .catch((err) => {});
+                        deleteComment(element.id);
                       }}
                     >
                       delete
@@ -218,13 +211,17 @@ const DoctorDetails = () => {
           })}
         </p>
 
-        <button
-          onClick={() => {
-            history.push(`./${id}/payment`);
-          }}
-        >
-          Subscribe
-        </button>
+        {token ? (
+          <button
+            onClick={() => {
+              history.push(`./${id}/payment`);
+            }}
+          >
+            Subscribe
+          </button>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
