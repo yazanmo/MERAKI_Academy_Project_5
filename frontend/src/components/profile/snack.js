@@ -23,7 +23,26 @@ const Snack = () => {
 
   return (
     <div>
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          axios
+            .get(`https://api.calorieninjas.com/v1/nutrition?query=${query}`, {
+              headers: {
+                "X-Api-Key": "Pjf0wWWm+Yr/ZE8oa23Dyg==c9VY1TVMpVLHA8Oe",
+              },
+              async: true,
+              body: JSON.stringify("Hello from Lambda!"),
+            })
+            .then((res) => {
+              console.log(res);
+              setResult(res.data.items);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }}
+      >
         <input
           id="input-breakfast"
           onChange={(e) => {
