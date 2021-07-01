@@ -16,6 +16,8 @@ const DoctorDetails = () => {
   const [sa, setSa] = useState(false);
 
   const token = localStorage.getItem("token");
+  const commenter_id = localStorage.getItem("user_id");
+
   let doctorsService_id = parseInt(id);
   const dispatch = useDispatch();
 
@@ -102,30 +104,40 @@ const DoctorDetails = () => {
       <div>
         <p>
           {allComment.map((element, index) => {
+            console.log(element);
             return (
               <div key={index + 1}>
                 <p>{element.firstName}</p>
                 <p>{element.rating}</p>
                 <p>{element.comment}</p>
-                <button
-                  key={element.id}
-                  onClick={() => {
-                    console.log(element.id);
-                    axios
-                      .delete(`http://localhost:5000/review/${element.id}`, {
-                        headers: {
-                          authorization: "Bearer " + token,
-                        },
-                      })
-                      .then((res) => {
-                        console.log(res);
-                      })
-                      .catch((err) => {});
-                  }}
-                >
-                  delete
-                </button>
-                <button onClick={() => {}}>update</button>
+                {element.commenter_id == commenter_id ? (
+                  <button
+                    key={element.id}
+                    onClick={() => {
+                      console.log(element.id);
+                      axios
+                        .delete(`http://localhost:5000/review/${element.id}`, {
+                          headers: {
+                            authorization: "Bearer " + token,
+                          },
+                        })
+                        .then((res) => {
+                          console.log(res);
+                          if (sa) {
+                            setSa(false);
+                          } else {
+                            setSa(true);
+                          }
+                        })
+                        .catch((err) => {});
+                    }}
+                  >
+                    delete
+                    <button onClick={() => {}}>update</button>
+                  </button>
+                ) : (
+                  ""
+                )}
               </div>
             );
           })}

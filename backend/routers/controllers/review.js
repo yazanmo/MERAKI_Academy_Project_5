@@ -49,7 +49,7 @@ const deleteReviewById = (req, res) => {
   const query = `UPDATE reviews SET  is_deleted=1 WHERE id=${id}  AND commenter_id= ${commenter_id}`;
   db.query(query, (err, results) => {
     if (err) res.status(400).send(err);
-    res.status(500).send("deleted is done");
+    res.status(200).send("deleted is done");
   });
 };
 
