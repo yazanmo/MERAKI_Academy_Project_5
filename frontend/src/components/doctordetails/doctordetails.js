@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-// import the actions
+
 import { createTodo, setTodos } from "./../../reducers/review";
 
 const DoctorDetails = () => {
@@ -90,16 +90,18 @@ const DoctorDetails = () => {
         <p>{result.Qualifications}</p>
         <p>{result.practicalExperiences}</p>
       </div>
-
-      <input
-        className="input-comment"
-        onChange={(e) => {
-          setComment(e.target.value);
-          setRating(4);
-        }}
-      />
-
-      <button onClick={createComment}>ok</button>
+      {token ? (
+        <input
+          className="input-comment"
+          onChange={(e) => {
+            setComment(e.target.value);
+            setRating(4);
+          }}
+        />
+      ) : (
+        ""
+      )}
+      {token ? <button onClick={createComment}> ok</button> : ""}
 
       <div>
         <p>
@@ -111,30 +113,37 @@ const DoctorDetails = () => {
                 <p>{element.rating}</p>
                 <p>{element.comment}</p>
                 {element.commenter_id == commenter_id ? (
-                  <button
-                    key={element.id}
-                    onClick={() => {
-                      console.log(element.id);
-                      axios
-                        .delete(`http://localhost:5000/review/${element.id}`, {
-                          headers: {
-                            authorization: "Bearer " + token,
-                          },
-                        })
-                        .then((res) => {
-                          console.log(res);
-                          if (sa) {
-                            setSa(false);
-                          } else {
-                            setSa(true);
-                          }
-                        })
-                        .catch((err) => {});
-                    }}
-                  >
-                    delete
+                  <>
+                    <button
+                      key={element.id}
+                      onClick={() => {
+                        console.log(element.id);
+                        axios
+                          .delete(
+                            `http://localhost:5000/review/${element.id}`,
+                            {
+                              headers: {
+                                authorization: "Bearer " + token,
+                              },
+                            }
+                          )
+                          .then((res) => {
+                            console.log(res);
+                            if (sa) {
+                              setSa(false);
+                            } else {
+                              setSa(true);
+                            }
+                          })
+                          .catch((err) => {});
+                      }}
+                    >
+                      delete
+                    </button>
+
+                    <br />
                     <button onClick={() => {}}>update</button>
-                  </button>
+                  </>
                 ) : (
                   ""
                 )}
