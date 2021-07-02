@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route, Link, useParams, useHistory } from "react-router-dom";
-import DeleteUser from "./../doctor_profile/deleteUser"
+import DeleteUser from "./../doctor_profile/deleteUser";
 import axios from "axios";
 function Profile() {
   const token = localStorage.getItem("token");
   const storedNames = JSON.parse(localStorage.getItem("result"));
   const [result, setResult] = useState([]);
   const history = useHistory();
+  localStorage.setItem("user_info", JSON.stringify(result));
 
   useEffect(() => {
     axios
@@ -49,8 +50,17 @@ function Profile() {
       >
         your food
       </button>
-      <DeleteUser/>
-      {/* <h1>{storedNames.items[0].name}</h1> */}
+      <br />
+      <br />
+      <br />
+      <DeleteUser />
+      <button
+        onClick={() => {
+          history.push("/edit/profile");
+        }}
+      >
+        update
+      </button>
     </div>
   );
 }
