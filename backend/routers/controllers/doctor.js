@@ -1,7 +1,6 @@
 const db = require("./../../db/db");
 // this function to get all doctors
 const getAllDoctors = (req, res) => {
- 
   const query = `SELECT  * FROM users 
   RIGHT JOIN doctorsDetails ON users.id = doctorsDetails.user_id WHERE users.is_deleted =0 AND role_id=2`;
   db.query(query, (err, result) => {
@@ -15,7 +14,7 @@ const doctorDetailsFilter = (req, res) => {
   RIGHT JOIN doctorsDetails ON users.id = doctorsDetails.user_id WHERE users.is_deleted =0 AND role_id=2
    AND price BETWEEN ? AND ? `;
   const data = [num1, num2];
-  db.query(query, data,(err, result) => {
+  db.query(query, data, (err, result) => {
     if (err) res.status(400).send(err);
     res.status(200).json(result);
   });
@@ -34,41 +33,48 @@ const getDoctorById = (req, res) => {
   });
 };
 
-
-
 const allInfoOfDoctor = (req, res) => {
+  const {
+    FirstName,
+    lastName,
+    age,
+    email,
+    password,
+    description,
+    Qualifications,
+    practicalExperiences,
+    qualificationsFile,
+  } = req.body;
+  const arr = [
+    FirstName,
+    lastName,
+    age,
+    email,
+    password,
+    description,
+    Qualifications,
+    practicalExperiences,
+    qualificationsFile,
+  ];
 
-  const { FirstName, lastName, age, email,password,description,
-    Qualifications,practicalExperiences,qualificationsFile } = req.body;
-    const arr = [
-      FirstName, lastName, age, email,password,description,
-      Qualifications,practicalExperiences,qualificationsFile];
-
-      const command = `INSERT INTO doctors  (FirstName, lastName, description,email,
+  const command = `INSERT INTO doctors  (FirstName, lastName, description,email,
         Qualifications,practicalExperiences,qualificationsFile) VALUES (?,?,?,?,?,?,?)`;
-        
-      
 
-      db.query(command, arr, (err, result) => {
-        if (err) res.status(400).send(err);
-        res.status(201).json(result);
-      });
-
-     
-}
+  db.query(command, arr, (err, result) => {
+    if (err) res.status(400).send(err);
+    res.status(201).json(result);
+  });
+};
 
 const getAllDoctorsAdmin = (req, res) => {
-
   const query = `SELECT  doctors.* FROM doctors where is_deleted =0 `;
   db.query(query, (err, result) => {
     if (err) res.status(500).send(err);
-    ;
     res.status(200).json(result);
   });
 };
 
 const deleteDoctorAdmin = (req, res) => {
- 
   const doctor_id = req.body.id;
   const query = `UPDATE doctors SET is_deleted=1 WHERE doctor_id=${doctor_id} `;
   db.query(query, (err, results) => {
@@ -77,21 +83,21 @@ const deleteDoctorAdmin = (req, res) => {
   });
 };
 
+const searchDoctor = (req, res) => {
+  const DoctorName = req.body.DoctorName;
+  console.log(DoctorName);
+  const query = `SELECT doctorsDetails.* ,users.firstName ,users.lastName  ,users.img 
+  FROM doctorsDetails INNER JOIN  users ON users.id = doctorsDetails.user_id WHERE users.is_deleted =0 AND users.firstName LIKE ?`;
+  const nameSearched = [`%${DoctorName}%`];
 
-const searchDoctor = (req,res)=>{
-  const {name} = req.params;
-  const query = 'SELECT * FROM businesses WHERE displayName LIKE ?'
-  const nameSearched = [`%${name}%`]
-
-  connection.query(query,nameSearched,(err,result)=>{
+  db.query(query, nameSearched, (err, result) => {
     if (err) {
       console.log(err);
       return res.send(err);
     }
     res.status(200).json(result);
-  })
-}
-
+  });
+};
 
 module.exports = {
   getAllDoctors,
