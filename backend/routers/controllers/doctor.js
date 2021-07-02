@@ -78,6 +78,21 @@ const deleteDoctorAdmin = (req, res) => {
 };
 
 
+const searchDoctor = (req,res)=>{
+  const {name} = req.params;
+  const query = 'SELECT * FROM businesses WHERE displayName LIKE ?'
+  const nameSearched = [`%${name}%`]
+
+  connection.query(query,nameSearched,(err,result)=>{
+    if (err) {
+      console.log(err);
+      return res.send(err);
+    }
+    res.status(200).json(result);
+  })
+}
+
+
 module.exports = {
   getAllDoctors,
   getDoctorById,
@@ -85,4 +100,5 @@ module.exports = {
   allInfoOfDoctor,
   getAllDoctorsAdmin,
   deleteDoctorAdmin,
+  searchDoctor,
 };
