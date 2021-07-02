@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setStories } from "../../reducers/story";
@@ -11,6 +12,8 @@ import rules from "./rules.png";
 
 import "./home.css";
 import happy from "./happy.jpg";
+
+
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -121,6 +124,81 @@ export default function Home() {
             })}
         </div>
       </section>
+
+
+      {/* footer */}
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css"></link>
+     
+ <footer class="footer-distributed">
+ 
+ <div class="footer-left">
+ 
+ <h3>Health<span>Care</span></h3>
+ 
+ <p class="footer-links">
+ <a href="/">Home</a>
+ ·
+ <a href="/doctor"> Our nutrition</a>
+ ·
+ <a href="/success">Stories</a>
+ ·
+ <a href="#">About</a>
+ ·
+ <a href="/logIn">logIn</a>
+ 
+ </p>
+ 
+ <p class="footer-company-name">The A_TEAM &copy; 2021</p>
+ </div>
+ 
+ <div class="footer-center">
+ 
+ <div>
+ <i class="fa fa-map-marker"></i>
+ <p><span>JORDAN</span> AMMAN</p>
+ </div>
+ 
+ <div>
+ <i class="fa fa-phone"></i>
+ <p>+962787878787</p>
+ </div>
+ 
+ <div>
+ <i class="fa fa-envelope"></i>
+ <p><a href="">Test</a></p>
+ </div>
+ 
+ </div>
+ 
+ <div class="footer-right">
+ 
+ <p class="footer-company-about">
+ <span>About the website</span>
+ physicians featured are in private practice and, as independent practitioners, are not agents or employees of our.
+ </p>
+ 
+ <div class="footer-icons">
+ 
+ <a href="#"><i class="fa fa-facebook"></i></a>
+ <a href="#"><i class="fa fa-linkedin"></i></a>
+ <a href="#"><i class="fa fa-github"></i></a>
+ 
+ </div>
+ 
+ </div>
+ 
+ </footer>
+
+
+
+
+
+
     </div>
+
+
+
+
   );
 }

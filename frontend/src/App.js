@@ -16,7 +16,11 @@ import UpdateDoctorProfile from "./components/doctor_profile/updateDoctorProfile
 import FoodTracker from "./components/profile/foodtracker";
 import Test from "./components/profile/test";
 import CreateStories from "./components/storie";
+
+import About from "./components/aboutus/about";
+
 import UpdateUserInfo from "./components/profile/updateuserinfo";
+
 
 const App = () => {
   return (
@@ -47,7 +51,12 @@ const App = () => {
           />
           <Route exact path="/accept" render={() => <Accept />} />
           <Route exact path="/doctorInfo" render={() => <Info />} />
+
+          <Route exact path="/about" render={() => <About />} />
+
+
           <Route exact path="/edit/profile" render={() => <UpdateUserInfo />} />
+
         </Switch>
       </div>
     </>

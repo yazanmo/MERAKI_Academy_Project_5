@@ -14,9 +14,10 @@ const Navigation = () => {
   let role_id = localStorage.getItem("role_id");
 
   return (
+   
     <div className="navBar">
       <div className="logo">
-        <p>HEALTH CARE</p>
+        <h3>HEALTH<span>CARE</span></h3>
       </div>
 
       <div className="nav">
@@ -33,7 +34,7 @@ const Navigation = () => {
               </li>
               <li>
                 {" "}
-                <Link to="/" className="links">
+                <Link to="/about" className="links">
                   About
                 </Link>{" "}
               </li>
