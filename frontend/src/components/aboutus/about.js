@@ -25,7 +25,7 @@ export default function about() {
 <div className="content col-md-offset-6 col-lg-offset-6">
   <center><h1 className="contentHead">The A_Team</h1></center>
   
-  <h2>
+  <h2 className="aa">
   Health Care is a natural way of improving your health
     <br/><br/>
     Make with L<span>&hearts;</span>VE 
