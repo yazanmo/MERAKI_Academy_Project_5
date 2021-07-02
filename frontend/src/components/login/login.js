@@ -15,6 +15,8 @@ const Login = () => {
       .then((result) => {
         localStorage.setItem("token", result.data.token);
         localStorage.setItem("role_id", result.data.role_id);
+        localStorage.setItem("user_id", result.data.user_id);
+        console.log(result.data.user_id);
         dispatch(setToken(result.data.token));
         history.push("/");
       })

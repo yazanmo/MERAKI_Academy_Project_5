@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-// import the actions
+
 import { createTodo, setTodos } from "./../../reducers/review";
 
 const DoctorDetails = () => {
@@ -14,8 +14,12 @@ const DoctorDetails = () => {
   const [rating, setRating] = useState(0);
   const [allComment, setAllComment] = useState([]);
   const [sa, setSa] = useState(false);
+  const [updateComment, setUpdateComment] = useState(false);
+  const [updateText, setUpdateCommentText] = useState("");
 
   const token = localStorage.getItem("token");
+  const commenter_id = localStorage.getItem("user_id");
+
   let doctorsService_id = parseInt(id);
   const dispatch = useDispatch();
 
@@ -37,12 +41,9 @@ const DoctorDetails = () => {
     axios
       .get(`http://localhost:5000/doctor/review/${id}`)
       .then((result) => {
-        // console.log(result.data);
         setAllComment(result.data);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, [sa]);
 
   const createComment = () => {
@@ -62,7 +63,6 @@ const DoctorDetails = () => {
         }
       )
       .then((result) => {
-        // console.log(result.data);
         dispatch(createTodo(result.data));
         if (sa) {
           setSa(false);
@@ -71,9 +71,51 @@ const DoctorDetails = () => {
         }
       })
       .catch((err) => {
-        console.log(err);
         setSa(true);
       });
+  };
+
+  const updateComments = (id) => {
+    axios
+      .put(
+        `http://localhost:5000/doctor/review/${id}`,
+        {
+          updateText,
+          rating,
+        },
+
+        {
+          headers: {
+            authorization: "Bearer " + token,
+          },
+        }
+      )
+      .then((res) => {
+        setUpdateComment(false);
+        if (sa) {
+          setSa(false);
+        } else {
+          setSa(true);
+        }
+      })
+      .catch((err) => {});
+  };
+
+  const deleteComment = (id) => {
+    axios
+      .delete(`http://localhost:5000/review/${id}`, {
+        headers: {
+          authorization: "Bearer " + token,
+        },
+      })
+      .then((res) => {
+        if (sa) {
+          setSa(false);
+        } else {
+          setSa(true);
+        }
+      })
+      .catch((err) => {});
   };
 
   return (
@@ -90,38 +132,96 @@ const DoctorDetails = () => {
         <p>{result.Qualifications}</p>
         <p>{result.practicalExperiences}</p>
       </div>
-
-      <input
-        onChange={(e) => {
-          setComment(e.target.value);
-          setRating(4);
-        }}
-      />
-
-      <button onClick={createComment}>ok</button>
+      {token ? (
+        <input
+          className="input-comment"
+          onChange={(e) => {
+            setComment(e.target.value);
+            setRating(4);
+          }}
+        />
+      ) : (
+        ""
+      )}
+      {token ? <button onClick={createComment}> ok</button> : ""}
 
       <div>
-        <p>{state.id}</p>
         <p>
           {allComment.map((element, index) => {
-            // console.log(element);
-
             return (
-              <div>
+              <div key={index + 1}>
                 <p>{element.firstName}</p>
-                <p>{element.comment}</p>
+                <p>{element.rating}</p>
+
+                {updateComment == false ? (
+                  <p>{element.comment}</p>
+                ) : (
+                  <div>
+                    {element.commenter_id == commenter_id ? (
+                      <>
+                        <textarea
+                          onChange={(e) => {
+                            setUpdateCommentText(e.target.value);
+                          }}
+                          defaultValue={element.comment}
+                        ></textarea>
+                        <button
+                          onClick={() => {
+                            updateComments(element.id);
+                          }}
+                        >
+                          update
+                        </button>
+                      </>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                )}
+                {element.commenter_id == commenter_id ? (
+                  <>
+                    <button
+                      key={element.id}
+                      onClick={() => {
+                        deleteComment(element.id);
+                      }}
+                    >
+                      delete
+                    </button>
+
+                    <br />
+
+                    {updateComment == false ? (
+                      <button
+                        onClick={() => {
+                          setUpdateComment(true);
+                        }}
+                      >
+                        update
+                      </button>
+                    ) : (
+                      ""
+                    )}
+                  </>
+                ) : (
+                  ""
+                )}
               </div>
             );
           })}
         </p>
 
-        <button
-          onClick={() => {
-            history.push(`./${id}/payment`);
-          }}
-        >
-          Subscribe
-        </button>
+        {token ? (
+          <button
+            onClick={() => {
+              history.push(`./${id}/payment`);
+            }}
+          >
+            Subscribe
+          </button>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

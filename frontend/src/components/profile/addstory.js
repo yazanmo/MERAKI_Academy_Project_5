@@ -5,6 +5,7 @@ import axios from "axios";
 
 const AddStory = () => {
   const token = localStorage.getItem("token");
+
   const [description, setDescription] = useState("");
   const addStory = () => {
     axios
@@ -17,10 +18,10 @@ const AddStory = () => {
           },
         }
       )
-      .then((result) => {})
-      .catch((err) => {
-        console.log(err);
-      });
+      .then((result) => {
+        localStorage.setItem("stories", JSON.stringify(result.data));
+      })
+      .catch((err) => {});
   };
   return (
     <div>
