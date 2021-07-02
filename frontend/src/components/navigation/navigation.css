@@ -1,3 +1,8 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+
+
+
 * {
   padding: 0;
   margin: 0;
@@ -14,6 +19,16 @@
   padding: 30px 20px;
 }
 
+  .logo{
+    font-family: 'Cookie', cursive;
+    font-size: 30px;
+  }
+
+.logo span{
+  color:  #5383d3;
+  font-family: 'Cookie', cursive;
+  
+}
 .nav {
   text-decoration: none;
 }
