@@ -5,7 +5,7 @@ import "./Doctor.css";
 
 const Doctor = () => {
   const [Doctor, setDoctor] = useState();
-  const [DoctorName, setRDoctorName] = useState();
+  const [DoctorName, setDoctorName] = useState();
   const [num1, setnum1] = useState(0);
   const [num2, setnum2] = useState(99999999999999);
   const [filter, setfilter] = useState();
@@ -18,9 +18,7 @@ const Doctor = () => {
       .then((response) => {
         setDoctor(response.data);
       })
-      .catch((err) => {
-        console.log("Error");
-      });
+      .catch((err) => {});
   }, []);
 
   const callType_1 = () => {
@@ -30,11 +28,20 @@ const Doctor = () => {
         setfilter(response.data);
         setDoctor([]);
       })
-      .catch((err) => {
-        console.log("Error");
-      });
+      .catch((err) => {});
   };
 
+  const searchDoctor = (name) => {
+    axios
+      .post(`http://localhost:5000/search`, {
+        DoctorName: name,
+      })
+      .then((res) => {
+        console.log(res.data);
+        setDoctorName(res.data);
+      })
+      .catch((err) => {});
+  };
   const func = (id) => {
     return history.push(`/doctor/${id}`);
   };
@@ -53,6 +60,33 @@ const Doctor = () => {
           }}
         />
         <button onClick={callType_1}>Filter</button>
+
+        <input
+          onChange={(e) => {
+            if (e.target.value.length === 0) {
+              searchDoctor("''");
+            } else {
+              searchDoctor(e.target.value);
+            }
+          }}
+        />
+        <div>
+          {DoctorName &&
+            DoctorName.map((element, index) => {
+              return (
+                <div
+                  onClick={() => {
+                    func(element.id);
+                  }}
+                >
+                  <p>
+                    {element.firstName} {element.lastName}
+                  </p>
+                  <p>{element.img}</p>
+                </div>
+              );
+            })}
+        </div>
       </div>
 
       {filter &&
