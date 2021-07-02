@@ -19,6 +19,7 @@ const DoctorDetails = () => {
 
   const token = localStorage.getItem("token");
   const commenter_id = localStorage.getItem("user_id");
+  const role_id = localStorage.getItem("role_id");
 
   let doctorsService_id = parseInt(id);
   const dispatch = useDispatch();
@@ -133,17 +134,34 @@ const DoctorDetails = () => {
         <p>{result.practicalExperiences}</p>
       </div>
       {token ? (
-        <input
-          className="input-comment"
-          onChange={(e) => {
-            setComment(e.target.value);
-            setRating(4);
-          }}
-        />
+        <>
+          {role_id == 2 ? (
+            ""
+          ) : (
+            <input
+              className="input-comment"
+              onChange={(e) => {
+                setComment(e.target.value);
+                setRating(4);
+              }}
+            />
+          )}
+        </>
       ) : (
         ""
       )}
-      {token ? <button onClick={createComment}> ok</button> : ""}
+      {token ? (
+        <>
+          {" "}
+          {role_id == 2 ? (
+            ""
+          ) : (
+            <button onClick={createComment}> ok</button>
+          )}{" "}
+        </>
+      ) : (
+        ""
+      )}
 
       <div>
         <p>
@@ -212,13 +230,19 @@ const DoctorDetails = () => {
         </p>
 
         {token ? (
-          <button
-            onClick={() => {
-              history.push(`./${id}/payment`);
-            }}
-          >
-            Subscribe
-          </button>
+          <>
+            {role_id == 2 ? (
+              ""
+            ) : (
+              <button
+                onClick={() => {
+                  history.push(`./${id}/payment`);
+                }}
+              >
+                Subscribe
+              </button>
+            )}
+          </>
         ) : (
           ""
         )}
