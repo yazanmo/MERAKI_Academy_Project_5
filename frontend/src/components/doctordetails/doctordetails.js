@@ -16,6 +16,7 @@ const DoctorDetails = () => {
   const [sa, setSa] = useState(false);
   const [updateComment, setUpdateComment] = useState(false);
   const [updateText, setUpdateCommentText] = useState("");
+  const [avgRating, setAvgRating] = useState(0);
 
   const token = localStorage.getItem("token");
   const commenter_id = localStorage.getItem("user_id");
@@ -46,6 +47,15 @@ const DoctorDetails = () => {
       })
       .catch((err) => {});
   }, [sa]);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/review/${id}`)
+      .then((res) => {
+        console.log(Math.floor(res.data[0].AverageRating));
+        setAvgRating(Math.floor(res.data[0].AverageRating));
+      })
+      .catch((err) => {});
+  });
 
   const createComment = () => {
     axios
@@ -128,6 +138,7 @@ const DoctorDetails = () => {
         <p>
           Dr {result.firstName} {result.lastName}
         </p>
+        <p>{avgRating}</p>
         <p>{result.description}</p>
         <p>{result.price}</p>
         <p>{result.Qualifications}</p>
@@ -138,13 +149,20 @@ const DoctorDetails = () => {
           {role_id == 2 ? (
             ""
           ) : (
-            <input
-              className="input-comment"
-              onChange={(e) => {
-                setComment(e.target.value);
-                setRating(4);
-              }}
-            />
+            <>
+              <input
+                className="input-comment"
+                onChange={(e) => {
+                  setComment(e.target.value);
+                }}
+              />
+              <input
+                className="input-comment"
+                onChange={(e) => {
+                  setRating(e.target.value);
+                }}
+              />
+            </>
           )}
         </>
       ) : (
