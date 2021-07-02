@@ -27,7 +27,11 @@ function Profile() {
   return (
     <div>
       <div>
-        <img src={result.img} />
+        {result.img == "" ? (
+          <img src="https://img.icons8.com/office/80/000000/test-account.png" />
+        ) : (
+          <img src={result.img} />
+        )}
       </div>
       <div>
         <p>{result.firstName}</p>
