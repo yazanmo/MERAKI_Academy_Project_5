@@ -18,9 +18,7 @@ const Doctor = () => {
       .then((response) => {
         setDoctor(response.data);
       })
-      .catch((err) => {
-        console.log("Error");
-      });
+      .catch((err) => {});
   }, []);
 
   const callType_1 = () => {
@@ -30,9 +28,7 @@ const Doctor = () => {
         setfilter(response.data);
         setDoctor([]);
       })
-      .catch((err) => {
-        console.log("Error");
-      });
+      .catch((err) => {});
   };
 
   const searchDoctor = (name) => {
