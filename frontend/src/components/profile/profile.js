@@ -7,6 +7,7 @@ function Profile() {
   const storedNames = JSON.parse(localStorage.getItem("result"));
   const [result, setResult] = useState([]);
   const history = useHistory();
+  localStorage.setItem("user_info", JSON.stringify(result));
 
   useEffect(() => {
     axios
@@ -53,6 +54,13 @@ function Profile() {
       <br />
       <br />
       <DeleteUser />
+      <button
+        onClick={() => {
+          history.push("/edit/profile");
+        }}
+      >
+        update
+      </button>
     </div>
   );
 }
