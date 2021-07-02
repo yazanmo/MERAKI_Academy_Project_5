@@ -82,7 +82,7 @@ const Doctor = () => {
                   <p>
                     {element.firstName} {element.lastName}
                   </p>
-                  <p>{element.img}</p>
+                  <img src={element.img} />
                 </div>
               );
             })}
