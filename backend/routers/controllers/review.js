@@ -24,7 +24,20 @@ const getAllReviews = (req, res) => {
 
   db.query(query, (err, result) => {
     if (err) res.status(500).send(err);
-    ``;
+
+    res.status(200).json(result);
+  });
+};
+
+const avgRating = (req, res) => {
+  const id = req.params.id;
+  const query = `SELECT AVG(rating) AS AverageRating , reviews.* FROM reviews 
+  INNER JOIN users ON reviews.commenter_id = users.id 
+  where reviews.is_deleted=0 AND reviews.doctorsService_id =${id}
+  `;
+
+  db.query(query, (err, result) => {
+    if (err) res.status(500).send(err);
     res.status(200).json(result);
   });
 };
@@ -61,6 +74,7 @@ const deleteReviewById = (req, res) => {
 module.exports = {
   createNewReview,
   getAllReviews,
+  avgRating,
   updateReviewById,
   deleteReviewById,
 };

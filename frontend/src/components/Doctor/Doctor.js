@@ -46,6 +46,15 @@ const Doctor = () => {
     return history.push(`/doctor/${id}`);
   };
 
+  const getAcgRating = (id) => {
+    axios
+      .get(`http://localhost:5000/review/${id}`)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {});
+  };
+
   return (
     <>
       <div className="filter">
@@ -97,6 +106,7 @@ const Doctor = () => {
                 <h2>
                   {elem.firstName} {elem.lastName}
                 </h2>
+                <p>{getAcgRating(elem.id)}</p>
                 <h2>{elem.price}</h2>
                 <p>{elem.description}</p>
                 <button
