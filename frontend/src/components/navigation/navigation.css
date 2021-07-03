@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
+
 * {
   padding: 0;
   margin: 0;
@@ -5,7 +7,7 @@
 }
 
 .navBar {
-  background-color: white;
+  background-color: #33383b;
   box-shadow: rgba(110, 110, 110, 0.24) 0px 3px 8px;
   display: flex;
   flex-direction: row;
@@ -14,6 +16,16 @@
   padding: 30px 20px;
 }
 
+.logo {
+  font-family: "Cookie", cursive;
+  font-size: 30px;
+  color: rgb(216, 215, 215);
+}
+
+.logo span {
+  color: #5383d3;
+  font-family: "Cookie", cursive;
+}
 .nav {
   text-decoration: none;
 }
@@ -25,7 +37,16 @@
   font-weight: bold;
   gap: 15px;
   list-style-type: none;
+  color: white;
+  text-decoration: none;
 }
 
-.nav ul li {
+.nav ul li a {
+  color: white;
+  text-decoration: none;
+  /* font-size: 1rem; */
+}
+
+.nav ul li a:hover {
+  color: royalblue;
 }

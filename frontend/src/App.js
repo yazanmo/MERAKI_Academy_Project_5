@@ -15,12 +15,17 @@ import Accept from "./components/Admin/admin"
 import Profile from "./components/profile/profile";
 import AddStory from "./components/profile/addstory";
 import Home from "./components/Home";
-import UpdateDoctorProfile from "./components/doctor_profile/updateDoctorProfile"
+import UpdateDoctorProfile from "./components/doctor_profile/updateDoctorProfile";
 import FoodTracker from "./components/profile/foodtracker";
 import Test from "./components/profile/test";
 
 import CreateStories from "./components/storie"
 import AcceptDoctor from "./components/AcceptDoctor"
+
+import About from "./components/aboutus/about";
+
+import UpdateUserInfo from "./components/profile/updateuserinfo";
+
 
 const App = () => {
   return (
@@ -37,7 +42,11 @@ const App = () => {
           <Route exact path="/register" render={() => <SignUp />} />
           <Route exact path="/doctorProfile" render={() => <DoctorProfile />} />
           <Route exact path="/addyourstory" render={() => <AddStory />} />
-          <Route exact path="/editProfile" render={() => <UpdateDoctorProfile />} />
+          <Route
+            exact
+            path="/editProfile"
+            render={() => <UpdateDoctorProfile />}
+          />
 
           <Route exact path="/foodtracker" render={() => <FoodTracker />} />
 
@@ -45,6 +54,11 @@ const App = () => {
           <Route exact path="/accept" render={() => <Accept/>} />
           <Route exact path="/doctorInfo" render={()=> <Info />}/>
           <Route exact path="/accept/doctor/:doctor_id" render = {()=><AcceptDoctor/>}/>
+
+          <Route exact path="/about" render={() => <About />} />
+
+
+          <Route exact path="/edit/profile" render={() => <UpdateUserInfo />} />
 
         </Switch>
       </div>

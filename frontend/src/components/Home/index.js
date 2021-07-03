@@ -1,16 +1,19 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setStories } from "../../reducers/story";
 import health from "./health.jpg";
 import health2 from "./health2.png";
-import win from "./win.png"
-import food from "./food.png"
-import checklist from "./checklist.png"
-import rules from "./rules.png"
+import win from "./win.png";
+import food from "./food.png";
+import checklist from "./checklist.png";
+import rules from "./rules.png";
 
 import "./home.css";
 import happy from "./happy.jpg";
+
+
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -19,6 +22,7 @@ export default function Home() {
       .get(`http://localhost:5000/stories`)
       .then((result) => {
         dispatch(setStories(result.data));
+        localStorage.setItem("stories", JSON.stringify(result.data));
       })
       .catch((err) => {
         dispatch(setStories("some thing bad"));
@@ -30,7 +34,7 @@ export default function Home() {
       stories: state.storiesReducer.stories,
     };
   });
-  
+
   return (
     <div className="home">
       <section className="About">
@@ -59,7 +63,6 @@ export default function Home() {
         </div>
       </section>
 
-
       <section>
         <div className="line">
           <span className="welcome">OUR SERVICES</span>
@@ -67,7 +70,7 @@ export default function Home() {
         </div>
         <div className="allServices">
           <div className="once">
-            <img src ={rules} className="serviceImg" />
+            <img src={rules} className="serviceImg" />
             <h5>Follow the program</h5>
             <p>
               Even the all-powerful Pointing has no control about the blind
@@ -76,7 +79,7 @@ export default function Home() {
           </div>
           <div className="once">
             {" "}
-            <img src ={checklist} className="serviceImg" />
+            <img src={checklist} className="serviceImg" />
             <h5>Work for result</h5>
             <p>
               Even the all-powerful Pointing has no control about the blind
@@ -85,7 +88,7 @@ export default function Home() {
           </div>
           <div className="once">
             {" "}
-            <img src ={food}   className="serviceImg"/>
+            <img src={food} className="serviceImg" />
             <h5>Eat healthy food</h5>
             <p>
               Even the all-powerful Pointing has no control about the blind
@@ -94,7 +97,7 @@ export default function Home() {
           </div>
           <div className="once">
             {" "}
-            <img src ={win} className="serviceImg" />
+            <img src={win} className="serviceImg" />
             <h5>Enjoy your life</h5>
             <p>
               Even the all-powerful Pointing has no control about the blind
@@ -104,25 +107,98 @@ export default function Home() {
         </div>
       </section>
 
-
       <section className="stories">
         <span className="welcome">STORIES</span>
         <h3 className="h3">Successfull Stories</h3>
         <div className="storyCard">
-          {state.stories && state.stories.map((story, index) => {
-            return (
-              <ul key={index} className="ul">
-                {" "}
-                <img src={happy} alt="happy" />
-                <li>{story.description}</li>
-                <li>{story.lastName}</li>
-              </ul>
-            );
-          })}
+          {state.stories &&
+            state.stories.map((story, index) => {
+              return (
+                <ul key={index} className="ul">
+                  {" "}
+                  <img src={happy} alt="happy" />
+                  <li>{story.description}</li>
+                  <li>{story.lastName}</li>
+                </ul>
+              );
+            })}
         </div>
       </section>
 
-      
+
+      {/* footer */}
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css"></link>
+     
+ <footer class="footer-distributed">
+ 
+ <div class="footer-left">
+ 
+ <h3>Health<span>Care</span></h3>
+ 
+ <p class="footer-links">
+ <a href="/">Home</a>
+ ·
+ <a href="/doctor"> Our nutrition</a>
+ ·
+ <a href="/success">Stories</a>
+ ·
+ <a href="#">About</a>
+ ·
+ <a href="/logIn">logIn</a>
+ 
+ </p>
+ 
+ <p class="footer-company-name">The A_TEAM &copy; 2021</p>
+ </div>
+ 
+ <div class="footer-center">
+ 
+ <div>
+ <i class="fa fa-map-marker"></i>
+ <p><span>JORDAN</span> AMMAN</p>
+ </div>
+ 
+ <div>
+ <i class="fa fa-phone"></i>
+ <p>+962787878787</p>
+ </div>
+ 
+ <div>
+ <i class="fa fa-envelope"></i>
+ <p><a href="">Test</a></p>
+ </div>
+ 
+ </div>
+ 
+ <div class="footer-right">
+ 
+ <p class="footer-company-about">
+ <span>About the website</span>
+ physicians featured are in private practice and, as independent practitioners, are not agents or employees of our.
+ </p>
+ 
+ <div class="footer-icons">
+ 
+ <a href="#"><i class="fa fa-facebook"></i></a>
+ <a href="#"><i class="fa fa-linkedin"></i></a>
+ <a href="#"><i class="fa fa-github"></i></a>
+ 
+ </div>
+ 
+ </div>
+ 
+ </footer>
+
+
+
+
+
+
     </div>
+
+
+
+
   );
 }

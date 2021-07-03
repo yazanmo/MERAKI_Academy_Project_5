@@ -177,7 +177,7 @@ const updateActiveTime = (req, res) => {
 
 const deleteToBreakfast = (req, res) => {
   const user_id = req.token.id;
-  const id = req.body.id;
+  const id = req.params.id;
   const query = `DELETE FROM foodTraker WHERE breakfast_id = ? AND user_id= ?`;
   const data = [id, user_id];
   db.query(query, data, (err, result) => {
@@ -193,7 +193,7 @@ const deleteToBreakfast = (req, res) => {
 
 const deleteToSnack = (req, res) => {
   const user_id = req.token.id;
-  const id = req.body.id;
+  const id = req.params.id;
   const query = `DELETE FROM foodTraker WHERE snack_id = ? AND user_id= ?`;
   const data = [id, user_id];
   db.query(query, data, (err, result) => {
@@ -209,7 +209,7 @@ const deleteToSnack = (req, res) => {
 
 const deleteToLunch = (req, res) => {
   const user_id = req.token.id;
-  const id = req.body.id;
+  const id = req.params.id;
   const query = `DELETE FROM foodTraker WHERE lunch_id = ? AND user_id= ?`;
   const data = [id, user_id];
   db.query(query, data, (err, result) => {
@@ -225,7 +225,7 @@ const deleteToLunch = (req, res) => {
 
 const deleteToDinner = (req, res) => {
   const user_id = req.token.id;
-  const id = req.body.id;
+  const id = req.params.id;
   const query = `DELETE FROM foodTraker WHERE dinner_id = ? AND user_id= ?`;
   const data = [id, user_id];
   db.query(query, data, (err, result) => {
@@ -241,7 +241,7 @@ const deleteToDinner = (req, res) => {
 
 const deleteToGlassesOfWater = (req, res) => {
   const user_id = req.token.id;
-  const id = req.body.id;
+  const id = req.params.id;
   const query = `DELETE FROM foodTraker WHERE glassesOfWater_id = ? AND user_id= ?`;
   const data = [id, user_id];
   db.query(query, data, (err, result) => {
@@ -257,7 +257,7 @@ const deleteToGlassesOfWater = (req, res) => {
 
 const deleteToActiveTime = (req, res) => {
   const user_id = req.token.id;
-  const id = req.body.id;
+  const id = req.params.id;
   const query = `DELETE FROM foodTraker WHERE activeTime_id = ? AND user_id= ?`;
   const data = [id, user_id];
   db.query(query, data, (err, result) => {
@@ -270,49 +270,6 @@ const deleteToActiveTime = (req, res) => {
     });
   });
 };
-
-// const createFoodTracker = (req, res) => {
-//   const user_id = req.token.id;
-//   const { breakfast, snack, lunch, dinner, glassesOfWater, activeTime } =
-//     req.body;
-
-//   const query = `INSERT INTO foodTraker (breakfast,snack,lunch,dinner,glassesOfWater,activeTime,user_id) VALUES (?,?,?,?,?,?,?)`;
-//   const data = [
-//     breakfast,
-//     snack,
-//     lunch,
-//     dinner,
-//     glassesOfWater,
-//     activeTime,
-//     user_id,
-//   ];
-//   db.query(query, data, (err, result) => {
-//     if (err) res.status(500).send("insert is not done");
-//     res.status(200).json(result);
-//   });
-// };
-
-// const updateFoodTracker = (req, res) => {
-//   const user_id = req.token.id;
-//   const { breakfast, snack, lunch, dinner, glassesOfWater, activeTime } =
-//     req.body;
-//   const query = `UPDATE foodTraker SET
-//   breakfast=?,snack=?,lunch=?,dinner=?,glassesOfWater=?,activeTime=? WHERE user_id=?`;
-//   const data = [
-//     breakfast,
-//     snack,
-//     lunch,
-//     dinner,
-//     glassesOfWater,
-//     activeTime,
-//     user_id,
-//   ];
-
-//   db.query(query, data, (err, result) => {
-//     if (err) res.status(500).send("update is not done");
-//     res.status(200).json(result);
-//   });
-// };
 
 const getBreakfast = (req, res) => {
   const user_id = req.token.id;

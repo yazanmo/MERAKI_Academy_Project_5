@@ -18,6 +18,7 @@
 		"express": "^4.17.1",
 		"jsonwebtoken": "^8.5.1",
 		"mysql2": "^2.2.5",
+		"nodemon": "^2.0.9",
 		"react-redux": "^7.2.4",
 		"redux": "^4.1.0",
 		"request": "^2.88.2"

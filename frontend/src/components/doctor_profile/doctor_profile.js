@@ -3,6 +3,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setData} from "../../reducers/doctorProfile";
 import { useHistory } from "react-router-dom";
+import DeleteUser from "./deleteUser"
 const DoctorProfile = () => {
   
   const history = useHistory();
@@ -21,7 +22,7 @@ const DoctorProfile = () => {
         },
       })
       .then((result) => {        
-       
+       console.log(result.data)
         setResult(result.data[0])
         
         dispatch(setData(result.data[0]))
@@ -51,7 +52,14 @@ const DoctorProfile = () => {
         <p>{result.age}</p>
         <h3>Price :</h3>
         <p>{result.price}</p>
+        <h3>Description :</h3>
+        <p>{result.description}</p>
+        <h3>Qualifications :</h3>
+        <p>{result.Qualifications}</p>
+        <h3>PracticalExperiences :</h3>
+        <p>{result.practicalExperiences}</p>
         <button onClick={()=>{history.push("/editProfile")}}>edit</button>
+        <DeleteUser/>
       </div>
     </>
   );

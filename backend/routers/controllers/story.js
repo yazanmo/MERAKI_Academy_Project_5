@@ -1,3 +1,4 @@
+const { query } = require("./../../db/db");
 const db = require("./../../db/db");
 
 //as a user, I can add my story  to the success story
@@ -11,7 +12,10 @@ const createSuccessStory = (req, res) => {
   const arr = [description, user_id];
   db.query(command, arr, (err, result) => {
     if (err) res.status(400).send(err);
-    res.status(201).json(result);
+    const query = `SELECT * FROM Success`;
+    db.query(query, (err, result) => {
+      res.status(201).json(result);
+    });
   });
 };
 
