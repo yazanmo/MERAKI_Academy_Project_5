@@ -8,7 +8,6 @@ const Admin = () => {
     const [lastName, setLastName] = useState("");
     const [age, setAge] = useState(0);
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
     const [description, setdescription] = useState("");
     const [Qualifications, setQualifications] = useState("");
     const [practicalExperiences, setpracticalExperiences] = useState("");
@@ -24,7 +23,6 @@ const Admin = () => {
           lastName,
           age,
           email,
-          password,
           description,
           Qualifications,
           practicalExperiences,
@@ -73,15 +71,6 @@ const Admin = () => {
               setEmail(e.target.value);
             }}
           />
-          <input
-            type="password"
-            placeholder=" Password "
-            required
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-
            <input
             type="text"
             placeholder=" description "
@@ -115,7 +104,7 @@ const Admin = () => {
             }}
           />
           <button onClick={info}>ok</button>
-          <din className="info" ><p></p> </din>
+          <div className="info" ><p></p> </div>
   
         </form>
        

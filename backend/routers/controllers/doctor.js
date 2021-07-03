@@ -39,7 +39,6 @@ const allInfoOfDoctor = (req, res) => {
     lastName,
     age,
     email,
-    password,
     description,
     Qualifications,
     practicalExperiences,
@@ -50,17 +49,16 @@ const allInfoOfDoctor = (req, res) => {
     lastName,
     age,
     email,
-    password,
     description,
     Qualifications,
     practicalExperiences,
     qualificationsFile,
   ];
 
-  const { firstName, lastName, age, email,password,description,
+  const { firstName, lastName, age, email,description,
     Qualifications,practicalExperiences,qualificationsFile } = req.body;
     const arr = [
-      firstName, lastName, age, email,password,description,
+      firstName, lastName, age, email,description,
       Qualifications,practicalExperiences,qualificationsFile];
 
       const command = `INSERT INTO doctors  (firstName, lastName,age, description,email,
