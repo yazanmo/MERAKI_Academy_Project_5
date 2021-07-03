@@ -57,8 +57,15 @@ const allInfoOfDoctor = (req, res) => {
     qualificationsFile,
   ];
 
-  const command = `INSERT INTO doctors  (FirstName, lastName, description,email,
-        Qualifications,practicalExperiences,qualificationsFile) VALUES (?,?,?,?,?,?,?)`;
+  const { firstName, lastName, age, email,password,description,
+    Qualifications,practicalExperiences,qualificationsFile } = req.body;
+    const arr = [
+      firstName, lastName, age, email,password,description,
+      Qualifications,practicalExperiences,qualificationsFile];
+
+      const command = `INSERT INTO doctors  (firstName, lastName,age, description,email,
+        Qualifications,practicalExperiences,qualificationsFile) VALUES (?,?,?,?,?,?,?,?)`;
+        
 
   db.query(command, arr, (err, result) => {
     if (err) res.status(400).send(err);

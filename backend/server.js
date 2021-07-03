@@ -11,7 +11,7 @@ const cors = require("cors");
 const registerRouter = require("./routers/routes/auth/signUp");
 const loginRouter = require("./routers/routes/auth/login");
 const registerDoctorRouter = require("./routers/routes/dashboard");
-
+const acceptDoctorRouter = require("./routers/routes/acceptDoctor")
 const doctorDetailsRouter=require('./routers/routes/doctorProfile')
 
 const storyRouter = require("./routers/routes/story")
@@ -37,7 +37,7 @@ app.use(cors());
 app.use(registerRouter);
 app.use(loginRouter);
 app.use(registerDoctorRouter);
-
+app.use(acceptDoctorRouter)
 
 app.use(reviewRouter)
 app.use(storyRouter)
