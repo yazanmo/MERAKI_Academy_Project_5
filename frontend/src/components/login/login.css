@@ -1,3 +1,8 @@
+.login-parent {
+  display: flex;
+  flex-direction: row;
+}
+
 .login {
   background-color: rgb(255, 255, 255);
   display: flex;
@@ -6,7 +11,7 @@
   justify-content: center;
   gap: 1rem;
   width: max-content;
-  padding: 8rem 5rem;
+  padding: 4rem 4rem;
   margin: auto;
   margin-top: 7rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px;
@@ -27,7 +32,10 @@
 .login button:hover {
   background-color: rgb(83, 83, 83);
 }
-
+.login img {
+  height: 40%;
+  width: 50%;
+}
 .login p {
   margin-top: "5px";
   font-weight: "bold";

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setToken } from "./../../reducers/login";
 import { Link, useHistory } from "react-router-dom";
 import "./login.css";
+import Logo from "./../../components/logo.png";
 const Login = () => {
   const history = useHistory();
   const [email, setEmail] = useState();
@@ -26,6 +27,7 @@ const Login = () => {
   };
   return (
     <div className="login">
+      <img src={Logo} />
       <input
         onChange={(e) => {
           setEmail(e.target.value);
@@ -40,7 +42,7 @@ const Login = () => {
         type="password"
         placeholder="Enter Password Here"
       />
-      <button onClick={signIn}>Sign-In</button>
+      <button onClick={signIn}>Login</button>
       <p>
         {" "}
         Do not have an account ?
