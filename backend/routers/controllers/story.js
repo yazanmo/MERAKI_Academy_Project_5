@@ -22,7 +22,7 @@ const createSuccessStory = (req, res) => {
 //As a user, I should be able to get all successful stories
 
 const getAllSuccessStories = (req, res) => {
-  const command = `SELECT users.lastName ,Success.description  FROM Success INNER JOIN users ON users.id=Success.user_id WHERE Success.is_deleted=0 `;
+  const command = `SELECT users.lastName,users.firstName ,users.img ,Success.description  FROM Success INNER JOIN users ON users.id=Success.user_id WHERE Success.is_deleted=0 `;
   db.query(command, (err, result) => {
     if (err) res.status(404).send(err);
     res.status(200).json(result);

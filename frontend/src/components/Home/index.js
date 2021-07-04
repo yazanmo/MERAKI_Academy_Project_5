@@ -37,6 +37,7 @@ export default function Home() {
 
   return (
     <div className="home">
+
       <section className="About">
         <img className="img" src={health} alt="healthy life" />
         <div className="paragraph">
@@ -116,9 +117,13 @@ export default function Home() {
               return (
                 <ul key={index} className="ul">
                   {" "}
-                  <img src={happy} alt="happy" />
-                  <li>{story.description}</li>
+                  <img className="happyMan" src={happy} alt="happy" />
+                  {/* <img src="story.img" alt="happy" />  */}
+                  <li className="description">{story.description}</li>
+                  <div className="name">
+                  <li >{story.firstName}</li>
                   <li>{story.lastName}</li>
+                  </div>
                 </ul>
               );
             })}
