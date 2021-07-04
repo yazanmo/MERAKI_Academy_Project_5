@@ -4,7 +4,7 @@ import "./doctorinfo.css";
 
 
 const Admin = () => {
-    const [FirstName, setFirstName] = useState("");
+    const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [age, setAge] = useState(0);
     const [email, setEmail] = useState("");
@@ -19,7 +19,7 @@ const Admin = () => {
        
       axios
         .post("http://localhost:5000/info", {
-          FirstName,
+          firstName,
           lastName,
           age,
           email,
@@ -29,7 +29,10 @@ const Admin = () => {
           qualificationsFile
         })
         .then((result) => {
+
           console.log(result.data);
+          console.log("email:", email);
+          console.log("description:", description);
         })
         .catch((err) => {
           

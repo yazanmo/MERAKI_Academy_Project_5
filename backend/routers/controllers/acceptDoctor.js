@@ -22,6 +22,7 @@ const acceptDoctor = async (req, res) => {
 
     //insert doctor info to users table
     const command1 = `INSERT INTO users (firstName,lastName,age,email,password,role_id) VALUES (?,?,?,?,?,2)`;
+
     db.query(command1, arr1, (err, result) => {
       if (err) return res.send(err);
     });

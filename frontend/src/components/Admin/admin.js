@@ -16,6 +16,11 @@ const Accept = () => {
   useEffect(() => {
     axios.get(`http://localhost:5000/doctoradmin`)
       .then((response) => {
+        if (info) {
+          setInfo(false);
+        } else {
+          setInfo(true);
+        }
         
         setDoctor(response.data)
         
@@ -28,11 +33,12 @@ const Accept = () => {
 const deleteComment = (doctor_id)=>{
     setId(doctor_id)
     axios.put("http://localhost:5000/doctordelete",{id}).then((res)=>{
-        if (info) {
-            setInfo(false);
-          } else {
-            setInfo(true);
-          }
+      if (info) {
+        setInfo(false);
+      } else {
+        setInfo(true);
+      }
+     
     }).catch((err)=>{
       
     })
