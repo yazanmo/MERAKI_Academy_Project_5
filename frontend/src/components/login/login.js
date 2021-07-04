@@ -41,11 +41,14 @@ const Login = () => {
         placeholder="Enter Password Here"
       />
       <button onClick={signIn}>Sign-In</button>
-      <p style={{ marginTop: "20px", fontStyle: "bold" }}>
+      <p>
         {" "}
         Do not have an account ?
         <span>
-          <Link to="/register"> Sign Up</Link>
+          <Link className="render" to="/register">
+            {" "}
+            Sign Up
+          </Link>
         </span>
       </p>{" "}
     </div>

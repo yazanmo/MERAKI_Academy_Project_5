@@ -24,3 +24,20 @@
   color: white;
   cursor: pointer;
 }
+.login button:hover {
+  background-color: rgb(83, 83, 83);
+}
+
+.login p {
+  margin-top: "5px";
+  font-weight: "bold";
+  color: black;
+}
+.login p span Link {
+  color: rgb(51, 47, 47);
+}
+
+.render {
+  color: rgb(51, 47, 47);
+  text-decoration: none;
+}
