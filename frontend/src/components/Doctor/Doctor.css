@@ -1,6 +1,12 @@
 .parant-Doctor {
     box-sizing: border-box;
     padding: 40px;
+    display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   }
 
   .childDoctor{
@@ -35,9 +41,9 @@
   }
 
   .childDoctor .par p{
-      height: 100px;
-      width: 200px;
-      background-color: rgb(0, 0, 0);
+      height: 30px;
+      width: 270px;
+     
   }
 
 
