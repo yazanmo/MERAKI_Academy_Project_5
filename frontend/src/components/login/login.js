@@ -3,7 +3,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setToken } from "./../../reducers/login";
 import { Link, useHistory } from "react-router-dom";
-
+import "./login.css";
 const Login = () => {
   const history = useHistory();
   const [email, setEmail] = useState();
@@ -25,7 +25,7 @@ const Login = () => {
       });
   };
   return (
-    <>
+    <div className="login">
       <input
         onChange={(e) => {
           setEmail(e.target.value);
@@ -41,16 +41,14 @@ const Login = () => {
         placeholder="Enter Password Here"
       />
       <button onClick={signIn}>Sign-In</button>
-      <din className="singUp">
-        <p style={{ marginTop: "20px", fontStyle: "bold" }}>
-          {" "}
-          Do not have an account ?
-          <span>
-            <Link to="/register"> Sign Up</Link>
-          </span>
-        </p>{" "}
-      </din>
-    </>
+      <p style={{ marginTop: "20px", fontStyle: "bold" }}>
+        {" "}
+        Do not have an account ?
+        <span>
+          <Link to="/register"> Sign Up</Link>
+        </span>
+      </p>{" "}
+    </div>
   );
 };
 

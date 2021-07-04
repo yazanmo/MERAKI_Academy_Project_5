@@ -39,6 +39,7 @@ const UpdateUserInfo = () => {
   return (
     <div class="update-profile">
       <img src={userInfo.img} />
+      2222222222]**/\][;lkjnbfdsa]
       <input
         placeholder={userInfo.email}
         defaultValue={userInfo.email}
