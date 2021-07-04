@@ -4,10 +4,28 @@
   }
 
   .childDoctor{
-      width:250px;
-      background-color:aqua;
+      width:270px;
+      background-color:rgb(54, 48, 48);
+      border-radius: 10px;
   }
-  .doctorImg{
-      height: 400px;
+.imag {
+    width:270px;
+    height:300px;
+    border-radius: 10px;
+}
+
+  .imag img{
+      height: 300px;
       width:100%;
+      border-radius:10px 10px 0 0;
+  }
+  .par{
+      position:absolute;
+      justify-content: center;
+      text-align: center;
+      width:250px;
+  }
+  .par h2{
+      margin:8px;
+      
   }

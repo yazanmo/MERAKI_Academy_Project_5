@@ -79,11 +79,11 @@ const Doctor = () => {
             }
           }}
         />
-        <div>
+        <div className="parant-Doctor">
           {DoctorName &&
             DoctorName.map((element, index) => {
               return (
-                <div
+                <div className="childDoctor"
                   onClick={() => {
                     func(element.id);
                   }}
@@ -91,7 +91,7 @@ const Doctor = () => {
                   <p>
                     {element.firstName} {element.lastName}
                   </p>
-                  <img className="doctorImg" src={element.img} />
+                  <img className="doctorImg" style={{"height":"100px","width":"100%"}} src={element.img} />
                 </div>
               );
             })}
@@ -133,7 +133,7 @@ const Doctor = () => {
                   <h2>
                     {elem.firstName} {elem.lastName}
                   </h2>
-                  <h2>{elem.price}</h2>
+                  <h2>{elem.price+" $"}</h2>
                   <p>{elem.description}</p>
                   <button
                     onClick={() => {
