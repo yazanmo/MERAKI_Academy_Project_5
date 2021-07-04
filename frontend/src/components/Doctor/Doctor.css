@@ -5,11 +5,12 @@
 
   .childDoctor{
       width:270px;
-      background-color:rgb(54, 48, 48);
+      height: 470px;
       border-radius: 10px;
+      box-shadow: 1px 1px 1px 1px rgb(168, 183, 189);
   }
 .imag {
-    width:270px;
+    width:100%;
     height:300px;
     border-radius: 10px;
 }
@@ -20,12 +21,27 @@
       border-radius:10px 10px 0 0;
   }
   .par{
+      
       position:absolute;
       justify-content: center;
       text-align: center;
-      width:250px;
+      width:270px;
+      height:150px;
+      border-radius: 10px;
   }
   .par h2{
       margin:8px;
       
+  }
+  .par button{
+margin-top: 20px;
+border-radius: 10px;
+width:150px;
+height: 40px;
+background-color: #33383b;
+color:#fff;
+font-size:larger;
+  }
+  .par button:hover{
+cursor: pointer;
   }
