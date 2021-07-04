@@ -91,7 +91,7 @@ const Doctor = () => {
                   <p>
                     {element.firstName} {element.lastName}
                   </p>
-                  <img src={element.img} />
+                  <img className="doctorImg" src={element.img} />
                 </div>
               );
             })}
@@ -101,7 +101,7 @@ const Doctor = () => {
       {filter &&
         filter.map((elem, i) => {
           return (
-            <div className="childrestaurant" key={i}>
+            <div className="childDoctor" key={i}>
               <div className="par">
                 <h2>
                   {elem.firstName} {elem.lastName}
@@ -121,7 +121,7 @@ const Doctor = () => {
           );
         })}
 
-      <div className="parantDoctor">
+      <div className="parant-Doctor">
         {Doctor &&
           Doctor.map((elem, i) => {
             return (

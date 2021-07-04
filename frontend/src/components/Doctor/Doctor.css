@@ -1,0 +1,13 @@
+.parant-Doctor {
+    box-sizing: border-box;
+    padding: 40px;
+  }
+
+  .childDoctor{
+      width:250px;
+      background-color:aqua;
+  }
+  .doctorImg{
+      height: 400px;
+      width:100%;
+  }
