@@ -48,7 +48,7 @@ const deleteComment = (doctor_id)=>{
 
   return (
     <>
-      <div className="parantDoctor">
+      <div className="parant">
         {Doctor && Doctor.map((elem, i) => {
           return (<div className="childDoctor" key={i} >
               
