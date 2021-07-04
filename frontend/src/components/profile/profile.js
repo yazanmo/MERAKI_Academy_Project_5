@@ -25,46 +25,61 @@ function Profile() {
   });
 
   return (
-    <div>
-      <div>
-        {result.img == "" ? (
-          <img src="https://img.icons8.com/office/80/000000/test-account.png" />
-        ) : (
-          <img src={result.img} />
-        )}
+    <div className="profile-page">
+      <div className="buttons">
+        <div className="buttons-child-1">
+          <button
+            onClick={() => {
+              history.push("./create/stories");
+            }}
+          >
+            you story
+          </button>
+          <button
+            onClick={() => {
+              history.push("./foodtracker");
+            }}
+          >
+            your food
+          </button>
+        </div>
+        <div className="buttons-child-2">
+          <DeleteUser />
+          <button
+            onClick={() => {
+              history.push("/edit/profile");
+            }}
+          >
+            update
+          </button>
+        </div>
       </div>
-      <div>
-        <p>{result.firstName}</p>
-        <p>{result.lastName}</p>
-        <p>{result.age}</p>
-        <p>{result.email}</p>
+      <div className="profile">
+        <div>
+          {result.img == "" ? (
+            <img src="https://img.icons8.com/office/80/000000/test-account.png" />
+          ) : (
+            <img src={result.img} />
+          )}
+        </div>
+        <div className="profile-info">
+          <p>
+            <span>FirstName: </span>
+            {result.firstName}
+          </p>
+          <p>
+            <span>LastName: </span> {result.lastName}
+          </p>
+          <p>
+            <span>Age: </span>
+            {result.age}
+          </p>
+          <p>
+            <span>Email: </span>
+            {result.email}
+          </p>
+        </div>
       </div>
-
-      <button
-        onClick={() => {
-          history.push("./create/stories");
-        }}
-      >
-        you story
-      </button>
-      <button
-        onClick={() => {
-          history.push("./foodtracker");
-        }}
-      >
-        your food
-      </button>
-      <br />
-      <br />
-      <br />
-      <DeleteUser />
-      <button
-        onClick={() => {
-          history.push("/edit/profile");
-        }}
-      >
-        update
-      </button>
     </div>
   );
 }
