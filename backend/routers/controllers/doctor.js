@@ -55,12 +55,6 @@ const allInfoOfDoctor = (req, res) => {
     qualificationsFile,
   ];
 
-  const { firstName, lastName, age, email,description,
-    Qualifications,practicalExperiences,qualificationsFile } = req.body;
-    const arr = [
-      firstName, lastName, age, email,description,
-      Qualifications,practicalExperiences,qualificationsFile];
-
       const command = `INSERT INTO doctors  (firstName, lastName,age, description,email,
         Qualifications,practicalExperiences,qualificationsFile) VALUES (?,?,?,?,?,?,?,?)`;
         
