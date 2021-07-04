@@ -3,17 +3,22 @@
     padding: 40px;
     display: grid;
   grid-template-columns: auto auto auto;
-  gap: 10px;
+  gap:85px;
   justify-content: center;
   align-items: center;
   text-align: center;
   }
 
   .childDoctor{
-      width:270px;
-      height: 470px;
+      width:300px;
+      height: 490px;
       border-radius: 10px;
       box-shadow: 1px 1px 1px 1px rgb(168, 183, 189);
+  }
+  .childDoctor:hover{
+    background-color:#a8bdec;;
+    transition: 0.5s;
+
   }
 .imag {
     width:100%;
@@ -32,18 +37,19 @@
       position:absolute;
       justify-content: center;
       text-align: center;
-      width:270px;
-      height:150px;
+      width:300px;
+      height:189px;
       border-radius: 10px;
+     
   }
+  
   .par h2{
       margin:8px;  
   }
 
   .childDoctor .par p{
-      height: 30px;
-      width: 270px;
-     
+      height: 45px;
+      width: 300px;
   }
 
 
