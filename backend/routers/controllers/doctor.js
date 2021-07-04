@@ -34,31 +34,18 @@ const getDoctorById = (req, res) => {
 };
 
 const allInfoOfDoctor = (req, res) => {
-  const {
-    FirstName,
-    lastName,
-    age,
-    email,
-    description,
-    Qualifications,
-    practicalExperiences,
-    qualificationsFile,
-  } = req.body;
-  const arr = [
-    FirstName,
-    lastName,
-    age,
-    email,
-    description,
-    Qualifications,
-    practicalExperiences,
-    qualificationsFile,
-  ];
 
-      const command = `INSERT INTO doctors  (firstName, lastName,age, description,email,
+  const { firstName, lastName, age, email,description,
+    Qualifications,practicalExperiences,qualificationsFile } = req.body;
+    const arr = [
+      firstName, lastName, age, email,description,
+      Qualifications,practicalExperiences,qualificationsFile];
+
+      const command = `INSERT INTO doctors  (firstName, lastName,age, email,description,
         Qualifications,practicalExperiences,qualificationsFile) VALUES (?,?,?,?,?,?,?,?)`;
         
-
+console.log(firstName, lastName,age, email,description,
+  Qualifications,practicalExperiences,qualificationsFile)
   db.query(command, arr, (err, result) => {
     if (err) res.status(400).send(err);
     res.status(201).json(result);

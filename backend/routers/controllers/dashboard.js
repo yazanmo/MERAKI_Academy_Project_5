@@ -88,7 +88,7 @@ const creatAdmin = async (req, res) => {
       img,
       role_id
     ];
-   const command = `INSERT INTO users (firstName,lastName,age,email,password,img,role_id) VALUES (?,?,?,?,?,?,?);`;
+   const command = `INSERT INTO users (firstName,lastName,age,email,password,img,role_id) VALUES (?,?,?,?,?,?,3);`;
   db.query(command,arr,(err,result)=>{
 if (err) res.send(err)
 res.json(result)

@@ -28,7 +28,7 @@ setMessage("added successfully")
 
     return (
         <div>
-            <p>hiiiiiiiiii</p>
+          
             <input type="text" placeholder="password here"  onChange={(e)=>{setPassword(e.target.value)} }/>
             <button onClick={ add }>ADD DOCTOR</button>
             <p>{message}</p>
