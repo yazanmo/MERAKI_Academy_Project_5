@@ -72,7 +72,7 @@ export default function Home() {
           <div className="once">
             <img src={rules} className="serviceImg" />
             <h4>Follow the program</h4>
-            <p>
+            <p className="servicesParagraph">
               Even the all-powerful Pointing has no control about the blind
               texts it is an almost unorthographic.
             </p>
@@ -81,7 +81,7 @@ export default function Home() {
             {" "}
             <img src={checklist} className="serviceImg" />
             <h4>Work for result</h4>
-            <p>
+            <p className="servicesParagraph">
               Even the all-powerful Pointing has no control about the blind
               texts it is an almost unorthographic.
             </p>
@@ -90,7 +90,7 @@ export default function Home() {
             {" "}
             <img src={food} className="serviceImg" />
             <h4>Eat healthy food</h4>
-            <p>
+            <p className="servicesParagraph">
               Even the all-powerful Pointing has no control about the blind
               texts it is an almost unorthographic.
             </p>
@@ -99,7 +99,7 @@ export default function Home() {
             {" "}
             <img src={win} className="serviceImg" />
             <h4>Enjoy your life</h4>
-            <p>
+            <p className="servicesParagraph">
               Even the all-powerful Pointing has no control about the blind
               texts it is an almost unorthographic.
             </p>
