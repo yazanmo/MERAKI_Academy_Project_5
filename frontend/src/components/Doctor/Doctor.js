@@ -125,7 +125,9 @@ const Doctor = () => {
         {Doctor &&
           Doctor.map((elem, i) => {
             return (
-              <div className="childDoctor" key={i}>
+              <div className="childDoctor" onClick={() => {
+                func(elem.id);
+              }} key={i}>
                 <div className="imag">
                   <img src={`${elem.img}`} />
                 </div>
