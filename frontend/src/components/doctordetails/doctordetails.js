@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-
+import Rating from "./Rating";
 import { createTodo, setTodos } from "./../../reducers/review";
 import  "./doctordetails.css";
 
@@ -159,7 +159,7 @@ const DoctorDetails = () => {
           {role_id == 2 ? ("" ) : (
             <>
               <textarea
-                className="input-coment1" onChange={(e) => {setComment(e.target.value); }}
+                className="input-coment1" placeholder="Comment Here" onChange={(e) => {setComment(e.target.value); }}
                 ></textarea>
               <input className="input-coment"
                  onChange={(e) => {setRating(e.target.value)}}
@@ -183,18 +183,18 @@ const DoctorDetails = () => {
           {allComment.map((element, index) => {
             return (
               <div className="cmt" key={index + 1}>
+                 <img className="commenterimg"  src={element.img} style={{ width: "7.5%", height: "7.5%" ,borderRadius: "5px" }} />
                 <div className="parent1-commint">
-                <div className="commenter-details">
-
-                <img className="commenterimg"  src={element.img} style={{ width: "45px", height: "35px" ,borderRadius: "20px" }} />
-                <br></br>
-                <br></br>
-                <h1 className="commenter"  >{element.firstName}  {element.lastName}</h1> 
-                <p>{element.rating}</p>
-                </div>
                
-
+                <div className="commenter-details">
+                
+                <h3 className="commenter" >{element.firstName} {element.lastName}</h3> 
+                
+                </div>
+                <p>{element.rating}</p>
                 {updateComment == false ? (
+                 
+
                   <p className="coment">{element.comment}</p> ) : (
                   <div>
                     {element.commenter_id == commenter_id ? (
@@ -210,13 +210,14 @@ const DoctorDetails = () => {
                   
                 )}
                 {element.commenter_id == commenter_id ? (
-                  <><img onClick={() => {deleteComment(element.id);}} style={{ width: "30px", height: "30px"  }} src="https://img.icons8.com/ios/50/000000/delete-forever--v1.png"/>
+                  <div className="upd-delete">
+                  <img onClick={() => {deleteComment(element.id);}} style={{ width: "30px", height: "30px"  }} src="https://img.icons8.com/ios/50/000000/delete-forever--v1.png"/>
                   
                     {updateComment == false ? (
                          <img onClick={() => {setUpdateComment(true);}} style={{ width: "30px", height: "30px"  }} src="https://img.icons8.com/wired/50/000000/edit.png"/>
    
                     ) : ("")}
-                  </>
+                  </div>
                   
                 ) : ("")}
                 </div>

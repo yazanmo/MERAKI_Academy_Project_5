@@ -57,11 +57,12 @@
 .parent1-commint{
 
   display: grid;
-  grid-template-columns: 50% 60% 1% 2%;
-    gap: 150px;
-    margin-top: 180px;
-    margin-left: 150px;
-    margin-right: 50%;
+    grid-template-rows: auto auto auto;
+    grid-gap: 150px;
+    grid-gap: 150px;
+    gap: 15px;
+    margin-left: 20%;
+    margin-right: 12%;
 
 }
 
@@ -79,7 +80,7 @@
     width: auto;
     position: absolute;
     left: 76%;
-    bottom: 25px;
+    bottom: 195px;
 }
 .btn-1::after {
   content: "$";
@@ -105,9 +106,13 @@
 }
 
 .cmt{
-  padding: 25px;
-  margin-top: 10px;
+  padding: 10px;
+  margin-left: 40%;
+  margin-right: 10%;
+  margin-top: 185px;
+  box-shadow: -1 1px 6px -12px rgb(0 0 0 / 47%);
 }
+
 
 
 
@@ -208,7 +213,6 @@
 }
 
 .commenter{
-  margin: auto;
     font-size: 25px;
 }
 
@@ -219,15 +223,14 @@
  
 }
 
-.commenter-details{
+/* .commenter-details{
 
   display: grid;
   grid-template-columns: 50% 60%;
-  gap: 30px;
-}
+  gap: 50px;
+} */
 .coment{
 
-  margin: auto;
     font-size: 25px;
 }
 
@@ -248,3 +251,4 @@
   position: absolute;
   top:101%
 }
+
