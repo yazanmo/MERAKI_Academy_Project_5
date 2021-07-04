@@ -158,21 +158,16 @@ const DoctorDetails = () => {
         <>
           {role_id == 2 ? ("" ) : (
             <>
-              <input
-                className="input-comment"
-                onChange={(e) => {
-                  setComment(e.target.value);
-                }}
-              />
-              <input
-                className="input-comment" onChange={(e) => {setRating(e.target.value)}}
+              <textarea
+                className="input-coment1" onChange={(e) => {setComment(e.target.value); }}
+                ></textarea>
+              <input className="input-coment"
+                 onChange={(e) => {setRating(e.target.value)}}
               />
             </>
           )}
         </>
-      ) : (
-        ""
-      )}
+      ) : ("")}
       {token ? (
         <>
           {" "}
@@ -189,21 +184,25 @@ const DoctorDetails = () => {
             return (
               <div className="cmt" key={index + 1}>
                 <div className="parent1-commint">
-                <div className="commenter">
-                <h1 className="commenter"  >{element.firstName}{element.lastName}</h1> 
-                <img className="commenterimg"  src={element.img} style={{ width: "75px", height: "75px" ,borderRadius: "20px" }} />
-                </div>
+                <div className="commenter-details">
+
+                <img className="commenterimg"  src={element.img} style={{ width: "45px", height: "35px" ,borderRadius: "20px" }} />
+                <br></br>
+                <br></br>
+                <h1 className="commenter"  >{element.firstName}  {element.lastName}</h1> 
                 <p>{element.rating}</p>
+                </div>
+               
 
                 {updateComment == false ? (
-                  <p>{element.comment}</p> ) : (
+                  <p className="coment">{element.comment}</p> ) : (
                   <div>
                     {element.commenter_id == commenter_id ? (
                       <>
                         <textarea
                           onChange={(e) => {setUpdateCommentText(e.target.value);}}defaultValue={element.comment}
                         ></textarea>
-                        <img onClick={() => {updateComments(element.id);}} src="https://img.icons8.com/wired/50/000000/edit.png"/>
+                        <img onClick={() => {updateComments(element.id);}} style={{ width: "30px", height: "30px"  }} src="https://img.icons8.com/wired/50/000000/edit.png"/>
                        
                       </>) : ( "")}
                     
@@ -211,10 +210,10 @@ const DoctorDetails = () => {
                   
                 )}
                 {element.commenter_id == commenter_id ? (
-                  <><img onClick={() => {deleteComment(element.id);}} src="https://img.icons8.com/ios/50/000000/delete-forever--v1.png"/>
-                    <br />
+                  <><img onClick={() => {deleteComment(element.id);}} style={{ width: "30px", height: "30px"  }} src="https://img.icons8.com/ios/50/000000/delete-forever--v1.png"/>
+                  
                     {updateComment == false ? (
-                         <img onClick={() => {setUpdateComment(true);}} src="https://img.icons8.com/wired/50/000000/edit.png"/>
+                         <img onClick={() => {setUpdateComment(true);}} style={{ width: "30px", height: "30px"  }} src="https://img.icons8.com/wired/50/000000/edit.png"/>
    
                     ) : ("")}
                   </>

@@ -56,11 +56,11 @@
 
 .parent1-commint{
 
-  display: flex;
-    grid-template-rows: -23% -5%;
-    gap: 70px;
-    margin-top: 68px;
-    margin-left: 171px;
+  display: grid;
+  grid-template-columns: 50% 60% 1% 2%;
+    gap: 150px;
+    margin-top: 180px;
+    margin-left: 150px;
     margin-right: 50%;
 
 }
@@ -114,7 +114,7 @@
 
 .btnCommant {
     
-  margin-top: 100px;
+  margin-top: 69px;
   border-radius: 4px;
   background-color: #5383d3;
   border: none;
@@ -131,9 +131,10 @@
 
 .btnCommant{
   cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+    display: inline-block;
+    position: absolute;
+    transition: 0.5s;
+    left: 61.9%;
 }
 
 .btnCommant:after {
@@ -207,7 +208,8 @@
 }
 
 .commenter{
-  font-size: 30px;
+  margin: auto;
+    font-size: 25px;
 }
 
 .commenterimg{
@@ -215,4 +217,34 @@
   position: absolute;
  
  
+}
+
+.commenter-details{
+
+  display: grid;
+  grid-template-columns: 50% 60%;
+  gap: 30px;
+}
+.coment{
+
+  margin: auto;
+    font-size: 25px;
+}
+
+.input-coment1,.input-coment{
+
+  margin-left: 50%;
+}
+
+
+.input-coment1{
+
+  position: absolute;
+  top:105%
+}
+
+.input-coment{
+
+  position: absolute;
+  top:101%
 }
