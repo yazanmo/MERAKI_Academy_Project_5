@@ -41,7 +41,7 @@ const Navigation = () => {
               <li>
                 {" "}
                 <Link to="/doctor" className="links">
-                  Our nutrition
+                  Our nutritionist
                 </Link>{" "}
               </li>
               <li>

@@ -10,7 +10,6 @@ export default function AcceptDoctor() {
     const [message, setMessage] = useState("")
 
 const add =  ()=>{
-    console.log("addddddddd");
     axios.post(`http://localhost:5000/accept/doctor/${doctor_id}`,{
     doctor_id,  
     password
@@ -24,6 +23,13 @@ setMessage("added successfully")
         console.log(err);
         setMessage("not added")
     })
+
+
+    axios.post(`http://localhost:5000/email`,{
+        doctor_id,
+        password
+    })
+
 }
 
     return (
