@@ -219,7 +219,8 @@ CREATE TABLE schedule(
 id INT AUTO_INCREMENT NOT NULL,
 doctor_id INT ,
 user_id INT,
-date DATETIME ,
+time Varchar(255),
+date DATE ,
 FOREIGN KEY (user_id) REFERENCES users(id),
 FOREIGN KEY (doctor_id) REFERENCES doctorsDetails(id),
 PRIMARY KEY (id)
