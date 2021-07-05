@@ -17,6 +17,7 @@ const Doctor = () => {
       .get(`http://localhost:5000/doctor`, { num1, num2 })
       .then((response) => {
         setDoctor(response.data);
+        console.log("doctor",response.data);
       })
       .catch((err) => {});
   }, []);
@@ -57,9 +58,12 @@ const Doctor = () => {
 
   //admin can delete any doctor
   const deleteDoctor = (id) => {
+    console.log("dellllllete",id);
     axios
       .put(`http://localhost:5000/admin/delete/${id}`)
       .then((result) => {
+        history.push("/adminPage")
+
         console.log(result);
       })
       .catch((err) => {
@@ -168,7 +172,7 @@ const Doctor = () => {
                   {role_id == 3 ? (
                     <button
                       onClick={() => {
-                        deleteDoctor(elem.id);
+                        deleteDoctor(elem.user_id);
                       }}
                     >
                       delete{" "}

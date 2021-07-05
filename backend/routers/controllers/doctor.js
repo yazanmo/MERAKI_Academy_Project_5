@@ -92,16 +92,23 @@ const searchDoctor = (req, res) => {
 const deleteDoctorUsers = (req,res)=>{
   const id = req.params.id
   const arr =[id]
-  const command = `UPDATE users SET is_deleted=1 WHERE users.id = ?`
+  const command = `UPDATE users SET is_deleted = 1 WHERE id = ? `
   db.query(command,arr,(err,result)=>{
     if (err) {
       console.log(err);
       return res.send(err);
     }
-    res.status(200).json(result);
+    const command = `UPDATE doctorsDetails SET is_deleted = 1 WHERE user_id = ? `
+    db.query(command,arr,(err,result)=>{
+      if (err) {
+        console.log(err);
+        return res.send(err);
+      }
+      res.status(200).json(result)
   })
 
-}
+  
+})}
 
 module.exports = {
   getAllDoctors,

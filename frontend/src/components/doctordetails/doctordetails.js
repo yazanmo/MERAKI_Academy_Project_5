@@ -135,7 +135,7 @@ const DoctorDetails = () => {
         <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css"></link>
         <div className="parent"> 
       <div className="img1">
-        <img src={result.img} style={{ width: "300px", height: "500px" ,borderRadius: "20px" }} />
+        <img src={ result.img ? result.img: <></>} style={{ width: "300px", height: "500px" ,borderRadius: "20px" }} />
       </div>
       <div className="all-details">
       <div className="doctor-details">
