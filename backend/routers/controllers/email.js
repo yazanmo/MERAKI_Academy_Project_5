@@ -5,7 +5,15 @@ const nodemailer = require("nodemailer");
 
 
 const sendEmil = (req, res) => {
-  const { receiverEmail, password } = req.body;
+  const { doctor_id, password } = req.body;
+const arr= [doctor_id]
+let receiverEmail = null 
+  const command = `SELECT * FROM doctors WHERE doctor_id = ?`;
+  db.query(command,arr,(err,result)=>{
+      if (err)  res.status(500).send(err)
+      receiverEmail= result[0].email,
+      res.json(result)
+  })
 
   let transporter = nodemailer.createTransport({
     service: "gmail",
