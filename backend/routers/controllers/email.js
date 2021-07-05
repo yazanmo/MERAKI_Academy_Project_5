@@ -4,7 +4,7 @@ const nodemailer = require("nodemailer");
 //send email for doctors
 
 
-const sendEmil = (req, res) => {
+const sendEmail = (req, res) => {
   const { doctor_id, password } = req.body;
 const arr= [doctor_id]
 let receiverEmail = null 
@@ -38,6 +38,6 @@ transporter.sendMail(mailOptions,(err,data)=>{
 
 };
 
-module.exports = {sendEmil}
+module.exports = {sendEmail }
 
 
