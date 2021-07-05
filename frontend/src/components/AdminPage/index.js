@@ -1,11 +1,11 @@
-import React from 'react'
-
+import React from "react";
+import { Link } from "react-router-dom";
 export default function AdminPage() {
     return (
         <div>
-            <link >new request</link>
-            <link >nutritionist</link>
-            <link >users</link>
+            <Link  to="/accept" >new request</Link>
+            <Link to="/doctor">nutritionist</Link>
+            <Link>users</Link>
         </div>
     )
 }
