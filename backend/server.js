@@ -13,7 +13,7 @@ const loginRouter = require("./routers/routes/auth/login");
 const registerDoctorRouter = require("./routers/routes/dashboard");
 const acceptDoctorRouter = require("./routers/routes/acceptDoctor")
 const doctorDetailsRouter=require('./routers/routes/doctorProfile')
-
+const sendEmailRouter =require("./routers/routes/email")
 const storyRouter = require("./routers/routes/story")
 
 
@@ -38,7 +38,7 @@ app.use(registerRouter);
 app.use(loginRouter);
 app.use(registerDoctorRouter);
 app.use(acceptDoctorRouter)
-
+app.use(sendEmailRouter)
 app.use(reviewRouter)
 app.use(storyRouter)
 app.use(doctorDetailsRouter)
