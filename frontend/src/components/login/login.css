@@ -1,0 +1,48 @@
+.login-parent {
+  display: flex;
+  flex-direction: row;
+}
+
+.login {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: max-content;
+  padding: 4rem 4rem;
+  margin: auto;
+  margin-top: 7rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px;
+}
+.login input {
+  height: 3rem;
+  width: 20rem;
+  padding: 5px 7px;
+}
+
+.login button {
+  border: none;
+  background-color: black;
+  padding: 0.5rem 3rem;
+  color: white;
+  cursor: pointer;
+}
+.login button:hover {
+  background-color: rgb(83, 83, 83);
+}
+.login img {
+  height: 40%;
+  width: 50%;
+}
+.login p {
+  margin-top: "5px";
+  font-weight: "bold";
+  color: black;
+}
+
+.render {
+  color: rgb(51, 47, 47);
+  text-decoration: none;
+}

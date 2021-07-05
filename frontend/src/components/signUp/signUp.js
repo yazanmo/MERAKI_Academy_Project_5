@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-
+import "./signUp.css";
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -13,7 +13,7 @@ const SignUp = () => {
   const [message, setMessage] = useState("");
   const history = useHistory();
   const signUpButton = (e) => {
-      e.preventDefault();
+    e.preventDefault();
     axios
       .post("http://localhost:5000/register", {
         firstName,
@@ -28,12 +28,12 @@ const SignUp = () => {
       })
       .catch((err) => {
         setShow(true);
-        setMessage(err.response.data)
+        setMessage(err.response.data);
       });
   };
   return (
-    <>
-      <form onSubmit={signUpButton} className="signUp">
+    <div className="signup">
+      <form onSubmit={signUpButton}>
         <input
           type="text"
           placeholder=" First Name "
@@ -75,16 +75,24 @@ const SignUp = () => {
             setPassword(e.target.value);
           }}
         />
-        <button >Sign Up</button>
-        <div className="singUp" ><p style={{marginTop:"20px",fontStyle:"bold"}}>You already have an account ?<span><Link to="/login"> log in</Link></span></p> </div>
-        <div><p>Join as a <span><Link to="/doctorInfo">Doctor</Link></span></p> </div>
+        <button>Sign Up</button>
+        <div className="singUp">
+          <p style={{ marginTop: "20px", fontStyle: "bold" }}>
+            You already have an account ?
+            <span>
+              <Link to="/login"> log in</Link>
+            </span>
+          </p>{" "}
+        </div>
+        <p>
+          Join as a{" "}
+          <span>
+            <Link to="/doctorInfo">Doctor</Link>
+          </span>
+        </p>
       </form>
-      {show  ? (
-        <p>{message}</p>
-      ) : (
-        ""
-      )}
-    </>
+      {show ? <p>{message}</p> : ""}
+    </div>
   );
 };
 

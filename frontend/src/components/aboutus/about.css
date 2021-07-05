@@ -1,100 +1,82 @@
 
-
-.containers
-{
-  width:550px;
-  height:100%;
-  margin-left:10px;
+.containers {
+  width: 550px;
+  height: 100%;
+  margin-left: 10px;
 }
 
-.pic
-{
-    box-shadow: 6px 6px 7px #888888;
-    width: 300px;
-    height: 300px;
-    position: relative;
-    left: 50px;
-    bottom: -50px;
-    overflow: hidden;
-    margin-top: 100px;
-    margin-left: 135px;
-    transform: rotate(
-45deg
-);
+
+.pic {
+  box-shadow: 6px 6px 7px #888888;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  left: 50px;
+  bottom: -50px;
+  overflow: hidden;
+  margin-top: 100px;
+  margin-left: 135px;
+  transform: rotate(45deg);
 }
-.pic:before
-{
-    content: '';
-    margin-top: -75px;
-    margin-left: -75px;
-    position: absolute;
-    width: 518px;
-    height: 526px;
-    background: url('https://t3.ftcdn.net/jpg/03/65/42/00/360_F_365420014_xjsSDkKzrhq4gr9GFzP6S97H7MJyNI5B.jpg');
-    transform: rotate(
--45deg
-);
+.pic:before {
+  content: "";
+  margin-top: -75px;
+  margin-left: -75px;
+  position: absolute;
+  width: 518px;
+  height: 526px;
+  background: url("https://t3.ftcdn.net/jpg/03/65/42/00/360_F_365420014_xjsSDkKzrhq4gr9GFzP6S97H7MJyNI5B.jpg");
+  transform: rotate(-45deg);
 }
 
- .social1:hover , .social2:hover 
-{
+.social1:hover,
+.social2:hover {
   box-shadow: 3px 3px 7px #888888;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-
-.box2
-{
-    box-shadow: 6px 6px 7px #888888;
-    position: relative;
-    left: 44px;
-    bottom: -90px;
-    overflow: hidden;
-    width: 320px;
-    height: 96px;
-    margin-top: -98px;
-    margin-left: -40px;
-    transform: rotate( 
-45deg
- );
+.box2 {
+  box-shadow: 6px 6px 7px #888888;
+  position: relative;
+  left: 44px;
+  bottom: -90px;
+  overflow: hidden;
+  width: 320px;
+  height: 96px;
+  margin-top: -98px;
+  margin-left: -40px;
+  transform: rotate(45deg);
 }
-.box2:before
-{
-    content: '';
-    margin-top: -109px;
-    margin-left: -3px;
-    position: absolute;
-    width: 346px;
-    height: 300px;
-    background: url(https://christinelusita.com/wp-content/uploads/2018/04/Health.com-logo.png) center center;
+.box2:before {
+  content: "";
+  margin-top: -109px;
+  margin-left: -3px;
+  position: absolute;
+  width: 346px;
+  height: 300px;
+  background: url(https://christinelusita.com/wp-content/uploads/2018/04/Health.com-logo.png)
+    center center;
 }
 
-.social1
-{
-    box-shadow: 6px 6px 7px #888888;
-    width: 80px;
-    height: 80px;
-    background-color: #3b5998;
-    margin-top: 85px;
-    margin-left: 365px;
-    transform: rotate( 
-45deg
- );
+.social1 {
+  box-shadow: 6px 6px 7px #888888;
+  width: 80px;
+  height: 80px;
+  background-color: #3b5998;
+  margin-top: 85px;
+  margin-left: 365px;
+  transform: rotate(45deg);
 }
 
-.social1 > i
-{
-    font-size: 60px;
-    margin-top: 13px;
-    margin-left: 25px;
-    transform: rotate(
--45deg
-);
-    color: #ffffff;
+.social1 > i {
+  font-size: 60px;
+  margin-top: 13px;
+  margin-left: 25px;
+  transform: rotate(-45deg);
+  color: #ffffff;
 }
 
-.social2
-{
+.social2 {
   box-shadow: 6px 6px 7px #888888;
   position: absolute;
   bottom: 117px;
@@ -104,58 +86,44 @@
   background-color: #000000;
   margin-top: 32px;
   margin-left: 375px;
-  transform: rotate( 
-45deg
-);
+  transform: rotate(45deg);
 }
 
-.social2 > i
-{
-    font-size: 50px;
-    margin-top: 15px;
-    margin-left: 10px;
-    transform: rotate(
--45deg
-);
-    color: #ffffff;
+.social2 > i {
+  font-size: 50px;
+  margin-top: 15px;
+  margin-left: 10px;
+  transform: rotate(-45deg);
+  color: #ffffff;
 }
 
-
-
-.content
-{
-  height:100%;
-  width:500px;
+.content {
+  height: 100%;
+  width: 500px;
 }
 
-p
-{
-  font-family: 'Open Sans Condensed', sans-serif;
+p {
+  font-family: "Open Sans Condensed", sans-serif;
 }
 
-.aa
-{
-    position: absolute;
-    top: 265px;
-    left: 817px;
-    font-family: 'Dancing Script', cu
+.aa {
+  position: absolute;
+  top: 265px;
+  left: 817px;
+  font-family: "Dancing Script", cu;
 }
 
-.contentHead
-{
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 60px;
-    font-weight: 500;
-    position: absolute;
-    bottom: 530px;
-    right: 40%;
+.contentHead {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 60px;
+  font-weight: 500;
+  position: absolute;
+  bottom: 530px;
+  right: 40%;
 }
 
-sup
-{
-  font-family: 'Open Sans Condensed', sans-serif;
+sup {
+  font-family: "Open Sans Condensed", sans-serif;
   font-style: italic;
-  font-size:smaller;
+  font-size: smaller;
 }
-
-
