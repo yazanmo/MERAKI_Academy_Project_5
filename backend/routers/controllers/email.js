@@ -30,4 +30,6 @@ transporter.sendMail(mailOptions,(err,data)=>{
 
 };
 
+module.exports = {sendEmil}
+
 
