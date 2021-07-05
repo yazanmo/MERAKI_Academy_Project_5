@@ -221,7 +221,7 @@ doctor_id INT ,
 user_id INT,
 time Varchar(255),
 date DATE ,
- is_deleted TINYINT DEFAULT 0,
+is_deleted TINYINT DEFAULT 0,
 FOREIGN KEY (user_id) REFERENCES users(id),
 FOREIGN KEY (doctor_id) REFERENCES doctorsDetails(id),
 PRIMARY KEY (id)

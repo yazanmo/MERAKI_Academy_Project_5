@@ -10,6 +10,7 @@ import Admin from "./components/Admin/admin";
 import DoctorProfile from "./components/doctor_profile/doctor_profile";
 import SignUp from "./components/signUp/signUp";
 import Accept from "./components/Admin/admin"
+import Date from './components/date/date'
 
 
 import Profile from "./components/profile/profile";
@@ -56,7 +57,7 @@ const App = () => {
           <Route exact path="/accept/doctor/:doctor_id" render = {()=><AcceptDoctor/>}/>
 
           <Route exact path="/about" render={() => <About />} />
-
+          <Route exact path="/date" render={() => <Date />} />
 
           <Route exact path="/edit/profile" render={() => <UpdateUserInfo />} />
 
