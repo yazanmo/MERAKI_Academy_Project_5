@@ -137,10 +137,11 @@ const DoctorDetails = () => {
       <div className="img1">
         <img src={result.img} style={{ width: "300px", height: "500px" ,borderRadius: "20px" }} />
       </div>
-      <div className="yazan">
+      <div className="all-details">
       <div className="doctor-details">
-        <h2> <span>Dr .</span> {result.firstName} {result.lastName}</h2><br></br>
+        <h2> <span>Dr .</span> {result.firstName} {result.lastName}</h2>
         <p>{avgRating}</p>
+        <br></br>
         <p>{result.description}</p>
         <br></br>
         <br></br>
@@ -183,7 +184,7 @@ const DoctorDetails = () => {
           {allComment.map((element, index) => {
             return (
               <div className="cmt" key={index + 1}>
-                 <img className="commenterimg"  src={element.img} style={{ width: "7.5%", height: "7.5%" ,borderRadius: "5px" }} />
+                 <img className="commenterimg"  src={element.img} style={{ width: "5.5%", height: "8.5%" ,borderRadius: "5px" }} />
                 <div className="parent1-commint">
                
                 <div className="commenter-details">

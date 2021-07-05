@@ -15,8 +15,7 @@
 
   display: grid;
   grid-template-columns: 40% 40%;
-  grid-gap: 50px;
-  gap: 50px;
+  gap: 14px;
   margin-top: 60px;
   margin-left: 130px;
 
@@ -49,7 +48,7 @@
 }
 
 
-.yazan{
+.all-details{
 
   margin-top: 150px;
 }
