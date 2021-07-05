@@ -55,8 +55,13 @@ const Doctor = () => {
       .catch((err) => {});
   };
 
-const deleteDoctor = (id)=>{
 
+//admin can delete any doctor
+const deleteDoctor = (id)=>{
+axios.update(`http://localhost:5000/admin/delete/${id}`)
+.then((result)=>{
+  res.status(200).json(result)
+}).catch((err)=>{res.send(err)})
 }
 
   return (
