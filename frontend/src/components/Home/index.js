@@ -37,6 +37,7 @@ export default function Home() {
 
   return (
     <div className="home">
+
       <section className="About">
         <img className="img" src={health} alt="healthy life" />
         <div className="paragraph">
@@ -71,8 +72,8 @@ export default function Home() {
         <div className="allServices">
           <div className="once">
             <img src={rules} className="serviceImg" />
-            <h5>Follow the program</h5>
-            <p>
+            <h4>Follow the program</h4>
+            <p className="servicesParagraph">
               Even the all-powerful Pointing has no control about the blind
               texts it is an almost unorthographic.
             </p>
@@ -80,8 +81,8 @@ export default function Home() {
           <div className="once">
             {" "}
             <img src={checklist} className="serviceImg" />
-            <h5>Work for result</h5>
-            <p>
+            <h4>Work for result</h4>
+            <p className="servicesParagraph">
               Even the all-powerful Pointing has no control about the blind
               texts it is an almost unorthographic.
             </p>
@@ -89,8 +90,8 @@ export default function Home() {
           <div className="once">
             {" "}
             <img src={food} className="serviceImg" />
-            <h5>Eat healthy food</h5>
-            <p>
+            <h4>Eat healthy food</h4>
+            <p className="servicesParagraph">
               Even the all-powerful Pointing has no control about the blind
               texts it is an almost unorthographic.
             </p>
@@ -98,8 +99,8 @@ export default function Home() {
           <div className="once">
             {" "}
             <img src={win} className="serviceImg" />
-            <h5>Enjoy your life</h5>
-            <p>
+            <h4>Enjoy your life</h4>
+            <p className="servicesParagraph">
               Even the all-powerful Pointing has no control about the blind
               texts it is an almost unorthographic.
             </p>
@@ -116,9 +117,13 @@ export default function Home() {
               return (
                 <ul key={index} className="ul">
                   {" "}
-                  <img src={happy} alt="happy" />
-                  <li>{story.description}</li>
+                  <img className="happyMan" src={happy} alt="happy" />
+                  {/* <img src="story.img" alt="happy" />  */}
+                  <li className="description">{story.description}</li>
+                  <div className="name">
+                  <li >{story.firstName}</li>
                   <li>{story.lastName}</li>
+                  </div>
                 </ul>
               );
             })}

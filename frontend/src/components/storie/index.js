@@ -30,7 +30,7 @@ export default function CreateStories() {
       .then((result) => {
         dispatch(createStories(description));
         setMessage("Thanks for your story");
-        history.push("/profile");
+        // history.push("/profile");
       })
       .catch((err) => {});
   };

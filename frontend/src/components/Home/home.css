@@ -64,6 +64,7 @@
   flex-direction: column;
   align-items: center;
   padding-top: 6%;
+  padding-bottom: 6%;
   justify-content: center;
   background-color: #f8f9fd;
   box-sizing: border-box;
@@ -75,6 +76,8 @@
   align-items: flex-start;
   gap: 50px;
   box-sizing: border-box;
+  
+  
 }
 
 .ul {
@@ -82,7 +85,24 @@
   list-style-type: none;
   border: 1px solid white;
   box-sizing: border-box;
+  padding:8% 8%;
+  background-color: white;
+  box-shadow: 0 0 15px rgb(0 0 0 / 5%)
 }
+
+.description{
+color: rgb(10, 216, 61);
+}
+
+.name{
+  display: flex;
+  margin-top: 5%;
+  gap: 1.5%;
+  /* font-family: 'Courier New', Courier, monospace; */
+  /* font-family: Georgia, 'Times New Roman', Times, serif; */
+  font-family: sans-serif;
+}
+
 
 /* Services */
 
@@ -90,17 +110,35 @@
   display: grid;
   text-align: center;
 }
+
 .allServices {
-  display: grid;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  /* display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 5rem;
-  margin: 5rem;
+  margin: 5rem; */
 }
 
 .once {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin:5% 3%;
   gap: 2rem;
   text-align: center;
+  
+}
+
+.servicesParagraph{
+  font-family: "Poppins",Arial,sans-serif;
+  background: #fff;
+  font-size: medium;
+  line-height: 1.8;
+  font-weight: 400;
+  color: rgb(92, 91, 91);
 }
 
 .serviceImg {

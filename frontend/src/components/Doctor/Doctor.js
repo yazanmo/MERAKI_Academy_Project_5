@@ -79,11 +79,11 @@ const Doctor = () => {
             }
           }}
         />
-        <div>
+        <div className="parant-Doctor">
           {DoctorName &&
             DoctorName.map((element, index) => {
               return (
-                <div
+                <div className="childDoctor"
                   onClick={() => {
                     func(element.id);
                   }}
@@ -91,7 +91,7 @@ const Doctor = () => {
                   <p>
                     {element.firstName} {element.lastName}
                   </p>
-                  <img src={element.img} />
+                  <img className="doctorImg" style={{"height":"100px","width":"100%"}} src={element.img} />
                 </div>
               );
             })}
@@ -101,7 +101,7 @@ const Doctor = () => {
       {filter &&
         filter.map((elem, i) => {
           return (
-            <div className="childrestaurant" key={i}>
+            <div className="childDoctor" key={i}>
               <div className="par">
                 <h2>
                   {elem.firstName} {elem.lastName}
@@ -121,11 +121,13 @@ const Doctor = () => {
           );
         })}
 
-      <div className="parantDoctor">
+      <div className="parant-Doctor">
         {Doctor &&
           Doctor.map((elem, i) => {
             return (
-              <div className="childDoctor" key={i}>
+              <div className="childDoctor" onClick={() => {
+                func(elem.id);
+              }} key={i}>
                 <div className="imag">
                   <img src={`${elem.img}`} />
                 </div>
@@ -133,7 +135,7 @@ const Doctor = () => {
                   <h2>
                     {elem.firstName} {elem.lastName}
                   </h2>
-                  <h2>{elem.price}</h2>
+                  <h2>{elem.price+" $"}</h2>
                   <p>{elem.description}</p>
                   <button
                     onClick={() => {
