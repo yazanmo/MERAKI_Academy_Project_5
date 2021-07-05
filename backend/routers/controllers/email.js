@@ -3,6 +3,7 @@ const nodemailer = require("nodemailer");
 
 //send email for doctors
 
+
 const sendEmil = (req, res) => {
   const { receiverEmail, password } = req.body;
 
