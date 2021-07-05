@@ -9,7 +9,7 @@ const {
 
 const myPatient = express.Router();
 
-myPatient.post("/mypatient/:id", authentication, buyService);
+myPatient.post("/mypatient", authentication, buyService);
 myPatient.get("/mydoctor", authentication, getMyDoctor);
 myPatient.get("/mypatient", authentication, getMyPatient);
 
