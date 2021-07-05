@@ -37,35 +37,23 @@ const deleteDoctorById = (req, res) => {
   });
 };
 
-
-
-
 const creatAdmin = (req, res) => {
   const { firstName, lastName, age, email, password, img } = req.body;
 
   const query = `SELECT email FROM users WHERE email = ? AND is_deleted =0`;
   const data = [email];
   db.query(query, data, async (err, result) => {
-    if(err)res.send(err);
+    if (err) res.send(err);
     if (result.length == 0) {
       const query = `INSERT INTO users (firstName,lastName,age,email,password,img,role_id) VALUES (?,?,?,?,?,?,3);`;
       let pass = await bcrypt.hash(password, 10);
-      const arr = [
-        firstName,
-        lastName,
-        age,
-        email,
-        pass,
-        img
-      
-      ];
+      const arr = [firstName, lastName, age, email, pass, img];
       db.query(query, arr, (err1, result) => {
-        if(err1)res.send("الكود فاقع")
-        res.json(result)
+        if (err1) res.send("insert is not done");
         const query = `SELECT * FROM users WHERE email = ?;`;
         const data3 = [email];
         db.query(query, data3, (err, result3) => {
-          if (err)return res.status(400).json(err);
+          if (err) return res.status(400).json(err);
           res.status(200).json(result3);
         });
       });
@@ -75,31 +63,8 @@ const creatAdmin = (req, res) => {
   });
 };
 
-// const creatAdmin = async (req, res) => {
-//    const { firstName, lastName, age, email, password, img,role_id } = req.body;
-//    let pass = await bcrypt.hash(password, 10);
-//    const arr = [
-//       firstName,
-//       lastName,
-//       age,
-//       email,
-//       pass,
-//       img,
-//       role_id
-//     ];
-//    const command = `INSERT INTO users (firstName,lastName,age,email,password,img,role_id) VALUES (?,?,?,?,?,?,3);`;
-//   db.query(command,arr,(err,result)=>{
-// if (err) res.send(err)
-// res.json(result)
-//   })
-  
-//   }
-
-
 module.exports = {
   createUserDoctor,
   deleteDoctorById,
   creatAdmin,
-
 };
-
