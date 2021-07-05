@@ -10,7 +10,7 @@ import Admin from "./components/Admin/admin";
 import DoctorProfile from "./components/doctor_profile/doctor_profile";
 import SignUp from "./components/signUp/signUp";
 import Accept from "./components/Admin/admin"
-
+import AdminPage from "./components/AdminPage"
 
 import Profile from "./components/profile/profile";
 import AddStory from "./components/profile/addstory";
@@ -51,6 +51,7 @@ const App = () => {
           <Route exact path="/foodtracker" render={() => <FoodTracker />} />
 
           <Route exact path="/create/stories" render={() => <CreateStories />} />
+          <Route exact path="/adminPage" render={() => <AdminPage /> }/>
           <Route exact path="/accept" render={() => <Accept/>} />
           <Route exact path="/doctorInfo" render={()=> <Info />}/>
           <Route exact path="/accept/doctor/:doctor_id" render = {()=><AcceptDoctor/>}/>

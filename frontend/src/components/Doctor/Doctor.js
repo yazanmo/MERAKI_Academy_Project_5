@@ -58,7 +58,7 @@ const Doctor = () => {
   //admin can delete any doctor
   const deleteDoctor = (id) => {
     axios
-      .update(`http://localhost:5000/admin/delete/${id}`)
+      .put(`http://localhost:5000/admin/delete/${id}`)
       .then((result) => {
         console.log(result);
       })

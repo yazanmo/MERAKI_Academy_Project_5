@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./adminPage.css"
 export default function AdminPage() {
     return (
         <div>
-            <Link  to="/accept" >new request</Link>
-            <Link to="/doctor">nutritionist</Link>
-            <Link>users</Link>
+            <Link  to="/accept"  className="adminLink" >new request</Link>
+            <Link to="/doctor" className="adminLink" >nutritionist</Link>
+            <Link className="adminLink">users</Link>
         </div>
     )
 }

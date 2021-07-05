@@ -152,10 +152,10 @@ const Navigation = () => {
                     <li>
                     {" "}
                     <Link
-                      to="/accept"
+                      to="/adminPage"
                       className="links"
                     >
-                     accept doctor
+                    Admin profile
                     </Link>{" "}
                   </li>
 

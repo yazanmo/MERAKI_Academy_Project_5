@@ -111,4 +111,5 @@ module.exports = {
   getAllDoctorsAdmin,
   deleteDoctorAdmin,
   searchDoctor,
+  deleteDoctorUsers
 };
