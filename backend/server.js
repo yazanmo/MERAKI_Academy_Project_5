@@ -16,7 +16,7 @@ const doctorDetailsRouter=require('./routers/routes/doctorProfile')
 
 const storyRouter = require("./routers/routes/story")
 
-
+const scheduleRoute=require("./routers/routes/schedule")
 const foodTrackerRouter = require("./routers/routes/foodTracker");
 const reviewRouter=require("./routers/routes/review")
 // const storyRouter = require("./routers/routes/story")
@@ -47,7 +47,7 @@ app.use(foodTrackerRouter);
 
 app.use(doctorRouter)
 app.use(userRouter)
-
+app.use(scheduleRoute)
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
