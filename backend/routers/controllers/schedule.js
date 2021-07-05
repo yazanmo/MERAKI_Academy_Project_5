@@ -15,12 +15,35 @@ db.query(query,array,(err,result)=>{
 }
 
 const getBookTime=(req,res)=>{
-    const user_id=req.token.id;
-const query=`SELECT * FROM schedule WHERE user_id=${user_id} AND is_deleted=0;`
-db.query(query,(err,result)=>{
+    const doctor_id=req.token.id;
+    console.log(doctor_id);
+const query=`SELECT * FROM doctorsDetails inner join users on users.id=doctorsDetails.user_id
+ WHERE doctorsDetails.user_id=? ;`
+const arr= [doctor_id]
+db.query(query,arr,(err,result)=>{
     if(err)res.status(400).send(err)
-    res.status(200).json(result)
+
+    
+    const query=`SELECT * FROM doctorsDetails inner join schedule on schedule.user_id=doctorsDetails.id 
+    inner join users on users.id=doctorsDetails.user_id WHERE users.id=?
+    ;`
+    console.log(result);
+    const arr= [result[0].id,result[0].user_id]
+    db.query(query,arr,(err,result)=>{
+
+        if(err)res.status(400).send(err)
+
+        const query=`SELECT * FROM schedule inner join users on schedule.user_id=users.id ;`
+        db.query(query,arr,(err,result1)=>{
+
+            if(err)res.status(400).send(err)
+            res.status(200).json(result1)
+        })
+        
+        })
+    
 })
+
 }
 module.exports = {
     bookTime,

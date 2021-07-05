@@ -3,6 +3,8 @@ import axios from "axios";
 import "./date.css";
 
 
+
+
 const Date = () => {
  const token = localStorage.getItem("token");
   const [Date, setDate] = useState();
@@ -19,6 +21,7 @@ const Date = () => {
   
       )
       .then((response) => {
+          console.log(response.data);
         setDate(response.data);
       })
       
@@ -33,8 +36,11 @@ const Date = () => {
         {Date && Date.map((elem, i) => {
             return (
               <div className="DateAndTime" key={i}>
+               
                <p>{elem.time}</p>
                <p>{elem.date}</p>
+
+               
               </div>
             );
           })}
