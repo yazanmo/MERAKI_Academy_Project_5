@@ -53,9 +53,9 @@ const getMyPatient = (req, res) => {
       FROM doctorsDetails
       INNER JOIN users
       ON  users.id = doctorsDetails.user_id `;
-    const data = [result[0].user_id];
+    // const data = [result[0].user_id];
 
-    db.query(query, data, (err, results) => {
+    db.query(query, (err, results) => {
       if (err) res.status(400).send(err);
       res.status(200).json(results);
     });
