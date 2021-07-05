@@ -21,7 +21,6 @@ const Date = () => {
   
       )
       .then((response) => {
-          console.log(response.data);
         setDate(response.data);
       })
       
@@ -39,6 +38,8 @@ const Date = () => {
                
                <p>{elem.time}</p>
                <p>{elem.date}</p>
+               <p>{elem.firstName}</p>
+               <p>{elem.lastName}</p>
 
                
               </div>

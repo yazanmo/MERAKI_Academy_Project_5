@@ -29,11 +29,14 @@ db.query(query,arr,(err,result)=>{
     ;`
     console.log(result);
     const arr= [result[0].id,result[0].user_id]
-    db.query(query,arr,(err,result)=>{
+    db.query(query,arr,(err,result11)=>{
 
         if(err)res.status(400).send(err)
 
-        const query=`SELECT * FROM schedule inner join users on schedule.user_id=users.id ;`
+        const query=`SELECT * FROM schedule inner join users on schedule.user_id=users.id
+         WHERE schedule.doctor_id =? ;`
+         const arr= [result[0].id]
+         console.log("fghfgh",result[0].id);
         db.query(query,arr,(err,result1)=>{
 
             if(err)res.status(400).send(err)
