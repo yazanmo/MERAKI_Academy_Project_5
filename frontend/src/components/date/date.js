@@ -30,7 +30,14 @@ const Date = () => {
     <>
     
       <div className="Date">
-       
+        {Date && Date.map((elem, i) => {
+            return (
+              <div className="DateAndTime" key={i}>
+               <p>{elem.time}</p>
+               <p>{elem.date}</p>
+              </div>
+            );
+          })}
       </div>
     </>
   );
