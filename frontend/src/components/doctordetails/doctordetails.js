@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-
+import Rating from "./Rating";
 import { createTodo, setTodos } from "./../../reducers/review";
+import  "./doctordetails.css";
 
 const DoctorDetails = () => {
   const { id } = useParams();
@@ -131,139 +132,106 @@ const DoctorDetails = () => {
 
   return (
     <div className="doctor">
-      <div className="img">
-        <img src={result.img} />
+        <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css"></link>
+        <div className="parent"> 
+      <div className="img1">
+        <img src={result.img} style={{ width: "300px", height: "500px" ,borderRadius: "20px" }} />
       </div>
+      <div className="all-details">
       <div className="doctor-details">
-        <p>
-          Dr {result.firstName} {result.lastName}
-        </p>
+        <h2> <span>Dr .</span> {result.firstName} {result.lastName}</h2>
         <p>{avgRating}</p>
+        <br></br>
         <p>{result.description}</p>
-        <p>{result.price}</p>
-        <p>{result.Qualifications}</p>
-        <p>{result.practicalExperiences}</p>
+        <br></br>
+        <br></br>
+        <h3><span>price:</span> {result.price} jd</h3>
+        <br></br>
+        <br></br>
+        <h3><span>Qualifications:</span> {result.Qualifications} </h3>
+        <br></br>
+        <br></br>
+        <h3><span>practicalExperiences: </span>{result.practicalExperiences} </h3>
+      </div>
+      </div>
       </div>
       {token ? (
         <>
-          {role_id == 2 ? (
-            ""
-          ) : (
+          {role_id == 2 ? ("" ) : (
             <>
-              <input
-                className="input-comment"
-                onChange={(e) => {
-                  setComment(e.target.value);
-                }}
-              />
-              <input
-                className="input-comment"
-                onChange={(e) => {
-                  setRating(e.target.value);
-                }}
+              <textarea
+                className="input-coment1" placeholder="Comment Here" onChange={(e) => {setComment(e.target.value); }}
+                ></textarea>
+              <input className="input-coment"
+                 onChange={(e) => {setRating(e.target.value)}}
               />
             </>
           )}
         </>
-      ) : (
-        ""
-      )}
+      ) : ("")}
       {token ? (
         <>
           {" "}
-          {role_id == 2 ? (
-            ""
-          ) : (
-            <button onClick={createComment}> ok</button>
-          )}{" "}
+          {role_id == 2 ? ("") : (<button className="btnCommant" onClick={createComment}> ok</button>)}{" "}
         </>
       ) : (
         ""
       )}
 
       <div>
-        <p>
+      <div className="parent-commint">
+      
           {allComment.map((element, index) => {
             return (
-              <div key={index + 1}>
-                <p>{element.firstName}</p>
+              <div className="cmt" key={index + 1}>
+                 <img className="commenterimg"  src={element.img} style={{ width: "5.5%", height: "8.5%" ,borderRadius: "5px" }} />
+                <div className="parent1-commint">
+               
+                <div className="commenter-details">
+                
+                <h3 className="commenter" >{element.firstName} {element.lastName}</h3> 
+                
+                </div>
                 <p>{element.rating}</p>
-
                 {updateComment == false ? (
-                  <p>{element.comment}</p>
-                ) : (
+                 
+
+                  <p className="coment">{element.comment}</p> ) : (
                   <div>
                     {element.commenter_id == commenter_id ? (
                       <>
                         <textarea
-                          onChange={(e) => {
-                            setUpdateCommentText(e.target.value);
-                          }}
-                          defaultValue={element.comment}
+                          onChange={(e) => {setUpdateCommentText(e.target.value);}}defaultValue={element.comment}
                         ></textarea>
-                        <button
-                          onClick={() => {
-                            updateComments(element.id);
-                          }}
-                        >
-                          update
-                        </button>
-                      </>
-                    ) : (
-                      ""
-                    )}
+                        <img onClick={() => {updateComments(element.id);}} style={{ width: "30px", height: "30px"  }} src="https://img.icons8.com/wired/50/000000/edit.png"/>
+                       
+                      </>) : ( "")}
+                    
                   </div>
+                  
                 )}
                 {element.commenter_id == commenter_id ? (
-                  <>
-                    <button
-                      key={element.id}
-                      onClick={() => {
-                        deleteComment(element.id);
-                      }}
-                    >
-                      delete
-                    </button>
-
-                    <br />
-
+                  <div className="upd-delete">
+                  <img onClick={() => {deleteComment(element.id);}} style={{ width: "30px", height: "30px"  }} src="https://img.icons8.com/ios/50/000000/delete-forever--v1.png"/>
+                  
                     {updateComment == false ? (
-                      <button
-                        onClick={() => {
-                          setUpdateComment(true);
-                        }}
-                      >
-                        update
-                      </button>
-                    ) : (
-                      ""
-                    )}
-                  </>
-                ) : (
-                  ""
-                )}
-              </div>
-            );
-          })}
-        </p>
-
+                         <img onClick={() => {setUpdateComment(true);}} style={{ width: "30px", height: "30px"  }} src="https://img.icons8.com/wired/50/000000/edit.png"/>
+   
+                    ) : ("")}
+                  </div>
+                  
+                ) : ("")}
+                </div>
+              </div>);})}
+        </div>
         {token ? (
           <>
-            {role_id == 2 ? (
-              ""
-            ) : (
-              <button
-                onClick={() => {
-                  history.push(`./${id}/payment`);
-                }}
-              >
-                Subscribe
+            {role_id == 2 ? ("") : (
+              <button className="btn-1" onClick={() => {history.push(`./${id}/payment`);}}>  
+              <span>Subscribe</span>
               </button>
             )}
-          </>
-        ) : (
-          ""
-        )}
+          </>) : ("")}
       </div>
     </div>
   );

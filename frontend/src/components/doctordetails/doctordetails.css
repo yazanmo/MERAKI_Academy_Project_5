@@ -1,9 +1,253 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap');
+
+
+.doctor{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
 .doctor-details {
-  background-color: rgb(94, 20, 20);
+  margin-left: 50px;
 }
+
+.parent{
+
+  display: grid;
+  grid-template-columns: 40% 40%;
+  gap: 14px;
+  margin-top: 60px;
+  margin-left: 130px;
+
+}
+
+.doctor-details h2{
+  font: normal 60px 'Cookie', cursive;
+    position: absolute;
+    top: 166px;
+  
+}
+.doctor-details h2 span{
+  color:  #5383d3;
+ }
+
+.doctor-details h3 span{
+  color:  #5383d3;
+ }
+
+ .doctor-details p{
+  font: normal 30px  cursive;
+  color: #73767c;
+  border: 30px;
+}
+
+.asd{
+
+  height: 30px;
+  width: 50px;
+}
+
+
+.all-details{
+
+  margin-top: 150px;
+}
+
+.parent1-commint{
+
+  display: grid;
+    grid-template-rows: auto auto auto;
+    grid-gap: 150px;
+    grid-gap: 150px;
+    gap: 15px;
+    margin-left: 20%;
+    margin-right: 12%;
+
+}
+
+
+.btn-1 {
+  font-family: Hack, monospace;
+    background: #5383d3;
+    color: #fff;
+    cursor: pointer;
+    font-size: 2em;
+    padding: 1.5rem;
+    border: 0;
+    transition: all 0.5s;
+    border-radius: 10px;
+    width: auto;
+    position: absolute;
+    left: 76%;
+    bottom: 195px;
+}
+.btn-1::after {
+  content: "$";
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 400;
+  position: absolute;
+  left: 85%;
+  top: 31%;
+  right: 5%;
+  bottom: 0;
+  opacity: 0;
+}
+.btn-1:hover {
+  background: #13139e;
+  transition: all 0.5s;
+  border-radius: 10px;
+  box-shadow: 0px 6px 15px #00f 61;
+  padding: 1.5rem 3.5rem 1.5rem 1.5rem;
+}
+.btn-1:hover::after {
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.cmt{
+  padding: 10px;
+  margin-left: 40%;
+  margin-right: 10%;
+  margin-top: 185px;
+  box-shadow: -1 1px 6px -12px rgb(0 0 0 / 47%);
+}
+
+
+
+
+
+.btnCommant {
+    
+  margin-top: 69px;
+  border-radius: 4px;
+  background-color: #5383d3;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-size: 13px; 
+  width: 60px;
+  padding: 8px;
+  transition: all 0.5s;
+  cursor: pointer;
+  box-shadow: 0 10px 20px -8px rgb(0 0 0 / 70%);
+  text-align: center;
+}
+
+.btnCommant{
+  cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    transition: 0.5s;
+    left: 61.9%;
+}
+
+.btnCommant:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;  
+  top: 7px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btnCommant:hover{
+  padding-right: 24px;
+  padding-left:8px;
+}
+
+.btnCommant:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+.input-comment{
+
+  height: 30px;
+  width: 200px;
+  margin-left: 50%;
+
+}
+
+
+.btnCommant-delete {
+    
+  margin-top: 100px;
+  border-radius: 4px;
+  background-color: #5383d3;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-size: 13px; 
+  width: 60px;
+  padding: 8px;
+  transition: all 0.5s;
+  cursor: pointer;
+  box-shadow: 0 10px 20px -8px rgb(0 0 0 / 70%);
+  text-align: center;
+}
+
+.btnCommant-delete{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btnCommant-delete:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;  
+  top: 7px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btnCommant-delete:hover{
+  padding-right: 24px;
+  padding-left:8px;
+}
+
+.btnCommant-delete:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+
+.commenter{
+    font-size: 25px;
+}
+
+.commenterimg{
+  
+  position: absolute;
+ 
+ 
+}
+
+/* .commenter-details{
+
+  display: grid;
+  grid-template-columns: 50% 60%;
+  gap: 50px;
+} */
+.coment{
+
+    font-size: 25px;
+}
+
+.input-coment1,.input-coment{
+
+  margin-left: 50%;
+}
+
+
+.input-coment1{
+
+  position: absolute;
+  top:105%
+}
+
+.input-coment{
+
+  position: absolute;
+  top:101%
+}
+
