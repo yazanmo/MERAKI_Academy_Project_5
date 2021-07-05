@@ -24,7 +24,7 @@ const getMyDoctor = (req, res) => {
   const data = [user_id];
   db.query(query, data, (err, result) => {
     if (err) res.status(400).send(err);
-    const query = `SELECT users.firstName ,users.lastName  ,doctorsDetails.description , doctorsDetails.user_id AS doctor_id,doctorsDetails.price
+    const query = `SELECT users.firstName ,users.lastName  ,doctorsDetails.description  ,users.img, doctorsDetails.user_id AS doctor_id,doctorsDetails.price
     FROM doctorsDetails
     INNER JOIN users
     ON  users.id = doctorsDetails.user_id `;
@@ -49,7 +49,7 @@ const getMyPatient = (req, res) => {
   const data = [user_id];
   db.query(query, data, (err, result) => {
     if (err) res.status(400).send(err);
-    const query = `SELECT users.firstName ,users.lastName  ,users.age , doctorsDetails.user_id AS user_id
+    const query = `SELECT users.firstName ,users.lastName  ,users.age , users.img,doctorsDetails.user_id AS user_id
       FROM doctorsDetails
       INNER JOIN users
       ON  users.id = doctorsDetails.user_id `;

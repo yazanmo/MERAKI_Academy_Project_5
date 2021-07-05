@@ -39,6 +39,7 @@ const MyPatient = () => {
           <div>
             <p>
               {element.firstName} {element.lastName}
+              {element.img}
             </p>
             <p>{element.age}</p>
           </div>
