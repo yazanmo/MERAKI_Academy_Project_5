@@ -39,6 +39,20 @@ const getMyDoctor = (req, res) => {
     });
   });
 
+  const getMyPatient= ()=>{
+    const user_id = req.token.id;
+    const query = ` SELECT doctorsDetails.user_id AS doctor_id
+    FROM purchased
+        LEFT JOIN users
+            ON  users.id =purchased.user_id
+            LEFT JOIN doctorsDetails
+            ON  doctorsDetails.id =purchased.doctorsService_id WHERE users.id = ? `;
+    const data = [user_id];
+    db.query(query, data, (err, result) => {
+      if (err) res.status(400).send(err);
+      console.log(result[0].doctor_id);
+
+  }
   //   `
   // SELECT
 
