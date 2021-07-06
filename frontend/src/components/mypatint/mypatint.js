@@ -13,6 +13,7 @@ const MyPatient = () => {
       })
       .then((result) => {
         setResult(result.data);
+        console.log(result.data);
       })
       .catch((err) => {
         console.log(err);
