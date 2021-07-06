@@ -40,6 +40,7 @@ const Doctor = () => {
       .then((res) => {
         console.log(res.data);
         setDoctorName(res.data);
+        setDoctor([]);
       })
       .catch((err) => {});
   };
@@ -99,20 +100,22 @@ const Doctor = () => {
           {DoctorName &&
             DoctorName.map((element, index) => {
               return (
-                <div
-                  className="childDoctor"
-                  onClick={() => {
-                    func(element.id);
-                  }}
+                <div className="card"  onClick={() => {
+                  func(element.id);
+                }}
+                key={index}
                 >
-                  <p>
-                    {element.firstName} {element.lastName}
-                  </p>
-                  <img
-                    className="doctorImg"
-                    style={{ height: "100px", width: "100%" }}
-                    src={element.img}
-                  />
+                    <img src={`${element.img}`} />
+                    <div className="info">
+                <h1>
+                  {element.firstName} {element.lastName}
+                </h1>
+                
+                
+                <h2>{element.price}</h2>
+                <p>{element.description}</p>
+                  </div>
+                
                 </div>
               );
             })}
@@ -122,53 +125,50 @@ const Doctor = () => {
       {filter &&
         filter.map((elem, i) => {
           return (
-            <div className="childDoctor" key={i}>
-              <div className="par">
-                <h2>
+            <div className="wrapper" key={i}>
+              <div className="card"  onClick={() => {
+                  func(elem.id);
+                }}
+                key={i}>
+              <img src={`${elem.img}`} />
+              <div className="info">
+                <h1>
                   {elem.firstName} {elem.lastName}
-                </h2>
+                </h1>
                 <p>{getAcgRating(elem.id)}</p>
+                
                 <h2>{elem.price}</h2>
                 <p>{elem.description}</p>
-                <button
-                  onClick={() => {
-                    func(elem.id);
-                  }}
-                >
-                  more details
-                </button>
+                  </div>
               </div>
             </div>
           );
         })}
 
-      <div className="parant-Doctor">
+      <div className="wrapper">
         {Doctor &&
           Doctor.map((elem, i) => {
             return (
               <div
-                className="childDoctor"
+                className="card"
                 onClick={() => {
                   func(elem.id);
                 }}
                 key={i}
               >
-                <div className="imag">
                   <img src={`${elem.img}`} />
-                </div>
-                <div className="par">
+                
+                <div className="info">
                   <h2>
                     {elem.firstName} {elem.lastName}
                   </h2>
-                  <h2>{elem.price + " $"}</h2>
-                  <p>{elem.description}</p>
-                  <button
-                    onClick={() => {
-                      func(elem.id);
-                    }}
-                  >
-                    more details
-                  </button>
+                
+                  <p>
+                  {elem.price}
+                  <br></br>
+                  {elem.description}
+                  </p>
+                
                   {role_id == 3 ? (
                     <button
                       onClick={() => {
