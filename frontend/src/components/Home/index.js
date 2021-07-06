@@ -57,6 +57,50 @@ export default function Home({ homePageSection, setHomePageSection }) {
 
   return (
     <div className="home">
+
+
+<div className="slide-container">
+        <Slide>
+     {  sliderArray.forEach((element,index) => {
+          <div className="each-slide">
+          <div
+            className="imageSlider"
+            style={{ backgroundImage: `src={slider+${index}}` }}
+          ></div>
+        </div>
+        })}
+          
+          {/* <div className="each-slide">
+            <div
+              className="imageSlider"
+              style={{ backgroundImage: `url(${slideImages[1]})` }}
+            ></div>
+          </div>
+          <div className="each-slide">
+            <div
+              className="imageSlider"
+              style={{ backgroundImage: `url(${slideImages[2]})` }}
+            ></div>
+          </div>
+          <div className="each-slide">
+            <div
+              className="imageSlider"
+              style={{ backgroundImage: `url(${slideImages[3]})` }}
+            ></div>
+          </div>
+          <div className="each-slide">
+            <div
+              className="imageSlider"
+              style={{ backgroundImage: `url(${slideImages[4]})` }}
+            ></div>
+          </div> */}
+        </Slide>
+        </div>
+
+
+
+
+
       <section className="About" title="About">
         <img className="img" src={health} alt="healthy life" />
         <div className="paragraph">
