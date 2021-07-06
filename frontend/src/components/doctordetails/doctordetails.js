@@ -160,7 +160,7 @@ const DoctorDetails = () => {
         <div className="img1">
           <img
             src={result.img ? result.img : <></>}
-            style={{ width: "300px", height: "450px", borderRadius: "20px" }}
+            style={{ width: "300px", height: "450px", borderRadius: "20px",borderRadius:"5px" }}
           />
         </div>
         
@@ -237,13 +237,18 @@ const DoctorDetails = () => {
             ""
           ) : (
             <div className="comment">
+              <p>give us your feedBack</p>
               <div style={styles.container}>
                 <div className="rating">
                   {[...Array(5)].map((element, i) => {
                     let ratingValue = i;
                     return (
+                      
+                      <div className="rating">
+                        
+                      <div >
                       <FaStar
-                      className="rating"
+                      
                       style={styles.container}
                         key={ratingValue}
                         size={24}
@@ -256,18 +261,22 @@ const DoctorDetails = () => {
                             : colors.grey
                         }
                         style={{
-                          marginRight: 10,
+                          fontSize:50,
+                          marginRight:10,
                           cursor: "pointer",
                         }}
                       />
+                      </div>
+                      </div>
                     );
                   })}
                   
                 </div>
               </div>
+              
               <textarea
                 className="input-coment1"
-                placeholder="Comment Here"
+                placeholder="  Comment Here ...."
                 onChange={(e) => {
                   setComment(e.target.value);
                 }}
