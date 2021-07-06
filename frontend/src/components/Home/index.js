@@ -12,8 +12,19 @@ import rules from "./rules.png";
 import { scroller } from "react-scroll";
 import "./home.css";
 import happy from "./happy.jpg";
+import { Slide } from "react-slideshow-image";
+import slider1 from "./slider/slider1.jpg"
+import slider2 from "./slider/slider2.jpg"
+import slider3 from "./slider/slider3.jpg"
+import slider4 from "./slider/slider4.jpg"
+import slider5 from "./slider/slider5.jpg"
+import slider6 from "./slider/slider6.jpg"
+import slider7 from "./slider/slider7.jpg"
+
+
 
 export default function Home({ homePageSection, setHomePageSection }) {
+  const sliderArray =[1,2,3,4,5,6,7]
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,6 +46,8 @@ export default function Home({ homePageSection, setHomePageSection }) {
         dispatch(setStories("some thing bad"));
       });
   }, []);
+
+
 
   const state = useSelector((state) => {
     return {
