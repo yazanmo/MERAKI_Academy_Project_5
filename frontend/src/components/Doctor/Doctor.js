@@ -40,7 +40,7 @@ const Doctor = () => {
       .then((res) => {
         console.log(res.data);
         setDoctorName(res.data);
-        setDoctor([]);
+      
       })
       .catch((err) => {});
   };
@@ -75,7 +75,8 @@ const Doctor = () => {
   return (
     <>
       <div className="filter">
-        <input
+        <div className="asdsadasd">
+        <input type="slider"
           onChange={(e) => {
             setnum1(e.target.value);
           }}
@@ -85,17 +86,28 @@ const Doctor = () => {
             setnum2(e.target.value);
           }}
         />
-        <button onClick={callType_1}>Filter</button>
-
-        <input
-          onChange={(e) => {
+        <button className="Filter-btn" onClick={callType_1}>Filter</button>
+        </div>
+        <div className="kapsayici">
+        <input id="checkbox" className="checkInp"
+        type="checkbox"
+         
+       />
+        <label class="label1" for="checkbox">
+      <div class="checkDiv"></div>
+    </label>
+    <input required id="text" class="textInp"  onChange={(e) => {
             if (e.target.value.length === 0) {
               searchDoctor("''");
             } else {
               searchDoctor(e.target.value);
             }
-          }}
-        />
+          }}/>
+    <label class="label2" for="text" title="Search for Doctor Name" data-title="Doctor Name"></label>
+  
+
+
+         </div>
         <div className="parant-Doctor">
           {DoctorName &&
             DoctorName.map((element, index) => {

@@ -85,3 +85,95 @@ margin: 0;
     margin-bottom: 20px;
 }
 
+.asdsadasd{
+
+  box-shadow: 5px 6px 9px rgb(0 0 0 / 27%);
+    margin-top: 20px;
+    margin-left: 30%;
+    margin-right: 40%;
+}
+
+.Filter-btn{
+
+  height: 30px;
+
+}
+
+
+.kapsayici{
+  margin:auto;
+  margin-top:100px;
+  text-align:center;
+  justify-content:center;
+  display:flex;
+  flex-direction:row-reverse;
+  position:relative;
+  width:354px;
+  margin-bottom:100px;
+}
+.checkDiv{
+  width:18px;
+  height:18px;
+}
+.label1{
+  background:url("https://cdn.icon-icons.com/icons2/2566/PNG/512/search_icon_153438.png");
+  cursor:pointer;
+  background-size:80%;
+  background-repeat:no-repeat;
+  background-position:center center;
+  padding:5px;
+  position:relative;
+  background-color:#fff;
+  border:2px solid black;
+  border-left:none;
+}
+.checkInp{
+  opacity:0;
+  display:none;
+}
+.checkInp:checked + .label1{
+  background:url("https://i.pinimg.com/originals/a4/81/80/a481808f26b5fafe898f00679e168672.jpg");
+  cursor:pointer;
+  background-size:80%;
+  background-repeat:no-repeat;
+  background-position:center center;
+  padding:5px;
+  position:relative;
+  background-color:#fff;
+  border-left:none;
+}
+#text{
+  width:100%;
+  height:35px;
+  padding:0px 0px 0px 10px;
+  font-size:16px;
+  transition:all 0.3s;
+  border:2px solid black;
+  border-right:none;
+}
+.label2::before{
+  content:attr(title);
+  position:absolute;
+  top:11px;
+  left:10px;
+  color:grey;
+  font-size:16px;
+  transition:all 0.2s;
+  cursor:text;
+  background:white;
+  user-select:none;
+  padding:0px;
+}
+#text:focus + .label2::before{
+  top:-7px;
+  font-size:14px;
+  color:grey;
+  cursor:default;
+}
+#text:valid + .label2::before{
+  content:attr(data-title);
+  top:-7px;
+  font-size:14px;
+  cursor:default;
+  color:dodgerblue;
+}
