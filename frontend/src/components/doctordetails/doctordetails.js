@@ -160,7 +160,7 @@ const DoctorDetails = () => {
       <div className="doctor-details">
         <h2> <span>Dr .</span> {result.firstName} {result.lastName}</h2>
         <Stars  stars={avgRating}/>
-        
+        <p>{avgRating}</p>
         <br></br>
         <p>{result.description}</p>
         <br></br>
