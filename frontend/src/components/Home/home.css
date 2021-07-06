@@ -315,4 +315,19 @@ color: rgb(10, 216, 61);
 
  /* slider  */
 
- 
+ .slide-container{
+  height: 400px;
+  width: 90%;
+  margin: 10px auto;   
+  }
+  .each-slide{
+    height: 500px;
+    width: 100%;  
+  }
+  .imageSlider{
+      height: 100%;
+      width:100%; 
+     border-radius: 10px;
+     background-position: center;
+     background-size: cover;
+  }
