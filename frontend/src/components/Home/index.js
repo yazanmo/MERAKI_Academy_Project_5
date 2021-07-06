@@ -14,18 +14,12 @@ import "./home.css";
 import happy from "./happy.jpg";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-// import slider0 from "./slider/slider1.jpg"
-// import slider1 from "./slider/slider2.jpg"
-// import slider2 from "./slider/slider3.jpg"
-// import slider3 from "./slider/slider4.jpg"
-// import slider4 from "./slider/slider5.jpg"
-// import slider5 from "./slider/slider6.jpg"
-// import slider6 from "./slider/slider7.jpg"
 
 export default function Home({ homePageSection, setHomePageSection }) {
   // const sliderArray =[slider0,slider1,slider2,slider3,slider4,slider5,slider6]
   const dispatch = useDispatch();
 
+  // smooth scroller
   useEffect(() => {
     if (homePageSection !== "") {
       console.log(homePageSection);
@@ -51,12 +45,14 @@ export default function Home({ homePageSection, setHomePageSection }) {
       stories: state.storiesReducer.stories,
     };
   });
+
+  //array for slider
   const arr = [
     "https://images.unsplash.com/photo-1604480131833-5d7aea770e1c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=890&q=80",
     "https://images.unsplash.com/photo-1467453678174-768ec283a940?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=728&q=80",
-    "https://images.unsplash.com/photo-1556911073-52527ac43761?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+    "https://images.unsplash.com/photo-1607962837359-5e7e89f86776?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80",
     "https://images.unsplash.com/photo-1486218119243-13883505764c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1504&q=80",
-    "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80",
+    "https://images.unsplash.com/photo-1494597564530-871f2b93ac55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=701&q=80",
   ];
 
   return (

@@ -51,7 +51,7 @@
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  margin-left: 4%;
+  margin-left: 1.8%;
 }
 
 .img2 {
@@ -317,8 +317,8 @@ color: rgb(10, 216, 61);
 
  .slide-container{
   height: 400px;
-  width: 90%;
-  margin: 5% auto;   
+  width: 96.5%;
+  margin: 0.4% 2% 6% 2%;   
   }
   .each-slide{
     height: 500px;
@@ -327,7 +327,7 @@ color: rgb(10, 216, 61);
   .imageSlider{
       height: 100%;
       width:100%; 
-     border-radius: 10px;
+     border-radius: 5px;
      background-position: center;
      background-size: cover;
   }
