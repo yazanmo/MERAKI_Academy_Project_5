@@ -6,13 +6,11 @@ import Doctor from "./components/Doctor/Doctor";
 import Info from "./components/doctorinfo/doctorinfo";
 import Navigation from "./components/navigation";
 
-import Admin from "./components/Admin/admin";
 import DoctorProfile from "./components/doctor_profile/doctor_profile";
 import SignUp from "./components/signUp/signUp";
-import Accept from "./components/Admin/admin"
-import Date from './components/date/date'
+import Date from "./components/date/date";
 
-import AdminPage from "./components/AdminPage"
+import AdminPage from "./components/AdminPage";
 import Accept from "./components/Admin/admin";
 
 import Profile from "./components/profile/profile";
@@ -20,7 +18,6 @@ import AddStory from "./components/profile/addstory";
 import Home from "./components/Home";
 import UpdateDoctorProfile from "./components/doctor_profile/updateDoctorProfile";
 import FoodTracker from "./components/profile/foodtracker";
-import Test from "./components/profile/test";
 
 import CreateStories from "./components/storie";
 import AcceptDoctor from "./components/AcceptDoctor";
@@ -54,14 +51,21 @@ const App = () => {
 
           <Route exact path="/foodtracker" render={() => <FoodTracker />} />
 
-          <Route exact path="/create/stories" render={() => <CreateStories />} />
-          <Route exact path="/adminPage" render={() => <AdminPage /> }/>
-          <Route exact path="/accept" render={() => <Accept/>} />
-          <Route exact path="/doctorInfo" render={()=> <Info />}/>
-          <Route exact path="/accept/doctor/:doctor_id" render = {()=><AcceptDoctor/>}/>
+          <Route
+            exact
+            path="/create/stories"
+            render={() => <CreateStories />}
+          />
+          <Route exact path="/adminPage" render={() => <AdminPage />} />
+          <Route exact path="/accept" render={() => <Accept />} />
+          <Route exact path="/doctorInfo" render={() => <Info />} />
+          <Route
+            exact
+            path="/accept/doctor/:doctor_id"
+            render={() => <AcceptDoctor />}
+          />
 
           <Route exact path="/date" render={() => <Date />} />
-
 
           <Route exact path="/about" render={() => <About />} />
 
