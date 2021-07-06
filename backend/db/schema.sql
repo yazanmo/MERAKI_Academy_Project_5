@@ -40,7 +40,6 @@ CREATE TABLE doctors (
  primary key(doctor_id)
 );
 
--- INSERT INTO doctors (firstName,lastName,age,description,email,Qualifications,practicalExperiences) VALUES("test2","moh",25,"bye","tabikh.ghaidaa@gmail.com","qwe","asd")
 
 CREATE TABLE doctorsDetails (
  id INT AUTO_INCREMENT NOT NULL,
