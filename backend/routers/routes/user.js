@@ -13,7 +13,7 @@ const userRouter = express.Router();
 
 //APIs
 userRouter.get("/profile", auth, getUserInformation);
-userRouter.get("/patient/:id", getUserById);
+userRouter.get("/patient", getUserById);
 
 userRouter.put("/profile", auth, updateUserInformationById);
 userRouter.delete("/profile", auth, deleteUserById);
