@@ -37,10 +37,6 @@ const Starts = (props) => {
             <FaStar
               key={index}
               size={24}
-              // onClick={() =>{setCurrentValue(props.starts)}}
-              // onScroll={() => handleClick(4)}
-              //  onMouseOver={() => handleMouseOver(index + 1)}
-              // onMouseLeave={handleMouseLeave}
               color={
                 (hover ||rating) > index
                   ? colors.orange

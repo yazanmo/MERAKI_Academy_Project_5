@@ -51,7 +51,7 @@
 .all-details{
 
   margin-top: 150px;
-}
+}      
 
 .parent1-commint{
 
@@ -118,19 +118,19 @@
 
 .btnCommant {
     
-  margin-top: 69px;
-  border-radius: 4px;
+  margin-top: -85px;
+  border-radius: 5px;
   background-color: #5383d3;
   border: none;
   color: #fff;
-  text-align: center;
-  font-size: 13px; 
-  width: 60px;
+  text-align: center; 
+  width: 140px;
   padding: 8px;
   transition: all 0.5s;
   cursor: pointer;
   box-shadow: 0 10px 20px -8px rgb(0 0 0 / 70%);
   text-align: center;
+  font-size:18px;
 }
 
 .btnCommant{
@@ -234,8 +234,11 @@
 }
 
 .input-coment1,.input-coment{
-
-  margin-left: 50%;
+height: 85px;
+width:550px;
+border-radius: 5px;
+  margin-left: 48%;
+  margin-top:0px;
 }
 
 
@@ -250,4 +253,7 @@
   position: absolute;
   top:101%
 }
-
+.rating{
+  margin-top:0px;
+  margin-bottom:50px;
+}

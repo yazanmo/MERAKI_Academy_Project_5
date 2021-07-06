@@ -40,7 +40,6 @@ const DoctorDetails = () => {
   });
   const handleClick = (value) => {
     setRating(value);
-    
   };
   const handleMouseOver = (newHoverValue) => {
     setHover(newHoverValue);
@@ -62,6 +61,7 @@ const DoctorDetails = () => {
       .get(`http://localhost:5000/doctor/review/${id}`)
       .then((result) => {
         setAllComment(result.data);
+        
       })
       .catch((err) => {});
   }, [sa]);
@@ -69,11 +69,13 @@ const DoctorDetails = () => {
     axios
       .get(`http://localhost:5000/review/${id}`)
       .then((res) => {
-        console.log(Math.floor(res.data[0].AverageRating));
         setAvgRating(Math.floor(res.data[0].AverageRating));
+        
+        console.log(Math.floor(res.data[0].AverageRating));
+        
       })
       .catch((err) => {});
-  });
+  },[sa]);
 
   const createComment = () => {
     axios
@@ -148,38 +150,52 @@ const DoctorDetails = () => {
   };
 
   return (
-    
     <div className="doctor">
-      
-        <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css"></link>
-        <div className="parent"> 
-      <div className="img1">
-        <img src={ result.img ? result.img: <></>} style={{ width: "300px", height: "500px" ,borderRadius: "20px" }} />
-      </div>
-      <div className="all-details">
-      <div className="doctor-details">
-        <h2> <span>Dr .</span> {result.firstName} {result.lastName}</h2>
-        <Stars  stars={avgRating}/>
-        <p>{avgRating}</p>
-        <br></br>
-        <p>{result.description}</p>
-        <br></br>
-        <br></br>
-        <h3><span>price:</span> {result.price} jd</h3>
-        <br></br>
-        <br></br>
-        <h3><span>Qualifications:</span> {result.Qualifications} </h3>
-        <br></br>
-        <br></br>
-        <h3><span>practicalExperiences: </span>{result.practicalExperiences} </h3>
-      </div>
-      </div>
       <link
         href="http://fonts.googleapis.com/css?family=Cookie"
         rel="stylesheet"
         type="text/css"
       ></link>
-
+      <div className="parent">
+        <div className="img1">
+          <img
+            src={result.img ? result.img : <></>}
+            style={{ width: "300px", height: "500px", borderRadius: "20px" }}
+          />
+        </div>
+        <div className="all-details">
+          <div className="doctor-details">
+            <h2>
+              {" "}
+              <span>Dr .</span> {result.firstName} {result.lastName}
+            </h2>
+            <Stars stars={avgRating}/>
+            <p>{avgRating}</p>
+            <br></br>
+            <p>{result.description}</p>
+            <br></br>
+            <br></br>
+            <h3>
+              <span>price:</span> {result.price} jd
+            </h3>
+            <br></br>
+            <br></br>
+            <h3>
+              <span>Qualifications:</span> {result.Qualifications}{" "}
+            </h3>
+            <br></br>
+            <br></br>
+            <h3>
+              <span>practicalExperiences: </span>
+              {result.practicalExperiences}{" "}
+            </h3>
+          </div>
+        </div>
+        <link
+          href="http://fonts.googleapis.com/css?family=Cookie"
+          rel="stylesheet"
+          type="text/css"
+        ></link>
       </div>
       {token ? (
         <>
@@ -195,30 +211,30 @@ const DoctorDetails = () => {
                 }}
               ></textarea>
               <div style={styles.container}>
-      <div className="rating">
-        {[...Array(5)].map((element, i) => {
-          let ratingValue = i ;
-          return (
-            <FaStar
-              key={ratingValue}
-              size={24}
-              onClick={() => handleClick(ratingValue + 1)}
-              onMouseOver={() => handleMouseOver(ratingValue + 1)}
-              onMouseLeave={handleMouseLeave}
-              color={
-                (rating || hover) > ratingValue
-                  ? colors.orange
-                  : colors.grey
-              }
-              style={{
-                marginRight: 10,
-                cursor: "pointer",
-              }}
-            />
-          );
-        })}
-      </div>
-    </div>
+                <div className="rating">
+                  {[...Array(5)].map((element, i) => {
+                    let ratingValue = i;
+                    return (
+                      <FaStar
+                        key={ratingValue}
+                        size={24}
+                        onClick={() => handleClick(ratingValue + 1)}
+                        onMouseOver={() => handleMouseOver(ratingValue + 1)}
+                        onMouseLeave={handleMouseLeave}
+                        color={
+                          (rating || hover) > ratingValue
+                            ? colors.orange
+                            : colors.grey
+                        }
+                        style={{
+                          marginRight: 10,
+                          cursor: "pointer",
+                        }}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
             </>
           )}
         </>
@@ -233,7 +249,7 @@ const DoctorDetails = () => {
           ) : (
             <button className="btnCommant" onClick={createComment}>
               {" "}
-              ok
+              comment
             </button>
           )}{" "}
         </>
@@ -257,22 +273,8 @@ const DoctorDetails = () => {
                       {element.firstName} {element.lastName}
                     </h3>
                   </div>
-                  <Stars  stars={element.rating}/>
-                  {/* <p>{element.rating}</p> */}
-                  {/* <FaStar
-              key={element.rating}
-              size={24}
-             defaultValue ={element.rating}
-              color={
-                
-                   colors.orange
-                  
-              }
-              style={{
-                marginRight: 10,
-                cursor: "pointer",
-              }}
-            /> */}
+                  <Stars stars={element.rating} />
+
                   {updateComment == false ? (
                     <p className="coment">{element.comment}</p>
                   ) : (
@@ -372,10 +374,11 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    margin: "4% 0 0 7%"
+    margin: "4% 0 0 7%",
   },
   stars: {
     display: "flex",
     flexDirection: "row",
-  }}
+  },
+};
 export default DoctorDetails;
