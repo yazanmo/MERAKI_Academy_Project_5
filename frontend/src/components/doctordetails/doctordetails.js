@@ -169,7 +169,8 @@ const DoctorDetails = () => {
               {" "}
               <span>Dr .</span> {result.firstName} {result.lastName}
             </h2>
-            <Stars stars={avgRating}/>
+            <div className="avgRating"><Stars stars={avgRating}/></div>
+            
             
             
             <p>{result.description}</p>
