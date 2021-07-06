@@ -7,12 +7,17 @@ const cors = require("cors");
 const registerRouter = require("./routers/routes/auth/signUp");
 const loginRouter = require("./routers/routes/auth/login");
 const registerDoctorRouter = require("./routers/routes/dashboard");
+
 const acceptDoctorRouter = require("./routers/routes/acceptDoctor");
 const doctorDetailsRouter = require("./routers/routes/doctorProfile");
 const myPatient = require("./routers/routes/mypatient");
 
 const storyRouter = require("./routers/routes/story");
 
+
+const sendEmailRouter =require("./routers/routes/email")
+
+const scheduleRoute=require("./routers/routes/schedule")
 const foodTrackerRouter = require("./routers/routes/foodTracker");
 const reviewRouter = require("./routers/routes/review");
 // const storyRouter = require("./routers/routes/story")
@@ -42,6 +47,14 @@ app.use(foodTrackerRouter);
 app.use(doctorRouter);
 app.use(userRouter);
 app.use(myPatient);
+app.use(scheduleRoute)
+
+
+app.use(sendEmailRouter)
+
+
+
+
 
 const PORT = process.env.PORT || 5000;
 
