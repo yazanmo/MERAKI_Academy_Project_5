@@ -3,6 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import Rating from "./Rating";
+import Stars from "./Stars";
 import { createTodo, setTodos } from "./../../reducers/review";
 import { FaStar } from "react-icons/fa";
 
@@ -158,7 +159,7 @@ const DoctorDetails = () => {
       <div className="all-details">
       <div className="doctor-details">
         <h2> <span>Dr .</span> {result.firstName} {result.lastName}</h2>
-        <p>{avgRating}</p>
+        <Stars  stars={avgRating}/>
         
         <br></br>
         <p>{result.description}</p>
@@ -256,7 +257,22 @@ const DoctorDetails = () => {
                       {element.firstName} {element.lastName}
                     </h3>
                   </div>
-                  <p>{element.rating}</p>
+                  <Stars  stars={element.rating}/>
+                  {/* <p>{element.rating}</p> */}
+                  {/* <FaStar
+              key={element.rating}
+              size={24}
+             defaultValue ={element.rating}
+              color={
+                
+                   colors.orange
+                  
+              }
+              style={{
+                marginRight: 10,
+                cursor: "pointer",
+              }}
+            /> */}
                   {updateComment == false ? (
                     <p className="coment">{element.comment}</p>
                   ) : (
