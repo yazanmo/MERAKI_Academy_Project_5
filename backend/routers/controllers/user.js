@@ -41,7 +41,7 @@ const deleteUserById = (req, res) => {
 };
 
 const getUserById = (req, res) => {
-  const user_id = req.body.id;
+  const user_id = req.params.id;
   const query = `SELECT * FROM users WHERE id=?`;
   const data = [user_id];
   db.query(query, data, (err, result) => {
