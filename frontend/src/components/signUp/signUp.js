@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Logo from "./../../components/logo.png";
+
 import "./signUp.css";
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
@@ -34,6 +38,7 @@ const SignUp = () => {
   return (
     <div className="signup">
       <form onSubmit={signUpButton}>
+        <img src={Logo} />
         <input
           type="text"
           placeholder=" First Name "
@@ -80,14 +85,19 @@ const SignUp = () => {
           <p style={{ marginTop: "20px", fontStyle: "bold" }}>
             You already have an account ?
             <span>
-              <Link to="/login"> log in</Link>
+              <Link className="render" to="/login">
+                {" "}
+                log in
+              </Link>
             </span>
           </p>{" "}
         </div>
         <p>
           Join as a{" "}
           <span>
-            <Link to="/doctorInfo">Doctor</Link>
+            <Link className="render" to="/doctorInfo">
+              Doctor
+            </Link>
           </span>
         </p>
       </form>
