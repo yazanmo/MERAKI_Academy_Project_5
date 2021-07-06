@@ -27,6 +27,7 @@ import About from "./components/aboutus/about";
 import UpdateUserInfo from "./components/profile/updateuserinfo";
 import MyPatient from "./components/mypatint/mypatint";
 import MyDoctor from "./components/mydoctor/mydoctor";
+import Patient from "./components/mypatint/patient";
 
 const App = () => {
   return (
@@ -72,6 +73,7 @@ const App = () => {
           <Route exact path="/edit/profile" render={() => <UpdateUserInfo />} />
           <Route exact path="/mypatient" render={() => <MyPatient />} />
           <Route exact path="/mydoctor" render={() => <MyDoctor />} />
+          <Route exact path="/patient/:id" render={() => <Patient />} />
         </Switch>
       </div>
     </>
