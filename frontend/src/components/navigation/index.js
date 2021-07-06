@@ -42,7 +42,7 @@ const Navigation = ({setHomePageSection}) => {
               <li>
                 {" "}
                 <Link to="/doctor" className="links">
-                  Our nutrition
+                  Our nutritionist
                 </Link>{" "}
               </li>
               <li>
@@ -119,7 +119,7 @@ const Navigation = ({setHomePageSection}) => {
                   </li>
 
                   <li>
-                    <Link to="/patient" className="links">
+                    <Link to="/date" className="links">
                       My patient
                     </Link>{" "}
                   </li>
@@ -164,10 +164,10 @@ const Navigation = ({setHomePageSection}) => {
                     <li>
                     {" "}
                     <Link
-                      to="/accept"
+                      to="/adminPage"
                       className="links"
                     >
-                     accept doctor
+                    Admin profile
                     </Link>{" "}
                   </li>
 
