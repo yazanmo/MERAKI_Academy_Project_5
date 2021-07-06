@@ -13,6 +13,7 @@
 .paragraph {
   margin-top: 2%;
   padding-left: 1.5%;
+  padding-right: 1.5%;
   padding-top: 1%;
   display: flex;
   flex-direction: column;
@@ -52,6 +53,7 @@
   width: 100%;
   height: 100%;
   margin-left: 1.8%;
+  border-radius: 3px;
 }
 
 .img2 {
@@ -98,8 +100,6 @@ color: rgb(10, 216, 61);
   display: flex;
   margin-top: 5%;
   gap: 1.5%;
-  /* font-family: 'Courier New', Courier, monospace; */
-  /* font-family: Georgia, 'Times New Roman', Times, serif; */
   font-family: sans-serif;
 }
 
@@ -147,7 +147,7 @@ color: rgb(10, 216, 61);
   box-sizing: border-box;
 }
 
-
+/* footer */
 
  .footer-distributed{
   background-color: #292c2f;
@@ -158,7 +158,7 @@ color: rgb(10, 216, 61);
   font: bold 16px sans-serif;
   
   padding: 55px 50px;
-  margin-top: 80px;
+  margin-top: -74px;
  }
   
  .footer-distributed .footer-left,
@@ -318,7 +318,7 @@ color: rgb(10, 216, 61);
  .slide-container{
   height: 400px;
   width: 96.5%;
-  margin: 0.4% 2% 6% 2%;   
+  margin: 0.7% 2% 10% 2%;   
   }
   .each-slide{
     height: 500px;
