@@ -107,7 +107,7 @@ const Navigation = () => {
                   </li>
 
                   <li>
-                    <Link to="/patient" className="links">
+                    <Link to="/date" className="links">
                       My patient
                     </Link>{" "}
                   </li>
