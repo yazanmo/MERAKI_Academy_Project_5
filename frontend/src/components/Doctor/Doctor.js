@@ -9,7 +9,7 @@ const Doctor = () => {
   const [num1, setnum1] = useState(0);
   const [num2, setnum2] = useState(99999999999999);
   const [filter, setfilter] = useState();
-
+  const role_id = localStorage.getItem("role_id");
   const history = useHistory();
 
   useEffect(() => {
@@ -17,6 +17,7 @@ const Doctor = () => {
       .get(`http://localhost:5000/doctor`, { num1, num2 })
       .then((response) => {
         setDoctor(response.data);
+        console.log("doctor",response.data);
       })
       .catch((err) => {});
   }, []);
@@ -55,6 +56,21 @@ const Doctor = () => {
       .catch((err) => {});
   };
 
+  //admin can delete any doctor
+  const deleteDoctor = (id) => {
+    console.log("dellllllete",id);
+    axios
+      .put(`http://localhost:5000/admin/delete/${id}`)
+      .then((result) => {
+        history.push("/adminPage")
+
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
       <div className="filter">
@@ -83,7 +99,8 @@ const Doctor = () => {
           {DoctorName &&
             DoctorName.map((element, index) => {
               return (
-                <div className="childDoctor"
+                <div
+                  className="childDoctor"
                   onClick={() => {
                     func(element.id);
                   }}
@@ -91,7 +108,11 @@ const Doctor = () => {
                   <p>
                     {element.firstName} {element.lastName}
                   </p>
-                  <img className="doctorImg" style={{"height":"100px","width":"100%"}} src={element.img} />
+                  <img
+                    className="doctorImg"
+                    style={{ height: "100px", width: "100%" }}
+                    src={element.img}
+                  />
                 </div>
               );
             })}
@@ -125,9 +146,13 @@ const Doctor = () => {
         {Doctor &&
           Doctor.map((elem, i) => {
             return (
-              <div className="childDoctor" onClick={() => {
-                func(elem.id);
-              }} key={i}>
+              <div
+                className="childDoctor"
+                onClick={() => {
+                  func(elem.id);
+                }}
+                key={i}
+              >
                 <div className="imag">
                   <img src={`${elem.img}`} />
                 </div>
@@ -135,7 +160,7 @@ const Doctor = () => {
                   <h2>
                     {elem.firstName} {elem.lastName}
                   </h2>
-                  <h2>{elem.price+" $"}</h2>
+                  <h2>{elem.price + " $"}</h2>
                   <p>{elem.description}</p>
                   <button
                     onClick={() => {
@@ -144,6 +169,17 @@ const Doctor = () => {
                   >
                     more details
                   </button>
+                  {role_id == 3 ? (
+                    <button
+                      onClick={() => {
+                        deleteDoctor(elem.user_id);
+                      }}
+                    >
+                      delete{" "}
+                    </button>
+                  ) : (
+                    <></>
+                  )}
                 </div>
               </div>
             );

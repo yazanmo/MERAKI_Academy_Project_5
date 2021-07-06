@@ -132,45 +132,34 @@ const DoctorDetails = () => {
 
   return (
     <div className="doctor">
+        <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css"></link>
+        <div className="parent"> 
+      <div className="img1">
+        <img src={ result.img ? result.img: <></>} style={{ width: "300px", height: "500px" ,borderRadius: "20px" }} />
+      </div>
+      <div className="all-details">
+      <div className="doctor-details">
+        <h2> <span>Dr .</span> {result.firstName} {result.lastName}</h2>
+        <p>{avgRating}</p>
+        <br></br>
+        <p>{result.description}</p>
+        <br></br>
+        <br></br>
+        <h3><span>price:</span> {result.price} jd</h3>
+        <br></br>
+        <br></br>
+        <h3><span>Qualifications:</span> {result.Qualifications} </h3>
+        <br></br>
+        <br></br>
+        <h3><span>practicalExperiences: </span>{result.practicalExperiences} </h3>
+      </div>
+      </div>
       <link
         href="http://fonts.googleapis.com/css?family=Cookie"
         rel="stylesheet"
         type="text/css"
       ></link>
-      <div className="parent">
-        <div className="img1">
-          <img
-            src={result.img}
-            style={{ width: "300px", height: "500px", borderRadius: "20px" }}
-          />
-        </div>
-        <div className="all-details">
-          <div className="doctor-details">
-            <h2>
-              {" "}
-              <span>Dr .</span> {result.firstName} {result.lastName}
-            </h2>
-            <p>{avgRating}</p>
-            <br></br>
-            <p>{result.description}</p>
-            <br></br>
-            <br></br>
-            <h3>
-              <span>price:</span> {result.price} jd
-            </h3>
-            <br></br>
-            <br></br>
-            <h3>
-              <span>Qualifications:</span> {result.Qualifications}{" "}
-            </h3>
-            <br></br>
-            <br></br>
-            <h3>
-              <span>practicalExperiences: </span>
-              {result.practicalExperiences}{" "}
-            </h3>
-          </div>
-        </div>
+
       </div>
       {token ? (
         <>

@@ -9,6 +9,7 @@ const {
   getAllDoctorsAdmin,
   deleteDoctorAdmin,
   searchDoctor,
+  deleteDoctorUsers
 } = require("./../controllers/doctor");
 
 const doctorRouter = express.Router();
@@ -21,5 +22,6 @@ doctorRouter.post("/info", allInfoOfDoctor);
 doctorRouter.get("/doctoradmin", getAllDoctorsAdmin);
 doctorRouter.put("/doctordelete", deleteDoctorAdmin);
 doctorRouter.post("/search", searchDoctor);
+doctorRouter.put("/admin/delete/:id",deleteDoctorUsers)
 
 module.exports = doctorRouter;

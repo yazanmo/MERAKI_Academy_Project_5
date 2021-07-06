@@ -1,0 +1,9 @@
+.adminLink{
+    font-size: xx-large;
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    gap: 50px;
+    list-style-type: none;
+    text-decoration: none;
+}

@@ -9,6 +9,8 @@ import Navigation from "./components/navigation";
 import Admin from "./components/Admin/admin";
 import DoctorProfile from "./components/doctor_profile/doctor_profile";
 import SignUp from "./components/signUp/signUp";
+
+import AdminPage from "./components/AdminPage"
 import Accept from "./components/Admin/admin";
 
 import Profile from "./components/profile/profile";
@@ -50,18 +52,12 @@ const App = () => {
 
           <Route exact path="/foodtracker" render={() => <FoodTracker />} />
 
-          <Route
-            exact
-            path="/create/stories"
-            render={() => <CreateStories />}
-          />
-          <Route exact path="/accept" render={() => <Accept />} />
-          <Route exact path="/doctorInfo" render={() => <Info />} />
-          <Route
-            exact
-            path="/accept/doctor/:doctor_id"
-            render={() => <AcceptDoctor />}
-          />
+          <Route exact path="/create/stories" render={() => <CreateStories />} />
+          <Route exact path="/adminPage" render={() => <AdminPage /> }/>
+          <Route exact path="/accept" render={() => <Accept/>} />
+          <Route exact path="/doctorInfo" render={()=> <Info />}/>
+          <Route exact path="/accept/doctor/:doctor_id" render = {()=><AcceptDoctor/>}/>
+
 
           <Route exact path="/about" render={() => <About />} />
 

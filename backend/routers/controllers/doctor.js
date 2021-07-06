@@ -85,6 +85,31 @@ const searchDoctor = (req, res) => {
   });
 };
 
+
+
+// this function to allow admin to delete doctor
+
+const deleteDoctorUsers = (req,res)=>{
+  const id = req.params.id
+  const arr =[id]
+  const command = `UPDATE users SET is_deleted = 1 WHERE id = ? `
+  db.query(command,arr,(err,result)=>{
+    if (err) {
+      console.log(err);
+      return res.send(err);
+    }
+    const command = `UPDATE doctorsDetails SET is_deleted = 1 WHERE user_id = ? `
+    db.query(command,arr,(err,result)=>{
+      if (err) {
+        console.log(err);
+        return res.send(err);
+      }
+      res.status(200).json(result)
+  })
+
+  
+})}
+
 module.exports = {
   getAllDoctors,
   getDoctorById,
@@ -93,4 +118,5 @@ module.exports = {
   getAllDoctorsAdmin,
   deleteDoctorAdmin,
   searchDoctor,
+  deleteDoctorUsers
 };
