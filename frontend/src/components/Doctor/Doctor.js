@@ -75,18 +75,21 @@ const Doctor = () => {
   return (
     <>
       <div className="filter">
+        <div className="row-a">
         <div className="asdsadasd">
-        <input type="slider"
+        <input className="input-filter" 
+        placeholder="MIN"
           onChange={(e) => {
             setnum1(e.target.value);
           }}
         />
-        <input
+        <input className="input-filter"
+         placeholder="MAX"
           onChange={(e) => {
             setnum2(e.target.value);
           }}
         />
-        <button className="Filter-btn" onClick={callType_1}>Filter</button>
+        <button className="Filter-btn" onClick={callType_1}>$</button>
         </div>
         <div className="kapsayici">
         <input id="checkbox" className="checkInp"
@@ -106,7 +109,7 @@ const Doctor = () => {
     <label class="label2" for="text" title="Search for Doctor Name" data-title="Doctor Name"></label>
   
 
-
+    </div>
          </div>
         <div className="parant-Doctor">
           {DoctorName &&
