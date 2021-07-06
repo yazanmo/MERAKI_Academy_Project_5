@@ -4,8 +4,13 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import Rating from "./Rating";
 import { createTodo, setTodos } from "./../../reducers/review";
-import "./doctordetails.css";
+import { FaStar } from "react-icons/fa";
 
+import "./doctordetails.css";
+const colors = {
+  orange: "#FFBA5A",
+  grey: "#a9a9a9",
+};
 const DoctorDetails = () => {
   const { id } = useParams();
   const history = useHistory();
@@ -13,6 +18,7 @@ const DoctorDetails = () => {
   const [result, setResult] = useState([]);
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
+  const [hover, setHover] = useState(0);
   const [allComment, setAllComment] = useState([]);
   const [sa, setSa] = useState(false);
   const [updateComment, setUpdateComment] = useState(false);
@@ -31,7 +37,17 @@ const DoctorDetails = () => {
       review: state.review.review,
     };
   });
+  const handleClick = (value) => {
+    setRating(value);
+    
+  };
+  const handleMouseOver = (newHoverValue) => {
+    setHover(newHoverValue);
+  };
 
+  const handleMouseLeave = () => {
+    setHover(undefined);
+  };
   useEffect(() => {
     axios
       .get(`http://localhost:5000/doctor/${id}`)
@@ -131,7 +147,9 @@ const DoctorDetails = () => {
   };
 
   return (
+    
     <div className="doctor">
+      
         <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css"></link>
         <div className="parent"> 
       <div className="img1">
@@ -141,6 +159,7 @@ const DoctorDetails = () => {
       <div className="doctor-details">
         <h2> <span>Dr .</span> {result.firstName} {result.lastName}</h2>
         <p>{avgRating}</p>
+        
         <br></br>
         <p>{result.description}</p>
         <br></br>
@@ -174,12 +193,31 @@ const DoctorDetails = () => {
                   setComment(e.target.value);
                 }}
               ></textarea>
-              <input
-                className="input-coment"
-                onChange={(e) => {
-                  setRating(e.target.value);
-                }}
-              />
+              <div style={styles.container}>
+      <div className="rating">
+        {[...Array(5)].map((element, i) => {
+          let ratingValue = i ;
+          return (
+            <FaStar
+              key={ratingValue}
+              size={24}
+              onClick={() => handleClick(ratingValue + 1)}
+              onMouseOver={() => handleMouseOver(ratingValue + 1)}
+              onMouseLeave={handleMouseLeave}
+              color={
+                (rating || hover) > ratingValue
+                  ? colors.orange
+                  : colors.grey
+              }
+              style={{
+                marginRight: 10,
+                cursor: "pointer",
+              }}
+            />
+          );
+        })}
+      </div>
+    </div>
             </>
           )}
         </>
@@ -313,5 +351,15 @@ const DoctorDetails = () => {
     </div>
   );
 };
-
+const styles = {
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    margin: "4% 0 0 7%"
+  },
+  stars: {
+    display: "flex",
+    flexDirection: "row",
+  }}
 export default DoctorDetails;
