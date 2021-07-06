@@ -349,29 +349,7 @@ const getActiveTime = (req, res) => {
   });
 };
 
-// const getFoodTraker = (req, res) => {
-//   const user_id = req.token.id;
-//   const query = `SELECT breakfast.name , snack.name  , lunch.name ,dinner.name , glassesOfWater.name , activeTime.name
-//   FROM foodTraker
-//   INNER JOIN breakfast ON foodTraker.breakfast_id = breakfast.breakfast_id
-//   INNER JOIN snack ON foodTraker.snack_id = snack.snack_id
-//   INNER JOIN lunch ON foodTraker.lunch_id = lunch.lunch_id
-//   INNER JOIN dinner ON foodTraker.dinner_id = dinner.dinner_id
-//   INNER JOIN glassesOfWater ON foodTraker.glassesOfWater_id = glassesOfWater.glassesOfWater_id
-//   INNER JOIN activeTime ON foodTraker.activeTime_id = activeTime.activeTime_id
-//   WHERE user_id =?
-//   `;
-//   const data = [user_id];
-
-//   db.query(query, data, (err, result) => {
-//     if (err) res.status(500).send("select is not done");
-//     res.status(200).json(result);
-//   });
-// };
-
 module.exports = {
-  // createFoodTracker,
-  // updateFoodTracker,
   addToBreakfast,
   addToSnack,
   addToLunch,
