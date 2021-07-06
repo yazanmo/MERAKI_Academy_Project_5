@@ -34,18 +34,40 @@ const getDoctorById = (req, res) => {
 };
 
 const allInfoOfDoctor = (req, res) => {
+  const {
+    firstName,
+    lastName,
+    age,
+    email,
+    description,
+    Qualifications,
+    practicalExperiences,
+    qualificationsFile,
+  } = req.body;
+  const arr = [
+    firstName,
+    lastName,
+    age,
+    email,
+    description,
+    Qualifications,
+    practicalExperiences,
+    qualificationsFile,
+  ];
 
-  const { firstName, lastName, age, email,description,
-    Qualifications,practicalExperiences,qualificationsFile } = req.body;
-    const arr = [
-      firstName, lastName, age, email,description,
-      Qualifications,practicalExperiences,qualificationsFile];
-
-      const command = `INSERT INTO doctors  (firstName, lastName,age, email,description,
+  const command = `INSERT INTO doctors  (firstName, lastName,age, email,description,
         Qualifications,practicalExperiences,qualificationsFile) VALUES (?,?,?,?,?,?,?,?)`;
-        
-console.log(firstName, lastName,age, email,description,
-  Qualifications,practicalExperiences,qualificationsFile)
+
+  console.log(
+    firstName,
+    lastName,
+    age,
+    email,
+    description,
+    Qualifications,
+    practicalExperiences,
+    qualificationsFile
+  );
   db.query(command, arr, (err, result) => {
     if (err) res.status(400).send(err);
     res.status(201).json(result);
@@ -85,30 +107,27 @@ const searchDoctor = (req, res) => {
   });
 };
 
-
-
 // this function to allow admin to delete doctor
 
-const deleteDoctorUsers = (req,res)=>{
-  const id = req.params.id
-  const arr =[id]
-  const command = `UPDATE users SET is_deleted = 1 WHERE id = ? `
-  db.query(command,arr,(err,result)=>{
+const deleteDoctorUsers = (req, res) => {
+  const id = req.params.id;
+  const arr = [id];
+  const command = `UPDATE users SET is_deleted = 1 WHERE id = ? `;
+  db.query(command, arr, (err, result) => {
     if (err) {
       console.log(err);
       return res.send(err);
     }
-    const command = `UPDATE doctorsDetails SET is_deleted = 1 WHERE user_id = ? `
-    db.query(command,arr,(err,result)=>{
+    const command = `UPDATE doctorsDetails SET is_deleted = 1 WHERE user_id = ? `;
+    db.query(command, arr, (err, result) => {
       if (err) {
         console.log(err);
         return res.send(err);
       }
-      res.status(200).json(result)
-  })
-
-  
-})}
+      res.status(200).json(result);
+    });
+  });
+};
 
 module.exports = {
   getAllDoctors,
@@ -118,5 +137,5 @@ module.exports = {
   getAllDoctorsAdmin,
   deleteDoctorAdmin,
   searchDoctor,
-  deleteDoctorUsers
+  deleteDoctorUsers,
 };

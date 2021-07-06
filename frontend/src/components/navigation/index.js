@@ -14,10 +14,11 @@ const Navigation = () => {
   let role_id = localStorage.getItem("role_id");
 
   return (
-   
     <div className="navBar">
       <div className="logo">
-        <h3>HEALTH<span>CARE</span></h3>
+        <h3>
+          HEALTH<span>CARE</span>
+        </h3>
       </div>
 
       <div className="nav">
@@ -64,6 +65,12 @@ const Navigation = () => {
                 <>
                   <li>
                     {" "}
+                    <Link to="/mydoctor" className="links">
+                      My Doctor
+                    </Link>{" "}
+                  </li>
+                  <li>
+                    {" "}
                     <Link to="/profile" className="links">
                       Profile
                     </Link>{" "}
@@ -107,7 +114,7 @@ const Navigation = () => {
                   </li>
 
                   <li>
-                    <Link to="/date" className="links">
+                    <Link to="/mypatient" className="links">
                       My patient
                     </Link>{" "}
                   </li>
@@ -148,14 +155,10 @@ const Navigation = () => {
             <>
               {role_id == 3 ? (
                 <>
-
-                    <li>
+                  <li>
                     {" "}
-                    <Link
-                      to="/adminPage"
-                      className="links"
-                    >
-                    Admin profile
+                    <Link to="/adminPage" className="links">
+                      Admin profile
                     </Link>{" "}
                   </li>
 
@@ -171,9 +174,6 @@ const Navigation = () => {
                       Log out
                     </Link>{" "}
                   </li>
-                  
-                 
-
                 </>
               ) : (
                 <></>

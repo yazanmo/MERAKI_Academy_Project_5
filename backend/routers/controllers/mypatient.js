@@ -22,9 +22,10 @@ const getMyDoctor = (req, res) => {
   LEFT JOIN doctorsDetails
   ON  doctorsDetails.id =purchased.doctorsService_id WHERE users.id = ? `;
   const data = [user_id];
+
   db.query(query, data, (err, result) => {
     if (err) res.status(400).send(err);
-    const query = `SELECT users.firstName ,users.lastName  ,doctorsDetails.description  ,users.img, doctorsDetails.user_id AS doctor_id,doctorsDetails.price
+    const query = `SELECT users.firstName ,users.lastName  ,doctorsDetails.description  ,doctorsDetails.id AS id_service  ,users.img, doctorsDetails.user_id AS doctor_id,doctorsDetails.price
     FROM doctorsDetails
     INNER JOIN users
     ON  users.id = doctorsDetails.user_id `;
