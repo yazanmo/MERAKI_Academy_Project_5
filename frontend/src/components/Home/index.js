@@ -70,6 +70,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
         </div>
         })}
           
+          
           {/* <div className="each-slide">
             <div
               className="imageSlider"
