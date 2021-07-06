@@ -160,62 +160,90 @@ const DoctorDetails = () => {
         <div className="img1">
           <img
             src={result.img ? result.img : <></>}
-            style={{ width: "300px", height: "500px", borderRadius: "20px" }}
+            style={{ width: "300px", height: "450px", borderRadius: "20px" }}
           />
         </div>
-        <div className="all-details">
+        
           <div className="doctor-details">
             <h2>
               {" "}
               <span>Dr .</span> {result.firstName} {result.lastName}
             </h2>
             <Stars stars={avgRating}/>
-            <p>{avgRating}</p>
-            <br></br>
+            
+            
             <p>{result.description}</p>
-            <br></br>
-            <br></br>
-            <h3>
+            
+            <p>
               <span>price:</span> {result.price} jd
-            </h3>
-            <br></br>
-            <br></br>
-            <h3>
+            </p>
+            
+            <p>
               <span>Qualifications:</span> {result.Qualifications}{" "}
-            </h3>
-            <br></br>
-            <br></br>
-            <h3>
+            </p>
+            
+            <p>
               <span>practicalExperiences: </span>
               {result.practicalExperiences}{" "}
-            </h3>
+            </p>
+            {token ? (
+          <>
+            {role_id == 2 ? (
+              ""
+            ) : (
+              <button
+                className="btn-1"
+                onClick={() => {
+                  axios
+                    .post(
+                      `http://localhost:5000/mypatient`,
+
+                      { id },
+                      {
+                        headers: {
+                          authorization: "Bearer " + token,
+                        },
+                      }
+                    )
+                    .then((result) => {
+                      setResult(result.data);
+                      console.log(result.data);
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                    });
+                }}
+              >
+                <span onClick={() => {}}>Subscribe</span>
+              </button>
+            )}
+          </>
+        ) : (
+          ""
+        )}
           </div>
-        </div>
+        
         <link
           href="http://fonts.googleapis.com/css?family=Cookie"
           rel="stylesheet"
           type="text/css"
         ></link>
       </div>
+      
       {token ? (
         <>
           {role_id == 2 ? (
             ""
           ) : (
-            <>
-              <textarea
-                className="input-coment1"
-                placeholder="Comment Here"
-                onChange={(e) => {
-                  setComment(e.target.value);
-                }}
-              ></textarea>
+            <div className="comment">
               <div style={styles.container}>
                 <div className="rating">
                   {[...Array(5)].map((element, i) => {
                     let ratingValue = i;
                     return (
                       <FaStar
+                      className="rating"
+                      style={styles.container}
                         key={ratingValue}
                         size={24}
                         onClick={() => handleClick(ratingValue + 1)}
@@ -233,9 +261,18 @@ const DoctorDetails = () => {
                       />
                     );
                   })}
+                  
                 </div>
               </div>
-            </>
+              <textarea
+                className="input-coment1"
+                placeholder="Comment Here"
+                onChange={(e) => {
+                  setComment(e.target.value);
+                }}
+                
+              ></textarea>
+            </div>
           )}
         </>
       ) : (
@@ -330,41 +367,7 @@ const DoctorDetails = () => {
             );
           })}
         </div>
-        {token ? (
-          <>
-            {role_id == 2 ? (
-              ""
-            ) : (
-              <button
-                className="btn-1"
-                onClick={() => {
-                  axios
-                    .post(
-                      `http://localhost:5000/mypatient`,
-
-                      { id },
-                      {
-                        headers: {
-                          authorization: "Bearer " + token,
-                        },
-                      }
-                    )
-                    .then((result) => {
-                      setResult(result.data);
-                      console.log(result.data);
-                    })
-                    .catch((err) => {
-                      console.log(err);
-                    });
-                }}
-              >
-                <span onClick={() => {}}>Subscribe</span>
-              </button>
-            )}
-          </>
-        ) : (
-          ""
-        )}
+        
       </div>
     </div>
   );
