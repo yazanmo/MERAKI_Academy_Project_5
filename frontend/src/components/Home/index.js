@@ -13,18 +13,17 @@ import { scroller } from "react-scroll";
 import "./home.css";
 import happy from "./happy.jpg";
 import { Slide } from "react-slideshow-image";
-import slider1 from "./slider/slider1.jpg"
-import slider2 from "./slider/slider2.jpg"
-import slider3 from "./slider/slider3.jpg"
-import slider4 from "./slider/slider4.jpg"
-import slider5 from "./slider/slider5.jpg"
-import slider6 from "./slider/slider6.jpg"
-import slider7 from "./slider/slider7.jpg"
-
-
+import "react-slideshow-image/dist/styles.css";
+// import slider0 from "./slider/slider1.jpg"
+// import slider1 from "./slider/slider2.jpg"
+// import slider2 from "./slider/slider3.jpg"
+// import slider3 from "./slider/slider4.jpg"
+// import slider4 from "./slider/slider5.jpg"
+// import slider5 from "./slider/slider6.jpg"
+// import slider6 from "./slider/slider7.jpg"
 
 export default function Home({ homePageSection, setHomePageSection }) {
-  const sliderArray =[1,2,3,4,5,6,7]
+  // const sliderArray =[slider0,slider1,slider2,slider3,slider4,slider5,slider6]
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -47,60 +46,55 @@ export default function Home({ homePageSection, setHomePageSection }) {
       });
   }, []);
 
-
-
   const state = useSelector((state) => {
     return {
       stories: state.storiesReducer.stories,
     };
   });
+  const arr = [
+    "https://images.unsplash.com/photo-1604480131833-5d7aea770e1c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=890&q=80",
+    "https://images.unsplash.com/photo-1467453678174-768ec283a940?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=728&q=80",
+    "https://images.unsplash.com/photo-1556911073-52527ac43761?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+    "https://images.unsplash.com/photo-1486218119243-13883505764c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1504&q=80",
+    "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80",
+  ];
 
   return (
     <div className="home">
-
-
-<div className="slide-container">
+      <div className="slide-container">
         <Slide>
-     {  sliderArray.forEach((element,index) => {
           <div className="each-slide">
-          <div
-            className="imageSlider"
-            style={{ backgroundImage: `src={slider+${index}}` }}
-          ></div>
-        </div>
-        })}
-          
-          
-          {/* <div className="each-slide">
             <div
               className="imageSlider"
-              style={{ backgroundImage: `url(${slideImages[1]})` }}
+              style={{ backgroundImage: `url(${arr[0]})` }}
             ></div>
           </div>
           <div className="each-slide">
             <div
               className="imageSlider"
-              style={{ backgroundImage: `url(${slideImages[2]})` }}
+              style={{ backgroundImage: `url(${arr[1]})` }}
             ></div>
           </div>
           <div className="each-slide">
             <div
               className="imageSlider"
-              style={{ backgroundImage: `url(${slideImages[3]})` }}
+              style={{ backgroundImage: `url(${arr[2]})` }}
             ></div>
           </div>
           <div className="each-slide">
             <div
               className="imageSlider"
-              style={{ backgroundImage: `url(${slideImages[4]})` }}
+              style={{ backgroundImage: `url(${arr[3]})` }}
             ></div>
-          </div> */}
+          </div>
+          <div className="each-slide">
+            <div
+              className="imageSlider"
+              style={{ backgroundImage: `url(${arr[4]})` }}
+            ></div>
+          </div>
         </Slide>
-        </div>
-
-
-
-
+      </div>
 
       <section className="About" title="About">
         <img className="img" src={health} alt="healthy life" />
