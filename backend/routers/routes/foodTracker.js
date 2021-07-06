@@ -71,7 +71,4 @@ foodTracker.delete(
 );
 foodTracker.delete("/activetime/:id", authentication, deleteToActiveTime);
 
-// foodTracker.post("/foodTracker", authentication, createFoodTracker);
-// foodTracker.put("/foodTracker", authentication, updateFoodTracker);
-
 module.exports = foodTracker;

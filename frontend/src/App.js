@@ -12,6 +12,8 @@ import SignUp from "./components/signUp/signUp";
 import Accept from "./components/Admin/admin"
 import Date from './components/date/date'
 
+import AdminPage from "./components/AdminPage"
+import Accept from "./components/Admin/admin";
 
 import Profile from "./components/profile/profile";
 import AddStory from "./components/profile/addstory";
@@ -20,13 +22,14 @@ import UpdateDoctorProfile from "./components/doctor_profile/updateDoctorProfile
 import FoodTracker from "./components/profile/foodtracker";
 import Test from "./components/profile/test";
 
-import CreateStories from "./components/storie"
-import AcceptDoctor from "./components/AcceptDoctor"
+import CreateStories from "./components/storie";
+import AcceptDoctor from "./components/AcceptDoctor";
 
 import About from "./components/aboutus/about";
 
 import UpdateUserInfo from "./components/profile/updateuserinfo";
-
+import MyPatient from "./components/mypatint/mypatint";
+import MyDoctor from "./components/mydoctor/mydoctor";
 
 const App = () => {
   return (
@@ -52,15 +55,19 @@ const App = () => {
           <Route exact path="/foodtracker" render={() => <FoodTracker />} />
 
           <Route exact path="/create/stories" render={() => <CreateStories />} />
+          <Route exact path="/adminPage" render={() => <AdminPage /> }/>
           <Route exact path="/accept" render={() => <Accept/>} />
           <Route exact path="/doctorInfo" render={()=> <Info />}/>
           <Route exact path="/accept/doctor/:doctor_id" render = {()=><AcceptDoctor/>}/>
 
-          <Route exact path="/about" render={() => <About />} />
           <Route exact path="/date" render={() => <Date />} />
 
-          <Route exact path="/edit/profile" render={() => <UpdateUserInfo />} />
 
+          <Route exact path="/about" render={() => <About />} />
+
+          <Route exact path="/edit/profile" render={() => <UpdateUserInfo />} />
+          <Route exact path="/mypatient" render={() => <MyPatient />} />
+          <Route exact path="/mydoctor" render={() => <MyDoctor />} />
         </Switch>
       </div>
     </>
