@@ -76,6 +76,7 @@ const Doctor = () => {
     <>
       <div className="filter">
         <div className="row-a">
+          <div className="btn-inp">
         <div className="asdsadasd">
         <input className="input-filter" 
         placeholder="MIN"
@@ -89,7 +90,11 @@ const Doctor = () => {
             setnum2(e.target.value);
           }}
         />
+       
+        </div>
+        <div>
         <button className="Filter-btn" onClick={callType_1}>$</button>
+        </div>
         </div>
         <div className="kapsayici">
         <input id="checkbox" className="checkInp"
