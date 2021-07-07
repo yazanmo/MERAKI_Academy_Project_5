@@ -14,6 +14,7 @@ import "./home.css";
 import happy from "./happy.jpg";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
+import noAvatar from "./noAvatar.png"
 
 export default function Home({ homePageSection, setHomePageSection }) {
   // const sliderArray =[slider0,slider1,slider2,slider3,slider4,slider5,slider6]
@@ -32,6 +33,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
     axios
       .get(`http://localhost:5000/stories`)
       .then((result) => {
+        console.log(result.data);
         dispatch(setStories(result.data));
         localStorage.setItem("stories", JSON.stringify(result.data));
       })
@@ -57,6 +59,8 @@ export default function Home({ homePageSection, setHomePageSection }) {
 
   return (
     <div className="home">
+
+      {/* slider */}
       <div className="slide-container">
         <Slide>
           <div className="each-slide">
@@ -92,6 +96,8 @@ export default function Home({ homePageSection, setHomePageSection }) {
         </Slide>
       </div>
 
+
+{/* about section */}
       <section className="About" title="About">
         <img className="img" src={health} alt="healthy life" />
         <div className="paragraph">
@@ -117,6 +123,9 @@ export default function Home({ homePageSection, setHomePageSection }) {
           />
         </div>
       </section>
+
+
+      {/* services section */}
 
       <section title="ourServices" id="services">
         <div className="line">
@@ -162,17 +171,20 @@ export default function Home({ homePageSection, setHomePageSection }) {
         </div>
       </section>
 
+{/* stories section */}
+
       <section className="stories" title="stories" id="stories">
         <span className="welcome">STORIES</span>
         <h3 className="h3">Successfull Stories</h3>
         <div className="storyCard">
           {state.stories &&
             state.stories.map((story, index) => {
+              console.log(story.img);
               return (
                 <ul key={index} className="ul">
                   {" "}
-                  <img className="happyMan" src={happy} alt="happy" />
-                  {/* <img src="story.img" alt="happy" />  */}
+                  <img className="storyImg"    src = {story.img ? story.img  : noAvatar }/>
+                  <div className="nameDes"></div>
                   <li className="description">{story.description}</li>
                   <div className="name">
                     <li>{story.firstName}</li>

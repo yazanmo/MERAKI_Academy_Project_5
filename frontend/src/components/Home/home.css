@@ -74,8 +74,9 @@
 
 .storyCard {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   align-items: flex-start;
+  width: 70%;
   gap: 50px;
   box-sizing: border-box;
   
@@ -83,14 +84,23 @@
 }
 
 .ul {
+  display: flex;
   margin-top: 5rem;
   list-style-type: none;
   border: 1px solid white;
+  border-radius: 5px;
   box-sizing: border-box;
-  padding:8% 8%;
+  padding-right: 0rem 0rem;
+  /* padding:5% 3%; */
   background-color: white;
-  box-shadow: 0 0 15px rgb(0 0 0 / 5%)
+  box-shadow: 0 0 15px rgb(0 0 0 / 5%);
+  height: 250px;
+  /* width : 90% */
+  padding-left: 0rem; 
 }
+
+
+
 
 .description{
 color: rgb(10, 216, 61);
@@ -101,6 +111,16 @@ color: rgb(10, 216, 61);
   margin-top: 5%;
   gap: 1.5%;
   font-family: sans-serif;
+}
+
+.nameDes{
+
+}
+
+.storyImg{
+  width: 200px;
+  height:100%;
+  object-fit: cover;
 }
 
 
