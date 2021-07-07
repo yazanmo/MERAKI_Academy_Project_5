@@ -57,14 +57,14 @@ const Accept = () => {
                   <p className="desdoc">{elem.qualificationsFile}</p>
               </Card.Text>
               <div className="accdel">
-              <button
+              <button className="btnaccdel"
                     onClick={() => {
                       history.push(`/accept/doctor/${elem.doctor_id}`);
                     }}
                   >
                     accept
                   </button>
-               <button
+               <button className="btnaccdel11"
                   onClick={()=>{
                     deleteDoctor(elem.doctor_id);
                   }}

@@ -45,3 +45,30 @@
     justify-content: center;
     gap: 500px;
 }
+
+.btnaccdel{
+    width: 60px;
+    height: 40px;
+    border: none;
+    background-color: black;
+    color: white;
+  }
+  
+  .btnaccdel:hover{
+  
+    background-color:rgba(150,201,61,1);
+  }
+
+  .btnaccdel11{
+    width: 60px;
+    height: 40px;
+    border: none;
+    background-color: black;
+    color: white;
+  }
+  
+  .btnaccdel11:hover{
+  
+    background-color:rgb(255, 0, 0);
+  }
+  
