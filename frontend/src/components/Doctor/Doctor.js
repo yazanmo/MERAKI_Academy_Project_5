@@ -59,13 +59,12 @@ const Doctor = () => {
 
   //admin can delete any doctor
   const deleteDoctor = (id) => {
-    console.log("dellllllete",id);
     axios
       .put(`http://localhost:5000/admin/delete/${id}`)
       .then((result) => {
+
         history.push("/adminPage")
 
-        console.log(result);
       })
       .catch((err) => {
         console.log(err);
@@ -120,7 +119,7 @@ const Doctor = () => {
           {DoctorName &&
             DoctorName.map((element, index) => {
               return (
-                <div className="card"  onClick={() => {
+                <div className="card1"  onClick={() => {
                   func(element.id);
                 }}
                 key={index}
@@ -146,7 +145,7 @@ const Doctor = () => {
         filter.map((elem, i) => {
           return (
             <div className="wrapper" key={i}>
-              <div className="card"  onClick={() => {
+              <div className="card1"  onClick={() => {
                   func(elem.id);
                 }}
                 key={i}>
@@ -170,7 +169,7 @@ const Doctor = () => {
           Doctor.map((elem, i) => {
             return (
               <div
-                className="card"
+                className="card1"
                 onClick={() => {
                   func(elem.id);
                 }}
@@ -190,7 +189,7 @@ const Doctor = () => {
                   </p>
                 
                   {role_id == 3 ? (
-                    <button
+                    <button className="deleteDoctorbtn"
                       onClick={() => {
                         deleteDoctor(elem.user_id);
                       }}
