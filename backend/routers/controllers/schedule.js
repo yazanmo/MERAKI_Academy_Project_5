@@ -33,9 +33,8 @@ db.query(query,arr,(err,result)=>{
 
         if(err)res.status(400).send(err)
 
-        const query=`SELECT * FROM schedule inner join users on schedule.user_id=users.id
-         WHERE schedule.doctor_id =? ;`
-         const arr= [result[0].id]
+        const query=`SELECT * FROM doctorsDetails inner join schedule  on schedule.doctor_id=doctorsDetails.id;`
+         const arr= [result[0].doctor_id]
          console.log("fghfgh",result[0].id);
         db.query(query,arr,(err,result1)=>{
 
