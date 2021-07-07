@@ -41,7 +41,9 @@ const Accept = () => {
 
   return (
     <>
+    <h1 className="titleAdmin">New request</h1>
       <div className="parant11">
+      
         {Doctor &&
           Doctor.map((elem, i) => {
             return (
