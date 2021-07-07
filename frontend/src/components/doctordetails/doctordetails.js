@@ -237,9 +237,10 @@ const DoctorDetails = () => {
             ""
           ) : (
             <div className="comment">
-              <p>give us your feedBack</p>
-              <div style={styles.container}>
-                <div className="rating">
+              <p className="feedBack">give us your feedBack</p>
+              <div className="rating">
+              <div className="rating1" style={styles.container}>
+                
                   {[...Array(5)].map((element, i) => {
                     let ratingValue = i;
                     return (
@@ -306,26 +307,30 @@ const DoctorDetails = () => {
 
       <div>
         <div className="parent-commint">
+          <p className="Reviews">Reviews :</p>
           {allComment.map((element, index) => {
             return (
               <div className="cmt" key={index + 1}>
+                <div className="userImg">
                 <img
                   className="commenterimg"
                   src={element.img}
-                  style={{ width: "5.5%", height: "8.5%", borderRadius: "5px" }}
+                  style={{ width: "100px", height: "100px", borderRadius: "5px" }}
                 />
-                <div className="parent1-commint">
+                
+                
                   <div className="commenter-details">
                     <h3 className="commenter">
                       {element.firstName} {element.lastName}
                     </h3>
-                  </div>
+                  <div className="commentRating">
                   <Stars stars={element.rating} />
-
+                  </div>
+                  
                   {updateComment == false ? (
-                    <p className="coment">{element.comment}</p>
+                    <p className="comments">{element.comment}</p>
                   ) : (
-                    <div>
+                    <div >
                       {element.commenter_id == commenter_id ? (
                         <>
                           <textarea
@@ -347,6 +352,10 @@ const DoctorDetails = () => {
                       )}
                     </div>
                   )}
+
+                  
+</div>
+<div className="update_delete ">
                   {element.commenter_id == commenter_id ? (
                     <div className="upd-delete">
                       <img
@@ -372,7 +381,11 @@ const DoctorDetails = () => {
                   ) : (
                     ""
                   )}
-                </div>
+                  </div>
+</div>
+                 
+                  
+                
               </div>
             );
           })}
@@ -385,9 +398,9 @@ const DoctorDetails = () => {
 const styles = {
   container: {
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
     alignItems: "center",
-    margin: "4% 0 0 7%",
+    margin: "5% 0 0 6%",
   },
   stars: {
     display: "flex",
