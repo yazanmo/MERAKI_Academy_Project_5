@@ -1,0 +1,34 @@
+.yzn{
+  display: flex;
+  text-align-last: center;
+  justify-content: center;
+  margin-top: 15%;
+  grid-gap: 30px;
+  gap: 30px;
+  
+}
+
+.message{
+  
+    font-size: 20px;
+    font-family: monospace;
+    margin-top: 4%;
+    margin-left: 43%;
+}
+
+.btnadd{
+  width: 130px;
+    height: 60px;
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 50px 20px;
+}
+
+.inpt1{
+  width: 130px;
+  height: 60px;
+  background-color: white;
+  color: rgb(0, 0, 0);
+  border-radius: 6px 15px;
+}

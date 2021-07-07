@@ -59,13 +59,12 @@ const Doctor = () => {
 
   //admin can delete any doctor
   const deleteDoctor = (id) => {
-    console.log("dellllllete",id);
     axios
       .put(`http://localhost:5000/admin/delete/${id}`)
       .then((result) => {
+
         history.push("/adminPage")
 
-        console.log(result);
       })
       .catch((err) => {
         console.log(err);
