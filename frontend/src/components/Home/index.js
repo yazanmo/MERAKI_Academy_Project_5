@@ -15,9 +15,9 @@ import happy from "./happy.jpg";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import noAvatar from "./noAvatar.png"
+import Slider from "react-slick";
 
 export default function Home({ homePageSection, setHomePageSection }) {
-  // const sliderArray =[slider0,slider1,slider2,slider3,slider4,slider5,slider6]
   const dispatch = useDispatch();
 
   // smooth scroller
@@ -181,8 +181,11 @@ export default function Home({ homePageSection, setHomePageSection }) {
             state.stories.map((story, index) => {
               console.log(story.img);
               return (
+               
+            
                 <ul key={index} className="ul">
                   {" "}
+                  <div>
                   <img className="storyImg"    src = {story.img ? story.img  : noAvatar }/>
                   <div className="nameDes">
                   <li className="description">{story.description}</li>
@@ -191,12 +194,13 @@ export default function Home({ homePageSection, setHomePageSection }) {
                     <li>{story.lastName}</li>
                   </div>
                   </div>
+                  </div>
                 </ul>
+
               );
             })}
         </div>
       </section>
-
       {/* footer */}
       <link
         rel="stylesheet"
