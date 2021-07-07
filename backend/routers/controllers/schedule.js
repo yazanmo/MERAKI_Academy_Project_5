@@ -1,5 +1,6 @@
 const db = require("./../../db/db");
 
+
 const bookTime = (req, res) => {
   const user_id = req.token.id;
   const doctor_id = req.params.id;
@@ -24,6 +25,7 @@ const getBookTime = (req, res) => {
     res.status(200).json(result);
   });
 };
+
 module.exports = {
   bookTime,
   getBookTime,

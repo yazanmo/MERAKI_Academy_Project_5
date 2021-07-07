@@ -4,9 +4,10 @@ import { useSelector } from "react-redux";
 import jwt from "jsonwebtoken";
 import { useEffect, useState } from "react";
 import "./navigation.css";
+import {  animateScroll as scroll } from "react-scroll";
 require("dotenv").config();
 
-const Navigation = () => {
+const Navigation = ({setHomePageSection}) => {
   const state = useSelector((state) => {
     return { token: state.login.token };
   });
@@ -35,7 +36,7 @@ const Navigation = () => {
               </li>
               <li>
                 {" "}
-                <Link to="/about" className="links">
+                <Link to="/about" className="links"  >
                   About
                 </Link>{" "}
               </li>
@@ -46,14 +47,25 @@ const Navigation = () => {
                 </Link>{" "}
               </li>
               <li>
-                <Link to="/success" className="links">
+                <Link to="/" className="links" onClick={()=>{
+          setHomePageSection("services")
+        }}>
+                 Services
+                </Link>{" "}
+              </li>
+              <li>
+                <Link to="/" className="links" onClick={()=>{
+          setHomePageSection("stories")
+        }}>
                   Stories
                 </Link>{" "}
               </li>
               <li>
                 {" "}
-                <Link to="/" className="links">
-                  Contact Us
+                <Link to="/" className="links"  onClick={()=>{
+          setHomePageSection("contact")
+        }}>
+                  Contact Us  
                 </Link>{" "}
               </li>
             </>
