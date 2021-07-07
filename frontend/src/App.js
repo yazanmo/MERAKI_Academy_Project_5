@@ -25,16 +25,23 @@ import AcceptDoctor from "./components/AcceptDoctor";
 import About from "./components/aboutus/about";
 
 import UpdateUserInfo from "./components/profile/updateuserinfo";
+
+import { useState } from "react";
+
+
 import MyPatient from "./components/mypatint/mypatint";
 import MyDoctor from "./components/mydoctor/mydoctor";
 
+
 const App = () => {
+  const [homePageSection, setHomePageSection] = useState("");
+
   return (
     <>
       <div className="App">
-        <Navigation />
+        <Navigation  setHomePageSection={setHomePageSection} />
         <Switch>
-          <Route exact path="/" render={() => <Home />} />
+          <Route exact path="/" render={() => <Home homePageSection={homePageSection}  setHomePageSection={setHomePageSection} />} />
           <Route exact path="/login" render={() => <Login />} />
           <Route exact path="/profile" render={() => <Profile />} />
           <Route exact path="/doctor/:id" render={() => <DoctorDetails />} />
