@@ -80,9 +80,9 @@ margin: 0;
 .card1 .info p{
 
   letter-spacing: 3px;
-    font-size: 16px;
-    margin-top: 160px;
-    margin-bottom: 20px;
+  font-size: 16px;
+  margin-top: 120px;
+  margin-bottom: 20px;
 }
 
 .asdsadasd{
@@ -220,6 +220,20 @@ margin: 0;
 .Filter-btn:hover{
 
   background-color:rgba(150,201,61,1);
+}
+
+.deleteDoctorbtn{
+  width: 90px;
+  height: 40px;
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+
+.deleteDoctorbtn:hover{
+  
+  background-color:rgb(255, 0, 0);
 }
 
 

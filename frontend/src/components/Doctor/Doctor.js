@@ -189,7 +189,7 @@ const Doctor = () => {
                   </p>
                 
                   {role_id == 3 ? (
-                    <button
+                    <button className="deleteDoctorbtn"
                       onClick={() => {
                         deleteDoctor(elem.user_id);
                       }}
