@@ -112,7 +112,6 @@ const DoctorDetails = () => {
         `http://localhost:5000/doctor/review/${id}`,
         {
           updateText,
-          rating,
         },
 
         {
@@ -169,7 +168,7 @@ const DoctorDetails = () => {
               {" "}
               <span>Dr .</span> {result.firstName} {result.lastName}
             </h2>
-            <div className="avgRating"><Stars stars={avgRating}/></div>
+            <div className="avgRating"><Stars stars={avgRating} defaultValue={avgRating}/></div>
             
             
             
