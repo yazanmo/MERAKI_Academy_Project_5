@@ -3,9 +3,15 @@ import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import Rating from "./Rating";
+import Stars from "./Stars";
 import { createTodo, setTodos } from "./../../reducers/review";
-import "./doctordetails.css";
+import { FaStar } from "react-icons/fa";
 
+import "./doctordetails.css";
+const colors = {
+  orange: "#FFBA5A",
+  grey: "#a9a9a9",
+};
 const DoctorDetails = () => {
   const { id } = useParams();
   const history = useHistory();
@@ -13,6 +19,7 @@ const DoctorDetails = () => {
   const [result, setResult] = useState([]);
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
+  const [hover, setHover] = useState(0);
   const [allComment, setAllComment] = useState([]);
   const [sa, setSa] = useState(false);
   const [updateComment, setUpdateComment] = useState(false);
@@ -31,7 +38,16 @@ const DoctorDetails = () => {
       review: state.review.review,
     };
   });
+  const handleClick = (value) => {
+    setRating(value);
+  };
+  const handleMouseOver = (newHoverValue) => {
+    setHover(newHoverValue);
+  };
 
+  const handleMouseLeave = () => {
+    setHover(undefined);
+  };
   useEffect(() => {
     axios
       .get(`http://localhost:5000/doctor/${id}`)
@@ -45,6 +61,7 @@ const DoctorDetails = () => {
       .get(`http://localhost:5000/doctor/review/${id}`)
       .then((result) => {
         setAllComment(result.data);
+        
       })
       .catch((err) => {});
   }, [sa]);
@@ -52,11 +69,13 @@ const DoctorDetails = () => {
     axios
       .get(`http://localhost:5000/review/${id}`)
       .then((res) => {
-        console.log(Math.floor(res.data[0].AverageRating));
         setAvgRating(Math.floor(res.data[0].AverageRating));
+        
+        console.log(Math.floor(res.data[0].AverageRating));
+        
       })
       .catch((err) => {});
-  });
+  },[sa]);
 
   const createComment = () => {
     axios
@@ -132,149 +151,43 @@ const DoctorDetails = () => {
 
   return (
     <div className="doctor">
-        <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css"></link>
-        <div className="parent"> 
-      <div className="img1">
-        <img src={ result.img ? result.img: <></>} style={{ width: "300px", height: "500px" ,borderRadius: "20px" }} />
-      </div>
-      <div className="all-details">
-      <div className="doctor-details">
-        <h2> <span>Dr .</span> {result.firstName} {result.lastName}</h2>
-        <p>{avgRating}</p>
-        <br></br>
-        <p>{result.description}</p>
-        <br></br>
-        <br></br>
-        <h3><span>price:</span> {result.price} jd</h3>
-        <br></br>
-        <br></br>
-        <h3><span>Qualifications:</span> {result.Qualifications} </h3>
-        <br></br>
-        <br></br>
-        <h3><span>practicalExperiences: </span>{result.practicalExperiences} </h3>
-      </div>
-      </div>
       <link
         href="http://fonts.googleapis.com/css?family=Cookie"
         rel="stylesheet"
         type="text/css"
       ></link>
-
-      </div>
-      {token ? (
-        <>
-          {role_id == 2 ? (
-            ""
-          ) : (
-            <>
-              <textarea
-                className="input-coment1"
-                placeholder="Comment Here"
-                onChange={(e) => {
-                  setComment(e.target.value);
-                }}
-              ></textarea>
-              <input
-                className="input-coment"
-                onChange={(e) => {
-                  setRating(e.target.value);
-                }}
-              />
-            </>
-          )}
-        </>
-      ) : (
-        ""
-      )}
-      {token ? (
-        <>
-          {" "}
-          {role_id == 2 ? (
-            ""
-          ) : (
-            <button className="btnCommant" onClick={createComment}>
-              {" "}
-              ok
-            </button>
-          )}{" "}
-        </>
-      ) : (
-        ""
-      )}
-
-      <div>
-        <div className="parent-commint">
-          {allComment.map((element, index) => {
-            return (
-              <div className="cmt" key={index + 1}>
-                <img
-                  className="commenterimg"
-                  src={element.img}
-                  style={{ width: "5.5%", height: "8.5%", borderRadius: "5px" }}
-                />
-                <div className="parent1-commint">
-                  <div className="commenter-details">
-                    <h3 className="commenter">
-                      {element.firstName} {element.lastName}
-                    </h3>
-                  </div>
-                  <p>{element.rating}</p>
-                  {updateComment == false ? (
-                    <p className="coment">{element.comment}</p>
-                  ) : (
-                    <div>
-                      {element.commenter_id == commenter_id ? (
-                        <>
-                          <textarea
-                            onChange={(e) => {
-                              setUpdateCommentText(e.target.value);
-                            }}
-                            defaultValue={element.comment}
-                          ></textarea>
-                          <img
-                            onClick={() => {
-                              updateComments(element.id);
-                            }}
-                            style={{ width: "30px", height: "30px" }}
-                            src="https://img.icons8.com/wired/50/000000/edit.png"
-                          />
-                        </>
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                  )}
-                  {element.commenter_id == commenter_id ? (
-                    <div className="upd-delete">
-                      <img
-                        onClick={() => {
-                          deleteComment(element.id);
-                        }}
-                        style={{ width: "30px", height: "30px" }}
-                        src="https://img.icons8.com/ios/50/000000/delete-forever--v1.png"
-                      />
-
-                      {updateComment == false ? (
-                        <img
-                          onClick={() => {
-                            setUpdateComment(true);
-                          }}
-                          style={{ width: "30px", height: "30px" }}
-                          src="https://img.icons8.com/wired/50/000000/edit.png"
-                        />
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                </div>
-              </div>
-            );
-          })}
+      <div className="parent">
+        <div className="img1">
+          <img
+            src={result.img ? result.img : <></>}
+            style={{ width: "300px", height: "450px", borderRadius: "20px",borderRadius:"5px" }}
+          />
         </div>
-        {token ? (
+        
+          <div className="doctor-details">
+            <h2>
+              {" "}
+              <span>Dr .</span> {result.firstName} {result.lastName}
+            </h2>
+            <div className="avgRating"><Stars stars={avgRating}/></div>
+            
+            
+            
+            <p>{result.description}</p>
+            
+            <p>
+              <span>price:</span> {result.price} jd
+            </p>
+            
+            <p>
+              <span>Qualifications:</span> {result.Qualifications}{" "}
+            </p>
+            
+            <p>
+              <span>practicalExperiences: </span>
+              {result.practicalExperiences}{" "}
+            </p>
+            {token ? (
           <>
             {role_id == 2 ? (
               ""
@@ -309,9 +222,191 @@ const DoctorDetails = () => {
         ) : (
           ""
         )}
+          </div>
+        
+        <link
+          href="http://fonts.googleapis.com/css?family=Cookie"
+          rel="stylesheet"
+          type="text/css"
+        ></link>
+      </div>
+      
+      {token ? (
+        <>
+          {role_id == 2 ? (
+            ""
+          ) : (
+            <div className="comment">
+              <p className="feedBack">give us your feedBack</p>
+              <div className="rating">
+              <div className="rating1" style={styles.container}>
+                
+                  {[...Array(5)].map((element, i) => {
+                    let ratingValue = i;
+                    return (
+                      
+                      <div className="rating">
+                        
+                      <div >
+                      <FaStar
+                      
+                      style={styles.container}
+                        key={ratingValue}
+                        size={24}
+                        onClick={() => handleClick(ratingValue + 1)}
+                        onMouseOver={() => handleMouseOver(ratingValue + 1)}
+                        onMouseLeave={handleMouseLeave}
+                        color={
+                          (rating || hover) > ratingValue
+                            ? colors.orange
+                            : colors.grey
+                        }
+                        style={{
+                          fontSize:50,
+                          marginRight:10,
+                          cursor: "pointer",
+                        }}
+                      />
+                      </div>
+                      </div>
+                    );
+                  })}
+                  
+                </div>
+              </div>
+              
+              <textarea
+                className="input-coment1"
+                placeholder="  Comment Here ...."
+                onChange={(e) => {
+                  setComment(e.target.value);
+                }}
+                
+              ></textarea>
+            </div>
+          )}
+        </>
+      ) : (
+        ""
+      )}
+      {token ? (
+        <>
+          {" "}
+          {role_id == 2 ? (
+            ""
+          ) : (
+            <button className="btnCommant" onClick={createComment}>
+              {" "}
+              comment
+            </button>
+          )}{" "}
+        </>
+      ) : (
+        ""
+      )}
+
+      <div>
+        <div className="parent-commint">
+          <p className="Reviews">Reviews :</p>
+          {allComment.map((element, index) => {
+            return (
+              <div className="cmt" key={index + 1}><hr/>
+                <div className="userImg" >
+                  
+                <img
+                  className="commenterimg"
+                  src={element.img}
+                  style={{ width: "75px", height: "75px", borderRadius: "5px" }}
+                />
+                
+                
+                  <div className="commenter-details">
+                    <h3 className="commenter">
+                      {element.firstName} {element.lastName}
+                    </h3>
+                  <div className="commentRating">
+                  <Stars stars={element.rating} defaultValue={element.rating} />
+                  </div>
+                  
+                  {updateComment == false ? (
+                    <p className="comments">{element.comment}</p>
+                  ) : (
+                    <div >
+                      {element.commenter_id == commenter_id ? (
+                        <>
+                          <textarea
+                          className="input-text"
+                            onChange={(e) => {
+                              setUpdateCommentText(e.target.value);
+                            }}
+                            defaultValue={element.comment}
+                          ></textarea>
+                          <img
+                            onClick={() => {
+                              updateComments(element.id);
+                            }}
+                            style={{ width: "30px", height: "30px" }}
+                            src="https://img.icons8.com/wired/50/000000/edit.png"
+                          />
+                        </>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  )}
+
+                  
+</div>
+<div className="update_delete ">
+                  {element.commenter_id == commenter_id ? (
+                    <div className="upd-delete">
+                      <img
+                        onClick={() => {
+                          deleteComment(element.id);
+                        }}
+                        style={{ width: "30px", height: "30px" }}
+                        src="https://img.icons8.com/ios/50/000000/delete-forever--v1.png"
+                      />
+
+                      {updateComment == false ? (
+                        <img
+                          onClick={() => {
+                            setUpdateComment(true);
+                          }}
+                          style={{ width: "30px", height: "30px" }}
+                          src="https://img.icons8.com/wired/50/000000/edit.png"
+                        />
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  </div>
+</div>
+                 
+                  
+                
+              </div>
+            );
+          })}
+        </div>
+        
       </div>
     </div>
   );
 };
-
+const styles = {
+  container: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    margin: "5% 0 0 6%",
+  },
+  stars: {
+    display: "flex",
+    flexDirection: "row",
+  },
+};
 export default DoctorDetails;
