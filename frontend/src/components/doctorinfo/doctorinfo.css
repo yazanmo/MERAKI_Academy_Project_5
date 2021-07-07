@@ -1,0 +1,29 @@
+.join-doctor form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  gap: 0.4rem;
+}
+.join-doctor {
+  text-align: center;
+  margin-top: 3rem;
+  width: inherit;
+}
+
+.join-doctor form input {
+  width: 30%;
+  height: 3rem;
+  border-radius: 2px;
+}
+
+.join-doctor form button {
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 0.5rem 5rem;
+}
+
+.join-doctor form button:hover {
+  background-color: rgb(105, 104, 104);
+}

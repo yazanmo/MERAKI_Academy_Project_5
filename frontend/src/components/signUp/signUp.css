@@ -6,10 +6,24 @@
   justify-content: center;
   gap: 1rem;
   width: max-content;
-  padding: 8rem 5rem;
+  padding: 2rem 5rem;
   margin: auto;
   margin-top: 7rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px;
+}
+.signup form {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: max-content;
+  margin: auto;
+}
+.signup img {
+  height: 40%;
+  width: 50%;
 }
 .signup input {
   height: 3rem;
@@ -35,6 +49,8 @@
 }
 
 .render {
-  color: rgb(51, 47, 47);
+  color: rgb(65, 79, 117);
   text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
 }

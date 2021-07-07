@@ -39,51 +39,61 @@ const UpdateUserInfo = () => {
   return (
     <div class="update-profile">
       <img src={userInfo.img} />
-      2222222222]**/\][;lkjnbfdsa]
-      <input
-        placeholder={userInfo.email}
-        defaultValue={userInfo.email}
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
-        readOnly
-      />
-      <input
-        placeholder={userInfo.age}
-        defaultValue={userInfo.age}
-        onChange={(e) => {
-          setAge(e.target.value);
-        }}
-      />
-      <input
-        placeholder={userInfo.firstName}
-        defaultValue={userInfo.firstName}
-        onChange={(e) => {
-          setFirstName(e.target.value);
-        }}
-      />
-      <input
-        placeholder={userInfo.lastName}
-        defaultValue={userInfo.lastName}
-        onChange={(e) => {
-          setLastName(e.target.value);
-        }}
-      />
-      <input
-        placeholder={userInfo.img}
-        defaultValue={userInfo.img}
-        onChange={(e) => {
-          setImg(e.target.value);
-        }}
-        type="text"
-      />
-      <button
-        onClick={() => {
-          updateProfile();
-        }}
-      >
-        update
-      </button>
+      <div className="update-profile-row">
+        <div className="update-profile-desc">
+          <p>Email:</p>
+          <p>Age:</p>
+          <p>First Name:</p>
+          <p>Last Name:</p>
+          <p>Image:</p>
+        </div>
+        <div className="update-profile-info">
+          <input
+            placeholder={userInfo.email}
+            defaultValue={userInfo.email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            readOnly
+          />
+          <input
+            placeholder={userInfo.age}
+            defaultValue={userInfo.age}
+            onChange={(e) => {
+              setAge(e.target.value);
+            }}
+          />
+          <input
+            placeholder={userInfo.firstName}
+            defaultValue={userInfo.firstName}
+            onChange={(e) => {
+              setFirstName(e.target.value);
+            }}
+          />
+          <input
+            placeholder={userInfo.lastName}
+            defaultValue={userInfo.lastName}
+            onChange={(e) => {
+              setLastName(e.target.value);
+            }}
+          />
+          <input
+            placeholder={userInfo.img}
+            defaultValue={userInfo.img}
+            onChange={(e) => {
+              setImg(e.target.value);
+            }}
+            type="text"
+          />
+          <button
+            onClick={() => {
+              updateProfile();
+            }}
+          >
+            update
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
