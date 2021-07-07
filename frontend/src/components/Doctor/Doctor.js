@@ -120,7 +120,7 @@ const Doctor = () => {
           {DoctorName &&
             DoctorName.map((element, index) => {
               return (
-                <div className="card"  onClick={() => {
+                <div className="card1"  onClick={() => {
                   func(element.id);
                 }}
                 key={index}
@@ -146,7 +146,7 @@ const Doctor = () => {
         filter.map((elem, i) => {
           return (
             <div className="wrapper" key={i}>
-              <div className="card"  onClick={() => {
+              <div className="card1"  onClick={() => {
                   func(elem.id);
                 }}
                 key={i}>
@@ -170,7 +170,7 @@ const Doctor = () => {
           Doctor.map((elem, i) => {
             return (
               <div
-                className="card"
+                className="card1"
                 onClick={() => {
                   func(elem.id);
                 }}

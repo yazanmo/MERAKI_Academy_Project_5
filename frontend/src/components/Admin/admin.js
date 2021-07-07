@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./admin.css";
 import { useHistory } from "react-router-dom";
+import { Button,Card } from 'react-bootstrap';
 
 const Accept = () => {
   const history = useHistory();
@@ -40,39 +41,47 @@ const Accept = () => {
 
   return (
     <>
-      <div className="parant">
+      <div className="parant11">
         {Doctor &&
           Doctor.map((elem, i) => {
             return (
-              <div className="childDoctor" key={i}>
-                <div className="par">
-                  <h2>
-                    {elem.firstName} {elem.lastName}
-                  </h2>
-                  <p>{elem.description}</p>
-                  <p>{elem.email}</p>
-                  <p>{elem.Qualifications}</p>
-                  <p>{elem.practicalExperiences}</p>
-                  <p>{elem.qualificationsFile}</p>
-                  <button
+             
+                  <Card className="asd" style={{ width: '61rem',height: '26rem'}}>
+            <Card.Body>
+              <Card.Subtitle className="mb-2 text-muted">{elem.firstName} {elem.lastName}</Card.Subtitle>
+              <Card.Text>
+                  <p className="desdoc">{elem.description}</p>
+                  <p className="desdoc">{elem.email}</p>
+                  <p className="desdoc">{elem.Qualifications}</p>
+                  <p className="desdoc">{elem.practicalExperiences}</p>
+                  <p className="desdoc">{elem.qualificationsFile}</p>
+              </Card.Text>
+              <div className="accdel">
+              <button
                     onClick={() => {
                       history.push(`/accept/doctor/${elem.doctor_id}`);
                     }}
                   >
                     accept
                   </button>
-                  <button
+               <button
                   onClick={()=>{
                     deleteDoctor(elem.doctor_id);
                   }}
                   >
                     rejected
                   </button>
-                </div>
-              </div>
+                  </div>
+            </Card.Body>
+          </Card>
+               
+             
             );
+
+         
           })}
       </div>
+ 
     </>
   );
 };
