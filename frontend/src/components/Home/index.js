@@ -184,11 +184,12 @@ export default function Home({ homePageSection, setHomePageSection }) {
                 <ul key={index} className="ul">
                   {" "}
                   <img className="storyImg"    src = {story.img ? story.img  : noAvatar }/>
-                  <div className="nameDes"></div>
+                  <div className="nameDes">
                   <li className="description">{story.description}</li>
                   <div className="name">
                     <li>{story.firstName}</li>
                     <li>{story.lastName}</li>
+                  </div>
                   </div>
                 </ul>
               );

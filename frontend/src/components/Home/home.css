@@ -1,3 +1,5 @@
+/* asp.net */
+
 .home {
   display: flex;
   flex-direction: column;
@@ -91,11 +93,9 @@
   border-radius: 5px;
   box-sizing: border-box;
   padding-right: 0rem 0rem;
-  /* padding:5% 3%; */
   background-color: white;
   box-shadow: 0 0 15px rgb(0 0 0 / 5%);
-  height: 250px;
-  /* width : 90% */
+  height: 350px;
   padding-left: 0rem; 
 }
 
@@ -103,22 +103,29 @@
 
 
 .description{
-color: rgb(10, 216, 61);
+color: black;
+font-size: 1.5rem;
+
 }
 
 .name{
   display: flex;
-  margin-top: 5%;
-  gap: 1.5%;
+  gap: 4%;
   font-family: sans-serif;
+  font-size: 1.2rem;
+  color: #0b1e68;
+  /* align-self: flex-end; */
 }
 
 .nameDes{
-
-}
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+margin: 3%;
+} 
 
 .storyImg{
-  width: 200px;
+  width: 30%;
   height:100%;
   object-fit: cover;
 }
