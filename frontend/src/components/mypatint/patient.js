@@ -42,7 +42,10 @@ const Patient = () => {
   const getData = (meal, title) => {
     return (
       <>
-        <h1 className="center">{title}</h1>{" "}
+        {/* <h1 className="center">{title}</h1> */}
+        <thead>
+          <tr style={{ textAlign: "center" }}>{title}</tr>
+        </thead>
         <thead>
           <tr>
             {heading.map((head) => (
@@ -50,7 +53,7 @@ const Patient = () => {
             ))}
           </tr>
         </thead>
-        <tbody>
+        <tbody style={{ marginBottom: "20px" }}>
           {meal &&
             meal.map((element) => (
               <tr>
@@ -72,6 +75,8 @@ const Patient = () => {
   };
   return (
     <div className="food">
+      {/* <h1 className="center">Breakfast</h1> */}
+
       <table style={{ width: 500 }}>
         {getData(breakfast, "Breakfast")}
         {getData(Lunch, "Lunch")}
