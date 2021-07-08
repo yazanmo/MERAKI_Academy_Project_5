@@ -10,7 +10,11 @@ const MyDoctor = () => {
   const [sa, setSa] = useState(false);
 
   const history = useHistory();
-              
+  const func = (id) => {
+    return (history.push(`/schedule/${id}`)
+    )
+  }
+        
   useEffect(() => {
     axios
       .get("http://localhost:5000/mydoctor", {
@@ -34,17 +38,20 @@ const MyDoctor = () => {
   return (
     <div>
       {result.map((element, index) => {
+        console.log("5555555555555",element);
         return (
           <div
-            onClick={() => {
-              history.push(`./../doctor/${element.id_service}`);
-            }}
+            // onClick={() => {
+            //   history.push(`./../doctor/${element.id_service}`);
+            // }}
           >
             <p> {element.img}</p>
             <p> {element.firstName}</p>
             <p> {element.lastName}</p>
             <p> {element.price}</p>
             <p> {element.description}</p>
+            <button onClick={() => { func(element.doctorsService_id) }}>doctor</button>
+
           </div>
         );
       })}

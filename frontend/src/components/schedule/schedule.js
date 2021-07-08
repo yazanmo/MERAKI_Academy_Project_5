@@ -6,34 +6,40 @@ const Schedule = () => {
   const token = localStorage.getItem("token");
   const { id } = useParams();
   const [result, setResult] = useState([]);
+  const [btata,setBtata]=useState("")
   const [time, setTime] = useState("");
   const [date, setDate] = useState("");
   const [sa, setSa] = useState(false);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/mydoctor", {
-        headers: {
-          authorization: "Bearer " + token,
-        },
+      .get(`http://localhost:5000/doctor/${id}`)
+      .then((result) => {
+        setResult(result.data);
+        console.log("554545454545454541",result.data);
+      })
+      .catch((err) => {});
+  }, []);
+
+
+  const info = (req,res) => {
+    axios
+      .post(`http://localhost:5000/schedule/${id}`, {
+        time,
+        date,
       })
       .then((result) => {
         console.log(result.data);
-        setResult(result.data);
-        if (sa) {
-          setSa(false);
-        } else {
-          setSa(true);
-        }
+       
       })
       .catch((err) => {
-        console.log(err);
+          res.status(400).send(err);
       });
-  }, []);
+  };
 
   return (
     <div>
-      {result.map((element, index) => {
+      {result&&result.map((element, index) => {
         return (
           <div>
             <p> {element.img}</p>
@@ -44,7 +50,20 @@ const Schedule = () => {
           </div>
         );
       })}
+      <div>
+                        <label className="timetext" >Choose Time: </label>
+                        <input className="time" type="time" name="time" onChange={(e) => { setTime(e.target.value) }} />
+
+                        </div>
+
+      <div>
+                        <label className="datetext">Choose Date: </label>
+                        <input className="date" type="date"  min="2021-06-12" max="2021-06-30" onChange={(e) => { setDate(e.target.value) }} />
+                        </div>
+
     </div>
+    
   );
+  
 };
 export default Schedule;

@@ -15,7 +15,6 @@ const bookTime = (req, res) => {
       
 const getBookTime = (req, res) => {
   const doctor_id = req.token.id;
-
   const query = `SELECT  firstName ,lastName  FROM schedule JOIN users ON schedule.user_id=users.id
   JOIN doctorsDetails ON schedule.doctor_id=doctorsDetails.id WHERE doctorsDetails.user_id= ?`;
 
@@ -26,7 +25,9 @@ const getBookTime = (req, res) => {
   });
 };
 
+
 module.exports = {
   bookTime,
   getBookTime,
+  
 };
