@@ -1,5 +1,7 @@
 /* asp.net */
-
+body{
+  overflow-x: hidden; 
+}
 .home {
   display: flex;
   flex-direction: column;
@@ -64,39 +66,47 @@
 
 /* Story section */
 .stories {
+  background-color: #f8f9fd;
+  box-sizing: border-box;
+}
+
+.hi{
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 6%;
   padding-bottom: 6%;
   justify-content: center;
-  background-color: #f8f9fd;
-  box-sizing: border-box;
 }
 
 .storyCard {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: flex-start;
-  width: 70%;
-  gap: 50px;
-  box-sizing: border-box;
-  
-  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+
+
 }
 
 .ul {
   display: flex;
-  margin-top: 5rem;
+  /* margin-top: 5rem; */
   list-style-type: none;
   border: 1px solid white;
   border-radius: 5px;
   box-sizing: border-box;
-  padding-right: 0rem 0rem;
+  /* padding-right: 0rem 0rem; */
   background-color: white;
   box-shadow: 0 0 15px rgb(0 0 0 / 5%);
-  height: 350px;
-  padding-left: 0rem; 
+  height: 200px;
+  width: 40%;
+    margin: 5% 3%;
+    /* grid-gap: 2rem;
+    gap: 2rem; */
+    text-align: center;
+  /* padding-left: 0rem;  */
+  overflow-wrap: break-word;
+  white-space: pre-wrap
 }
 
 
@@ -105,7 +115,12 @@
 .description{
 color: black;
 font-size: 1.5rem;
-
+text-align: center;
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+overflow-wrap: break-word;
+white-space: pre-wrap
 }
 
 .name{
