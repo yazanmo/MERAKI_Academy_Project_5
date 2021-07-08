@@ -1,6 +1,5 @@
 const db = require("./../../db/db");
 
-
 const bookTime = (req, res) => {
   const user_id = req.token.id;
   const doctor_id = req.params.id;
@@ -16,7 +15,7 @@ const bookTime = (req, res) => {
 const getBookTime = (req, res) => {
   const doctor_id = req.token.id;
 
-  const query = `SELECT  firstName ,lastName  FROM schedule JOIN users ON schedule.user_id=users.id
+  const query = `SELECT *  FROM schedule JOIN users ON schedule.user_id=users.id
   JOIN doctorsDetails ON schedule.doctor_id=doctorsDetails.id WHERE doctorsDetails.user_id= ?`;
 
   const arr = [doctor_id];
