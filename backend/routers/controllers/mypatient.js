@@ -28,8 +28,9 @@ const getMyDoctor = (req, res) => {
 
 const getMyPatient = (req, res) => {
   const user_id = req.token.id;
-  const query = `SELECT  firstName ,lastName  FROM users JOIN purchased ON purchased.user_id=users.id
-  JOIN doctorsDetails ON purchased.doctorsService_id=doctorsDetails.id WHERE purchased.doctorsService_id AND doctorsDetails.user_id= ? ;
+  const query = `SELECT  purchased.*  , users.*  FROM users JOIN purchased ON purchased.user_id=users.id
+  JOIN doctorsDetails ON purchased.doctorsService_id=doctorsDetails.id WHERE purchased.doctorsService_id
+   AND doctorsDetails.user_id= ? ;
   `;
   const data = [user_id];
   db.query(query, data, (err, result) => {

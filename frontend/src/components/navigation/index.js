@@ -4,17 +4,16 @@ import { useSelector } from "react-redux";
 import jwt from "jsonwebtoken";
 import { useEffect, useState } from "react";
 import "./navigation.css";
+
 import {  animateScroll as scroll } from "react-scroll";
 import { Dropdown } from 'react-bootstrap';
 require("dotenv").config();
-
-const Navigation = ({setHomePageSection}) => {
+const Navigation = ({ setHomePageSection }) => {
   const state = useSelector((state) => {
     return { token: state.login.token };
   });
   let token = localStorage.getItem("token");
   let role_id = localStorage.getItem("role_id");
-
   return (
     <div className="navBar">
       <div className="logo">
@@ -22,7 +21,6 @@ const Navigation = ({setHomePageSection}) => {
           HEALTH<span>CARE</span>
         </h3>
       </div>
-
       <div className="nav">
         <ul>
           {role_id == 3 ? (
@@ -37,7 +35,7 @@ const Navigation = ({setHomePageSection}) => {
               </li>
               <li>
                 {" "}
-                <Link to="/about" className="links"  >
+                <Link to="/about" className="links">
                   About
                 </Link>{" "}
               </li>
@@ -48,30 +46,41 @@ const Navigation = ({setHomePageSection}) => {
                 </Link>{" "}
               </li>
               <li>
-                <Link to="/" className="links" onClick={()=>{
-          setHomePageSection("services")
-        }}>
-                 Services
+                <Link
+                  to="/"
+                  className="links"
+                  onClick={() => {
+                    setHomePageSection("services");
+                  }}
+                >
+                  Services
                 </Link>{" "}
               </li>
               <li>
-                <Link to="/" className="links" onClick={()=>{
-          setHomePageSection("stories")
-        }}>
+                <Link
+                  to="/"
+                  className="links"
+                  onClick={() => {
+                    setHomePageSection("stories");
+                  }}
+                >
                   Stories
                 </Link>{" "}
               </li>
               <li>
                 {" "}
-                <Link to="/" className="links"  onClick={()=>{
-          setHomePageSection("contact")
-        }}>
-                  Contact Us  
+                <Link
+                  to="/"
+                  className="links"
+                  onClick={() => {
+                    setHomePageSection("contact");
+                  }}
+                >
+                  Contact Us
                 </Link>{" "}
               </li>
             </>
           )}
-
           {token ? (
             <>
               {role_id == 1 ? (
@@ -83,17 +92,35 @@ const Navigation = ({setHomePageSection}) => {
                     </Link>{" "}
                   </li>
                   <Dropdown>
-                    <Dropdown.Toggle className="dropdown" variant="success" id="dropdown-basic" style={{ backgroundColor:'#33383b',borderColor:'#33383b'
-                       ,marginTop:'-5px',fontWeight:'700'}}>
-                         Profile
+
+                    <Dropdown.Toggle
+                      className="dropdown"
+                      variant="success"
+                      id="dropdown-basic"
+                      style={{
+                        backgroundColor: "#33383B",
+                        borderColor: "#33383B",
+                        marginTop: "-5px",
+                        fontWeight: "700",
+                      }}
+                    >
+                      Profile
                     </Dropdown.Toggle>
-
                     <Dropdown.Menu>
-
-                      <Dropdown.Item href="/create/stories">Your story</Dropdown.Item>
-                      <Dropdown.Item href="/foodtracker">Your Food</Dropdown.Item>
+                      <Dropdown.Item href="/create/stories">
+                        Your story
+                      </Dropdown.Item>
+                      <Dropdown.Item href="/foodtracker">
+                        Your Food
+                      </Dropdown.Item>
                       <Dropdown.Item href="/profile">Profile</Dropdown.Item>
-                      <Dropdown.Item href="/"  onClick={() => {localStorage.clear();}}>Log out
+                      <Dropdown.Item
+                        href="/"
+                        onClick={() => {
+                          localStorage.clear();
+                        }}
+                      >
+                        Log out
                       </Dropdown.Item>
 
                     </Dropdown.Menu>
@@ -123,13 +150,11 @@ const Navigation = ({setHomePageSection}) => {
                       messages
                     </Link>{" "}
                   </li>
-
                   <li>
                     <Link to="/mypatient" className="links">
                       My patient
                     </Link>{" "}
                   </li>
-
                   <li>
                     {" "}
                     <Link to="/schedule" className="links">
@@ -172,7 +197,6 @@ const Navigation = ({setHomePageSection}) => {
                       Admin profile
                     </Link>{" "}
                   </li>
-
                   <li>
                     {" "}
                     <Link
@@ -198,5 +222,4 @@ const Navigation = ({setHomePageSection}) => {
     </div>
   );
 };
-
 export default Navigation;

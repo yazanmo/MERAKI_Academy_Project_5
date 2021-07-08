@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./mypatint.css";
+import { Button, Card } from "react-bootstrap";
 
 const MyPatient = () => {
   let token = localStorage.getItem("token");
@@ -25,19 +28,37 @@ const MyPatient = () => {
   }, []);
 
   return (
-    <div>
+    <div className="my-patient">
       {result.map((element, index) => {
         return (
-          <div
-            onClick={() => {
-              history.push(`./../patient/${element.user_id}`);
-            }}
-          >
-            <p>
-              {element.firstName} {element.lastName}
-              {element.img}
-            </p>
-            <p>{element.age}</p>
+          <div>
+            <Card style={{ width: "18rem" }}>
+              <Card.Img
+                variant="top"
+                src={element.img}
+                style={{
+                  width: "17.9rem",
+                  height: "20rem",
+                  transition: "width 2s, height 4s",
+                }}
+              />
+              <Card.Body style={{ backgroundColor: "rgb(0 0 0 / 8%)" }}>
+                <Card.Title>
+                  {element.firstName} {element.lastName}
+                </Card.Title>
+                <Card.Title>Age: {element.age}</Card.Title>
+                <Card.Text></Card.Text>
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    history.push(`./../patient/${element.user_id}`);
+                  }}
+                  style={{ backgroundColor: "black", border: "none" }}
+                >
+                  Tracker Food
+                </Button>
+              </Card.Body>
+            </Card>
           </div>
         );
       })}

@@ -9,7 +9,7 @@ import win from "./win.png";
 import food from "./food.png";
 import checklist from "./checklist.png";
 import rules from "./rules.png";
-import { scroller } from "react-scroll";
+// import { scroller } from "react-scroll";
 import "./home.css";
 import happy from "./happy.jpg";
 import { Slide } from "react-slideshow-image";
@@ -25,7 +25,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
   useEffect(() => {
     if (homePageSection !== "") {
       console.log(homePageSection);
-      scroller.scrollTo(homePageSection, { smooth: true });
+      // scroller.scrollTo(homePageSection, { smooth: true });
       setHomePageSection(" ");
     }
   }, [homePageSection]);
