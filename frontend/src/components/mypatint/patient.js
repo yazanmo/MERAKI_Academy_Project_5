@@ -73,40 +73,11 @@ const Patient = () => {
   return (
     <div className="food">
       <table style={{ width: 500 }}>
-        <thead>
-          <h1 className="center">breakfast</h1>
-
-          <tr>
-            {heading.map((head) => (
-              <th>{head}</th>
-            ))}
-          </tr>
-        </thead>
-
-        <tbody>
-          {breakfast &&
-            breakfast.map((element) => (
-              <tr>
-                <th>{element.name}</th>
-                <th>{element.calories}</th>
-                <th>{element.serving_size_g}</th>
-                <th>{element.sugar_g}</th>
-                <th>{element.protein_g}</th>
-                <th>{element.carbohydrates_total_g}</th>
-                <th>{element.cholesterol_mg}</th>
-                <th>{element.fat_saturated_g}</th>
-                <th>{element.potassium_mg}</th>
-                <th>{element.sodium_mg}</th>
-              </tr>
-            ))}
-        </tbody>
-
         {getData(breakfast, "Breakfast")}
         {getData(Lunch, "Lunch")}
         {getData(dinner, "Dinner")}
         {getData(snack, "Snack")}
         {getData(activeTime, "Exercises")}
-
         {getData(glassesOfWater, "Glasses Of Water")}
       </table>
     </div>
