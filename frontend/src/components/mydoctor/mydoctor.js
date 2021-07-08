@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import './mydoctor.css';
 const MyDoctor = () => {
   let token = localStorage.getItem("token");
 
@@ -36,21 +37,23 @@ const MyDoctor = () => {
       });
   }, []);
   return (
-    <div>
+    <div className="my-doc-card">
       {result.map((element, index) => {
-        console.log("5555555555555",element);
         return (
-          <div
-            // onClick={() => {
-            //   history.push(`./../doctor/${element.id_service}`);
-            // }}
-          >
-            <p> {element.img}</p>
-            <p> {element.firstName}</p>
-            <p> {element.lastName}</p>
-            <p> {element.price}</p>
-            <p> {element.description}</p>
-            <button onClick={() => { func(element.doctorsService_id) }}>doctor</button>
+
+          
+          <div className="my-doc-card">
+            <Card style={{ width: '300px' }}>
+                <Card.Img variant="top" src={element.img} />
+            <Card.Body>
+                  <Card.Title>{element.firstName} {element.lastName}</Card.Title>
+                <Card.Text>
+                  <p> {element.price}</p>
+                  <p> {element.description}</p>
+                </Card.Text>
+                   <Button variant="outline-secondary" onClick={() => { func(element.doctorsService_id) }}>doctor</Button>
+            </Card.Body>
+            </Card>
 
           </div>
         );

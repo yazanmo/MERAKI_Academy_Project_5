@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route, Link, useParams, useHistory } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import './schedule.css'
 import axios from "axios";
 
 const Schedule = () => {
@@ -47,16 +50,38 @@ const Schedule = () => {
       {result &&
         result.map((element, index) => {
           return (
-            <div>
-              <p> {element.img}</p>
-              <p> {element.firstName}</p>
-              <p> {element.lastName}</p>
+            <div className="schedule-card">
+  <Card style={{ width: '40rem' }}>
+    <div className="parennt-schedule">
+    <div className="card-img">
+  <Card.Img variant="top"  src={element.img} />
+  </div>
+  <div className="card-body">
+  <Card.Body>
+    <Card.Title>{element.firstName} {element.lastName}</Card.Title>
+    <Card.Text>
+      <br></br>
               <p> {element.price}</p>
+              <br></br>
               <p> {element.description}</p>
-            </div>
-          );
-        })}
-      <div>
+              <br></br>
+              <div>
+              <br></br>
+              <br></br>
+              <div class="quesadilla">
+        <label className="datetext">Choose Date: </label>
+        <input
+          className="date"
+          type="date"
+          min="2021-07-13"
+          max="2021-08-30"
+          onChange={(e) => {
+            setDate(e.target.value);
+          }}
+        />
+        <br></br>
+        <br></br>
+      </div>
         <label className="timetext">Choose Time: </label>
         <input
           className="time"
@@ -67,20 +92,22 @@ const Schedule = () => {
           }}
         />
       </div>
+    </Card.Text>
+    <br></br>
+        <br></br>
+    <Button variant="outline-secondary" onClick={info}>Book</Button>
 
-      <div>
-        <label className="datetext">Choose Date: </label>
-        <input
-          className="date"
-          type="date"
-          min="2021-06-12"
-          max="2021-06-30"
-          onChange={(e) => {
-            setDate(e.target.value);
-          }}
-        />
-      </div>
-      <button onClick={info}>book</button>
+  </Card.Body>
+  </div>
+  </div>
+</Card>
+             
+              
+             
+            </div>
+          );
+        })}
+      
     </div>
   );
 };
