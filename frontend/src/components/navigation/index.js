@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 import { useEffect, useState } from "react";
 import "./navigation.css";
 import {  animateScroll as scroll } from "react-scroll";
+import { Dropdown } from 'react-bootstrap';
 require("dotenv").config();
 
 const Navigation = ({setHomePageSection}) => {
@@ -81,24 +82,22 @@ const Navigation = ({setHomePageSection}) => {
                       My Doctor
                     </Link>{" "}
                   </li>
-                  <li>
-                    {" "}
-                    <Link to="/profile" className="links">
-                      Profile
-                    </Link>{" "}
-                  </li>
-                  <li>
-                    {" "}
-                    <Link
-                      to="/"
-                      className="links"
-                      onClick={() => {
-                        localStorage.clear();
-                      }}
-                    >
-                      Log out
-                    </Link>{" "}
-                  </li>
+                  <Dropdown>
+                    <Dropdown.Toggle className="dropdown" variant="success" id="dropdown-basic" style={{ backgroundColor:'#33383b',borderColor:'#33383b'
+                       ,marginTop:'-5px',fontWeight:'700'}}>
+                         Profile
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+
+                      <Dropdown.Item href="/create/stories">Your story</Dropdown.Item>
+                      <Dropdown.Item href="/foodtracker">Your Food</Dropdown.Item>
+                      <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                      <Dropdown.Item href="/"  onClick={() => {localStorage.clear();}}>Log out
+                      </Dropdown.Item>
+
+                    </Dropdown.Menu>
+                  </Dropdown>
                 </>
               ) : (
                 <></>
