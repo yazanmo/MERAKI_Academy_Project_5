@@ -83,7 +83,7 @@ const UpdateUserInfo = () => {
             onChange={(e) => {
               setImg(e.target.value);
             }}
-            type="text"
+            type="text" 
           />
           <button
             onClick={() => {
