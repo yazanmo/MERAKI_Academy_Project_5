@@ -50,6 +50,18 @@ const Breakfast = () => {
         {result &&
           result.map((elem, i) => {
             let name = elem.name;
+            let calories = elem.calories;
+            let date;
+            let carbohydrates = elem.carbohydrates_total_g;
+            let cholesterol = elem.cholesterol_mg;
+            let fat_saturated = elem.fat_saturated_g;
+            let fiber = elem.fiber_g;
+            let potassium = elem.potassium_mg;
+            let protein = elem.protein_g;
+            let serving = elem.serving_size_g;
+            let sodium_mg = elem.sodium_mg;
+            let sugar_g = elem.sugar_g;
+            console.log(elem);
             return (
               <div
                 className="desc-food-tracker"
@@ -58,7 +70,21 @@ const Breakfast = () => {
                   axios
                     .post(
                       `http://localhost:5000/breakfast`,
-                      { name },
+                      {
+                        name,
+                        calories,
+                        date,
+                        carbohydrates,
+                        cholesterol,
+                        fat_saturated,
+                        fiber,
+                        potassium,
+                        protein,
+                        serving,
+                        sodium_mg,
+                        sugar_g,
+                      },
+
                       {
                         headers: {
                           authorization: "Bearer " + token,

@@ -54,6 +54,7 @@
 .food th,
 .food td {
   padding: 12px 15px;
+  text-align: center;
 }
 
 .food tbody tr {
