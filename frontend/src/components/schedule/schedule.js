@@ -52,7 +52,7 @@ const Schedule = () => {
           return (
             <div className="schedule-card">
   <Card style={{ width: '40rem' }}>
-    <div className="asdsaasdasdasdasdasd">
+    <div className="parennt-schedule">
     <div className="card-img">
   <Card.Img variant="top"  src={element.img} />
   </div>
@@ -95,7 +95,7 @@ const Schedule = () => {
     </Card.Text>
     <br></br>
         <br></br>
-    <Button variant="primary" onClick={info}>Book</Button>
+    <Button variant="outline-secondary" onClick={info}>Book</Button>
 
   </Card.Body>
   </div>
