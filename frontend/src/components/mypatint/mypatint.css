@@ -29,6 +29,7 @@
 table {
   width: 300px;
   border-collapse: collapse;
+  margin: auto;
 }
 table,
 th,
@@ -39,4 +40,8 @@ th,
 td {
   padding: 10px;
   text-align: left;
+}
+
+.center {
+  margin: 10px 0 10px 300%;
 }

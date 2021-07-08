@@ -40,6 +40,25 @@ const Patient = () => {
             ))}
           </tr>
         </thead>
+        <h1 className="center">breakfast</h1>
+
+        <tbody>
+          {result.map((element) => (
+            <tr>
+              <th>{element.name}</th>
+              <th>{element.calories}</th>
+              <th>{element.serving_size_g}</th>
+              <th>{element.sugar_g}</th>
+              <th>{element.protein_g}</th>
+              <th>{element.carbohydrates_total_g}</th>
+              <th>{element.cholesterol_mg}</th>
+              <th>{element.fat_saturated_g}</th>
+              <th>{element.potassium_mg}</th>
+              <th>{element.sodium_mg}</th>
+            </tr>
+          ))}
+        </tbody>
+        <h1 className="center">breakfast</h1>
         <tbody>
           {result.map((element) => (
             <tr>
