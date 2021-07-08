@@ -112,7 +112,6 @@ const DoctorDetails = () => {
         `http://localhost:5000/doctor/review/${id}`,
         {
           updateText,
-          rating,
         },
 
         {
@@ -169,7 +168,9 @@ const DoctorDetails = () => {
               {" "}
               <span>Dr .</span> {result.firstName} {result.lastName}
             </h2>
-            <div className="avgRating"><Stars stars={avgRating}/></div>
+
+            <div className="avgRating"><Stars stars={avgRating} defaultValue={avgRating}/></div>
+
             
             
             
@@ -310,12 +311,15 @@ const DoctorDetails = () => {
           <p className="Reviews">Reviews :</p>
           {allComment.map((element, index) => {
             return (
-              <div className="cmt" key={index + 1}>
-                <div className="userImg">
+
+              <div className="cmt" key={index + 1}><hr/>
+                <div className="userImg" >
+                  
                 <img
                   className="commenterimg"
                   src={element.img}
-                  style={{ width: "100px", height: "100px", borderRadius: "5px" }}
+                  style={{ width: "75px", height: "75px", borderRadius: "5px" }}
+
                 />
                 
                 
@@ -324,7 +328,9 @@ const DoctorDetails = () => {
                       {element.firstName} {element.lastName}
                     </h3>
                   <div className="commentRating">
-                  <Stars stars={element.rating} />
+
+                  <Stars stars={element.rating} defaultValue={element.rating} />
+
                   </div>
                   
                   {updateComment == false ? (
@@ -334,6 +340,7 @@ const DoctorDetails = () => {
                       {element.commenter_id == commenter_id ? (
                         <>
                           <textarea
+                          className="input-text"
                             onChange={(e) => {
                               setUpdateCommentText(e.target.value);
                             }}
