@@ -13,14 +13,14 @@ const Patient = () => {
   const heading = [
     "Name",
     "calories",
-    "serving_size_g",
-    "sugar_g",
-    "protein_g",
-    "carbohydrates total g",
-    "cholesterol mg",
-    "fat_saturated g",
-    "potassium mg",
-    "sodium mg",
+    "serving",
+    "sugar",
+    "protein",
+    "carbohydrates",
+    "cholesterol",
+    "fat_saturated",
+    "potassium",
+    "sodium",
   ];
 
   useEffect(() => {
@@ -39,7 +39,37 @@ const Patient = () => {
         console.log(err);
       });
   }, []);
-
+  const getData = (meal, title) => {
+    return (
+      <>
+        <h1 className="center">{title}</h1>{" "}
+        <thead>
+          <tr>
+            {heading.map((head) => (
+              <th>{head}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {meal &&
+            meal.map((element) => (
+              <tr>
+                <th>{element.name}</th>
+                <th>{element.calories}</th>
+                <th>{element.serving_size_g}</th>
+                <th>{element.sugar_g}</th>
+                <th>{element.protein_g}</th>
+                <th>{element.carbohydrates_total_g}</th>
+                <th>{element.cholesterol_mg}</th>
+                <th>{element.fat_saturated_g}</th>
+                <th>{element.potassium_mg}</th>
+                <th>{element.sodium_mg}</th>
+              </tr>
+            ))}
+        </tbody>
+      </>
+    );
+  };
   return (
     <div className="food">
       <table style={{ width: 500 }}>
@@ -172,31 +202,7 @@ const Patient = () => {
               </tr>
             ))}
         </tbody>
-        <h1 className="center">Glasses Of Water</h1>
-        <thead>
-          <tr>
-            {heading.map((head) => (
-              <th>{head}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {glassesOfWater &&
-            glassesOfWater.map((element) => (
-              <tr>
-                <th>{element.name}</th>
-                <th>{element.calories}</th>
-                <th>{element.serving_size_g}</th>
-                <th>{element.sugar_g}</th>
-                <th>{element.protein_g}</th>
-                <th>{element.carbohydrates_total_g}</th>
-                <th>{element.cholesterol_mg}</th>
-                <th>{element.fat_saturated_g}</th>
-                <th>{element.potassium_mg}</th>
-                <th>{element.sodium_mg}</th>
-              </tr>
-            ))}
-        </tbody>
+        {getData(glassesOfWater, "Glasses Of Water")}
       </table>
     </div>
   );
