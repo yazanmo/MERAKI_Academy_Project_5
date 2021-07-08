@@ -75,7 +75,6 @@ body{
   flex-direction: column;
   align-items: center;
   padding-top: 6%;
-  padding-bottom: 6%;
   justify-content: center;
 }
 
@@ -84,7 +83,7 @@ body{
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-
+margin-left: 98px
 
 }
 
@@ -95,16 +94,16 @@ body{
   border: 1px solid white;
   border-radius: 5px;
   box-sizing: border-box;
-  /* padding-right: 0rem 0rem; */
+  padding-right: 0rem 0rem;
   background-color: white;
   box-shadow: 0 0 15px rgb(0 0 0 / 5%);
-  height: 200px;
+  height: 230px;
   width: 40%;
-    margin: 5% 3%;
+    margin: 3% 3%;
     /* grid-gap: 2rem;
     gap: 2rem; */
     text-align: center;
-  /* padding-left: 0rem;  */
+  padding-left: 0rem; 
   overflow-wrap: break-word;
   white-space: pre-wrap
 }
@@ -119,8 +118,11 @@ text-align: center;
 padding: 0;
 margin: 0;
 box-sizing: border-box;
-overflow-wrap: break-word;
-white-space: pre-wrap
+/* overflow-wrap: break-word;
+white-space: pre-wrap; */
+/* word-wrap: break-word */
+/* white-space: pre-line */
+word-break: break-all;
 }
 
 .name{
@@ -143,6 +145,7 @@ margin: 3%;
   width: 30%;
   height:100%;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 
