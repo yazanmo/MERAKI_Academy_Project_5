@@ -5,11 +5,12 @@ import { updateData } from "./../../reducers/doctorProfile";
 import { useHistory } from "react-router-dom";
 
 const UpdateDoctorProfile = () => {
+  const history = useHistory();
   const profile = useSelector((state) => {
     return { doctor: state.doctorProfile.data };
   });
 
-
+       
   let token = localStorage.getItem("token");
 
   const [firstName, setFirstName] = useState(profile.doctor.firstName);
@@ -59,7 +60,7 @@ const UpdateDoctorProfile = () => {
         setQualifications(profile.doctor.Qualifications)
         setPracticalExperiences(profile.doctor.practicalExperiences)
         dispatch(updateData(result.data));
-      
+        history.push("/doctorProfile")
       })
       .catch((err) => {
         console.log(err);
