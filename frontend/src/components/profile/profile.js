@@ -8,7 +8,7 @@ function Profile() {
   const [result, setResult] = useState([]);
   const history = useHistory();
   localStorage.setItem("user_info", JSON.stringify(result));
-
+                  
   useEffect(() => {
     axios
       .get("http://localhost:5000/profile", {

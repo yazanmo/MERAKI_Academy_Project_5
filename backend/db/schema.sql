@@ -57,6 +57,7 @@ CREATE TABLE doctorsDetails (
 CREATE TABLE breakfast (
  breakfast_id INT AUTO_INCREMENT NOT NULL,
  name varchar(255),
+  date DATE ,
  calories varchar(255),
  carbohydrates_total_g varchar(255),
  cholesterol_mg varchar(255),
@@ -76,6 +77,7 @@ CREATE TABLE breakfast (
 CREATE TABLE snack (
  snack_id INT AUTO_INCREMENT NOT NULL,
  name varchar(255),
+  date DATE ,
   calories varchar(255),
  carbohydrates_total_g varchar(255),
  cholesterol_mg varchar(255),
@@ -94,6 +96,7 @@ CREATE TABLE snack (
 CREATE TABLE lunch (
  lunch_id INT AUTO_INCREMENT NOT NULL,
  name varchar(255),
+  date DATE ,
   calories varchar(255),
  carbohydrates_total_g varchar(255),
  cholesterol_mg varchar(255),
@@ -112,6 +115,7 @@ CREATE TABLE lunch (
 CREATE TABLE dinner (
  dinner_id INT AUTO_INCREMENT NOT NULL,
  name varchar(255),
+  date DATE ,
   calories varchar(255),
  carbohydrates_total_g varchar(255),
  cholesterol_mg varchar(255),
@@ -130,6 +134,7 @@ CREATE TABLE dinner (
 CREATE TABLE glassesOfWater (
  glassesOfWater_id INT AUTO_INCREMENT NOT NULL,
  name varchar(255),
+  date DATE ,
   calories varchar(255),
  carbohydrates_total_g varchar(255),
  cholesterol_mg varchar(255),
@@ -148,6 +153,7 @@ CREATE TABLE glassesOfWater (
 CREATE TABLE activeTime (
  activeTime_id INT AUTO_INCREMENT NOT NULL,
  name varchar(255),
+  date DATE ,
  calories varchar(255),
  carbohydrates_total_g varchar(255),
  cholesterol_mg varchar(255),
@@ -207,6 +213,8 @@ CREATE TABLE reviews(
 CREATE TABLE purchased(
  id INT AUTO_INCREMENT NOT NULL,
  doctorsService_id INT,
+ time Varchar(255),
+ date DATE ,
  user_id INT,
  is_deleted TINYINT DEFAULT 0,
  FOREIGN KEY ( doctorsService_id ) REFERENCES doctorsDetails(id),

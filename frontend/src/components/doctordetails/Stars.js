@@ -1,19 +1,22 @@
-import React, { useState } from "react";
-import { FaStar } from "react-icons/fa";
-import StarRatingComponent from 'react-star-rating-component';
 import axios from "axios";
+import { React, useState, useEffect } from "react";
+import { FaStar } from "react-icons/fa";
+
+
 const colors = {
   orange: "#FFBA5A",
   grey: "#a9a9a9",
 };
-export default function Rating({ idProduct, thisToken, setInfo }) {
+
+const Starts = (props) => {
+           
   const [rating, setRating] = useState(0);
-  const [hover, setHover] = useState(0);
-  console.log(rating);
+  const [hover, setHover] = useState(undefined);
+  const stars = Array(5).fill(0);
   const handleClick = (value) => {
     setRating(value);
-    //console.log(currentValue)
   };
+
   const handleMouseOver = (newHoverValue) => {
     setHover(newHoverValue);
   };
@@ -21,20 +24,21 @@ export default function Rating({ idProduct, thisToken, setInfo }) {
   const handleMouseLeave = () => {
     setHover(undefined);
   };
+  useEffect(() => {
+    setRating(props.stars)
+  }, [])
+
   return (
     <div style={styles.container}>
-      <div className="rating">
-        {[...Array(5)].map((element, i) => {
-          let ratingValue = i ;
+
+      <div style={styles.stars}>
+        {stars.map((_, index) => {
           return (
             <FaStar
-              key={ratingValue}
+              key={index}
               size={24}
-              onClick={() => handleClick(ratingValue + 1)}
-              onMouseOver={() => handleMouseOver(ratingValue + 1)}
-              onMouseLeave={handleMouseLeave}
               color={
-                (rating || hover) > ratingValue
+                (hover ||rating) > index
                   ? colors.orange
                   : colors.grey
               }
@@ -46,17 +50,22 @@ export default function Rating({ idProduct, thisToken, setInfo }) {
           );
         })}
       </div>
+
     </div>
   );
 };
+
 const styles = {
   container: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    margin: "4% 0 0 7%"
+    margin: "4% 0 0 -20%"
   },
   stars: {
     display: "flex",
     flexDirection: "row",
-  }}
+  },
+};
+
+export default Starts;

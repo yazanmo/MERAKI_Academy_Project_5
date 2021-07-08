@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link, useHistory } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 const MyDoctor = () => {
@@ -7,6 +8,8 @@ const MyDoctor = () => {
 
   const [result, setResult] = useState([]);
   const [sa, setSa] = useState(false);
+
+  const history = useHistory();
 
   useEffect(() => {
     axios
@@ -32,7 +35,11 @@ const MyDoctor = () => {
     <div>
       {result.map((element, index) => {
         return (
-          <div>
+          <div
+            onClick={() => {
+              history.push(`./../doctor/${element.id_service}`);
+            }}
+          >
             <p> {element.img}</p>
             <p> {element.firstName}</p>
             <p> {element.lastName}</p>

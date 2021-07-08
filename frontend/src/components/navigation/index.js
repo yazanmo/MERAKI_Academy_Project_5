@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 import { useEffect, useState } from "react";
 import "./navigation.css";
 import {  animateScroll as scroll } from "react-scroll";
+import { Dropdown } from 'react-bootstrap';
 require("dotenv").config();
 
 const Navigation = ({setHomePageSection}) => {
@@ -15,10 +16,11 @@ const Navigation = ({setHomePageSection}) => {
   let role_id = localStorage.getItem("role_id");
 
   return (
-   
     <div className="navBar">
       <div className="logo">
-        <h3>HEALTH<span>CARE</span></h3>
+        <h3>
+          HEALTH<span>CARE</span>
+        </h3>
       </div>
 
       <div className="nav">
@@ -76,22 +78,26 @@ const Navigation = ({setHomePageSection}) => {
                 <>
                   <li>
                     {" "}
-                    <Link to="/profile" className="links">
-                      Profile
+                    <Link to="/mydoctor" className="links">
+                      My Doctor
                     </Link>{" "}
                   </li>
-                  <li>
-                    {" "}
-                    <Link
-                      to="/"
-                      className="links"
-                      onClick={() => {
-                        localStorage.clear();
-                      }}
-                    >
-                      Log out
-                    </Link>{" "}
-                  </li>
+                  <Dropdown>
+                    <Dropdown.Toggle className="dropdown" variant="success" id="dropdown-basic" style={{ backgroundColor:'#33383b',borderColor:'#33383b'
+                       ,marginTop:'-5px',fontWeight:'700'}}>
+                         Profile
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+
+                      <Dropdown.Item href="/create/stories">Your story</Dropdown.Item>
+                      <Dropdown.Item href="/foodtracker">Your Food</Dropdown.Item>
+                      <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                      <Dropdown.Item href="/"  onClick={() => {localStorage.clear();}}>Log out
+                      </Dropdown.Item>
+
+                    </Dropdown.Menu>
+                  </Dropdown>
                 </>
               ) : (
                 <></>
@@ -119,7 +125,7 @@ const Navigation = ({setHomePageSection}) => {
                   </li>
 
                   <li>
-                    <Link to="/date" className="links">
+                    <Link to="/mypatient" className="links">
                       My patient
                     </Link>{" "}
                   </li>
@@ -160,14 +166,10 @@ const Navigation = ({setHomePageSection}) => {
             <>
               {role_id == 3 ? (
                 <>
-
-                    <li>
+                  <li>
                     {" "}
-                    <Link
-                      to="/adminPage"
-                      className="links"
-                    >
-                    Admin profile
+                    <Link to="/adminPage" className="links">
+                      Admin profile
                     </Link>{" "}
                   </li>
 
@@ -183,9 +185,6 @@ const Navigation = ({setHomePageSection}) => {
                       Log out
                     </Link>{" "}
                   </li>
-                  
-                 
-
                 </>
               ) : (
                 <></>
