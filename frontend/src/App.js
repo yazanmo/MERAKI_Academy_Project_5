@@ -18,7 +18,7 @@ import AddStory from "./components/profile/addstory";
 import Home from "./components/Home";
 import UpdateDoctorProfile from "./components/doctor_profile/updateDoctorProfile";
 import FoodTracker from "./components/profile/foodtracker";
-
+import Schedule from "./components/schedule/schedule"
 import CreateStories from "./components/storie";
 import AcceptDoctor from "./components/AcceptDoctor";
 
@@ -51,6 +51,7 @@ const App = () => {
           <Route exact path="/register" render={() => <SignUp />} />
           <Route exact path="/doctorProfile" render={() => <DoctorProfile />} />
           <Route exact path="/addyourstory" render={() => <AddStory />} />
+          <Route exact path="/schedule/:id" render={() => <Schedule />} />
           <Route
             exact
             path="/editProfile"

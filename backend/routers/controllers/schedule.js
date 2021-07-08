@@ -10,12 +10,16 @@ const bookTime = (req, res) => {
     if (err) res.status(400).send(err);
     res.status(201).json(result);
   });
-};
-
+};  
+      
 const getBookTime = (req, res) => {
   const doctor_id = req.token.id;
 
+  
+
+
   const query = `SELECT *  FROM schedule JOIN users ON schedule.user_id=users.id
+
   JOIN doctorsDetails ON schedule.doctor_id=doctorsDetails.id WHERE doctorsDetails.user_id= ?`;
 
   const arr = [doctor_id];
@@ -25,7 +29,9 @@ const getBookTime = (req, res) => {
   });
 };
 
+
 module.exports = {
   bookTime,
   getBookTime,
+  
 };

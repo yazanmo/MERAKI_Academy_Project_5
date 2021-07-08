@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import './mydoctor.css';
 const MyDoctor = () => {
   let token = localStorage.getItem("token");
 
@@ -10,7 +11,11 @@ const MyDoctor = () => {
   const [sa, setSa] = useState(false);
 
   const history = useHistory();
-
+  const func = (id) => {
+    return (history.push(`/schedule/${id}`)
+    )
+  }
+        
   useEffect(() => {
     axios
       .get("http://localhost:5000/mydoctor", {
@@ -32,18 +37,24 @@ const MyDoctor = () => {
       });
   }, []);
   return (
-    <div>
+    <div className="my-doc-card">
       {result.map((element, index) => {
         return (
-          <div
-            onClick={() => {
-              history.push(`./../doctor/${element.id_service}`);
-            }}
-          >
-            <p> {element.img}</p>
-            <p> {element.firstName}</p>
-            <p> {element.lastName}</p>
-            <p> {element.description}</p>
+
+          
+          <div className="my-doc-card">
+            <Card style={{ width: '300px' }}>
+                <Card.Img variant="top" src={element.img} />
+            <Card.Body>
+                  <Card.Title>{element.firstName} {element.lastName}</Card.Title>
+                <Card.Text>
+                  <p> {element.price}</p>
+                  <p> {element.description}</p>
+                </Card.Text>
+                   <Button variant="outline-secondary" onClick={() => { func(element.doctorsService_id) }}>doctor</Button>
+            </Card.Body>
+            </Card>
+
           </div>
         );
       })}
