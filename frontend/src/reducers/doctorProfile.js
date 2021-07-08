@@ -1,6 +1,6 @@
 const initialState = {
     data:{}
-}
+}               
 //Reducer
 const doctorProfile = (state = initialState, { type, payload }) => {
     switch (type) {
