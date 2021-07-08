@@ -4,8 +4,9 @@ import { useSelector } from "react-redux";
 import jwt from "jsonwebtoken";
 import { useEffect, useState } from "react";
 import "./navigation.css";
-import { animateScroll as scroll } from "react-scroll";
-import { Dropdown } from "react-bootstrap";
+
+import {  animateScroll as scroll } from "react-scroll";
+import { Dropdown } from 'react-bootstrap';
 require("dotenv").config();
 const Navigation = ({ setHomePageSection }) => {
   const state = useSelector((state) => {
@@ -91,6 +92,7 @@ const Navigation = ({ setHomePageSection }) => {
                     </Link>{" "}
                   </li>
                   <Dropdown>
+
                     <Dropdown.Toggle
                       className="dropdown"
                       variant="success"
@@ -120,6 +122,7 @@ const Navigation = ({ setHomePageSection }) => {
                       >
                         Log out
                       </Dropdown.Item>
+
                     </Dropdown.Menu>
                   </Dropdown>
                 </>

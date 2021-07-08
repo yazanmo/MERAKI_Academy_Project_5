@@ -61,25 +61,31 @@ th {
 
 .buttons-child-2 {
   display: flex;
-  flex-direction: row;
-  gap: 10px;
+    flex-direction: row;
+    grid-gap: 10px;
+    gap: 10px;
+    margin-left: 6%;
 }
 
 .buttons-child-2 button {
+  width: 115px;
+  height: 62px;
   background-color: rgb(10, 153, 153);
+ 
 }
 .buttons-child-2 button:hover {
   background-color: rgb(14, 175, 175);
 }
 
 .profile {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(252, 252, 252);
-  width: 50%;
+    margin-top: 3%;
+    margin-left: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(252, 252, 252);
+    width: 50%;
 }
 .profile img {
   /* border-radius: 100%; */
@@ -95,10 +101,12 @@ th {
   font-size: 20px;
   display: flex;
   flex-direction: column;
+  grid-gap: 7px;
   gap: 7px;
   padding: 0 10px;
   justify-content: flex-start;
   margin-top: 10px;
+  margin-left: 6%;
 }
 .profile-info p span {
   font-weight: bold;

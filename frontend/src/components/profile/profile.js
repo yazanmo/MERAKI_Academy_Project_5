@@ -26,34 +26,6 @@ function Profile() {
 
   return (
     <div className="profile-page">
-      <div className="buttons">
-        <div className="buttons-child-1">
-          <button
-            onClick={() => {
-              history.push("./create/stories");
-            }}
-          >
-            you story
-          </button>
-          <button
-            onClick={() => {
-              history.push("./foodtracker");
-            }}
-          >
-            your food
-          </button>
-        </div>
-        <div className="buttons-child-2">
-          <DeleteUser />
-          <button
-            onClick={() => {
-              history.push("/edit/profile");
-            }}
-          >
-            update
-          </button>
-        </div>
-      </div>
       <div className="profile">
         <div>
           {result.img == "" ? (
@@ -78,7 +50,20 @@ function Profile() {
             <span>Email: </span>
             {result.email}
           </p>
+        
         </div>
+        <div className="buttons">
+        <div className="buttons-child-2">
+          <DeleteUser />
+          <button
+            onClick={() => {
+              history.push("/edit/profile");
+            }}
+          >
+            update
+          </button>
+        </div>
+      </div>
       </div>
     </div>
   );
