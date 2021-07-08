@@ -70,6 +70,31 @@ const Patient = () => {
               </tr>
             ))}
         </tbody>
+        <h1 className="center">Lunch</h1>
+        <thead>
+          <tr>
+            {heading.map((head) => (
+              <th>{head}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {Lunch &&
+            Lunch.map((element) => (
+              <tr>
+                <th>{element.name}</th>
+                <th>{element.calories}</th>
+                <th>{element.serving_size_g}</th>
+                <th>{element.sugar_g}</th>
+                <th>{element.protein_g}</th>
+                <th>{element.carbohydrates_total_g}</th>
+                <th>{element.cholesterol_mg}</th>
+                <th>{element.fat_saturated_g}</th>
+                <th>{element.potassium_mg}</th>
+                <th>{element.sodium_mg}</th>
+              </tr>
+            ))}
+        </tbody>
       </table>
     </div>
   );
