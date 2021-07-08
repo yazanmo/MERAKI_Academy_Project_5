@@ -1,25 +1,11 @@
 /* food tracker */
 .food-tracker {
   margin: auto;
-}      
-table {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 100px;
-  justify-content: center;
-  align-items: center;
-  margin-top: 80px;
 }
+
 input {
   height: 30px;
   width: 200px;
-}
-
-th {
-  display: flex;
-  flex-direction: row;
-  gap: 100px;
 }
 
 .desc-food-tracker {
@@ -61,31 +47,30 @@ th {
 
 .buttons-child-2 {
   display: flex;
-    flex-direction: row;
-    grid-gap: 10px;
-    gap: 10px;
-    margin-left: 6%;
+  flex-direction: row;
+  grid-gap: 10px;
+  gap: 10px;
+  margin-left: 6%;
 }
 
 .buttons-child-2 button {
   width: 115px;
   height: 62px;
   background-color: rgb(10, 153, 153);
- 
 }
 .buttons-child-2 button:hover {
   background-color: rgb(14, 175, 175);
 }
 
 .profile {
-    margin-top: 3%;
-    margin-left: 20%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(252, 252, 252);
-    width: 50%;
+  margin-top: 3%;
+  margin-left: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(252, 252, 252);
+  width: 50%;
 }
 .profile img {
   /* border-radius: 100%; */
