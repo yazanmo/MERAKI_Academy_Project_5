@@ -11,8 +11,8 @@ const bookTime = (req, res) => {
     if (err) res.status(400).send(err);
     res.status(201).json(result);
   });
-};
-
+};  
+      
 const getBookTime = (req, res) => {
   const doctor_id = req.token.id;
 

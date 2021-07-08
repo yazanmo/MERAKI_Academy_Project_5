@@ -12,10 +12,10 @@ const buyService = (req, res) => {
     res.status(200).send("insert is done");
   });
 };
-
+       
 const getMyDoctor = (req, res) => {
   const user_id = req.token.id;
-  const query = `SELECT firstName ,lastName FROM doctorsDetails JOIN purchased ON purchased.doctorsService_id=doctorsDetails.id
+  const query = `SELECT firstName ,lastName,price,description FROM doctorsDetails JOIN purchased ON purchased.doctorsService_id=doctorsDetails.id
    JOIN users as u on u.id= doctorsDetails.user_id where purchased.user_id= ?;
   `;
   const data = [user_id];

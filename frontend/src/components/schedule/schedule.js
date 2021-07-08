@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { Switch, Route, Link, useParams, useHistory } from "react-router-dom";
 import axios from "axios";
-import { Link, useHistory } from "react-router-dom";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-const MyDoctor = () => {
-  let token = localStorage.getItem("token");
 
+const Schedule = () => {
+  const token = localStorage.getItem("token");
+  const { id } = useParams();
   const [result, setResult] = useState([]);
+  const [time, setTime] = useState("");
+  const [date, setDate] = useState("");
   const [sa, setSa] = useState(false);
 
-  const history = useHistory();
-              
   useEffect(() => {
     axios
       .get("http://localhost:5000/mydoctor", {
@@ -31,15 +30,12 @@ const MyDoctor = () => {
         console.log(err);
       });
   }, []);
+
   return (
     <div>
       {result.map((element, index) => {
         return (
-          <div
-            onClick={() => {
-              history.push(`./../doctor/${element.id_service}`);
-            }}
-          >
+          <div>
             <p> {element.img}</p>
             <p> {element.firstName}</p>
             <p> {element.lastName}</p>
@@ -51,5 +47,4 @@ const MyDoctor = () => {
     </div>
   );
 };
-
-export default MyDoctor;
+export default Schedule;
