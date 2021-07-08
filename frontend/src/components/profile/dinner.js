@@ -75,7 +75,7 @@ const Dinner = () => {
                 onClick={() => {
                   axios
                     .post(
-                      `http://localhost:5000/breakfast`,
+                      `http://localhost:5000/dinner`,
                       {
                         name,
                         calories,
