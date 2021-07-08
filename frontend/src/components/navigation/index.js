@@ -4,10 +4,10 @@ import { useSelector } from "react-redux";
 import jwt from "jsonwebtoken";
 import { useEffect, useState } from "react";
 import "./navigation.css";
-import {  animateScroll as scroll } from "react-scroll";
+import { animateScroll as scroll } from "react-scroll";
 require("dotenv").config();
 
-const Navigation = ({setHomePageSection}) => {
+const Navigation = ({ setHomePageSection }) => {
   const state = useSelector((state) => {
     return { token: state.login.token };
   });
@@ -36,7 +36,7 @@ const Navigation = ({setHomePageSection}) => {
               </li>
               <li>
                 {" "}
-                <Link to="/about" className="links"  >
+                <Link to="/about" className="links">
                   About
                 </Link>{" "}
               </li>
@@ -47,25 +47,37 @@ const Navigation = ({setHomePageSection}) => {
                 </Link>{" "}
               </li>
               <li>
-                <Link to="/" className="links" onClick={()=>{
-          setHomePageSection("services")
-        }}>
-                 Services
+                <Link
+                  to="/"
+                  className="links"
+                  onClick={() => {
+                    setHomePageSection("services");
+                  }}
+                >
+                  Services
                 </Link>{" "}
               </li>
               <li>
-                <Link to="/" className="links" onClick={()=>{
-          setHomePageSection("stories")
-        }}>
+                <Link
+                  to="/"
+                  className="links"
+                  onClick={() => {
+                    setHomePageSection("stories");
+                  }}
+                >
                   Stories
                 </Link>{" "}
               </li>
               <li>
                 {" "}
-                <Link to="/" className="links"  onClick={()=>{
-          setHomePageSection("contact")
-        }}>
-                  Contact Us  
+                <Link
+                  to="/"
+                  className="links"
+                  onClick={() => {
+                    setHomePageSection("contact");
+                  }}
+                >
+                  Contact Us
                 </Link>{" "}
               </li>
             </>
