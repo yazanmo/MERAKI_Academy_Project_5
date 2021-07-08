@@ -12,10 +12,16 @@ import rules from "./rules.png";
 import { scroller } from "react-scroll";
 import "./home.css";
 import happy from "./happy.jpg";
+import { Slide } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
+import noAvatar from "./noAvatar.png"
+import Slider from "react-slick";
 
 export default function Home({ homePageSection, setHomePageSection }) {
   const dispatch = useDispatch();
 
+  
+  // smooth scroller
   useEffect(() => {
     if (homePageSection !== "") {
       console.log(homePageSection);
@@ -28,6 +34,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
     axios
       .get(`http://localhost:5000/stories`)
       .then((result) => {
+        console.log(result.data);
         dispatch(setStories(result.data));
         localStorage.setItem("stories", JSON.stringify(result.data));
       })
@@ -42,8 +49,56 @@ export default function Home({ homePageSection, setHomePageSection }) {
     };
   });
 
+  //array for slider
+  const arr = [
+    "https://images.unsplash.com/photo-1604480131833-5d7aea770e1c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=890&q=80",
+    "https://images.unsplash.com/photo-1467453678174-768ec283a940?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=728&q=80",
+    "https://images.unsplash.com/photo-1607962837359-5e7e89f86776?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80",
+    "https://images.unsplash.com/photo-1486218119243-13883505764c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1504&q=80",
+    "https://images.unsplash.com/photo-1494597564530-871f2b93ac55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=701&q=80",
+  ];
+
   return (
     <div className="home">
+
+      {/* slider */}
+      <div className="slide-container">
+        <Slide>
+          <div className="each-slide">
+            <div
+              className="imageSlider"
+              style={{ backgroundImage: `url(${arr[0]})` }}
+            ></div>
+          </div>
+          <div className="each-slide">
+            <div
+              className="imageSlider"
+              style={{ backgroundImage: `url(${arr[1]})` }}
+            ></div>
+          </div>
+          <div className="each-slide">
+            <div
+              className="imageSlider"
+              style={{ backgroundImage: `url(${arr[2]})` }}
+            ></div>
+          </div>
+          <div className="each-slide">
+            <div
+              className="imageSlider"
+              style={{ backgroundImage: `url(${arr[3]})` }}
+            ></div>
+          </div>
+          <div className="each-slide">
+            <div
+              className="imageSlider"
+              style={{ backgroundImage: `url(${arr[4]})` }}
+            ></div>
+          </div>
+        </Slide>
+      </div>
+
+
+{/* about section */}
       <section className="About" title="About">
         <img className="img" src={health} alt="healthy life" />
         <div className="paragraph">
@@ -69,6 +124,9 @@ export default function Home({ homePageSection, setHomePageSection }) {
           />
         </div>
       </section>
+
+
+      {/* services section */}
 
       <section title="ourServices" id="services">
         <div className="line">
@@ -114,21 +172,28 @@ export default function Home({ homePageSection, setHomePageSection }) {
         </div>
       </section>
 
+{/* stories section */}
+
       <section className="stories" title="stories" id="stories">
+        <div className="hi">
         <span className="welcome">STORIES</span>
         <h3 className="h3">Successfull Stories</h3>
+        </div>
         <div className="storyCard">
           {state.stories &&
             state.stories.map((story, index) => {
+              console.log(story.img);
               return (
                 <ul key={index} className="ul">
+                  
                   {" "}
-                  <img className="happyMan" src={happy} alt="happy" />
-                  {/* <img src="story.img" alt="happy" />  */}
+                  <img className="storyImg"    src = {story.img ? story.img  : noAvatar }/>
+                  <div className="nameDes">
                   <li className="description">{story.description}</li>
                   <div className="name">
                     <li>{story.firstName}</li>
                     <li>{story.lastName}</li>
+                  </div>
                   </div>
                 </ul>
               );
