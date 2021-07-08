@@ -6,13 +6,16 @@ const {
   getUserInformation,
   updateUserInformationById,
   deleteUserById,
+  getUserById,
 } = require("./../controllers/user");
-
 
 const userRouter = express.Router();
 
 //APIs
 userRouter.get("/profile", auth, getUserInformation);
+userRouter.get("/patient/:id", getUserById);
+
 userRouter.put("/profile", auth, updateUserInformationById);
 userRouter.delete("/profile", auth, deleteUserById);
+
 module.exports = userRouter;

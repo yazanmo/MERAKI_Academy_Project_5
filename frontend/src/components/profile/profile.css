@@ -110,15 +110,38 @@ th {
   margin-top: 5rem;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  /* gap: 7px; */
   align-items: center;
 }
-.update-profile input {
-  width: 30%;
+
+.update-profile-row {
+  display: flex;
+  flex-direction: row;
+  /* gap: 7px; */
+  align-items: center;
+}
+.update-profile-info {
+  display: flex;
+  flex-direction: column;
+  /* gap: 5px; */
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.update-profile-desc {
+  /* display: flex;
+  flex-direction: column;
+  gap: 10px; */
+  align-items: center;
+  margin-right: 20px;
+}
+
+.update-profile-info input {
+  width: 100%;
   height: 40px;
 }
 
-.update-profile button {
+.update-profile-info button {
   border: none;
   background-color: black;
   cursor: pointer;

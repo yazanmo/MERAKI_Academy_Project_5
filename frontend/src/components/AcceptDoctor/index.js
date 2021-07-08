@@ -2,10 +2,11 @@ import React from 'react';
 import axios from "axios";
 import {useParams} from "react-router-dom"
 import { useState } from 'react';
+import './accept.css';
+
 
 export default function AcceptDoctor() {
     const {doctor_id}= useParams()
-    console.log(doctor_id);
     const [password, setPassword] = useState("")
     const [message, setMessage] = useState("")
 
@@ -15,13 +16,13 @@ const add =  ()=>{
     password
     })
     .then((result)=>{
-        console.log("front",result);
-setMessage("added successfully")
+      
+        setMessage("added successfully")
 
     })
     .catch((err)=>{
-        console.log(err);
-        setMessage("not added")
+       
+        setMessage("not added !!")
     })
 
 
@@ -33,12 +34,15 @@ setMessage("added successfully")
 }
 
     return (
-        <div>
+        <>
+        <div className="yzn">
           
-            <input type="text" placeholder="password here"  onChange={(e)=>{setPassword(e.target.value)} }/>
-            <button onClick={ add }>ADD DOCTOR</button>
-            <p>{message}</p>
+            <input className="inpt1" type="text" placeholder="password here"  onChange={(e)=>{setPassword(e.target.value)} }/>
+            <button className="btnadd" onClick={ add }>ADD DOCTOR</button>
+           
         </div>
+         <p className="message">{message}</p>
+         </>
     )
 }
  

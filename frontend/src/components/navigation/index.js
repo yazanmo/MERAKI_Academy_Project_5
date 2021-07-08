@@ -4,9 +4,10 @@ import { useSelector } from "react-redux";
 import jwt from "jsonwebtoken";
 import { useEffect, useState } from "react";
 import "./navigation.css";
+import {  animateScroll as scroll } from "react-scroll";
 require("dotenv").config();
 
-const Navigation = () => {
+const Navigation = ({setHomePageSection}) => {
   const state = useSelector((state) => {
     return { token: state.login.token };
   });
@@ -14,10 +15,11 @@ const Navigation = () => {
   let role_id = localStorage.getItem("role_id");
 
   return (
-   
     <div className="navBar">
       <div className="logo">
-        <h3>HEALTH<span>CARE</span></h3>
+        <h3>
+          HEALTH<span>CARE</span>
+        </h3>
       </div>
 
       <div className="nav">
@@ -34,7 +36,7 @@ const Navigation = () => {
               </li>
               <li>
                 {" "}
-                <Link to="/about" className="links">
+                <Link to="/about" className="links"  >
                   About
                 </Link>{" "}
               </li>
@@ -45,14 +47,25 @@ const Navigation = () => {
                 </Link>{" "}
               </li>
               <li>
-                <Link to="/success" className="links">
+                <Link to="/" className="links" onClick={()=>{
+          setHomePageSection("services")
+        }}>
+                 Services
+                </Link>{" "}
+              </li>
+              <li>
+                <Link to="/" className="links" onClick={()=>{
+          setHomePageSection("stories")
+        }}>
                   Stories
                 </Link>{" "}
               </li>
               <li>
                 {" "}
-                <Link to="/" className="links">
-                  Contact Us
+                <Link to="/" className="links"  onClick={()=>{
+          setHomePageSection("contact")
+        }}>
+                  Contact Us  
                 </Link>{" "}
               </li>
             </>
@@ -62,6 +75,12 @@ const Navigation = () => {
             <>
               {role_id == 1 ? (
                 <>
+                  <li>
+                    {" "}
+                    <Link to="/mydoctor" className="links">
+                      My Doctor
+                    </Link>{" "}
+                  </li>
                   <li>
                     {" "}
                     <Link to="/profile" className="links">
@@ -107,7 +126,7 @@ const Navigation = () => {
                   </li>
 
                   <li>
-                    <Link to="/date" className="links">
+                    <Link to="/mypatient" className="links">
                       My patient
                     </Link>{" "}
                   </li>
@@ -148,14 +167,10 @@ const Navigation = () => {
             <>
               {role_id == 3 ? (
                 <>
-
-                    <li>
+                  <li>
                     {" "}
-                    <Link
-                      to="/adminPage"
-                      className="links"
-                    >
-                    Admin profile
+                    <Link to="/adminPage" className="links">
+                      Admin profile
                     </Link>{" "}
                   </li>
 
@@ -171,9 +186,6 @@ const Navigation = () => {
                       Log out
                     </Link>{" "}
                   </li>
-                  
-                 
-
                 </>
               ) : (
                 <></>

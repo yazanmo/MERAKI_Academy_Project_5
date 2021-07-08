@@ -13,8 +13,7 @@
   align-items: center;
   gap:115px;
   margin-bottom: 20px;
-  box-shadow: 1px 1px 1px 1px rgb(201, 201, 198);
-  width: 60%;
+
 }
 .doctor-details{
   display: flex;
@@ -30,7 +29,10 @@
 }
 .doctor-details p{
   font-weight: 300px;
-  font-size: 20px;
+
+
+  font-size: 16px;
+
 }
 .rating{
   display: flex;
@@ -40,7 +42,9 @@
   
 }
 .avgRating{
-  margin-left: -50px;
+
+  margin-left: -70px;
+
 }
 
 .comment{
@@ -65,10 +69,7 @@ border-radius: 5px;
  .img1{
 border-radius: 5px;
 }
-.img1 img{
-  object-fit: cover;
-  object-position: 90% 100%
-}
+
 .btnCommant{
   margin-top: 30px;
   border-radius: 5px;
@@ -98,11 +99,12 @@ border-radius: 5px;
     width: auto;
     height: 70px;
     position: absolute;
-    left: 71.2%;
+
+    left: 79.2%;
     bottom: 242px; 
     margin-left: -433px;
-    margin-top:25px;
-    margin-bottom: 10px;
+    margin-top:50px;
+
 }
 
 .doctor-details .btn-1::after {
@@ -149,15 +151,19 @@ border-radius: 5px;
 
 .parent-commint{
   margin-top: 100px;
-  margin-right: 241px;
+
+  margin-right: 410px;
+
   display: flex;
   flex-direction: column;
 }
 .Reviews{
   width:330px;
   font-size: 32px;
-  margin-left: 200px;
-  
+
+  margin:0 auto;
+  border-bottom:1.5px solid rgb(163, 160, 160);
+
 }
 .userImg{
   display: flex;
@@ -165,13 +171,11 @@ border-radius: 5px;
   padding: auto;
   margin-left: 20px;
   margin-top: 25px;
-  margin-bottom:20px;
+
+  
  
 }
- hr{
-  width: 300px;
-  margin-left: 197px;
-}
+ 
 
 .userImg .commenterimg{
   height: 100px;
@@ -189,24 +193,22 @@ border-radius: 5px;
   flex-direction:row;
  
 }
+
 .commenter{
   margin-top: 0px;
 }
 .commentRating{
   margin-top:25px;
   margin-right:115px;
-}
-.comments{
-  margin-top:20px;
-  padding-bottom:20px;
-  width:330px;
-  font-size: 25px;
+
+
 
 }
-.input-text{
-  width:550px;
-  height: 100px;
+.comments{
+  margin-top:40px;
+  padding-bottom:20px;
+  width:330px;
+  font-size: 32px;
+  border-bottom:1.5px solid rgb(163, 160, 160);
 }
-.update_delete{
-  margin-left:206px;
-}
+
