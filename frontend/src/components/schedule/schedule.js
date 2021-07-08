@@ -80,7 +80,7 @@ const Schedule = () => {
           }}
         />
       </div>
-      <button onClick={info}>desdffdd</button>
+      <button onClick={info}>book</button>
     </div>
   );
 };
