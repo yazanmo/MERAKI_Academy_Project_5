@@ -72,48 +72,16 @@ const UpdateDoctorProfile = () => {
       <div className="profile_page_update">
         <div className="allInfo_update">
         <div className="left-side_update">
-        <h3 >FirstName : <span><input
-          className="inputs"
-          type="text"
-          placeholder="firstName here"
-          defaultValue={data.firstName}
-          onChange={(e) => {
-            setFirstName(e.target.value);
-          }}
-        /></span></h3>
+        <h3 >FirstName : </h3>
         
-
-        <h3>LastName : <span><input
-          className="inputs"
-          type="text"
-          placeholder="LastName here "
-          defaultValue={data.lastName}
-          onChange={(e) => {
-            setLastName(e.target.value);
-          }}
-        /></span></h3>
+            
+        <h3>LastName : </h3>
        
         
 
-        <h3>Image :<span><input
-          className="inputs"
-          type="text"
-          placeholder="image here "
-          defaultValue={data.img}
-          onChange={(e) => {
-            setImg(e.target.value);
-          }}
-        /></span></h3>
+        <h3>Image :</h3>
         
-        <h3>Age :<span><input
-          className="inputs"
-          type="number"
-          placeholder="Age here"
-          defaultValue={data.age}
-          onChange={(e) => {
-            setAge(e.target.value);
-          }}
-        /></span></h3>
+        <h3>Age :</h3>
         
         {/* <h3>Email :</h3>
         <input
@@ -127,6 +95,39 @@ const UpdateDoctorProfile = () => {
           }}
         /> */}
         </div>
+        <div className="left-side_update_input"><input
+          className="inputs"
+          type="text"
+          placeholder="firstName here"
+          defaultValue={data.firstName}
+          onChange={(e) => {
+            setFirstName(e.target.value);
+          }}
+        /><input
+        className="inputs"
+        type="text"
+        placeholder="LastName here "
+        defaultValue={data.lastName}
+        onChange={(e) => {
+          setLastName(e.target.value);
+        }}
+      /><input
+      className="inputs"
+      type="text"
+      placeholder="image here "
+      defaultValue={data.img}
+      onChange={(e) => {
+        setImg(e.target.value);
+      }}
+    /><input
+    className="inputs"
+    type="number"
+    placeholder="Age here"
+    defaultValue={data.age}
+    onChange={(e) => {
+      setAge(e.target.value);
+    }}
+  /></div>
         <div className="right-side_update">
         
         <h3>Price :<span><input

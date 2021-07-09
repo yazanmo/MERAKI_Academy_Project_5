@@ -35,7 +35,7 @@
   flex-direction: row;
   margin-bottom: 25px;
   margin-right: 50px;
-}
+}                  
 .btnS button {
   margin-left: 15px;
   width: 150px;
@@ -113,7 +113,8 @@
   padding: 0 10px;
   justify-content: flex-start;
   margin-bottom: 25px;
-  width: 500px;
+  width: 100px;
+  
 }
 .right-side_update {
   font-size: 20px;
@@ -150,4 +151,21 @@
 }
 .edit:hover{
   background-color:green;
+}
+.left-side_update_input{
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0 10px;
+  justify-content: flex-start;
+  margin-bottom: 25px;
+  width: 250px;
+  
+}
+.left-side_update_input .inputs{
+  
+  border-radius: 5px;
+  height: 40px;
+  width: 300px;
 }
