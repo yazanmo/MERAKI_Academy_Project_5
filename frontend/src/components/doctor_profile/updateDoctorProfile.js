@@ -3,7 +3,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { updateData } from "./../../reducers/doctorProfile";
 import { useHistory } from "react-router-dom";
-
+import "./doctor_profile.css";
 const UpdateDoctorProfile = () => {
   const history = useHistory();
   const profile = useSelector((state) => {
@@ -69,9 +69,10 @@ const UpdateDoctorProfile = () => {
 
   return (
     <>
-      <div className="profile_page">
-        <h3 >FirstName :</h3>
-        <input
+      <div className="profile_page_update">
+        <div className="allInfo_update">
+        <div className="left-side_update">
+        <h3 >FirstName : <span><input
           className="inputs"
           type="text"
           placeholder="firstName here"
@@ -79,10 +80,10 @@ const UpdateDoctorProfile = () => {
           onChange={(e) => {
             setFirstName(e.target.value);
           }}
-        />
+        /></span></h3>
+        
 
-        <h3>LastName :</h3>
-        <input
+        <h3>LastName : <span><input
           className="inputs"
           type="text"
           placeholder="LastName here "
@@ -90,10 +91,11 @@ const UpdateDoctorProfile = () => {
           onChange={(e) => {
             setLastName(e.target.value);
           }}
-        />
+        /></span></h3>
+       
+        
 
-        <h3>Image :</h3>
-        <input
+        <h3>Image :<span><input
           className="inputs"
           type="text"
           placeholder="image here "
@@ -101,8 +103,19 @@ const UpdateDoctorProfile = () => {
           onChange={(e) => {
             setImg(e.target.value);
           }}
-        />
-        <h3>Email :</h3>
+        /></span></h3>
+        
+        <h3>Age :<span><input
+          className="inputs"
+          type="number"
+          placeholder="Age here"
+          defaultValue={data.age}
+          onChange={(e) => {
+            setAge(e.target.value);
+          }}
+        /></span></h3>
+        
+        {/* <h3>Email :</h3>
         <input
           className="inputs"
           type="text"
@@ -112,19 +125,11 @@ const UpdateDoctorProfile = () => {
           onChange={(e) => {
             setEmail(e.target.value);
           }}
-        />
-        <h3>Age :</h3>
-        <input
-          className="inputs"
-          type="number"
-          placeholder="Age here"
-          defaultValue={data.age}
-          onChange={(e) => {
-            setAge(e.target.value);
-          }}
-        />
-        <h3>Price :</h3>
-        <input
+        /> */}
+        </div>
+        <div className="right-side_update">
+        
+        <h3>Price :<span><input
           className="inputs"
           type="number"
           placeholder="Price here"
@@ -132,9 +137,9 @@ const UpdateDoctorProfile = () => {
           onChange={(e) => {
             setPrice(e.target.value);
           }}
-        />
-        <h3>Description :</h3>
-        <input
+        /></span></h3>
+        
+        <h3>Description :<span><input
           className="inputs"
           type="text"
           placeholder="description here"
@@ -142,9 +147,9 @@ const UpdateDoctorProfile = () => {
           onChange={(e) => {
             setDescription(e.target.value);
           }}
-        />
-        <h3>Qualifications :</h3>
-        <input
+        /></span></h3>
+        
+        <h3>Qualifications :<span><input
           className="inputs"
           type="text"
           placeholder="qualifications here"
@@ -152,9 +157,9 @@ const UpdateDoctorProfile = () => {
           onChange={(e) => {
             setQualifications(e.target.value);
           }}
-        />
-        <h3>PracticalExperiences :</h3>
-        <input
+        /></span></h3>
+        
+        <h3>PracticalExperiences :<span><input
           className="inputs"
           type="text"
           placeholder="practicalExperiences here"
@@ -162,7 +167,10 @@ const UpdateDoctorProfile = () => {
           onChange={(e) => {
             setPracticalExperiences(e.target.value);
           }}
-        />
+        /></span></h3>
+        
+        </div>
+        </div>
         <button onClick={editProfile}>Edit Profile</button>
       </div>
     </>

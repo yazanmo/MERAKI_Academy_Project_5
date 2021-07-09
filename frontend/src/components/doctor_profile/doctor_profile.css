@@ -86,3 +86,52 @@
   margin-left: 65px;
   width: 400px;
 }
+.profile_page_update{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(252, 252, 252);
+  width: 60%;
+}
+.allInfo_update {
+  display: flex;
+  flex-direction: row;
+  gap: 65px;
+  padding: 0 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.left-side_update  {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0 10px;
+  justify-content: flex-start;
+  margin-bottom: 25px;
+  width: 500px;
+}
+.right-side_update {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0 10px;
+  justify-content: flex-start;
+  margin-bottom: 25px;
+  margin-left: 65px;
+  width: 500px;
+}
+.profile_page_update h3{
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+}
+.profile_page_update h3 span input{
+  margin-left: 15px;
+  border-radius: 5px;
+  height: 40px;}
