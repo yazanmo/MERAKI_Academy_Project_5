@@ -35,60 +35,63 @@ const DoctorProfile = () => {
   return (
     <>
       <div className="profile_page">
-      <div className="profile-info">
-        <img src={result.img} />
-       
-          
-            <p>
-              <span>FirstName :</span>
-              {result.firstName}
-            </p>
+        <div className="profile-info">
+          <img src={result.img} />
+          <div className="allInfo">
+            <div className="left-side">
+              <p>
+                <span>FirstName :</span>
+                {result.firstName}
+              </p>
 
-            <p>
-              <span>LastName :</span>
-              {result.lastName}
-            </p>
-          
+              <p>
+                <span>LastName :</span>
+                {result.lastName}
+              </p>
 
-          
+              <p>
+                <span>Age :</span>
+                {result.age}
+              </p>
 
-          <p>
-            <span>Age :</span>
-            {result.age}
-          </p>
+              <p>
+                <span>Price :</span>
+                {result.price}
+              </p>
+            </div>
+            <div className="right-side">
+              <p>
+                <span>Email :</span>
+                {result.email}
+              </p>
+              <p>
+                <span>Description :</span>
+                {result.description}
+              </p>
 
-          <p>
-            <span>Price :</span>
-            {result.price}
-          </p>
-          <p>
-            <span>Email :</span>
-            {result.email}
-          </p>
-          <p>
-            <span>Description :</span>
-            {result.description}
-          </p>
+              <p>
+                <span>Qualifications :</span>
+                {result.Qualifications}
+              </p>
 
-          <p>
-            <span>Qualifications :</span>
-            {result.Qualifications}
-          </p>
-
-          <p>
-            <span>PracticalExperiences :</span>
-            {result.practicalExperiences}
-          </p>
+              <p>
+                <span>PracticalExperiences :</span>
+                {result.practicalExperiences}
+              </p>
+            </div>
+          </div>
         </div>
         <div className="btnS">
-        <button
-          onClick={() => {
-            history.push("/editProfile");
-          }}
-        >
-          edit
-        </button>
-        <DeleteUser className="deleteBtn"/>
+          <button
+            className="edit"
+            onClick={() => {
+              history.push("/editProfile");
+            }}
+          >
+            edit
+          </button>
+
+          <DeleteUser/>
         </div>
       </div>
     </>
