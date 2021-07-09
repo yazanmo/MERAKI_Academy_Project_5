@@ -118,7 +118,7 @@ const DoctorDetails = () => {
           headers: {
             authorization: "Bearer " + token,
           },
-        }
+        }                
       )
       .then((res) => {
         setUpdateComment(false);

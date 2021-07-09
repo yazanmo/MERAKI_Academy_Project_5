@@ -3,7 +3,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setData } from "../../reducers/doctorProfile";
 import { useHistory } from "react-router-dom";
-
+import "./doctor_profile.css";
 const DeleteUser = () => {
   const history = useHistory();
   let token = localStorage.getItem("token");
@@ -39,7 +39,7 @@ const DeleteUser = () => {
 
   return (
     <>
-      <button onClick={deleteAccount}>Delete Account</button>
+      <button className="delete" onClick={deleteAccount}>Delete Account</button>
     </>
   );
 };
