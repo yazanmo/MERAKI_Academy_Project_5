@@ -86,14 +86,14 @@
   margin-left: 65px;
   width: 400px;
 }
-.profile_page_update{
-  margin: auto;
+.profile_page_update {
+  margin:50px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgb(252, 252, 252);
-  width: 60%;
+  width: 80%;
 }
 .allInfo_update {
   display: flex;
@@ -102,10 +102,10 @@
   padding: 0 10px;
   justify-content: center;
   align-items: center;
-  margin-top: 25px;
+  margin-top: 50px;
   margin-bottom: 25px;
 }
-.left-side_update  {
+.left-side_update {
   font-size: 20px;
   display: flex;
   flex-direction: column;
@@ -126,12 +126,28 @@
   margin-left: 65px;
   width: 500px;
 }
-.profile_page_update h3{
+.profile_page_update h3 {
   display: flex;
   flex-direction: row;
-  width: 500px;
+  width: 600px;
 }
-.profile_page_update h3 span input{
+.profile_page_update h3 span input {
   margin-left: 15px;
   border-radius: 5px;
-  height: 40px;}
+  height: 40px;
+  width: 300px;
+}
+.edit {
+  margin-left: 15px;
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  background-color: black;
+  cursor: pointer;
+  padding: 10px 20px;
+  color: white;
+}
+.edit:hover{
+  background-color:green;
+}

@@ -171,7 +171,7 @@ const UpdateDoctorProfile = () => {
         
         </div>
         </div>
-        <button onClick={editProfile}>Edit Profile</button>
+        <button className="edit" onClick={editProfile}>Edit Profile</button>
       </div>
     </>
   );
