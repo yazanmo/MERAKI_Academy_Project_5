@@ -9,6 +9,8 @@ const Patient = () => {
   const [snack, setSnack] = useState([]);
   const [activeTime, setActiveTime] = useState([]);
   const [glassesOfWater, setGlassesOfWater] = useState([]);
+  const [totalCal, setTotalCal] = useState(0);
+  // console.log(totalCal);
   const { id } = useParams();
   const heading = [
     "Name",
@@ -27,7 +29,7 @@ const Patient = () => {
     axios
       .get(`http://localhost:5000/patient/${id}`)
       .then((result) => {
-        console.log(result.data);
+        console.log(result.data.breakfast.result1);
         setBreakfast(result.data.breakfast.result1);
         setLunch(result.data.lunch.result3);
         setDinner(result.data.dinner.result4);
@@ -42,51 +44,52 @@ const Patient = () => {
   const getData = (meal, title) => {
     return (
       <>
-        {/* <h1 className="center">{title}</h1> */}
-        <thead>
-          <tr style={{ textAlign: "center" }}>{title}</tr>
-        </thead>
-        <thead>
-          <tr>
-            {heading.map((head) => (
-              <th>{head}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody style={{ marginBottom: "20px" }}>
-          {meal &&
-            meal.map((element) => (
-              <tr>
-                <th>{element.name}</th>
-                <th>{element.calories}</th>
-                <th>{element.serving_size_g}</th>
-                <th>{element.sugar_g}</th>
-                <th>{element.protein_g}</th>
-                <th>{element.carbohydrates_total_g}</th>
-                <th>{element.cholesterol_mg}</th>
-                <th>{element.fat_saturated_g}</th>
-                <th>{element.potassium_mg}</th>
-                <th>{element.sodium_mg}</th>
-              </tr>
-            ))}
-        </tbody>
+        <table style={{ width: 500, marginBottom: "30px" }}>
+          <thead>
+            <tr style={{ textAlign: "center", fontWeight: "bold" }}>{title}</tr>
+          </thead>
+          <thead>
+            <tr>
+              {heading.map((head) => (
+                <th>{head}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody style={{ marginBottom: "20px" }}>
+            {meal &&
+              meal.map((element) => {
+                return (
+                  <>
+                    <tr>
+                      <th>{element.name}</th>
+                      <th>{element.calories}</th>
+                      <th>{element.serving_size_g}</th>
+                      <th>{element.sugar_g}</th>
+                      <th>{element.protein_g}</th>
+                      <th>{element.carbohydrates_total_g}</th>
+                      <th>{element.cholesterol_mg}</th>
+                      <th>{element.fat_saturated_g}</th>
+                      <th>{element.potassium_mg}</th>
+                      <th>{element.sodium_mg}</th>
+                    </tr>
+                  </>
+                );
+              })}
+          </tbody>
+        </table>
       </>
     );
   };
   return (
     <div className="food">
-      {/* <h1 className="center">Breakfast</h1> */}
-
-      <table style={{ width: 500 }}>
-        {getData(breakfast, "Breakfast")}
-        {getData(Lunch, "Lunch")}
-        {getData(dinner, "Dinner")}
-        {getData(snack, "Snack")}
-        {getData(activeTime, "Exercises")}
-        {getData(glassesOfWater, "Glasses Of Water")}
-      </table>
+      {getData(breakfast, "Breakfast")}
+      {getData(Lunch, "Lunch")}
+      {getData(dinner, "Dinner")}
+      {getData(snack, "Snack")}
+      {getData(activeTime, "Exercises")}
+      {getData(glassesOfWater, "Glasses Of Water")}
+      {totalCal}
     </div>
   );
 };
-// snack;
 export default Patient;

@@ -1,26 +1,42 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./profile.css";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 const Breakfast = () => {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
   const [getBreakfast, setGetBreakfast] = useState([]);
+  const [date, onChange] = useState();
   const token = localStorage.getItem("token");
+  console.log(date);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/breakfast", {
+      .get(`http://localhost:5000/breakfast/${date}`, {
         headers: {
           authorization: "Bearer " + token,
         },
       })
       .then((res) => {
         setGetBreakfast(res.data);
+        console.log(res.data);
       })
-      .catch((err) => {});
+      .catch((err) => {
+        console.log(err);
+      });
   }, [getBreakfast]);
 
   return (
     <div>
+      <input
+        type="date"
+        class="datepicker"
+        onChange={(e) => {
+          onChange(e.target.value);
+        }}
+        min="2021-07-09"
+      />
+
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -51,7 +67,6 @@ const Breakfast = () => {
           result.map((elem, i) => {
             let name = elem.name;
             let calories = elem.calories;
-            let date;
             let carbohydrates = elem.carbohydrates_total_g;
             let cholesterol = elem.cholesterol_mg;
             let fat_saturated = elem.fat_saturated_g;
@@ -112,6 +127,8 @@ const Breakfast = () => {
               </div>
             );
           })}
+
+        <div></div>
       </form>
       {getBreakfast.map((element, index) => {
         return (
