@@ -237,9 +237,9 @@ PRIMARY KEY (id)
 CREATE TABLE conversation (
 id INT AUTO_INCREMENT NOT NULL,
 sender_id INT,
-receiver_id INT,
+reciver_id INT,
 FOREIGN KEY (sender_id) REFERENCES users(id),
-FOREIGN KEY (receiver_id) REFERENCES users(id),
+FOREIGN KEY (reciver_id) REFERENCES users(id),
 PRIMARY KEY (id)
 );
 
