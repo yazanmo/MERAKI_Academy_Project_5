@@ -16,7 +16,7 @@ const addToBreakfast = (req, res) => {
     sodium_mg,
     sugar_g,
   } = req.body;
-  console.log(date);
+
   const query = `INSERT INTO breakfast (name, user_id ,calories,date,carbohydrates_total_g,cholesterol_mg,fat_saturated_g,fiber_g,potassium_mg,protein_g,serving_size_g,sodium_mg,sugar_g) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);`;
   const data = [
     name,
