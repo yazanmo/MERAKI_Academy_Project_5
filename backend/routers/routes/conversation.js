@@ -10,7 +10,7 @@ const {
 const conversation = express.Router();
 
 conversation.post("/conversation", authentication, newConversation);
-conversation.post("/conversation/message", authentication, newMessages);
+conversation.post("/conversation/message", newMessages);
 conversation.post("/conversation/con", getConversation);
 
 module.exports = conversation;
