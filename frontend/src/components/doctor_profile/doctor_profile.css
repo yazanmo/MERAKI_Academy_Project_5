@@ -22,7 +22,7 @@
   padding: 0 10px;
   justify-content: center;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: 5px;
 }
 .profile-info p span {
   font-weight: bold;
@@ -46,6 +46,7 @@
   cursor: pointer;
   padding: 10px 20px;
   color: white;
+ 
 }
 .btnS button:hover {
   background-color: red;
@@ -87,13 +88,14 @@
   width: 400px;
 }
 .profile_page_update {
-  margin:50px auto;
+  margin: 50px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgb(252, 252, 252);
   width: 80%;
+  height: 600px;
 }
 .allInfo_update {
   display: flex;
@@ -102,7 +104,7 @@
   padding: 0 10px;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 100px;
   margin-bottom: 25px;
 }
 .left-side_update {
@@ -113,7 +115,7 @@
   padding: 0 10px;
   justify-content: flex-start;
   margin-bottom: 25px;
-  width: 500px;
+  width: 100px;
 }
 .right-side_update {
   font-size: 20px;
@@ -124,7 +126,7 @@
   justify-content: flex-start;
   margin-bottom: 25px;
   margin-left: 65px;
-  width: 500px;
+  width: 230px;
 }
 .profile_page_update h3 {
   display: flex;
@@ -148,6 +150,43 @@
   padding: 10px 20px;
   color: white;
 }
-.edit:hover{
-  background-color:green;
+.edit:hover {
+  background-color: green;
+}
+.left-side_update_input {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0 10px;
+  justify-content: flex-start;
+  margin-bottom: 25px;
+  width: 250px;
+  margin-left: 80px;
+}
+.left-side_update_input .inputs {
+  border-radius: 5px;
+  height: 40px;
+  width: 300px;
+  margin-left: -80px;
+}
+.right-side_update_input {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0 10px;
+  justify-content: flex-start;
+  margin-bottom: 25px;
+  width: 250px;
+  margin-left: 80px;
+}
+.right-side_update_input .inputs {
+  border-radius: 5px;
+  height: 40px;
+  width: 300px;
+  margin-left: -80px;
+}
+.title {
+  border-bottom: 1.5px solid rgb(163, 160, 160);
 }
