@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Link, useParams, useHistory } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Login from "./components/login/login";
 import DoctorDetails from "./components/doctordetails/doctordetails";
 import Doctor from "./components/Doctor/Doctor";
@@ -18,6 +18,7 @@ import FoodTracker from "./components/profile/foodtracker";
 import Schedule from "./components/schedule/schedule";
 import CreateStories from "./components/storie";
 import AcceptDoctor from "./components/AcceptDoctor";
+import Booking from "./components/bookingschedule/bookingschedule";
 import About from "./components/aboutus/about";
 import UpdateUserInfo from "./components/profile/updateuserinfo";
 import { useState } from "react";
@@ -55,32 +56,15 @@ const App = () => {
           <Route exact path="/doctorProfile" render={() => <DoctorProfile />} />
           <Route exact path="/addyourstory" render={() => <AddStory />} />
           <Route exact path="/schedule/:id" render={() => <Schedule />} />
-          <Route
-            exact
-            path="/editProfile"
-            render={() => <UpdateDoctorProfile />}
-          />
-
+          <Route exact path="/editProfile" render={() => <UpdateDoctorProfile />}/>
           <Route exact path="/foodtracker" render={() => <FoodTracker />} />
-
-          <Route
-            exact
-            path="/create/stories"
-            render={() => <CreateStories />}
-          />
+          <Route exact path="/create/stories" render={() => <CreateStories />}/>
           <Route exact path="/adminPage" render={() => <AdminPage />} />
           <Route exact path="/accept" render={() => <Accept />} />
           <Route exact path="/doctorInfo" render={() => <Info />} />
-          <Route
-            exact
-            path="/accept/doctor/:doctor_id"
-            render={() => <AcceptDoctor />}
-          />
-
+          <Route exact path="/accept/doctor/:doctor_id" render={() => <AcceptDoctor />}/>
           <Route exact path="/date" render={() => <Date />} />
-
           <Route exact path="/about" render={() => <About />} />
-
           <Route exact path="/edit/profile" render={() => <UpdateUserInfo />} />
           <Route
             exact
@@ -97,6 +81,7 @@ const App = () => {
             )}
           />
           <Route exact path="/patient/:id" render={() => <Patient />} />
+          <Route exact path="/booking" render={() => <Booking />} />
           <Route
             exact
             path="/conversation"

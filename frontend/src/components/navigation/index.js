@@ -157,7 +157,7 @@ const Navigation = ({ setHomePageSection }) => {
                   </li>
                   <li>
                     {" "}
-                    <Link to="/schedule" className="links">
+                    <Link to="/booking" className="links">
                       Booking schedule
                     </Link>{" "}
                   </li>
