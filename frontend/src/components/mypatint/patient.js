@@ -9,9 +9,13 @@ const Patient = () => {
   const [snack, setSnack] = useState([]);
   const [activeTime, setActiveTime] = useState([]);
   const [glassesOfWater, setGlassesOfWater] = useState([]);
+  const [date, onChange] = useState();
+  const today = new Date();
+
   const [totalCal, setTotalCal] = useState(0);
-  // console.log(totalCal);
+  console.log(breakfast);
   const { id } = useParams();
+
   const heading = [
     "Name",
     "calories",
@@ -27,7 +31,7 @@ const Patient = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/patient/${id}`)
+      .get(`http://localhost:5000/patient/${id}/${date}`)
       .then((result) => {
         console.log(result.data.breakfast.result1);
         setBreakfast(result.data.breakfast.result1);
@@ -82,6 +86,14 @@ const Patient = () => {
   };
   return (
     <div className="food">
+      <input
+        type="date"
+        class="datepicker"
+        onChange={(e) => {
+          onChange(e.target.value);
+        }}
+        min="2021-07-09"
+      />
       {getData(breakfast, "Breakfast")}
       {getData(Lunch, "Lunch")}
       {getData(dinner, "Dinner")}
