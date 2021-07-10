@@ -234,6 +234,27 @@ FOREIGN KEY (doctor_id) REFERENCES doctorsDetails(id),
 PRIMARY KEY (id)
 );
 
+CREATE TABLE conversation (
+id INT AUTO_INCREMENT NOT NULL,
+sender_id INT,
+receiver_id INT,
+FOREIGN KEY (sender_id) REFERENCES users(id),
+FOREIGN KEY (receiver_id) REFERENCES users(id),
+PRIMARY KEY (id)
+);
+
+CREATE TABLE messages (
+id INT AUTO_INCREMENT NOT NULL ,
+text VARCHAR(255),
+sender_id INT,
+conversation_id INT,
+
+FOREIGN KEY (sender_id) REFERENCES users(id),
+FOREIGN KEY (conversation_id) REFERENCES conversation(id),
+PRIMARY KEY (id)
+
+);
+
 INSERT INTO roles (role) VALUES ("user");
 INSERT INTO roles (role) VALUES ("doctor");
 INSERT INTO roles (role) VALUES ("admin");

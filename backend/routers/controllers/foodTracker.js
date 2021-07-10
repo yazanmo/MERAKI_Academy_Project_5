@@ -2,11 +2,38 @@ const db = require("./../../db/db");
 
 const addToBreakfast = (req, res) => {
   const user_id = req.token.id;
-  const { name } = req.body;
-  const query = `INSERT INTO breakfast (name, user_id) VALUES (?,?);`;
-  const data = [name, user_id];
+  const {
+    name,
+    calories,
+    date,
+    carbohydrates,
+    cholesterol,
+    fat_saturated,
+    fiber,
+    potassium,
+    protein,
+    serving,
+    sodium_mg,
+    sugar_g,
+  } = req.body;
+  console.log(date);
+  const query = `INSERT INTO breakfast (name, user_id ,calories,date,carbohydrates_total_g,cholesterol_mg,fat_saturated_g,fiber_g,potassium_mg,protein_g,serving_size_g,sodium_mg,sugar_g) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);`;
+  const data = [
+    name,
+    user_id,
+    calories,
+    date,
+    carbohydrates,
+    cholesterol,
+    fat_saturated,
+    fiber,
+    potassium,
+    protein,
+    serving,
+    sodium_mg,
+    sugar_g,
+  ];
   db.query(query, data, (err, result) => {
-    console.log(result.insertId);
     if (err) throw err;
     const query = `INSERT INTO foodTraker (breakfast_id, user_id) VALUE(?,?)`;
     const data = [result.insertId, user_id];
@@ -19,9 +46,36 @@ const addToBreakfast = (req, res) => {
 
 const addToSnack = (req, res) => {
   const user_id = req.token.id;
-  const { name } = req.body;
-  const query = `INSERT INTO snack (name, user_id) VALUES (?,?)`;
-  const data = [name, user_id];
+  const {
+    name,
+    calories,
+    date,
+    carbohydrates,
+    cholesterol,
+    fat_saturated,
+    fiber,
+    potassium,
+    protein,
+    serving,
+    sodium_mg,
+    sugar_g,
+  } = req.body;
+  const query = `INSERT INTO snack (name, user_id ,calories,date,carbohydrates_total_g,cholesterol_mg,fat_saturated_g,fiber_g,potassium_mg,protein_g,serving_size_g,sodium_mg,sugar_g) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+  const data = [
+    name,
+    user_id,
+    calories,
+    date,
+    carbohydrates,
+    cholesterol,
+    fat_saturated,
+    fiber,
+    potassium,
+    protein,
+    serving,
+    sodium_mg,
+    sugar_g,
+  ];
   db.query(query, data, (err, result) => {
     if (err) throw err;
     const query = `INSERT INTO foodTraker (snack_id, user_id) VALUE(?,?)`;
@@ -35,9 +89,36 @@ const addToSnack = (req, res) => {
 
 const addToLunch = (req, res) => {
   const user_id = req.token.id;
-  const { name } = req.body;
-  const query = `INSERT INTO lunch (name, user_id) VALUES (?,?)`;
-  const data = [name, user_id];
+  const {
+    name,
+    calories,
+    date,
+    carbohydrates,
+    cholesterol,
+    fat_saturated,
+    fiber,
+    potassium,
+    protein,
+    serving,
+    sodium_mg,
+    sugar_g,
+  } = req.body;
+  const query = `INSERT INTO lunch  (name, user_id ,calories,date,carbohydrates_total_g,cholesterol_mg,fat_saturated_g,fiber_g,potassium_mg,protein_g,serving_size_g,sodium_mg,sugar_g) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+  const data = [
+    name,
+    user_id,
+    calories,
+    date,
+    carbohydrates,
+    cholesterol,
+    fat_saturated,
+    fiber,
+    potassium,
+    protein,
+    serving,
+    sodium_mg,
+    sugar_g,
+  ];
   db.query(query, data, (err, result) => {
     if (err) throw err;
     const query = `INSERT INTO foodTraker (lunch_id, user_id) VALUE(?,?)`;
@@ -51,9 +132,36 @@ const addToLunch = (req, res) => {
 
 const addToDinner = (req, res) => {
   const user_id = req.token.id;
-  const { name } = req.body;
-  const query = `INSERT INTO dinner (name, user_id) VALUES (?,?)`;
-  const data = [name, user_id];
+  const {
+    name,
+    calories,
+    date,
+    carbohydrates,
+    cholesterol,
+    fat_saturated,
+    fiber,
+    potassium,
+    protein,
+    serving,
+    sodium_mg,
+    sugar_g,
+  } = req.body;
+  const query = `INSERT INTO dinner  (name, user_id ,calories,date,carbohydrates_total_g,cholesterol_mg,fat_saturated_g,fiber_g,potassium_mg,protein_g,serving_size_g,sodium_mg,sugar_g) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+  const data = [
+    name,
+    user_id,
+    calories,
+    date,
+    carbohydrates,
+    cholesterol,
+    fat_saturated,
+    fiber,
+    potassium,
+    protein,
+    serving,
+    sodium_mg,
+    sugar_g,
+  ];
   db.query(query, data, (err, result) => {
     if (err) throw err;
     const query = `INSERT INTO foodTraker (dinner_id, user_id) VALUE(?,?)`;
@@ -67,9 +175,36 @@ const addToDinner = (req, res) => {
 
 const addToGlassesOfWater = (req, res) => {
   const user_id = req.token.id;
-  const { name } = req.body;
-  const query = `INSERT INTO glassesOfWater (name, user_id) VALUES (?,?)`;
-  const data = [name, user_id];
+  const {
+    name,
+    calories,
+    date,
+    carbohydrates,
+    cholesterol,
+    fat_saturated,
+    fiber,
+    potassium,
+    protein,
+    serving,
+    sodium_mg,
+    sugar_g,
+  } = req.body;
+  const query = `INSERT INTO glassesOfWater (name, user_id ,calories,date,carbohydrates_total_g,cholesterol_mg,fat_saturated_g,fiber_g,potassium_mg,protein_g,serving_size_g,sodium_mg,sugar_g) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+  const data = [
+    name,
+    user_id,
+    calories,
+    date,
+    carbohydrates,
+    cholesterol,
+    fat_saturated,
+    fiber,
+    potassium,
+    protein,
+    serving,
+    sodium_mg,
+    sugar_g,
+  ];
   db.query(query, data, (err, result) => {
     if (err) throw err;
     const query = `INSERT INTO foodTraker (glassesOfWater_id, user_id) VALUE(?,?)`;
@@ -83,9 +218,36 @@ const addToGlassesOfWater = (req, res) => {
 
 const addToActiveTime = (req, res) => {
   const user_id = req.token.id;
-  const { name } = req.body;
-  const query = `INSERT INTO activeTime (name, user_id) VALUES (?,?)`;
-  const data = [name, user_id];
+  const {
+    name,
+    calories,
+    date,
+    carbohydrates,
+    cholesterol,
+    fat_saturated,
+    fiber,
+    potassium,
+    protein,
+    serving,
+    sodium_mg,
+    sugar_g,
+  } = req.body;
+  const query = `INSERT INTO activeTime (name, user_id ,calories,date,carbohydrates_total_g,cholesterol_mg,fat_saturated_g,fiber_g,potassium_mg,protein_g,serving_size_g,sodium_mg,sugar_g) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+  const data = [
+    name,
+    user_id,
+    calories,
+    date,
+    carbohydrates,
+    cholesterol,
+    fat_saturated,
+    fiber,
+    potassium,
+    protein,
+    serving,
+    sodium_mg,
+    sugar_g,
+  ];
   db.query(query, data, (err, result) => {
     if (err) throw err;
     const query = `INSERT INTO foodTraker (activeTime_id, user_id) VALUE(?,?)`;
@@ -273,11 +435,13 @@ const deleteToActiveTime = (req, res) => {
 
 const getBreakfast = (req, res) => {
   const user_id = req.token.id;
-  const query = `SELECT breakfast.breakfast_id, breakfast.name as breakfast ,breakfast.user_id ,foodTraker.foodTraker_id
+  const date = req.params.date;
+  console.log(date);
+  const query = `SELECT breakfast.* ,breakfast.user_id ,foodTraker.foodTraker_id
   FROM foodTraker
   INNER JOIN breakfast ON foodTraker.breakfast_id = breakfast.breakfast_id 
-  WHERE foodTraker.user_id =?`;
-  const data = [user_id];
+  WHERE foodTraker.user_id =? AND breakfast.date = ?`;
+  const data = [user_id, date];
   db.query(query, data, (err, result) => {
     if (err) res.status(500).send("select is not done");
     res.status(200).json(result);

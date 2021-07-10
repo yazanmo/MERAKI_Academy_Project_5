@@ -12,11 +12,11 @@ const buyService = (req, res) => {
     res.status(200).send("insert is done");
   });
 };
-       
+
 const getMyDoctor = (req, res) => {
   const user_id = req.token.id;
-  const query = `SELECT * FROM doctorsDetails JOIN purchased ON purchased.doctorsService_id=doctorsDetails.id
-   JOIN users as u on u.id= doctorsDetails.user_id where purchased.user_id= ?;
+  const query = `SELECT doctorsDetails.user_id AS doctor_id,doctorsDetails.description  , users.*, purchased.* FROM doctorsDetails JOIN purchased ON purchased.doctorsService_id=doctorsDetails.id
+   JOIN users on users.id= doctorsDetails.user_id where purchased.user_id= ?;
   `;
   const data = [user_id];
 
@@ -28,7 +28,7 @@ const getMyDoctor = (req, res) => {
 
 const getMyPatient = (req, res) => {
   const user_id = req.token.id;
-  const query = `SELECT  purchased.*  , users.*  FROM users JOIN purchased ON purchased.user_id=users.id
+  const query = `SELECT  purchased.*  , users.* ,doctorsDetails.user_id AS doctor_id  FROM users JOIN purchased ON purchased.user_id=users.id
   JOIN doctorsDetails ON purchased.doctorsService_id=doctorsDetails.id WHERE purchased.doctorsService_id
    AND doctorsDetails.user_id= ? ;
   `;
