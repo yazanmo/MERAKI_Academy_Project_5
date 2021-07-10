@@ -248,7 +248,7 @@ id INT AUTO_INCREMENT NOT NULL ,
 text VARCHAR(255),
 sender_id INT,
 conversation_id INT,
-
+createdAt date ,
 FOREIGN KEY (sender_id) REFERENCES users(id),
 FOREIGN KEY (conversation_id) REFERENCES conversation(id),
 PRIMARY KEY (id)

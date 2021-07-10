@@ -132,25 +132,40 @@ const removeUser = (socketId) => {
   users = users.filter((user) => user.socketId !== socketId);
 };
 const getUser = (userId) => {
-  return users.find((user) => user.userId === userId);
+  // console.log('hello',users);
+ let test;
+ users.forEach(user =>{
+   console.log()
+   console.log(user);
+   if(user.userId === userId){
+     console.log('__test__', user);
+     test = user;
+   }
+ })
+ return test;
+//  console.log('__test__', test)
+//   return users.find((user) => user.userId === userId);
 };
 io.on("connection", (socket) => {
-  //when ceonnect
-  console.log("a user connected.");
+  //when connect
+  // console.log("a user connected.");
   //take userId and socketId from user
   socket.on("addUser", (userId) => {
     addUser(userId, socket.id);
     io.emit("getUsers", users);
   });
+
   //send and get message
-  socket.on("sendMessage", ({ senderId, receiverId, text }) => {
-    const user = getUser(receiverId);
+  socket.on("sendMessage", ({ userId, receiverId, text }) => {
+    console.log('sended message',userId, receiverId, text);
+    const user = getUser(userId);
+
     io.to(user.socketId).emit("getMessage", {
-      senderId,
+      userId,
       text,
     });
   });
-  
+
   //when disconnect
   socket.on("disconnect", () => {
     console.log("a user disconnected!");

@@ -3,18 +3,28 @@ import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import { io } from "socket.io-client";
 
-const Conversation = ({ sender, receiver }) => {
+const Conversation = (props) => {
+  const {sender, receiver} = props
   const history = useHistory();
-  console.log(sender, receiver);
+  console.log('__props__', props);
   // const [socket, setSocket] = useState(null)
   const socket = useRef(io("ws://localhost:5000"));
   const userId = localStorage.getItem("user_id");
   const [result, setResult] = useState([]);
   const [message, setMessage] = useState("");
+  const [arrivalMessage, setArrivalMessage] = useState([])
 
   useEffect(() => {
     socket.current = io("ws://localhost:5000");
-  });
+    socket.current.on("getMessage",data=>{
+      setArrivalMessage([...arrivalMessage,{
+        sender: data.userId,
+        text:data.text,
+        createdAt:Date.now()
+      }])
+    })
+  },[]);
+  
 
   useEffect(() => {
     axios
@@ -35,16 +45,23 @@ const Conversation = ({ sender, receiver }) => {
     });
   }, [userId]);
 
-  socket.current.emit("sendMessage", {
-    userId,
-    receiverId:receiver,
-    text: message,
-  });
 
+  //  socket.current.on('message', ({text}) =>{
+  //    setResult([...result, text]);
+  //  })
+
+  const handleMessage = (e) =>{
+    socket.current.emit("sendMessage", {
+      userId,
+      receiverId:receiver,
+      text: message,
+    });
+  }
+  console.log('arrival messages', arrivalMessage)
   return (
     <div>
       <div>
-        {result ? result.map((results) => <p>{results.text}</p>) : <></>}
+        {arrivalMessage ? arrivalMessage.map((results) => <p>{results.text}</p>) : <></>}
       </div>
       <input
         placeholder="write a message here"
@@ -52,6 +69,7 @@ const Conversation = ({ sender, receiver }) => {
           setMessage(e.target.value);
         }}
       />
+      <button onClick={handleMessage}>send</button>
     </div>
   );
 };
