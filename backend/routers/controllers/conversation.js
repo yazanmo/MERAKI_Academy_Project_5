@@ -38,7 +38,9 @@ const getConversation = (req, res) => {
   const receiverId = req.body.receiver;
   console.log(user_id);
   console.log(receiverId);
-  const query = `SELECT * FROM conversation WHERE sender_id =? AND reciver_id=? `;
+  const query = `SELECT * FROM conversation INNER JOIN messages ON conversation.id= messages.conversation_id  
+  WHERE conversation.sender_id =? AND conversation.reciver_id=? `;
+
   const data = [user_id, receiverId];
   db.query(query, data, (err, result) => {
     if (err) return res.status(400).send("SELECT is not done");
