@@ -36,7 +36,7 @@ const {
 const foodTracker = express.Router();
 
 //get
-foodTracker.get("/breakfast", authentication, getBreakfast);
+foodTracker.get("/breakfast/:date", authentication, getBreakfast);
 foodTracker.get("/snack", authentication, getSnack);
 foodTracker.get("/lunch", authentication, getLunch);
 foodTracker.get("/dinner", authentication, getDinner);

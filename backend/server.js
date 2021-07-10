@@ -14,16 +14,16 @@ const myPatient = require("./routers/routes/mypatient");
 
 const storyRouter = require("./routers/routes/story");
 
+const sendEmailRouter = require("./routers/routes/email");
 
-const sendEmailRouter =require("./routers/routes/email")
-
-const scheduleRoute=require("./routers/routes/schedule")
+const scheduleRoute = require("./routers/routes/schedule");
 const foodTrackerRouter = require("./routers/routes/foodTracker");
 const reviewRouter = require("./routers/routes/review");
 // const storyRouter = require("./routers/routes/story")
 
 const doctorRouter = require("./routers/routes/doctor");
 const userRouter = require("./routers/routes/user");
+const Conversation = require("./routers/routes/conversation");
 
 const app = express();
 
@@ -47,14 +47,10 @@ app.use(foodTrackerRouter);
 app.use(doctorRouter);
 app.use(userRouter);
 app.use(myPatient);
-app.use(scheduleRoute)
+app.use(scheduleRoute);
 
-
-app.use(sendEmailRouter)
-
-
-
-
+app.use(sendEmailRouter);
+app.use(Conversation);
 
 const PORT = process.env.PORT || 5000;
 

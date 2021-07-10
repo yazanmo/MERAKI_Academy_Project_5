@@ -16,6 +16,7 @@ const addToBreakfast = (req, res) => {
     sodium_mg,
     sugar_g,
   } = req.body;
+
   const query = `INSERT INTO breakfast (name, user_id ,calories,date,carbohydrates_total_g,cholesterol_mg,fat_saturated_g,fiber_g,potassium_mg,protein_g,serving_size_g,sodium_mg,sugar_g) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);`;
   const data = [
     name,
@@ -434,11 +435,13 @@ const deleteToActiveTime = (req, res) => {
 
 const getBreakfast = (req, res) => {
   const user_id = req.token.id;
-  const query = `SELECT breakfast.breakfast_id, breakfast.name as breakfast ,breakfast.user_id ,foodTraker.foodTraker_id
+  const date = req.params.date;
+  console.log(date);
+  const query = `SELECT breakfast.* ,breakfast.user_id ,foodTraker.foodTraker_id
   FROM foodTraker
   INNER JOIN breakfast ON foodTraker.breakfast_id = breakfast.breakfast_id 
-  WHERE foodTraker.user_id =?`;
-  const data = [user_id];
+  WHERE foodTraker.user_id =? AND breakfast.date = ?`;
+  const data = [user_id, date];
   db.query(query, data, (err, result) => {
     if (err) res.status(500).send("select is not done");
     res.status(200).json(result);
