@@ -10,21 +10,8 @@ const FoodTracker = () => {
   const [result, setResult] = useState([]);
 
   return (
-    <div class="food-tracker">
-      <table>
-        <th>
-          Breakfast <Breakfast />
-        </th>
-        <th>
-          Lunch <Lunch />
-        </th>
-        <th>
-          Snack <Snack />
-        </th>
-        <th>
-          Dinner <Dinner />
-        </th>
-      </table>
+    <div class="">
+      <Breakfast />
     </div>
   );
 };

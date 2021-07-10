@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./mypatint.css";
 import { Button, Card } from "react-bootstrap";
 
-const MyPatient = () => {
+const MyPatient = ({ setSender, setReceiver }) => {
   let token = localStorage.getItem("token");
 
   const history = useHistory();
@@ -56,6 +56,19 @@ const MyPatient = () => {
                   style={{ backgroundColor: "black", border: "none" }}
                 >
                   Tracker Food
+                </Button>
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    setSender(element.user_id);
+                    setReceiver(element.doctor_id);
+                    console.log(element.user_id);
+                    console.log(element.doctor_id);
+                    history.push("/conversation");
+                  }}
+                  style={{ backgroundColor: "black", border: "none" }}
+                >
+                  Chat
                 </Button>
               </Card.Body>
             </Card>
