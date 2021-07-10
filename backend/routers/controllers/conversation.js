@@ -40,7 +40,6 @@ const getConversation = (req, res) => {
   console.log(receiverId);
   const query = `SELECT * FROM conversation INNER JOIN messages ON conversation.id= messages.conversation_id  
   WHERE conversation.sender_id =? AND conversation.reciver_id=? `;
-
   const data = [user_id, receiverId];
   db.query(query, data, (err, result) => {
     if (err) return res.status(400).send("SELECT is not done");
