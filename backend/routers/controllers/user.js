@@ -130,8 +130,8 @@ const getUserBreakfast = (req, res) => {
 };
 
 const getUserSnack = (req, res) => {
-  const user_id = req.params.id;
-  const date = req.params.date;
+  const user_id = req.body.id;
+  const date = req.body.date;
   console.log(user_id);
   console.log(date);
   const query = `SELECT snack.snack_id,  snack.name as snack ,snack.user_id ,foodTraker.foodTraker_id
@@ -162,8 +162,8 @@ const getUserLunch = (req, res) => {
 };
 
 const getUserDinner = (req, res) => {
-  const user_id = req.params.id;
-  const date = req.params.date;
+  const user_id = req.body.id;
+  const date = req.body.date;
   console.log(user_id);
   console.log(date);
   const query = `SELECT dinner.dinner_id, dinner.dinner_id, dinner.name as dinner ,dinner.user_id ,foodTraker.foodTraker_id
@@ -178,8 +178,8 @@ const getUserDinner = (req, res) => {
 };
 
 const getUserGlassesOfWater = (req, res) => {
-  const user_id = req.params.id;
-  const date = req.params.date;
+  const user_id = req.body.id;
+  const date = req.body.date;
   console.log(user_id);
   console.log(date);
   const query = `SELECT glassesOfWater.glassesOfWater_id, glassesOfWater.name as glassesOfWater ,glassesOfWater.user_id ,foodTraker.foodTraker_id
@@ -194,8 +194,8 @@ const getUserGlassesOfWater = (req, res) => {
 };
 
 const getUserActiveTime = (req, res) => {
-  const user_id = req.params.id;
-  const date = req.params.date;
+  const user_id = req.body.id;
+  const date = req.body.date;
   console.log(user_id);
   console.log(date);
   const query = `SELECT activeTime.activeTime_id, activeTime.name as activeTime ,activeTime.user_id ,foodTraker.foodTraker_id
