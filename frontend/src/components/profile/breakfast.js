@@ -41,6 +41,17 @@ const Breakfast = () => {
 
   return (
     <div className="food">
+      <div>
+        <input
+          defaultValue={today}
+          type="date"
+          class="datepicker"
+          onChange={(e) => {
+            onChange(e.target.value);
+          }}
+          min="2021-07-09"
+        />
+      </div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -176,17 +187,9 @@ const Breakfast = () => {
           </tbody>
         </table>
       </form>
-      <div>
-        <input
-          defaultValue={today}
-          type="date"
-          class="datepicker"
-          onChange={(e) => {
-            onChange(e.target.value);
-          }}
-          min="2021-07-09"
-        />
-      </div>
+      {/* 
+      
+      */}
     </div>
   );
 };
