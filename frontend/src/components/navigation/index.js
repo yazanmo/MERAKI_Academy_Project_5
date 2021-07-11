@@ -193,8 +193,14 @@ const Navigation = ({ setHomePageSection }) => {
                 <>
                   <li>
                     {" "}
-                    <Link to="/adminPage" className="links">
-                      Admin profile
+                    <Link to="/accept" className="links">
+                      Accept doctor
+                    </Link>{" "}
+                  </li>
+                  <li>
+                    {" "}
+                    <Link to="/doctor" className="links">
+                    nutritionist
                     </Link>{" "}
                   </li>
                   <li>
