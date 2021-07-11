@@ -3,7 +3,7 @@ require("dotenv").config();
 require("./db/db");
 const cors = require("cors");
 const socket = require('socket.io');
-
+              
 //routers
 const registerRouter = require("./routers/routes/auth/signUp");
 const loginRouter = require("./routers/routes/auth/login");
@@ -153,7 +153,7 @@ io.on("connection", (socket) => {
   socket.on("addUser", (userId) => {
     addUser(userId, socket.id);
     io.emit("getUsers", users);
-  });
+  });     
 
   //send and get message
   socket.on("sendMessage", ({ userId, receiverId, text }) => {

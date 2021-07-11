@@ -107,7 +107,7 @@ input {
 /*update profile*/
 
 .update-profile {
-  margin-top: 5rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   /* gap: 7px; */
@@ -117,37 +117,58 @@ input {
 .update-profile-row {
   display: flex;
   flex-direction: row;
+
   align-items: center;
-  margin-top: 25px;
-}
+  margin-top: 35px;
+}      
 .update-profile-info {
+  font-size: 20px;
   display: flex;
   flex-direction: column;
-  /* gap: 5px; */
-  align-items: center;
-  height: 100%;
-  width: 100%;
+  gap: 30px;
+  padding: 0 10px;
+  justify-content: flex-start;
+  margin-bottom: 40px;
+  width: 300px;
+  margin-left: -130px;
 }
 .update-profile-desc {
   font-size: 20px;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 20px;
   padding: 0 10px;
   justify-content: flex-start;
   margin-bottom: 25px;
+  margin-left:-30px;
   width: 250px;
 }
 
 .update-profile-info input {
-  width: 100%;
+  border-radius: 5px;
   height: 40px;
+  width: 300px;
+  margin-left: -7px;
+  
 }
 
-.update-profile-info button {
+.update-profile button {
   border: none;
   background-color: black;
   cursor: pointer;
   padding: 10px 20px;
   color: white;
+  border-radius: 5px;
+  width: 150px;
+  margin-left: 40px;
+}
+.update-profile button:hover{
+  background-color:green;
+}
+.profileImage{
+  border-radius: 5px;
+  height: 250px;
+  width: 250px;
+  margin-left:50px;
+  
 }
