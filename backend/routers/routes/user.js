@@ -19,11 +19,11 @@ const userRouter = express.Router();
 //APIs
 userRouter.get("/profile", auth, getUserInformation);
 userRouter.post("/patient/breakfast", getUserBreakfast);
-userRouter.get("/patient/snack/:date/:id", getUserSnack);
-userRouter.get("/patient/lunch", getUserLunch);
-userRouter.get("/patient/dinner/:date/:id", getUserDinner);
-userRouter.get("/patient/glassesofwater/:date/:id", getUserGlassesOfWater);
-userRouter.get("/patient/activetime/:date/:id", getUserActiveTime);
+userRouter.post("/patient/lunch", getUserLunch);
+userRouter.post("/patient/snack", getUserSnack);
+userRouter.post("/patient/dinner", getUserDinner);
+userRouter.post("/patient/glassesofwater", getUserGlassesOfWater);
+userRouter.post("/patient/activetime", getUserActiveTime);
 
 userRouter.put("/profile", auth, updateUserInformationById);
 userRouter.delete("/profile", auth, deleteUserById);

@@ -52,51 +52,51 @@ const Patient = () => {
       });
   }, [Lunch]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`http://localhost:5000/patient/dinner/${date}/${id}`)
-  //     .then((result) => {
-  //       console.log(result.data);
-  //       setDinner(result.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [dinner]);
+  useEffect(() => {
+    axios
+      .post(`http://localhost:5000/patient/dinner`, { date, id })
+      .then((result) => {
+        console.log(result.data);
+        setDinner(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [dinner]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`http://localhost:5000/patient/glassesofwater/${date}/${id}`)
-  //     .then((result) => {
-  //       console.log(result.data);
-  //       setGlassesOfWater(result.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [glassesOfWater]);
-  // useEffect(() => {
-  //   axios
-  //     .get(`http://localhost:5000/patient/activetime/${date}/${id}`)
-  //     .then((result) => {
-  //       console.log(result.data);
-  //       setActiveTime(result.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [activeTime]);
-  // useEffect(() => {
-  //   axios
-  //     .get(`http://localhost:5000/patient/snack/${date}/${id}`)
-  //     .then((result) => {
-  //       console.log(result.data);
-  //       setSnack(result.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [snack]);
+  useEffect(() => {
+    axios
+      .post(`http://localhost:5000/patient/glassesofwater`, { date, id })
+      .then((result) => {
+        console.log(result.data);
+        setGlassesOfWater(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [glassesOfWater]);
+  useEffect(() => {
+    axios
+      .post(`http://localhost:5000/patient/activetime`, { date, id })
+      .then((result) => {
+        console.log(result.data);
+        setActiveTime(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [activeTime]);
+  useEffect(() => {
+    axios
+      .post(`http://localhost:5000/patient/snack`, { date, id })
+      .then((result) => {
+        console.log(result.data);
+        setSnack(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [snack]);
   const getData = (meal, title) => {
     return (
       <>
@@ -194,6 +194,141 @@ const Patient = () => {
         <tbody style={{ marginBottom: "20px" }}>
           {Lunch &&
             Lunch.map((element) => {
+              return (
+                <>
+                  <tr>
+                    <th>{element.name}</th>
+                    <th>{element.calories}</th>
+                    <th>{element.serving_size_g}</th>
+                    <th>{element.sugar_g}</th>
+                    <th>{element.protein_g}</th>
+                    <th>{element.carbohydrates_total_g}</th>
+                    <th>{element.cholesterol_mg}</th>
+                    <th>{element.fat_saturated_g}</th>
+                    <th>{element.potassium_mg}</th>
+                    <th>{element.sodium_mg}</th>
+                  </tr>
+                </>
+              );
+            })}
+        </tbody>
+      </table>
+      <table style={{ width: 500, marginBottom: "30px" }}>
+        <thead>
+          <tr style={{ textAlign: "center", fontWeight: "bold" }}>Dinner</tr>
+        </thead>
+        <thead>
+          <tr>
+            {heading.map((head) => (
+              <th>{head}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody style={{ marginBottom: "20px" }}>
+          {dinner &&
+            dinner.map((element) => {
+              return (
+                <>
+                  <tr>
+                    <th>{element.name}</th>
+                    <th>{element.calories}</th>
+                    <th>{element.serving_size_g}</th>
+                    <th>{element.sugar_g}</th>
+                    <th>{element.protein_g}</th>
+                    <th>{element.carbohydrates_total_g}</th>
+                    <th>{element.cholesterol_mg}</th>
+                    <th>{element.fat_saturated_g}</th>
+                    <th>{element.potassium_mg}</th>
+                    <th>{element.sodium_mg}</th>
+                  </tr>
+                </>
+              );
+            })}
+        </tbody>
+      </table>
+      <table style={{ width: 500, marginBottom: "30px" }}>
+        <thead>
+          <tr style={{ textAlign: "center", fontWeight: "bold" }}>Snack</tr>
+        </thead>
+        <thead>
+          <tr>
+            {heading.map((head) => (
+              <th>{head}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody style={{ marginBottom: "20px" }}>
+          {snack &&
+            snack.map((element) => {
+              return (
+                <>
+                  <tr>
+                    <th>{element.name}</th>
+                    <th>{element.calories}</th>
+                    <th>{element.serving_size_g}</th>
+                    <th>{element.sugar_g}</th>
+                    <th>{element.protein_g}</th>
+                    <th>{element.carbohydrates_total_g}</th>
+                    <th>{element.cholesterol_mg}</th>
+                    <th>{element.fat_saturated_g}</th>
+                    <th>{element.potassium_mg}</th>
+                    <th>{element.sodium_mg}</th>
+                  </tr>
+                </>
+              );
+            })}
+        </tbody>
+      </table>
+      <table style={{ width: 500, marginBottom: "30px" }}>
+        <thead>
+          <tr style={{ textAlign: "center", fontWeight: "bold" }}>Exercises</tr>
+        </thead>
+        <thead>
+          <tr>
+            {heading.map((head) => (
+              <th>{head}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody style={{ marginBottom: "20px" }}>
+          {activeTime &&
+            activeTime.map((element) => {
+              return (
+                <>
+                  <tr>
+                    <th>{element.name}</th>
+                    <th>{element.calories}</th>
+                    <th>{element.serving_size_g}</th>
+                    <th>{element.sugar_g}</th>
+                    <th>{element.protein_g}</th>
+                    <th>{element.carbohydrates_total_g}</th>
+                    <th>{element.cholesterol_mg}</th>
+                    <th>{element.fat_saturated_g}</th>
+                    <th>{element.potassium_mg}</th>
+                    <th>{element.sodium_mg}</th>
+                  </tr>
+                </>
+              );
+            })}
+        </tbody>
+      </table>
+
+      <table style={{ width: 500, marginBottom: "30px" }}>
+        <thead>
+          <tr style={{ textAlign: "center", fontWeight: "bold" }}>
+            Glasses Of Water
+          </tr>
+        </thead>
+        <thead>
+          <tr>
+            {heading.map((head) => (
+              <th>{head}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody style={{ marginBottom: "20px" }}>
+          {glassesOfWater &&
+            glassesOfWater.map((element) => {
               return (
                 <>
                   <tr>
