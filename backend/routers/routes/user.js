@@ -20,7 +20,7 @@ const userRouter = express.Router();
 userRouter.get("/profile", auth, getUserInformation);
 userRouter.post("/patient/breakfast", getUserBreakfast);
 userRouter.post("/patient/lunch", getUserLunch);
-userRouter.get("/patient/snack", getUserSnack);
+userRouter.post("/patient/snack", getUserSnack);
 userRouter.post("/patient/dinner", getUserDinner);
 userRouter.post("/patient/glassesofwater", getUserGlassesOfWater);
 userRouter.post("/patient/activetime", getUserActiveTime);

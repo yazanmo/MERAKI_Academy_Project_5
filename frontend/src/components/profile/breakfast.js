@@ -7,6 +7,7 @@ const Breakfast = () => {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
   const [getBreakfast, setGetBreakfast] = useState([]);
+  const [lunch, setLunch] = useState([]);
   const [date, onChange] = useState();
   const token = localStorage.getItem("token");
   const today = new Date();
@@ -33,6 +34,20 @@ const Breakfast = () => {
       })
       .then((res) => {
         setGetBreakfast(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [getBreakfast]);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/patient/lunch/${date}`, {
+        headers: {
+          authorization: "Bearer " + token,
+        },
+      })
+      .then((res) => {
+        setLunch(res.data);
       })
       .catch((err) => {
         console.log(err);

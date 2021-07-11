@@ -2,8 +2,7 @@ const express = require("express");
 require("dotenv").config();
 require("./db/db");
 const cors = require("cors");
-const socket = require('socket.io');
-
+const socket = require("socket.io");
 //routers
 const registerRouter = require("./routers/routes/auth/signUp");
 const loginRouter = require("./routers/routes/auth/login");
@@ -53,123 +52,31 @@ app.use(scheduleRoute);
 app.use(sendEmailRouter);
 app.use(Conversation);
 
-
-
-
-
 const PORT = process.env.PORT || 5000;
 
 const server = app.listen(PORT, () => {
-	console.log(`Server On ${PORT}`);
+  console.log(`Server On ${PORT}`);
 });
-
 
 const io = socket(server, {
-	cors: {
-		origin: 'http://localhost:3000',
-		methods: ['GET', 'POST', 'DELETE', 'PUT'],
-	},
+  cors: {
+    origin: "http://localhost:3000",
+    method: ["GET", "POST", "DELETE", "PUT"],
+  },
 });
-
-// let users =[]
-
-// const addUser =(userId,socketId)=>{
-//   !users.some((user)=>user.userId===userId) &&
-//   users.push({userId,socketId})
-// }
-
-
-// const removeUser =(socketId)=>{
-//   users =  users.filter((user)=> {
-//    user.socketId !== socketId
-//   })
-// }
-
-// const getUser = (userId)=>{
-//   return users.find((user)=>{
-//     user.userId===userId
-//   })
-// }
-
-
-// //when connect
-// io.on('connection', (socket) => {
-// 	console.log("user is connection ",socket.id);
-// io.emit("welcome","hello from server")
-
-// //take userId and socketId
-// socket.on("addUser",userId =>{
-//   addUser(userId,socket.id)
-// })
-
-// io.emit("getUsers",users)
-
-// // send and get message
-// socket.on("sendMessage",({userId,receiver,text})=>{
-//   const user = getUser(receiver)
-//   io.to(user.socketId,"getMessage",{
-//     userId,
-//     text
-//   })
-// })
-
-
-// //when disconnect
-// socket.on("disconnect",socketId=>{
-//   console.log("user disconnected");
-//   removeUser(socket.id)
-//   io.emit("getUsers",users)
-// })
-// });
-
-
-let users = [];
-const addUser = (userId, socketId) => {
-  !users.some((user) => user.userId === userId) &&
-    users.push({ userId, socketId });
-};
-const removeUser = (socketId) => {
-  users = users.filter((user) => user.socketId !== socketId);
-};
-const getUser = (userId) => {
-  // console.log('hello',users);
- let test;
- users.forEach(user =>{
-   console.log()
-   console.log(user);
-   if(user.userId === userId){
-     console.log('__test__', user);
-     test = user;
-   }
- })
- return test;
-//  console.log('__test__', test)
-//   return users.find((user) => user.userId === userId);
-};
 io.on("connection", (socket) => {
-  //when connect
-  // console.log("a user connected.");
-  //take userId and socketId from user
-  socket.on("addUser", (userId) => {
-    addUser(userId, socket.id);
-    io.emit("getUsers", users);
+  console.log(socket.id);
+
+  socket.on("join_room", (data) => {
+    socket.join(data);
+    console.log("user joined room:", data);
   });
 
-  //send and get message
-  socket.on("sendMessage", ({ userId, receiverId, text }) => {
-    console.log('sended message',userId, receiverId, text);
-    const user = getUser(userId);
-
-    io.to(user.socketId).emit("getMessage", {
-      userId,
-      text,
-    });
+  socket.on("send_message", (data) => {
+    socket.to(data.room).emit("receive_message", data.content);
   });
 
-  //when disconnect
   socket.on("disconnect", () => {
-    console.log("a user disconnected!");
-    removeUser(socket.id);
-    io.emit("getUsers", users);
+    console.log("user disconnected");
   });
 });
