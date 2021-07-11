@@ -41,21 +41,14 @@ const UpdateUserInfo = () => {
       <img src={userInfo.img} />
       <div className="update-profile-row">
         <div className="update-profile-desc">
-          <p>Email:</p>
+          
           <p>Age:</p>
           <p>First Name:</p>
           <p>Last Name:</p>
           <p>Image:</p>
         </div>
         <div className="update-profile-info">
-          <input
-            placeholder={userInfo.email}
-            defaultValue={userInfo.email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            readOnly
-          />
+          
           <input
             placeholder={userInfo.age}
             defaultValue={userInfo.age}
@@ -85,15 +78,17 @@ const UpdateUserInfo = () => {
             }}
             type="text"
           />
-          <button
+          </div>
+          
+        
+      </div>
+      <button
             onClick={() => {
               updateProfile();
             }}
           >
             update
           </button>
-        </div>
-      </div>
     </div>
   );
 };

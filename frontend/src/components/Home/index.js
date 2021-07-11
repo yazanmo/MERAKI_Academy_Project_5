@@ -103,10 +103,10 @@ export default function Home({ homePageSection, setHomePageSection }) {
         <img className="img" src={health} alt="healthy life" />
         <div className="paragraph">
           <span className="welcome">WELCOME TO HEALTHCARE</span>
-          <h3 className="h3">
+          <h3 className="h3Section">
             Hello! Health Care is a natural way of improving your health
           </h3>
-          <p className="p">
+          <p className="pSection">
             A small river named Duden flows by their place and supplies it with
             the necessary regelialia. It is a paradisematic country, in which
             roasted parts of sentences fly into your mouth. Even the
@@ -189,6 +189,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
                   {" "}
                   <img className="storyImg"    src = {story.img ? story.img  : noAvatar }/>
                   <div className="nameDes">
+                 
                   <li className="description">{story.description}</li>
                   <div className="name">
                     <li>{story.firstName}</li>
