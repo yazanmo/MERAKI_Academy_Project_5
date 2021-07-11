@@ -10,11 +10,13 @@ const Login = () => {
   const history = useHistory();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [state1, setState1] = useState(false);
   const dispatch = useDispatch();
   const signIn = () => {
     axios
       .post("http://localhost:5000/login", { email, password })
       .then((result) => {
+        setState1(false)
         localStorage.setItem("token", result.data.token);
         localStorage.setItem("role_id", result.data.role_id);
         localStorage.setItem("user_id", result.data.user_id);
@@ -23,6 +25,7 @@ const Login = () => {
         history.push("/");
       })
       .catch((err) => {
+        setState1(true)
         throw err;
       });
   };
@@ -44,6 +47,8 @@ const Login = () => {
         placeholder="Enter Password Here"
       />
       <button onClick={signIn}>Login</button>
+      {state1 ? <div style={{margin:"20px auto",color:"red",width:"300px",textAlign:"center",fontSize:"22px"}}>email or password not correct</div> : ""}
+
       <p>
         {" "}
         Do not have an account ?
@@ -54,7 +59,16 @@ const Login = () => {
           </Link>
         </span>
       </p>{" "}
+      <p>
+          Join as a{" "}
+          <span>
+            <Link className="render" to="/doctorInfo">
+              Doctor
+            </Link>
+          </span>
+        </p>
     </div>
+
   );
 };
 

@@ -7,6 +7,7 @@ let socket;
 const CONNECTION_PORT = "http://localhost:5000";
 socket = io(CONNECTION_PORT);
 
+
 const Conversation = (props) => {
   const { sender, receiver } = props;
   const history = useHistory();

@@ -39,7 +39,7 @@ const DoctorProfile = () => {
           <img src={result.img} />
           <div className="allInfo">
             <div className="left-side">
-              <p>
+              <p>    
                 <span>FirstName :</span>
                 {result.firstName}
               </p>

@@ -3,6 +3,7 @@ require("dotenv").config();
 require("./db/db");
 const cors = require("cors");
 const socket = require("socket.io");
+
 //routers
 const registerRouter = require("./routers/routes/auth/signUp");
 const loginRouter = require("./routers/routes/auth/login");
@@ -65,7 +66,7 @@ const io = socket(server, {
   },
 });
 io.on("connection", (socket) => {
-  console.log(socket.id);
+  console.log(socket.id);    
 
   socket.on("join_room", (data) => {
     socket.join(data);
