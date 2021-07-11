@@ -92,14 +92,7 @@ const SignUp = () => {
             </span>
           </p>{" "}
         </div>
-        <p>
-          Join as a{" "}
-          <span>
-            <Link className="render" to="/doctorInfo">
-              Doctor
-            </Link>
-          </span>
-        </p>
+        
       </form>
       {show ? <p>{message}</p> : ""}
     </div>
