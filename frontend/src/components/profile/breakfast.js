@@ -33,7 +33,7 @@ const Breakfast = () => {
       })
       .then((res) => {
         setGetBreakfast(res.data);
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -52,9 +52,8 @@ const Breakfast = () => {
             }}
             placeholder="Search your food ..."
           />
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
+          <button
+            onClick={() => {
               axios
                 .get(
                   `https://api.calorieninjas.com/v1/nutrition?query=${query}`,
@@ -67,14 +66,103 @@ const Breakfast = () => {
                   }
                 )
                 .then((res) => {
-                  console.log(res);
+                  console.log("res.data", res.data);
+                  setResult(res.data.items);
+                })
+                .catch((err) => {});
+
+              {
+                result &&
+                  result.map((elem, i) => {
+                    let name = elem.name;
+                    let calories = elem.calories;
+                    let carbohydrates = elem.carbohydrates_total_g;
+                    let cholesterol = elem.cholesterol_mg;
+                    let fat_saturated = elem.fat_saturated_g;
+                    let fiber = elem.fiber_g;
+                    let potassium = elem.potassium_mg;
+                    let protein = elem.protein_g;
+                    let serving = elem.serving_size_g;
+                    let sodium_mg = elem.sodium_mg;
+                    let sugar_g = elem.sugar_g;
+                    return (
+                      <div
+                        className="desc-food-tracker"
+                        key={i}
+                        onClick={() => {
+                          axios
+                            .post(
+                              `http://localhost:5000/breakfast`,
+                              {
+                                name,
+                                calories,
+                                date,
+                                carbohydrates,
+                                cholesterol,
+                                fat_saturated,
+                                fiber,
+                                potassium,
+                                protein,
+                                serving,
+                                sodium_mg,
+                                sugar_g,
+                              },
+
+                              {
+                                headers: {
+                                  authorization: "Bearer " + token,
+                                },
+                              }
+                            )
+                            .then((res) => {
+                              setResult([]);
+                            })
+                            .catch((err) => {});
+                          document.getElementById("input-breakfast").value = "";
+                        }}
+                      >
+                        <div>
+                          <h2 style={{ backgroundColor: "red" }}>
+                            {elem.name}sdadsads
+                          </h2>
+                        </div>
+                      </div>
+                    );
+                  });
+              }
+            }}
+          >
+            ok
+          </button>
+          <form
+            onSubmit={(e) => {
+              // e.preventDefault();
+              axios
+                .get(
+                  `https://api.calorieninjas.com/v1/nutrition?query=${query}`,
+                  {
+                    headers: {
+                      "X-Api-Key": "Pjf0wWWm+Yr/ZE8oa23Dyg==c9VY1TVMpVLHA8Oe",
+                    },
+                    async: true,
+                    body: JSON.stringify("Hello from Lambda!"),
+                  }
+                )
+                .then((res) => {
+                  console.log(res.data);
                   setResult(res.data.items);
                 })
                 .catch((err) => {});
             }}
           >
+            <input
+              id="input-breakfast"
+              onChange={(e) => {
+                setQuery(e.target.value);
+              }}
+              placeholder="Search your food ..."
+            />
             <button type="submit">ok</button>
-
             {result &&
               result.map((elem, i) => {
                 let name = elem.name;
@@ -140,7 +228,94 @@ const Breakfast = () => {
               })}
 
             <div></div>
-          </form>{" "}
+          </form>
+          {/* <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              axios
+                .get(
+                  `https://api.calorieninjas.com/v1/nutrition?query=${query}`,
+                  {
+                    headers: {
+                      "X-Api-Key": "Pjf0wWWm+Yr/ZE8oa23Dyg==c9VY1TVMpVLHA8Oe",
+                    },
+                    async: true,
+                    body: JSON.stringify("Hello from Lambda!"),
+                  }
+                )
+                .then((res) => {
+                  console.log(res);
+                  setResult(res.data.items);
+                })
+                .catch((err) => {});
+            }}
+          >
+            {result &&
+              result.map((elem, i) => {
+                let name = elem.name;
+                let calories = elem.calories;
+                let carbohydrates = elem.carbohydrates_total_g;
+                let cholesterol = elem.cholesterol_mg;
+                let fat_saturated = elem.fat_saturated_g;
+                let fiber = elem.fiber_g;
+                let potassium = elem.potassium_mg;
+                let protein = elem.protein_g;
+                let serving = elem.serving_size_g;
+                let sodium_mg = elem.sodium_mg;
+                let sugar_g = elem.sugar_g;
+                return (
+                  <div
+                    className="desc-food-tracker"
+                    key={i}
+                    onClick={() => {
+                      axios
+                        .post(
+                          `http://localhost:5000/breakfast`,
+                          {
+                            name,
+                            calories,
+                            date,
+                            carbohydrates,
+                            cholesterol,
+                            fat_saturated,
+                            fiber,
+                            potassium,
+                            protein,
+                            serving,
+                            sodium_mg,
+                            sugar_g,
+                          },
+
+                          {
+                            headers: {
+                              authorization: "Bearer " + token,
+                            },
+                          }
+                        )
+                        .then((res) => {
+                          setResult([]);
+                        })
+                        .catch((err) => {});
+                      document.getElementById("input-breakfast").value = "";
+                    }}
+                  >
+                    <h2>{elem.name}</h2>
+                    <h2>{elem.calories}</h2>
+                    <h2>{elem.carbohydrates_total_g}</h2>
+                    <h2>{elem.cholesterol_mg}</h2>
+                    <h2>{elem.fat_saturated_g}</h2>
+                    <h2>{elem.fiber_g}</h2>
+                    <h2>{elem.potassium_mg}</h2>
+                    <h2>{elem.protein_g}</h2>
+                    <h2>{elem.serving_size_g}</h2>
+                    <h2>{elem.sodium_mg}</h2>
+                    <h2>{elem.sugar_g}</h2>
+                  </div>
+                );
+              })}
+
+            <div></div>
+          </form>{" "} */}
         </thead>
         <thead>
           <tr>

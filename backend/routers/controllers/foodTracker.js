@@ -436,7 +436,6 @@ const deleteToActiveTime = (req, res) => {
 const getBreakfast = (req, res) => {
   const user_id = req.token.id;
   const date = req.params.date;
-  console.log(date);
   const query = `SELECT breakfast.* ,breakfast.user_id ,foodTraker.foodTraker_id
   FROM foodTraker
   INNER JOIN breakfast ON foodTraker.breakfast_id = breakfast.breakfast_id 
