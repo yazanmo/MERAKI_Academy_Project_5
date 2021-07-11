@@ -15,6 +15,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
   const [message, setMessage] = useState("");
+  const [state1, setState1] = useState(false);
   const history = useHistory();
   const signUpButton = (e) => {
     e.preventDefault();
@@ -27,10 +28,11 @@ const SignUp = () => {
         password,
       })
       .then((result) => {
-        console.log(result);
+        setState1(false)
         history.push("/login");
       })
       .catch((err) => {
+        setState1(true)
         setShow(true);
         setMessage(err.response.data);
       });
@@ -81,6 +83,8 @@ const SignUp = () => {
           }}
         />
         <button>Sign Up</button>
+        {state1 ? <div style={{margin:"0 auto",color:"red",width:"300px",textAlign:"center",fontSize:"22px"}}>email is exist</div> : ""}
+
         <div className="singUp">
           <p style={{ marginTop: "20px", fontStyle: "bold" }}>
             You already have an account ?
@@ -92,16 +96,9 @@ const SignUp = () => {
             </span>
           </p>{" "}
         </div>
-        <p>
-          Join as a{" "}
-          <span>
-            <Link className="render" to="/doctorInfo">
-              Doctor
-            </Link>
-          </span>
-        </p>
+        
       </form>
-      {show ? <p>{message}</p> : ""}
+     
     </div>
   );
 };

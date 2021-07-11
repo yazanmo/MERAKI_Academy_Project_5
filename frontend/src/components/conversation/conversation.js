@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import { io } from "socket.io-client";
-
+         
 const Conversation = (props) => {
   const { sender, receiver } = props;
   const history = useHistory();

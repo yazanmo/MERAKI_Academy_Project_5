@@ -23,7 +23,7 @@ function Profile() {
         console.log(err);
       });
   });
-
+        
   return (
     <div className="profile-page">
       <div className="profile">
@@ -31,7 +31,7 @@ function Profile() {
           {result.img == "" ? (
             <img src="https://img.icons8.com/office/80/000000/test-account.png" />
           ) : (
-            <img src={result.img} />
+            <img className="profileImg" src={result.img} />
           )}
         </div>
         <div className="profile-info">
