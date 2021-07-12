@@ -196,7 +196,15 @@ export default function Home({ homePageSection, setHomePageSection }) {
 
       {/* stories section */}
 
-      <section className="stories" title="stories" id="stories">
+<div className="service-page">
+    <h2>A MODERN, FULL-SERVICE Health care</h2>
+<p className="service-page-p">At Medicine Center Compounding Pharmacy, we believe health is not just the absence of disease, but a state of immense vitality. It is our mission to help you feel better, live longer, and become the best possible you!</p>
+
+    </div>
+
+
+
+      {/* <section className="stories" title="stories" id="stories">
         <div className="hi">
           <span className="welcome">STORIES</span>
           <h3 className="h3">Successfull Stories</h3>
@@ -223,7 +231,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
               );
             })}
         </div>
-      </section>
+      </section> */}
 
       {/* footer */}
       <link

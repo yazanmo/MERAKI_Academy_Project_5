@@ -51,6 +51,23 @@ body{
   box-sizing: border-box;
 }
 
+.service-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6%;
+  justify-content: center;
+}
+.service-page-p{
+  color: black;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0;
+    margin: 76px;
+    box-sizing: border-box;
+    word-break: break-all;
+}
+
 .img {
   box-sizing: border-box;
   width: 100%;
