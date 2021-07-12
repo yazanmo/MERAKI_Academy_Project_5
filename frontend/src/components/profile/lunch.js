@@ -69,9 +69,7 @@ const Lunch = ({ date }) => {
         >
           <table style={{ width: 500, marginBottom: "30px" }}>
             <thead>
-              <tr style={{ textAlign: "center", fontWeight: "bold" }}>
-                breakfast
-              </tr>
+              <tr style={{ textAlign: "center", fontWeight: "bold" }}>Lunch</tr>
               <div className="search-food">
                 <input
                   id="input-breakfast"
@@ -102,7 +100,7 @@ const Lunch = ({ date }) => {
                       onClick={() => {
                         axios
                           .post(
-                            `http://localhost:5000/breakfast`,
+                            `http://localhost:5000/add/lunch`,
                             {
                               name,
                               calories,
@@ -166,7 +164,7 @@ const Lunch = ({ date }) => {
                             onClick={() => {
                               axios
                                 .delete(
-                                  `http://localhost:5000/breakfast/${element.lunch_id}`,
+                                  `http://localhost:5000/lunch/${element.lunch_id}`,
                                   {
                                     headers: {
                                       authorization: "Bearer " + token,

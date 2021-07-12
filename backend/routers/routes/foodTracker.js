@@ -44,12 +44,12 @@ foodTracker.post("/glassesofwater/", authentication, getGlassesOfWater);
 foodTracker.post("/activetime/", authentication, getActiveTime);
 
 //post
-foodTracker.post("/breakfast", authentication, addToBreakfast);
-foodTracker.post("/snack", authentication, addToSnack);
-foodTracker.post("/lunch", authentication, addToLunch);
-foodTracker.post("/dinner", authentication, addToDinner);
-foodTracker.post("/glassesofwater", authentication, addToGlassesOfWater);
-foodTracker.post("/activetime", authentication, addToActiveTime);
+foodTracker.post("/add/breakfast", authentication, addToBreakfast);
+foodTracker.post("/add/snack", authentication, addToSnack);
+foodTracker.post("/add/lunch", authentication, addToLunch);
+foodTracker.post("/add/dinner", authentication, addToDinner);
+foodTracker.post("/add/glassesofwater", authentication, addToGlassesOfWater);
+foodTracker.post("/add/activetime", authentication, addToActiveTime);
 
 //put
 foodTracker.put("/breakfast", authentication, updateBreakfast);

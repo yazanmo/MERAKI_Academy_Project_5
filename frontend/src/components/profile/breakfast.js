@@ -103,7 +103,7 @@ const Breakfast = ({ date }) => {
                       onClick={() => {
                         axios
                           .post(
-                            `http://localhost:5000/breakfast`,
+                            `http://localhost:5000/add/breakfast`,
                             {
                               name,
                               calories,
@@ -127,6 +127,7 @@ const Breakfast = ({ date }) => {
                           )
                           .then((res) => {
                             setResult([]);
+                            console.log(res.data);
                           })
                           .catch((err) => {});
                         document.getElementById("input-breakfast").value = "";
