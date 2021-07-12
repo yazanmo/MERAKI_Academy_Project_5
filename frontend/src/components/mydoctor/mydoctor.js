@@ -39,6 +39,7 @@ const MyDoctor = ({ setSender, setReceiver }) => {
   return (
     <div className="my-doc-card">
       {result.map((element, index) => {
+        console.log("element", element);
         return (
           <div className="my-doc-card">
             <Card style={{ width: "300px" }}>

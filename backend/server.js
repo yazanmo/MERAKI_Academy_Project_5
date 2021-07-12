@@ -50,8 +50,10 @@ app.use(userRouter);
 app.use(myPatient);
 app.use(scheduleRoute);
 
+
 app.use(sendEmailRouter);
 app.use(Conversation);
+
 
 const PORT = process.env.PORT || 5000;
 
@@ -66,11 +68,9 @@ const io = socket(server, {
   },
 });
 io.on("connection", (socket) => {
-  console.log(socket.id);    
-
   socket.on("join_room", (data) => {
     socket.join(data);
-    console.log("user joined room:", data);
+    // console.log("user joined room:", data);
   });
 
   socket.on("send_message", (data) => {

@@ -10,15 +10,9 @@ socket = io(CONNECTION_PORT);
 
 const Conversation = (props) => {
   const { sender, receiver } = props;
-  const history = useHistory();
-  console.log("__props__", props);
-  // const [socket, setSocket] = useState(null)
-  // const socket = useRef(io("ws://localhost:5000"));
+
   const userId = localStorage.getItem("user_id");
   const [result, setResult] = useState([]);
-  // const [message, setMessage] = useState("");
-  const [arrivalMessage, setArrivalMessage] = useState([]);
-  const [loggedIn, setLoggedIn] = useState(false);
 
   const [room, setRoom] = useState("");
   const [message, setMessage] = useState("");
@@ -33,8 +27,8 @@ const Conversation = (props) => {
     });
   });
   const connectToRoom = () => {
-    setLoggedIn(true);
     socket.emit("join_room", room);
+    // console.log("room id", room);
   };
   const sendMessage = () => {
     const messageContent = {
@@ -46,66 +40,59 @@ const Conversation = (props) => {
     };
     socket.emit("send_message", messageContent);
     setMessageList([...messageList, messageContent.content]);
+    axios
+      .post(`http://localhost:5000/conversation/message`, {
+        message,
+        id: userId,
+        room,
+      })
+      .then((result) => {
+        // console.log(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     // setMessage("");
   };
   useEffect(() => {
     axios
       .post(`http://localhost:5000/conversation/con`, { sender, receiver })
       .then((result) => {
-        setResult(result.data);
-        console.log(result.data);
+        setResult(result.data.result.result[0]);
+        setRoom(result.data.conversation.conversation[0].id);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-
+  connectToRoom();
   return (
     <div>
-      {!loggedIn ? (
+      <>
         <div>
-          <input
-            type="text"
-            placeholder="Username here ..."
-            onChange={(e) => {
-              setUsername(e.target.value);
-            }}
-          />
-          <input
-            type="text"
-            placeholder="RoomId here ..."
-            onChange={(e) => {
-              setRoom(e.target.value);
-            }}
-          />
-          <button onClick={connectToRoom}>enter the room</button>
+          {messageList.map((val, i) => {
+            return (
+              <h1 key={i}>
+                {val.author} {val.message}
+              </h1>
+            );
+          })}
         </div>
-      ) : (
-        <>
-          <div>
-            {messageList.map((val, i) => {
-              return (
-                <h1 key={i}>
-                  {val.author} {val.message}
-                </h1>
-              );
-            })}
-          </div>
-          <div>
-            {" "}
-            <input
-              type="text"
-              placeholder="write you message ..."
-              onChange={(e) => {
-                setMessage(e.target.value);
-              }}
-            />
-            <button onClick={sendMessage}></button>
-          </div>
-        </>
-      )}
+        <div>
+          {" "}
+          <input
+            type="text"
+            placeholder="write you message ..."
+            onChange={(e) => {
+              setMessage(e.target.value);
+            }}
+          />
+          <button onClick={sendMessage}>send</button>
+        </div>
+      </>
     </div>
   );
 };
 
 export default Conversation;
+

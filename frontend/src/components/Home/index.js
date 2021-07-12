@@ -14,13 +14,14 @@ import "./home.css";
 import happy from "./happy.jpg";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import noAvatar from "./noAvatar.png"
+import noAvatar from "./noAvatar.png";
+
 import Slider from "react-slick";
 
 export default function Home({ homePageSection, setHomePageSection }) {
   const dispatch = useDispatch();
 
-  
+
   // smooth scroller
   useEffect(() => {
     if (homePageSection !== "") {
@@ -97,8 +98,8 @@ export default function Home({ homePageSection, setHomePageSection }) {
         </Slide>
       </div>
 
+      {/* about section */}
 
-{/* about section */}
       <section className="About" title="About">
         <img className="img" src={health} alt="healthy life" />
         <div className="paragraph">
@@ -124,7 +125,6 @@ export default function Home({ homePageSection, setHomePageSection }) {
           />
         </div>
       </section>
-
 
       {/* services section */}
 
@@ -172,12 +172,13 @@ export default function Home({ homePageSection, setHomePageSection }) {
         </div>
       </section>
 
-{/* stories section */}
+      {/* stories section */}
 
       <section className="stories" title="stories" id="stories">
         <div className="hi">
-        <span className="welcome">STORIES</span>
-        <h3 className="h3">Successfull Stories</h3>
+          <span className="welcome">STORIES</span>
+          <h3 className="h3">Successfull Stories</h3>
+
         </div>
         <div className="storyCard">
           {state.stories &&
@@ -187,6 +188,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
                 <ul key={index} className="ul">
                   
                   {" "}
+
                   <img className="storyImg"    src = {story.img ? story.img  : noAvatar }/>
                   <div className="nameDes">
                  

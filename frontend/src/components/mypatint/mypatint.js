@@ -30,6 +30,7 @@ const MyPatient = ({ setSender, setReceiver }) => {
   return (
     <div className="my-patient">
       {result.map((element, index) => {
+        console.log(element);
         return (
           <div>
             <Card style={{ width: "18rem" }}>
