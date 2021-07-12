@@ -68,6 +68,51 @@ body{
     word-break: break-all;
 }
 
+.container-service{
+  grid-template-columns: 50% 50%;
+  display: grid;
+  flex-direction: row;
+  
+}
+
+.img-service2{
+
+  height: 700px;
+    width: 700px;
+    margin-top: -85px;
+}
+
+.symbol-service{
+  height: 100px;
+  width: 100px;
+}
+
+.symbol-service2,.symbol-service3{
+  height: 150px;
+  width: 150px;
+}
+.asdasdfafsdfsadf{
+  display: grid;
+    grid-column: 50%;
+    gap: 20px;
+}
+
+.card-service{
+  display: flex;
+  flex-direction: column;
+  grid-gap: 100px;
+  gap: 30px;
+  margin-left: 90px;
+}
+
+.card-service-partenr{
+
+  display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  gap: 10px;
+}
+
 .img {
   box-sizing: border-box;
   width: 100%;
