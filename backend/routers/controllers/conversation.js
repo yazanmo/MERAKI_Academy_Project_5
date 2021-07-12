@@ -27,6 +27,7 @@ const newMessages = (req, res) => {
   });
 };
 
+
 const getConversation = (req, res) => {
   const user_id = req.body.sender;
   const receiverId = req.body.receiver;
@@ -44,6 +45,7 @@ const getConversation = (req, res) => {
         .status(200)
         .json({ result: { result }, conversation: { conversation } });
     });
+
   });
 };
 
