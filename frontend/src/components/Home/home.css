@@ -74,6 +74,13 @@ body{
   flex-direction: row;
   
 }
+.h1p{
+  color: #683030;
+  margin-left: 81px;
+  margin-top: 41px;
+  position: absolute;
+  top: 190px;
+}
 
 .img-service2{
 
@@ -440,15 +447,15 @@ margin: 3%;
     height: 900px;
     width: 100%;
   }
-  .home-p{
-    font-size: 70px;
+  .home-pp{
+    font-size: 26px;
     color: rgb(85, 85, 85);
     position: absolute;
-    margin-top:120px;
-    margin-left:120px;
-    width:700px;
+    margin-top: 200px;
+    margin-left: 81px;
+    width: 700px;
     height: 400px;
-    word-break: break-all;
+    
   }
   .information{
     display: flex;
