@@ -393,24 +393,25 @@ margin: 3%;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin:-130px auto;
+    margin:-150px auto;
 
   }
   .info-1{
     width: 450px;
     height: 450px;
     background-color: rgb(204,211,219);
-    justify-content: center;
-    align-items: center;
     text-align: center;
   }
   .info-1 img,.info-2 img,.info-3 img{
-    margin-top: 33px;
+    margin-top: 65px;
   }
   .info-1 p,.info-2 p,.info-3 p{
-    margin-top: 25px;
+   
     word-break: break-all;
     color:white;
+    width: 290px;
+    margin:50px auto;
+    
   }
   .info-1 h3,.info-2 h3,.info-3 h3{
     margin-top: 25px;

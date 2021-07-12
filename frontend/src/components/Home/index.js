@@ -99,25 +99,27 @@ export default function Home({ homePageSection, setHomePageSection }) {
         <p className="home-p">
           kolkolkolkolafdewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
         </p>
+        
       </div>
       <div className="information">
         <div className="info-1">
-          <img  src="https://img.icons8.com/ios/120/000000/examination.png" />
+          <img  src="https://img.icons8.com/ios/80/000000/examination.png" />
           <h3>gfjgfjkgjgk</h3>
           <p>jjhjhjhgyftyfyugiyiuyuhjkddddddddddddddddddddddddddddddddddddddddddddddddbjbjbbbjhvgftyfjhjvbhjbhjb</p>
         </div>
         <div className="info-2">
-        <img src="https://img.icons8.com/ios-filled/120/000000/heart-health.png"/>
+        <img src="https://img.icons8.com/ios-filled/80/000000/heart-health.png"/>
         <h3>gfjgfjkgjgk</h3>
           <p>jjhjhjhgyftyfyugiyiuyuhjkddddddddddddddddddddddddddddddddddddddddddddddddbjbjbbbjhvgftyfjhjvbhjbhjb</p>
         </div>
         <div className="info-3">
-        <img src="https://img.icons8.com/dotty/120/000000/health-calendar.png"/>
+        <img src="https://img.icons8.com/dotty/80/000000/health-calendar.png"/>
 
-        <h3>gfjgfjkgjgk</h3>
-          <p>jjhjhjhgyftyfyugiyiuyuhjkddddddddddddddddddddddddddddddddddddddddddddddddbjbjbbbjhvgftyfjhjvbhjbhjb</p>
+        <h3>UROLOGY CARE</h3>
+          <p>Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
         </div>
       </div>
+      <div className=""></div>
       {/* about section */}
 
       {/* <section className="About" title="About">
@@ -148,7 +150,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
 
       {/* services section */}
 
-      <section title="ourServices" id="services">
+      {/* <section title="ourServices" id="services">
         <div className="line">
           <span className="welcome">OUR SERVICES</span>
           <h3 className="h3">How it works?</h3>
@@ -190,7 +192,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* stories section */}
 
