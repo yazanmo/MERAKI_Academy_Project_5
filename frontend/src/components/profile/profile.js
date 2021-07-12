@@ -8,7 +8,7 @@ function Profile() {
   const [result, setResult] = useState([]);
   const history = useHistory();
   localStorage.setItem("user_info", JSON.stringify(result));
-
+                  
   useEffect(() => {
     axios
       .get("http://localhost:5000/profile", {
@@ -23,43 +23,15 @@ function Profile() {
         console.log(err);
       });
   });
-
+        
   return (
     <div className="profile-page">
-      <div className="buttons">
-        <div className="buttons-child-1">
-          <button
-            onClick={() => {
-              history.push("./create/stories");
-            }}
-          >
-            you story
-          </button>
-          <button
-            onClick={() => {
-              history.push("./foodtracker");
-            }}
-          >
-            your food
-          </button>
-        </div>
-        <div className="buttons-child-2">
-          <DeleteUser />
-          <button
-            onClick={() => {
-              history.push("/edit/profile");
-            }}
-          >
-            update
-          </button>
-        </div>
-      </div>
       <div className="profile">
         <div>
           {result.img == "" ? (
             <img src="https://img.icons8.com/office/80/000000/test-account.png" />
           ) : (
-            <img src={result.img} />
+            <img className="profileImg" src={result.img} />
           )}
         </div>
         <div className="profile-info">
@@ -78,7 +50,20 @@ function Profile() {
             <span>Email: </span>
             {result.email}
           </p>
+        
         </div>
+        <div className="buttons">
+        <div className="buttons-child-2">
+          <DeleteUser />
+          <button
+            onClick={() => {
+              history.push("/edit/profile");
+            }}
+          >
+            update
+          </button>
+        </div>
+      </div>
       </div>
     </div>
   );

@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setData} from "../../reducers/doctorProfile";
+import { setData } from "../../reducers/doctorProfile";
 import { useHistory } from "react-router-dom";
-import DeleteUser from "./deleteUser"
+import DeleteUser from "./deleteUser";
+import "./doctor_profile.css";
 const DoctorProfile = () => {
-  
   const history = useHistory();
-  const [result,setResult]=useState("")
+  const [result, setResult] = useState("");
 
   let token = localStorage.getItem("token");
-   
-  const dispatch=useDispatch()
-  localStorage.setItem("profile-data",JSON.stringify(result))
+
+  const dispatch = useDispatch();
+  localStorage.setItem("profile-data", JSON.stringify(result));
 
   useEffect(() => {
     axios
@@ -21,45 +21,78 @@ const DoctorProfile = () => {
           authorization: "Bearer " + token,
         },
       })
-      .then((result) => {        
-       console.log(result.data)
-        setResult(result.data[0])
-        
-        dispatch(setData(result.data[0]))
+      .then((result) => {
+        console.log(result.data);
+        setResult(result.data[0]);
+
+        dispatch(setData(result.data[0]));
       })
       .catch((err) => {
         throw err;
       });
   }, []);
 
-
   return (
     <>
       <div className="profile_page">
-        <h3 style={{ float: "left" }}>FirstName :</h3>
-        
-          <p>{result.firstName}</p>
-         
+        <div className="profile-info">
+          <img src={result.img} />
+          <div className="allInfo">
+            <div className="left-side">
+              <p>    
+                <span>FirstName :</span>
+                {result.firstName}
+              </p>
 
-        <h3>LastName :</h3>
-        <p>{result.lastName}</p>
+              <p>
+                <span>LastName :</span>
+                {result.lastName}
+              </p>
 
-        <h3>Image :</h3>
-        <p>{result.img}</p>
-        <h3>Email :</h3>
-        <p>{result.email}</p>
-        <h3>Age :</h3>
-        <p>{result.age}</p>
-        <h3>Price :</h3>
-        <p>{result.price}</p>
-        <h3>Description :</h3>
-        <p>{result.description}</p>
-        <h3>Qualifications :</h3>
-        <p>{result.Qualifications}</p>
-        <h3>PracticalExperiences :</h3>
-        <p>{result.practicalExperiences}</p>
-        <button onClick={()=>{history.push("/editProfile")}}>edit</button>
-        <DeleteUser/>
+              <p>
+                <span>Age :</span>
+                {result.age}
+              </p>
+
+              <p>
+                <span>Price :</span>
+                {result.price}
+              </p>
+            </div>
+            <div className="right-side">
+              <p>
+                <span>Email :</span>
+                {result.email}
+              </p>
+              <p>
+                <span>Description :</span>
+                {result.description}
+              </p>
+
+              <p>
+                <span>Qualifications :</span>
+                {result.Qualifications}
+              </p>
+
+              <p>
+                <span>PracticalExperiences :</span>
+                {result.practicalExperiences}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="btnS">
+          <button
+            className="edit"
+            onClick={() => {
+              history.push("/editProfile");
+            }}
+          >
+            edit
+          </button>
+
+          <DeleteUser/>
+        </div>
       </div>
     </>
   );

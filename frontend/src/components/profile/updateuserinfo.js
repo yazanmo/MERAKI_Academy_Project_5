@@ -38,31 +38,19 @@ const UpdateUserInfo = () => {
   };
   return (
     <div class="update-profile">
-      <img src={userInfo.img} />
+      <img className="profileImage" src={userInfo.img} />
       <div className="update-profile-row">
         <div className="update-profile-desc">
-          <p>Email:</p>
-          <p>Age:</p>
+          
+          
           <p>First Name:</p>
           <p>Last Name:</p>
           <p>Image:</p>
+          <p>Age:</p>
         </div>
         <div className="update-profile-info">
-          <input
-            placeholder={userInfo.email}
-            defaultValue={userInfo.email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            readOnly
-          />
-          <input
-            placeholder={userInfo.age}
-            defaultValue={userInfo.age}
-            onChange={(e) => {
-              setAge(e.target.value);
-            }}
-          />
+          
+          
           <input
             placeholder={userInfo.firstName}
             defaultValue={userInfo.firstName}
@@ -76,7 +64,7 @@ const UpdateUserInfo = () => {
             onChange={(e) => {
               setLastName(e.target.value);
             }}
-          />
+          />           
           <input
             placeholder={userInfo.img}
             defaultValue={userInfo.img}
@@ -85,15 +73,24 @@ const UpdateUserInfo = () => {
             }}
             type="text"
           />
-          <button
+          <input
+            placeholder={userInfo.age}
+            defaultValue={userInfo.age}
+            onChange={(e) => {
+              setAge(e.target.value);
+            }}
+          />
+          </div>
+          
+        
+      </div>
+      <button
             onClick={() => {
               updateProfile();
             }}
           >
             update
           </button>
-        </div>
-      </div>
     </div>
   );
 };

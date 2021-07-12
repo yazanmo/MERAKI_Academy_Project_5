@@ -6,14 +6,24 @@ const {
   getUserInformation,
   updateUserInformationById,
   deleteUserById,
-  getUserById,
+  getUserBreakfast,
+  getUserSnack,
+  getUserLunch,
+  getUserDinner,
+  getUserGlassesOfWater,
+  getUserActiveTime,
 } = require("./../controllers/user");
 
 const userRouter = express.Router();
 
 //APIs
 userRouter.get("/profile", auth, getUserInformation);
-userRouter.get("/patient/:id", getUserById);
+userRouter.post("/patient/breakfast", getUserBreakfast);
+userRouter.post("/patient/lunch", getUserLunch);
+userRouter.post("/patient/snack", getUserSnack);
+userRouter.post("/patient/dinner", getUserDinner);
+userRouter.post("/patient/glassesofwater", getUserGlassesOfWater);
+userRouter.post("/patient/activetime", getUserActiveTime);
 
 userRouter.put("/profile", auth, updateUserInformationById);
 userRouter.delete("/profile", auth, deleteUserById);

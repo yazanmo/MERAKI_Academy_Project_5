@@ -22,8 +22,8 @@ const doctorDetailsFilter = (req, res) => {
 // this function to get doctor by id
 const getDoctorById = (req, res) => {
   const id = req.params.id;
-  const query = `SELECT users.firstName ,users.lastName,users.age,users.email,doctorsDetails.price , users.img, doctorsDetails.description ,
-    doctorsDetails.Qualifications,doctorsDetails.practicalExperiences 
+  const query = `SELECT users.firstName ,users.lastName,users.age ,users.id AS user_id,users.email,doctorsDetails.price , users.img, doctorsDetails.description ,
+    doctorsDetails.Qualifications,doctorsDetails.practicalExperiences ,doctorsDetails.id
     FROM users 
     INNER JOIN doctorsDetails ON users.id = doctorsDetails.user_id WHERE users.is_deleted =0  AND doctorsDetails.id=? `;
   const data = [id];

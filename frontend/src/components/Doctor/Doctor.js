@@ -17,7 +17,7 @@ const Doctor = () => {
       .get(`http://localhost:5000/doctor`, { num1, num2 })
       .then((response) => {
         setDoctor(response.data);
-        console.log("doctor",response.data);
+        console.log("doctor", response.data);
       })
       .catch((err) => {});
   }, []);
@@ -40,7 +40,6 @@ const Doctor = () => {
       .then((res) => {
         console.log(res.data);
         setDoctorName(res.data);
-      
       })
       .catch((err) => {});
   };
@@ -62,9 +61,7 @@ const Doctor = () => {
     axios
       .put(`http://localhost:5000/admin/delete/${id}`)
       .then((result) => {
-
-        history.push("/adminPage")
-
+        history.push("/adminPage");
       })
       .catch((err) => {
         console.log(err);
@@ -76,65 +73,73 @@ const Doctor = () => {
       <div className="filter">
         <div className="row-a">
           <div className="btn-inp">
-        <div className="asdsadasd">
-        <input className="input-filter" 
-        placeholder="MIN"
-          onChange={(e) => {
-            setnum1(e.target.value);
-          }}
-        />
-        <input className="input-filter"
-         placeholder="MAX"
-          onChange={(e) => {
-            setnum2(e.target.value);
-          }}
-        />
-       
+            <div className="asdsadasd">
+              <input
+                className="input-filter"
+                placeholder="MIN"
+                onChange={(e) => {
+                  setnum1(e.target.value);
+                }}
+              />
+              <input
+                className="input-filter"
+                placeholder="MAX"
+                onChange={(e) => {
+                  setnum2(e.target.value);
+                }}
+              />
+            </div>
+            <div>
+              <button className="Filter-btn" onClick={callType_1}>
+                $
+              </button>
+            </div>
+          </div>
+          <div className="kapsayici">
+            <input id="checkbox" className="checkInp" type="checkbox" />
+            <label class="label1" for="checkbox">
+              <div class="checkDiv"></div>
+            </label>
+            <input
+              required
+              id="text"
+              class="textInp"
+              onChange={(e) => {
+                if (e.target.value.length === 0) {
+                  searchDoctor("''");
+                } else {
+                  searchDoctor(e.target.value);
+                }
+              }}
+            />
+            <label
+              class="label2"
+              for="text"
+              title="Search for Doctor Name"
+              data-title="Doctor Name"
+            ></label>
+          </div>
         </div>
-        <div>
-        <button className="Filter-btn" onClick={callType_1}>$</button>
-        </div>
-        </div>
-        <div className="kapsayici">
-        <input id="checkbox" className="checkInp"
-        type="checkbox"
-         
-       />
-        <label class="label1" for="checkbox">
-      <div class="checkDiv"></div>
-    </label>
-    <input required id="text" class="textInp"  onChange={(e) => {
-            if (e.target.value.length === 0) {
-              searchDoctor("''");
-            } else {
-              searchDoctor(e.target.value);
-            }
-          }}/>
-    <label class="label2" for="text" title="Search for Doctor Name" data-title="Doctor Name"></label>
-  
-
-    </div>
-         </div>
         <div className="parant-Doctor">
           {DoctorName &&
             DoctorName.map((element, index) => {
               return (
-                <div className="card1"  onClick={() => {
-                  func(element.id);
-                }}
-                key={index}
+                <div
+                  className="card1"
+                  onClick={() => {
+                    func(element.id);
+                  }}
+                  key={index}
                 >
-                    <img src={`${element.img}`} />
-                    <div className="info">
-                <h1>
-                  {element.firstName} {element.lastName}
-                </h1>
-                
-                
-                <h2>{element.price}</h2>
-                <p>{element.description}</p>
+                  <img src={`${element.img}`} />
+                  <div className="info">
+                    <h1>
+                      {element.firstName} {element.lastName}
+                    </h1>
+
+                    <h2>{element.price}</h2>
+                    <p>{element.description}</p>
                   </div>
-                
                 </div>
               );
             })}
@@ -145,20 +150,23 @@ const Doctor = () => {
         filter.map((elem, i) => {
           return (
             <div className="wrapper" key={i}>
-              <div className="card1"  onClick={() => {
+              <div
+                className="card1"
+                onClick={() => {
                   func(elem.id);
                 }}
-                key={i}>
-              <img src={`${elem.img}`} />
-              <div className="info">
-                <h1>
-                  {elem.firstName} {elem.lastName}
-                </h1>
-                <p>{getAcgRating(elem.id)}</p>
-                
-                <h2>{elem.price}</h2>
-                <p>{elem.description}</p>
-                  </div>
+                key={i}
+              >
+                <img src={`${elem.img}`} />
+                <div className="info">
+                  <h1>
+                    {elem.firstName} {elem.lastName}
+                  </h1>
+                  <p>{getAcgRating(elem.id)}</p>
+
+                  <h2>{elem.price}</h2>
+                  <p>{elem.description}</p>
+                </div>
               </div>
             </div>
           );
@@ -171,25 +179,25 @@ const Doctor = () => {
               <div
                 className="card1"
                 onClick={() => {
-                  func(elem.id);
+                  func(role_id === 3 ? "" : elem.id);
                 }}
                 key={i}
               >
-                  <img src={`${elem.img}`} />
-                
+                <img src={`${elem.img}`} />
+
                 <div className="info">
                   <h2>
                     {elem.firstName} {elem.lastName}
                   </h2>
-                
+
                   <p>
-                  {elem.price}
-                  <br></br>
-                  {elem.description}
+                    {elem.price}
+                    <br></br>
+                    {elem.description}
                   </p>
-                
+
                   {role_id == 3 ? (
-                    <button className="deleteDoctorbtn"
+                    <button
                       onClick={() => {
                         deleteDoctor(elem.user_id);
                       }}

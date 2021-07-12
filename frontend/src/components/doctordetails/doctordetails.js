@@ -52,6 +52,7 @@ const DoctorDetails = () => {
     axios
       .get(`http://localhost:5000/doctor/${id}`)
       .then((result) => {
+        console.log(result.data[0]);
         setResult(result.data[0]);
       })
       .catch((err) => {});
@@ -61,7 +62,6 @@ const DoctorDetails = () => {
       .get(`http://localhost:5000/doctor/review/${id}`)
       .then((result) => {
         setAllComment(result.data);
-        
       })
       .catch((err) => {});
   }, [sa]);
@@ -70,12 +70,9 @@ const DoctorDetails = () => {
       .get(`http://localhost:5000/review/${id}`)
       .then((res) => {
         setAvgRating(Math.floor(res.data[0].AverageRating));
-        
-        console.log(Math.floor(res.data[0].AverageRating));
-        
       })
       .catch((err) => {});
-  },[sa]);
+  }, [sa]);
 
   const createComment = () => {
     axios
@@ -112,14 +109,13 @@ const DoctorDetails = () => {
         `http://localhost:5000/doctor/review/${id}`,
         {
           updateText,
-          rating,
         },
 
         {
           headers: {
             authorization: "Bearer " + token,
           },
-        }
+        }                
       )
       .then((res) => {
         setUpdateComment(false);
@@ -160,77 +156,99 @@ const DoctorDetails = () => {
         <div className="img1">
           <img
             src={result.img ? result.img : <></>}
-            style={{ width: "300px", height: "450px", borderRadius: "20px",borderRadius:"5px" }}
+            style={{
+              width: "300px",
+              height: "450px",
+              borderRadius: "20px",
+              borderRadius: "5px",
+            }}
           />
         </div>
-        
-          <div className="doctor-details">
-            <h2>
-              {" "}
-              <span>Dr .</span> {result.firstName} {result.lastName}
-            </h2>
-            <div className="avgRating"><Stars stars={avgRating}/></div>
-            
-            
-            
-            <p>{result.description}</p>
-            
-            <p>
-              <span>price:</span> {result.price} jd
-            </p>
-            
-            <p>
-              <span>Qualifications:</span> {result.Qualifications}{" "}
-            </p>
-            
-            <p>
-              <span>practicalExperiences: </span>
-              {result.practicalExperiences}{" "}
-            </p>
-            {token ? (
-          <>
-            {role_id == 2 ? (
-              ""
-            ) : (
-              <button
-                className="btn-1"
-                onClick={() => {
-                  axios
-                    .post(
-                      `http://localhost:5000/mypatient`,
 
-                      { id },
-                      {
-                        headers: {
-                          authorization: "Bearer " + token,
-                        },
-                      }
-                    )
-                    .then((result) => {
-                      setResult(result.data);
-                      console.log(result.data);
-                    })
-                    .catch((err) => {
-                      console.log(err);
-                    });
-                }}
-              >
-                <span onClick={() => {}}>Subscribe</span>
-              </button>
-            )}
-          </>
-        ) : (
-          ""
-        )}
+        <div className="doctor-details">
+          <h2>
+            {" "}
+            <span>Dr .</span> {result.firstName} {result.lastName}
+          </h2>
+
+          <div className="avgRating">
+            <Stars stars={avgRating} defaultValue={avgRating} />
           </div>
-        
+          <p>{result.description}</p>
+
+          <p>
+            <span>price:</span> {result.price} jd
+          </p>
+
+          <p>
+            <span>Qualifications:</span> {result.Qualifications}{" "}
+          </p>
+
+          <p>
+            <span>practicalExperiences: </span>
+            {result.practicalExperiences}{" "}
+          </p>
+          {token ? (
+            <>
+              {role_id == 2 ? (
+                ""
+              ) : (
+                <button
+                  className="btn-1"
+                  onClick={() => {
+                    axios
+                      .post(
+                        `http://localhost:5000/mypatient`,
+
+                        { id },
+                        {
+                          headers: {
+                            authorization: "Bearer " + token,
+                          },
+                        }
+                      )
+                      .then((result) => {
+                        setResult(result.data);
+                        console.log(result.data);
+                      })
+                      .catch((err) => {
+                        console.log(err);
+                      });
+                    axios
+                      .post(
+                        `http://localhost:5000/conversation`,
+
+                        { receiver_id: result.user_id },
+                        {
+                          headers: {
+                            authorization: "Bearer " + token,
+                          },
+                        }
+                      )
+                      .then((result) => {
+                        console.log(result.data);
+                      })
+                      .catch((err) => {
+                        console.log(err);
+                      });
+                  }}
+                >
+                  <span onClick={() => {}}>Subscribe</span>
+                </button>
+              )}
+            </>
+          ) : (
+            ""
+          )}
+        </div>
+
         <link
           href="http://fonts.googleapis.com/css?family=Cookie"
           rel="stylesheet"
           type="text/css"
         ></link>
       </div>
-      
+
       {token ? (
         <>
           {role_id == 2 ? (
@@ -239,49 +257,43 @@ const DoctorDetails = () => {
             <div className="comment">
               <p className="feedBack">give us your feedBack</p>
               <div className="rating">
-              <div className="rating1" style={styles.container}>
-                
+                <div className="rating1" style={styles.container}>
                   {[...Array(5)].map((element, i) => {
                     let ratingValue = i;
                     return (
-                      
                       <div className="rating">
-                        
-                      <div >
-                      <FaStar
-                      
-                      style={styles.container}
-                        key={ratingValue}
-                        size={24}
-                        onClick={() => handleClick(ratingValue + 1)}
-                        onMouseOver={() => handleMouseOver(ratingValue + 1)}
-                        onMouseLeave={handleMouseLeave}
-                        color={
-                          (rating || hover) > ratingValue
-                            ? colors.orange
-                            : colors.grey
-                        }
-                        style={{
-                          fontSize:50,
-                          marginRight:10,
-                          cursor: "pointer",
-                        }}
-                      />
-                      </div>
+                        <div>
+                          <FaStar
+                            style={styles.container}
+                            key={ratingValue}
+                            size={24}
+                            onClick={() => handleClick(ratingValue + 1)}
+                            onMouseOver={() => handleMouseOver(ratingValue + 1)}
+                            onMouseLeave={handleMouseLeave}
+                            color={
+                              (rating || hover) > ratingValue
+                                ? colors.orange
+                                : colors.grey
+                            }
+                            style={{
+                              fontSize: 50,
+                              marginRight: 10,
+                              cursor: "pointer",
+                            }}
+                          />
+                        </div>
                       </div>
                     );
                   })}
-                  
                 </div>
               </div>
-              
+
               <textarea
                 className="input-coment1"
                 placeholder="  Comment Here ...."
                 onChange={(e) => {
                   setComment(e.target.value);
                 }}
-                
               ></textarea>
             </div>
           )}
@@ -311,86 +323,88 @@ const DoctorDetails = () => {
           {allComment.map((element, index) => {
             return (
               <div className="cmt" key={index + 1}>
+                <hr />
                 <div className="userImg">
-                <img
-                  className="commenterimg"
-                  src={element.img}
-                  style={{ width: "100px", height: "100px", borderRadius: "5px" }}
-                />
-                
-                
+                  <img
+                    className="commenterimg"
+                    src={element.img}
+                    style={{
+                      width: "75px",
+                      height: "75px",
+                      borderRadius: "5px",
+                    }}
+                  />
+
                   <div className="commenter-details">
                     <h3 className="commenter">
                       {element.firstName} {element.lastName}
                     </h3>
-                  <div className="commentRating">
-                  <Stars stars={element.rating} />
+                    <div className="commentRating">
+                      <Stars
+                        stars={element.rating}
+                        defaultValue={element.rating}
+                      />
+                    </div>
+
+                    {updateComment == false ? (
+                      <p className="comments">{element.comment}</p>
+                    ) : (
+                      <div>
+                        {element.commenter_id == commenter_id ? (
+                          <>
+                            <textarea
+                              className="input-text"
+                              onChange={(e) => {
+                                setUpdateCommentText(e.target.value);
+                              }}
+                              defaultValue={element.comment}
+                            ></textarea>
+                            <img
+                              onClick={() => {
+                                updateComments(element.id);
+                              }}
+                              style={{ width: "30px", height: "30px" }}
+                              src="https://img.icons8.com/wired/50/000000/edit.png"
+                            />
+                          </>
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                    )}
                   </div>
-                  
-                  {updateComment == false ? (
-                    <p className="comments">{element.comment}</p>
-                  ) : (
-                    <div >
-                      {element.commenter_id == commenter_id ? (
-                        <>
-                          <textarea
-                            onChange={(e) => {
-                              setUpdateCommentText(e.target.value);
-                            }}
-                            defaultValue={element.comment}
-                          ></textarea>
+                  <div className="update_delete ">
+                    {element.commenter_id == commenter_id ? (
+                      <div className="upd-delete">
+                        <img
+                          onClick={() => {
+                            deleteComment(element.id);
+                          }}
+                          style={{ width: "30px", height: "30px" }}
+                          src="https://img.icons8.com/ios/50/000000/delete-forever--v1.png"
+                        />
+
+                        {updateComment == false ? (
                           <img
                             onClick={() => {
-                              updateComments(element.id);
+                              setUpdateComment(true);
                             }}
                             style={{ width: "30px", height: "30px" }}
                             src="https://img.icons8.com/wired/50/000000/edit.png"
                           />
-                        </>
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                  )}
-
-                  
-</div>
-<div className="update_delete ">
-                  {element.commenter_id == commenter_id ? (
-                    <div className="upd-delete">
-                      <img
-                        onClick={() => {
-                          deleteComment(element.id);
-                        }}
-                        style={{ width: "30px", height: "30px" }}
-                        src="https://img.icons8.com/ios/50/000000/delete-forever--v1.png"
-                      />
-
-                      {updateComment == false ? (
-                        <img
-                          onClick={() => {
-                            setUpdateComment(true);
-                          }}
-                          style={{ width: "30px", height: "30px" }}
-                          src="https://img.icons8.com/wired/50/000000/edit.png"
-                        />
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                  ) : (
-                    ""
-                  )}
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
-</div>
-                 
-                  
-                
+                </div>
               </div>
             );
           })}
         </div>
-        
       </div>
     </div>
   );

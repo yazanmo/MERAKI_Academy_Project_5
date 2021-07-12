@@ -9,7 +9,8 @@ const {
   getAllDoctorsAdmin,
   deleteDoctorAdmin,
   searchDoctor,
-  deleteDoctorUsers
+  deleteDoctorUsers,
+  
 } = require("./../controllers/doctor");
 
 const doctorRouter = express.Router();

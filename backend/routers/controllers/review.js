@@ -45,15 +45,13 @@ const avgRating = (req, res) => {
 const updateReviewById = (req, res) => {
   const id = req.params.id;
   const commenter_id = req.token.id;
-  const { updateText, rating } = req.body;
-  console.log("id", id);
-  console.log("commenter_id", commenter_id);
-  console.log("updateText", updateText);
+  const { updateText } = req.body;
+  
 
-  console.log("rating", rating);
+ 
 
-  const query = `UPDATE reviews SET comment=?, rating = ? WHERE id=${id} AND commenter_id= ${commenter_id}`;
-  const data = [updateText, rating];
+  const query = `UPDATE reviews SET comment=? WHERE id=${id} AND commenter_id= ${commenter_id}`;
+  const data = [updateText];
   db.query(query, data, (err, results) => {
     if (err) res.status(500).send(err);
     res.status(200).json(results);

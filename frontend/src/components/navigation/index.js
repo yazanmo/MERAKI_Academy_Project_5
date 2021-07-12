@@ -4,16 +4,16 @@ import { useSelector } from "react-redux";
 import jwt from "jsonwebtoken";
 import { useEffect, useState } from "react";
 import "./navigation.css";
-import { animateScroll as scroll } from "react-scroll";
-require("dotenv").config();
 
+import {  animateScroll as scroll } from "react-scroll";
+import { Dropdown } from 'react-bootstrap';
+require("dotenv").config();
 const Navigation = ({ setHomePageSection }) => {
   const state = useSelector((state) => {
     return { token: state.login.token };
   });
   let token = localStorage.getItem("token");
   let role_id = localStorage.getItem("role_id");
-
   return (
     <div className="navBar">
       <div className="logo">
@@ -21,7 +21,6 @@ const Navigation = ({ setHomePageSection }) => {
           HEALTH<span>CARE</span>
         </h3>
       </div>
-
       <div className="nav">
         <ul>
           {role_id == 3 ? (
@@ -82,7 +81,6 @@ const Navigation = ({ setHomePageSection }) => {
               </li>
             </>
           )}
-
           {token ? (
             <>
               {role_id == 1 ? (
@@ -93,24 +91,40 @@ const Navigation = ({ setHomePageSection }) => {
                       My Doctor
                     </Link>{" "}
                   </li>
-                  <li>
-                    {" "}
-                    <Link to="/profile" className="links">
-                      Profile
-                    </Link>{" "}
-                  </li>
-                  <li>
-                    {" "}
-                    <Link
-                      to="/"
-                      className="links"
-                      onClick={() => {
-                        localStorage.clear();
+                  <Dropdown>
+
+                    <Dropdown.Toggle
+                      className="dropdown"
+                      variant="success"
+                      id="dropdown-basic"
+                      style={{
+                        backgroundColor: "#33383B",
+                        borderColor: "#33383B",
+                        marginTop: "-5px",
+                        fontWeight: "700",
                       }}
                     >
-                      Log out
-                    </Link>{" "}
-                  </li>
+                      Profile
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <Dropdown.Item href="/create/stories">
+                        Your story
+                      </Dropdown.Item>
+                      <Dropdown.Item href="/foodtracker">
+                        Your Food
+                      </Dropdown.Item>
+                      <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                      <Dropdown.Item
+                        href="/"
+                        onClick={() => {
+                          localStorage.clear();
+                        }}
+                      >
+                        Log out
+                      </Dropdown.Item>
+
+                    </Dropdown.Menu>
+                  </Dropdown>
                 </>
               ) : (
                 <></>
@@ -136,16 +150,14 @@ const Navigation = ({ setHomePageSection }) => {
                       messages
                     </Link>{" "}
                   </li>
-
                   <li>
                     <Link to="/mypatient" className="links">
                       My patient
                     </Link>{" "}
                   </li>
-
                   <li>
                     {" "}
-                    <Link to="/schedule" className="links">
+                    <Link to="/booking" className="links">
                       Booking schedule
                     </Link>{" "}
                   </li>
@@ -181,11 +193,16 @@ const Navigation = ({ setHomePageSection }) => {
                 <>
                   <li>
                     {" "}
-                    <Link to="/adminPage" className="links">
-                      Admin profile
+                    <Link to="/accept" className="links">
+                      Accept doctor
                     </Link>{" "}
                   </li>
-
+                  <li>
+                    {" "}
+                    <Link to="/doctor" className="links">
+                    nutritionist
+                    </Link>{" "}
+                  </li>
                   <li>
                     {" "}
                     <Link
@@ -211,5 +228,4 @@ const Navigation = ({ setHomePageSection }) => {
     </div>
   );
 };
-
 export default Navigation;
