@@ -17,12 +17,9 @@ const Conversation = (props) => {
   const [message, setMessage] = useState("");
   const [username, setUsername] = useState("");
   const [messageList, setMessageList] = useState([]);
-  // console.log(message);
-  // useEffect(() => {}, [CONNECTION_PORT]);
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
-      // console.log("socket on", data);
       setMessageList([...messageList, data]);
     });
   });
@@ -30,7 +27,6 @@ const Conversation = (props) => {
   useEffect(() => {});
   const connectToRoom = () => {
     socket.emit("join_room", room);
-    // console.log("room id", room);
   };
   const sendMessage = () => {
     const messageContent = {
@@ -45,26 +41,17 @@ const Conversation = (props) => {
         id: userId,
         room,
       })
-      .then((result) => {
-        // console.log(result.data);
-      })
+      .then((result) => {})
       .catch((err) => {
         console.log(err);
       });
-    // setMessage("");
   };
   useEffect(() => {
     axios
       .post(`http://localhost:5000/conversation/con`, { sender, receiver })
       .then((result) => {
         setRoom(result.data.conversation.conversation[0].id);
-        // console.log(
-        //   "result.data.conversation.conversation",
-        //   result.data.conversation.conversation[0].id
-        // );
         setResult(result.data.result.result);
-        // setMessageList(result.data.result.result);
-        // console.log(result.data.result.result);
       })
       .catch((err) => {
         console.log(err);
@@ -83,7 +70,6 @@ const Conversation = (props) => {
 
         <div>
           <div>
-            {/* {console.log(messageList)} */}
             {messageList &&
               messageList.map((val, i) => {
                 console.log("val", val);

@@ -36,12 +36,12 @@ const {
 const foodTracker = express.Router();
 
 //get
-foodTracker.get("/breakfast/:date", authentication, getBreakfast);
-foodTracker.get("/snack", authentication, getSnack);
-foodTracker.get("/lunch", authentication, getLunch);
-foodTracker.get("/dinner", authentication, getDinner);
-foodTracker.get("/glassesofwater", authentication, getGlassesOfWater);
-foodTracker.get("/activetime", authentication, getActiveTime);
+foodTracker.post("/breakfast/", authentication, getBreakfast);
+foodTracker.post("/snack/", authentication, getSnack);
+foodTracker.post("/lunch/", authentication, getLunch);
+foodTracker.post("/dinner/", authentication, getDinner);
+foodTracker.post("/glassesofwater/", authentication, getGlassesOfWater);
+foodTracker.post("/activetime/", authentication, getActiveTime);
 
 //post
 foodTracker.post("/breakfast", authentication, addToBreakfast);

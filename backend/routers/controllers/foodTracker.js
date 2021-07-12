@@ -435,8 +435,8 @@ const deleteToActiveTime = (req, res) => {
 
 const getBreakfast = (req, res) => {
   const user_id = req.token.id;
-  const date = req.params.date;
-  const query = `SELECT breakfast.* ,breakfast.user_id ,foodTraker.foodTraker_id
+  const date = req.body.date;
+  const query = `SELECT breakfast.* ,foodTraker.foodTraker_id
   FROM foodTraker
   INNER JOIN breakfast ON foodTraker.breakfast_id = breakfast.breakfast_id 
   WHERE foodTraker.user_id =? AND breakfast.date = ?`;
@@ -448,38 +448,44 @@ const getBreakfast = (req, res) => {
 };
 
 const getSnack = (req, res) => {
+  lunch;
   const user_id = req.token.id;
-  const query = `SELECT snack.snack_id,  snack.name as snack ,snack.user_id ,foodTraker.foodTraker_id
+  const date = req.body.date;
+  const query = `SELECT snack.*,foodTraker.foodTraker_id
   FROM foodTraker
   INNER JOIN snack ON foodTraker.snack_id = snack.snack_id 
-  WHERE foodTraker.user_id =?`;
-  const data = [user_id];
+  WHERE foodTraker.user_id =? AND snack.date = ?`;
+  const data = [user_id, date];
   db.query(query, data, (err, result) => {
     if (err) res.status(500).send("select is not done");
+
     res.status(200).json(result);
   });
 };
 
 const getLunch = (req, res) => {
   const user_id = req.token.id;
-  const query = `SELECT lunch.lunch_id, lunch.name as lunch ,lunch.user_id ,foodTraker.foodTraker_id
+  const date = req.body.date;
+  const query = `SELECT lunch.* ,foodTraker.foodTraker_id
   FROM foodTraker
   INNER JOIN lunch ON foodTraker.lunch_id = lunch.lunch_id 
-  WHERE foodTraker.user_id =?`;
-  const data = [user_id];
+  WHERE foodTraker.user_id =? AND lunch.date = ?`;
+  const data = [user_id, date];
   db.query(query, data, (err, result) => {
     if (err) res.status(500).send("select is not done");
+
     res.status(200).json(result);
   });
 };
 
 const getDinner = (req, res) => {
   const user_id = req.token.id;
-  const query = `SELECT dinner.dinner_id, dinner.dinner_id, dinner.name as dinner ,dinner.user_id ,foodTraker.foodTraker_id
+  const date = req.body.date;
+  const query = `SELECT dinner.* ,foodTraker.foodTraker_id
   FROM foodTraker
   INNER JOIN dinner ON foodTraker.dinner_id = dinner.dinner_id 
-  WHERE foodTraker.user_id =?`;
-  const data = [user_id];
+  WHERE foodTraker.user_id =? AND dinner.date = ?`;
+  const data = [user_id, date];
   db.query(query, data, (err, result) => {
     if (err) res.status(500).send("select is not done");
     res.status(200).json(result);
@@ -488,11 +494,12 @@ const getDinner = (req, res) => {
 
 const getGlassesOfWater = (req, res) => {
   const user_id = req.token.id;
-  const query = `SELECT glassesOfWater.glassesOfWater_id, glassesOfWater.name as glassesOfWater ,glassesOfWater.user_id ,foodTraker.foodTraker_id
+  const date = req.body.date;
+  const query = `SELECT glassesOfWater.* ,foodTraker.foodTraker_id
   FROM foodTraker
   INNER JOIN glassesOfWater ON foodTraker.glassesOfWater_id = glassesOfWater.glassesOfWater_id 
-  WHERE foodTraker.user_id =?`;
-  const data = [user_id];
+  WHERE foodTraker.user_id =? AND glassesOfWater.date = ?`;
+  const data = [user_id, date];
   db.query(query, data, (err, result) => {
     if (err) res.status(500).send("select is not done");
     res.status(200).json(result);
@@ -501,11 +508,12 @@ const getGlassesOfWater = (req, res) => {
 
 const getActiveTime = (req, res) => {
   const user_id = req.token.id;
-  const query = `SELECT activeTime.activeTime_id, activeTime.name as activeTime ,activeTime.user_id ,foodTraker.foodTraker_id
+  const date = req.params.date;
+  const query = `SELECT activeTime.*
   FROM foodTraker
   INNER JOIN activeTime ON foodTraker.activeTime_id = activeTime.activeTime_id 
-  WHERE foodTraker.user_id =?`;
-  const data = [user_id];
+  WHERE foodTraker.user_id =? AND activeTime.date = ?`;
+  const data = [user_id, date];
   db.query(query, data, (err, result) => {
     if (err) res.status(500).send("select is not done");
     res.status(200).json(result);
