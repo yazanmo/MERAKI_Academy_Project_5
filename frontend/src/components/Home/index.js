@@ -105,19 +105,19 @@ export default function Home({ homePageSection, setHomePageSection }) {
       <div className="information">
         <div className="info-1">
           <img  src="https://img.icons8.com/ios/80/000000/examination.png" />
-          <h3>gfjgfjkgjgk</h3>
-          <p>jjhjhjhgyftyfyugiyiuyuhjkddddddddddddddddddddddddddddddddddddddddddddddddbjbjbbbjhvgftyfjhjvbhjbhjb</p>
+          <h3>Subscribe with a private doctor</h3>
+          <p>Exactly what you want, how you want it. Get a personalized low-carb or keto meal plan for your diet goals. Start losing weight and improving your health now!</p>
         </div>
         <div className="info-2">
         <img src="https://img.icons8.com/ios-filled/80/000000/heart-health.png"/>
-        <h3>gfjgfjkgjgk</h3>
-          <p>jjhjhjhgyftyfyugiyiuyuhjkddddddddddddddddddddddddddddddddddddddddddddddddbjbjbbbjhvgftyfjhjvbhjbhjb</p>
+        <h3>health food</h3>
+          <p>What we eat doesn’t just affect our physical health: it can also affect our mental health and wellbeing.</p>
         </div>
         <div className="info-3">
         <img src="https://img.icons8.com/dotty/80/000000/health-calendar.png"/>
 
         <h3>UROLOGY CARE</h3>
-          <p>Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+          <p>Constant monitoring of your health system</p>
         </div>
       </div>
       <div className=""></div>
@@ -220,7 +220,7 @@ style={{fill:"#000000;"}}><g style={{fill:"none" ,fillrule:"nonzero" ,stroke:"no
 <div className="asdasdfafsdfsadf">
 
 <h3>Mental health</h3>
-<p style={{color:"grey"}}>Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+<p style={{color:"grey"}}>What we eat doesn’t just affect our physical health: it can also affect our mental health and wellbeing.</p>
 
 </div>
 </div>
@@ -234,7 +234,7 @@ style={{fill:"#000000;"}}><g style={{ fill:"none", fillrule:"nonzero", stroke:"n
 <div className="asdasdfafsdfsadf">
 
 <h3>24 HRS EMERGENCY</h3>
-<p style={{color:"grey"}}>Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+<p style={{color:"grey"}}>When you stick to a diet of healthy food, you're setting yourself up for fewer mood fluctuations, an overall happier outlook and an improved ability to focus</p>
 
 </div>
 </div>
@@ -248,7 +248,7 @@ style={{fill:"#000000;"}}><g style={{ fill:"none", fillrule:"nonzero", stroke:"n
 <div className="asdasdfafsdfsadf">
 
 <h3>Mental health</h3>
-<p style={{color:"grey"}}>Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+<p style={{color:"grey"}}>You don’t need to follow the latest fad diet. A Whole food Plant-Based diet is proven to every aspect of your health.</p>
 
 </div>
 </div>

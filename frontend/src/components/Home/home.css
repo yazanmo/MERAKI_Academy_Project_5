@@ -476,7 +476,6 @@ margin: 3%;
   }
   .info-1 p,.info-2 p,.info-3 p{
    
-    word-break: break-all;
     color:white;
     width: 290px;
     margin:50px auto;
