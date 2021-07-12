@@ -25,6 +25,7 @@ const FoodTracker = () => {
       <Breakfast date={date} />
       <Lunch date={date} />
       <Dinner date={date} />
+      <Snack date={date} />
     </div>
   );
 };

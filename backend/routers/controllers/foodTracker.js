@@ -448,7 +448,6 @@ const getBreakfast = (req, res) => {
 };
 
 const getSnack = (req, res) => {
-  lunch;
   const user_id = req.token.id;
   const date = req.body.date;
   const query = `SELECT snack.*,foodTraker.foodTraker_id
