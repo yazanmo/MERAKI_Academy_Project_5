@@ -245,7 +245,7 @@ PRIMARY KEY (id)
 
 CREATE TABLE messages (
 id INT AUTO_INCREMENT NOT NULL ,
-text VARCHAR(255),
+message VARCHAR(255),
 sender_id INT,
 conversation_id INT,
 createdAt date ,

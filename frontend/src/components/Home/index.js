@@ -21,7 +21,6 @@ import Slider from "react-slick";
 export default function Home({ homePageSection, setHomePageSection }) {
   const dispatch = useDispatch();
 
-
   // smooth scroller
   useEffect(() => {
     if (homePageSection !== "") {
@@ -61,7 +60,6 @@ export default function Home({ homePageSection, setHomePageSection }) {
 
   return (
     <div className="home">
-
       {/* slider */}
       <div className="slide-container">
         <Slide>
@@ -178,7 +176,6 @@ export default function Home({ homePageSection, setHomePageSection }) {
         <div className="hi">
           <span className="welcome">STORIES</span>
           <h3 className="h3">Successfull Stories</h3>
-
         </div>
         <div className="storyCard">
           {state.stories &&
@@ -186,17 +183,17 @@ export default function Home({ homePageSection, setHomePageSection }) {
               console.log(story.img);
               return (
                 <ul key={index} className="ul">
-                  
                   {" "}
-
-                  <img className="storyImg"    src = {story.img ? story.img  : noAvatar }/>
+                  <img
+                    className="storyImg"
+                    src={story.img ? story.img : noAvatar}
+                  />
                   <div className="nameDes">
-                 
-                  <li className="description">{story.description}</li>
-                  <div className="name">
-                    <li>{story.firstName}</li>
-                    <li>{story.lastName}</li>
-                  </div>
+                    <li className="description">{story.description}</li>
+                    <div className="name">
+                      <li>{story.firstName}</li>
+                      <li>{story.lastName}</li>
+                    </div>
                   </div>
                 </ul>
               );
