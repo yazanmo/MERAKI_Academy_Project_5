@@ -102,18 +102,20 @@ export default function Home({ homePageSection, setHomePageSection }) {
       </div>
       <div className="information">
         <div className="info-1">
-          <img src="https://img.icons8.com/ios/120/000000/examination.png" />
-          <p>jnhjkjjkjknjknjknj</p>
+          <img  src="https://img.icons8.com/ios/120/000000/examination.png" />
+          <h3>gfjgfjkgjgk</h3>
+          <p>jjhjhjhgyftyfyugiyiuyuhjkddddddddddddddddddddddddddddddddddddddddddddddddbjbjbbbjhvgftyfjhjvbhjbhjb</p>
         </div>
         <div className="info-2">
         <img src="https://img.icons8.com/ios-filled/120/000000/heart-health.png"/>
-
-          <p>jnhjkjjkjknjknjknj</p>
+        <h3>gfjgfjkgjgk</h3>
+          <p>jjhjhjhgyftyfyugiyiuyuhjkddddddddddddddddddddddddddddddddddddddddddddddddbjbjbbbjhvgftyfjhjvbhjbhjb</p>
         </div>
         <div className="info-3">
         <img src="https://img.icons8.com/dotty/120/000000/health-calendar.png"/>
 
-          <p>jnhjkjjkjknjknjknj</p>
+        <h3>gfjgfjkgjgk</h3>
+          <p>jjhjhjhgyftyfyugiyiuyuhjkddddddddddddddddddddddddddddddddddddddddddddddddbjbjbbbjhvgftyfjhjvbhjbhjb</p>
         </div>
       </div>
       {/* about section */}
