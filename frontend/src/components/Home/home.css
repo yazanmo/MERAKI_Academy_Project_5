@@ -117,7 +117,7 @@ box-sizing: border-box;
 
 word-break: break-all;
 }
-
+       
 .name{
   display: flex;
   gap: 4%;
@@ -147,6 +147,7 @@ margin: 3%;
 .line {
   display: grid;
   text-align: center;
+  margin-top: 200px;
 }
 
 .allServices {
@@ -353,7 +354,7 @@ margin: 3%;
 
  /* slider  */
 
- .slide-container{
+ /* .slide-container{
   height: 500px;
   width: 100%;
   margin-bottom: 3%;
@@ -368,4 +369,49 @@ margin: 3%;
       width:100%; 
      background-position: center;
      background-size: cover;
+  } */
+  .home-Img{
+    background-image: url("https://hausarztpraxis-winkler.de/templates/yootheme/cache/header_1-c4f90bf4.jpeg");
+  background-position: inherit;
+  background-size: cover;
+    background-repeat:no-repeat;
+    height: 900px;
+    width: 100%;
+  }
+  .home-p{
+    font-size: 70px;
+    color: rgb(85, 85, 85);
+    position: absolute;
+    margin-top:120px;
+    margin-left:120px;
+    width:700px;
+    height: 400px;
+    word-break: break-all;
+  }
+  .information{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin:-130px auto;
+
+  }
+  .info-1{
+    width: 400px;
+    height: 400px;
+    background-color: rgb(204,211,219);
+    justify-content: center;
+    align-items: center;
+  }
+  .info-2{
+    width: 400px;
+    height: 400px;
+    background-color: #858e99;
+
+  }
+  .info-3{
+    width: 400px;
+    height: 400px;
+    background-color: rgb(85,93,102);
+
   }
