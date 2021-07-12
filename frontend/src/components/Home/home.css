@@ -504,3 +504,36 @@ margin: 3%;
     align-items: center;
     text-align: center;
   }
+
+  .OUR-DEPARTMENT{
+
+    background-color: #858e99;
+  }
+
+  .OUR-DEPARTMENT-h2{
+    margin-left: 40%;
+    margin-top: 25px;
+  }
+
+
+  .OUR-DEPARTMENT-card{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    grid-gap: 30px;
+    gap: 30px;
+    margin-left: 19%;
+    margin-top: 60px;
+    margin-bottom: 35px;
+  }
+
+  .OUR-DEPARTMENT-p{
+
+    /* margin-left:10px; */
+    
+    font-size: 20px;
+  }
+
+  .OUR-DEPARTMENT-p2{
+    margin-left: 25px;
+    font-size: 20px;
+  }

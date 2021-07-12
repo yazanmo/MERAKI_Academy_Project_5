@@ -259,7 +259,49 @@ style={{fill:"#000000;"}}><g style={{ fill:"none", fillrule:"nonzero", stroke:"n
 
 </div>
 
-   
+
+
+
+<div className="OUR-DEPARTMENT">
+<h2 className="OUR-DEPARTMENT-h2">OUR DEPARTMENT</h2>
+<div className="OUR-DEPARTMENT-card">
+  <div>
+  <img src="https://img.icons8.com/ios/120/000000/caloric-energy--v1.png"/>
+<p className="OUR-DEPARTMENT-p">calculate a caloric</p>
+
+</div>
+
+<div>
+<img src="https://img.icons8.com/material-outlined/120/000000/woman-athlete.png"/>
+<p className="OUR-DEPARTMENT-p2">Sport</p>
+
+</div>
+
+
+<div>
+<img src="https://img.icons8.com/dotty/120/000000/technology-lifestyle.png"/>
+<p className="OUR-DEPARTMENT-p">text-massege</p>
+
+</div>
+
+
+
+<div>
+<img src="https://img.icons8.com/ios/120/000000/healthy-eating.png"/>
+<p className="OUR-DEPARTMENT-p">Healthy eating</p>
+
+</div>
+
+
+
+</div>
+
+
+
+
+</div>
+
+
 
       {/* <section className="stories" title="stories" id="stories">
         <div className="hi">
