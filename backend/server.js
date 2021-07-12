@@ -50,10 +50,8 @@ app.use(userRouter);
 app.use(myPatient);
 app.use(scheduleRoute);
 
-
 app.use(sendEmailRouter);
 app.use(Conversation);
-
 
 const PORT = process.env.PORT || 5000;
 
@@ -74,7 +72,8 @@ io.on("connection", (socket) => {
   });
 
   socket.on("send_message", (data) => {
-    socket.to(data.room).emit("receive_message", data.content);
+    console.log("data", data);
+    socket.to(data.room).emit("receive_message", data.message);
   });
 
   socket.on("disconnect", () => {

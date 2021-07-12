@@ -17,16 +17,17 @@ const newMessages = (req, res) => {
   const user_id = req.body.id;
   const message = req.body.message;
   const roomId = req.body.room;
-
-  const query = `INSERT INTO messages (text,sender_id,conversation_id) VALUES (?,?,?) `;
+  console.log("new message", req.body);
+  const query = `INSERT INTO messages (message,sender_id,conversation_id) VALUES (?,?,?) `;
   const data = [message, user_id, roomId];
 
   db.query(query, data, (err, result1) => {
+    console.log("err", err);
     if (err) return res.status(500).send("INSERT is not done");
+    console.log("result1", result1);
     res.status(200).json(result1);
   });
 };
-
 
 const getConversation = (req, res) => {
   const user_id = req.body.sender;
@@ -41,11 +42,11 @@ const getConversation = (req, res) => {
     const data = [user_id, receiverId];
     db.query(query, data, (err, conversation) => {
       if (err) return res.status(400).send("SELECT is not done");
+      console.log("conversation", conversation);
       res
         .status(200)
         .json({ result: { result }, conversation: { conversation } });
     });
-
   });
 };
 

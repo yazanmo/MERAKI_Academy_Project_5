@@ -7,7 +7,6 @@ let socket;
 const CONNECTION_PORT = "http://localhost:5000";
 socket = io(CONNECTION_PORT);
 
-
 const Conversation = (props) => {
   const { sender, receiver } = props;
 
@@ -18,14 +17,17 @@ const Conversation = (props) => {
   const [message, setMessage] = useState("");
   const [username, setUsername] = useState("");
   const [messageList, setMessageList] = useState([]);
-
+  // console.log(message);
   // useEffect(() => {}, [CONNECTION_PORT]);
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
+      // console.log("socket on", data);
       setMessageList([...messageList, data]);
     });
   });
+  console.log("message List", messageList);
+  useEffect(() => {});
   const connectToRoom = () => {
     socket.emit("join_room", room);
     // console.log("room id", room);
@@ -33,13 +35,10 @@ const Conversation = (props) => {
   const sendMessage = () => {
     const messageContent = {
       room,
-      content: {
-        author: username,
-        message,
-      },
+      message,
     };
     socket.emit("send_message", messageContent);
-    setMessageList([...messageList, messageContent.content]);
+    setMessageList([...messageList, messageContent.message]);
     axios
       .post(`http://localhost:5000/conversation/message`, {
         message,
@@ -58,8 +57,14 @@ const Conversation = (props) => {
     axios
       .post(`http://localhost:5000/conversation/con`, { sender, receiver })
       .then((result) => {
-        setResult(result.data.result.result[0]);
         setRoom(result.data.conversation.conversation[0].id);
+        // console.log(
+        //   "result.data.conversation.conversation",
+        //   result.data.conversation.conversation[0].id
+        // );
+        setResult(result.data.result.result);
+        // setMessageList(result.data.result.result);
+        // console.log(result.data.result.result);
       })
       .catch((err) => {
         console.log(err);
@@ -70,16 +75,21 @@ const Conversation = (props) => {
     <div>
       <>
         <div>
-          {messageList.map((val, i) => {
-            return (
-              <h1 key={i}>
-                {val.author} {val.message}
-              </h1>
-            );
-          })}
+          {result &&
+            result.map((val, i) => {
+              return <h1 key={i}>{val.message}</h1>;
+            })}
         </div>
+
         <div>
-          {" "}
+          <div>
+            {/* {console.log(messageList)} */}
+            {messageList &&
+              messageList.map((val, i) => {
+                console.log("val", val);
+                return <h1 key={i}>{val}</h1>;
+              })}
+          </div>{" "}
           <input
             type="text"
             placeholder="write you message ..."
@@ -95,4 +105,3 @@ const Conversation = (props) => {
 };
 
 export default Conversation;
-
