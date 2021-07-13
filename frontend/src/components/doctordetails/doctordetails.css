@@ -5,7 +5,8 @@
   flex-direction: column;
   align-items: center;
   gap:10px;
-  margin:45px 0 0 0;
+  margin:0px 0 0 0;
+  background-color:  rgb(216, 214, 214);
 }
 .parent{
   display: flex;
@@ -13,27 +14,30 @@
   align-items: center;
   gap:115px;
   margin-bottom:40px;
-  background-color:rgb(97, 97, 97);
+  background-color:rgb(216, 214, 214);
 width: 70%;
-height:600px;
+height:450px;
+
+box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 .doctor-details{
   display: flex;
   flex-direction: column;
   margin-left:500px;
-  margin-top: -200px;
+  margin-top: -100px;
   gap:25px;
-  color:white;
+  color:black;
 }
 .doctor-details span{
   font-weight: bold;
+  font-size: 20px;
 
 }
 .doctor-details p{
   font-weight: 300px;
 
 
-  font-size: 16px;
+  font-size: 18px;
 
 }
 .rating{
@@ -45,7 +49,7 @@ height:600px;
 }
 .avgRating{
 
-  margin-left: -70px;
+  margin-left: -40px;
 
 }
 
@@ -71,7 +75,7 @@ border-radius: 5px;
  .img1{
 border-radius: 5px;
 position: absolute;
-top:225px;
+top:200px;
 }
 
 .btnCommant{
@@ -92,7 +96,7 @@ top:225px;
 
 .doctor-details .btn-1 {
    font-family: Hack, monospace;
-    background: #5383d3;
+    background: rgb(56, 56, 56);
     color: #fff;
     cursor: pointer;
     font-size: 25px;
@@ -104,9 +108,9 @@ top:225px;
     height: 70px;
     position: absolute;
 
-    left: 79.2%;
+    left: 70%;
     bottom: 242px; 
-    margin-left: -433px;
+    
     margin-top:50px;
 
 }
@@ -123,7 +127,7 @@ top:225px;
   opacity: 0;
 }
 .doctor-details .btn-1:hover {
-  background: #13139e;
+  background: rgb(56, 56, 56);
   transition: all 0.5s;
   border-radius: 10px;
   box-shadow: 0px 6px 15px #00f 61;
@@ -223,16 +227,19 @@ top:225px;
   width:70%;
   margin-bottom:-10px;
   color:white;
+  margin-top:50px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
 }
 .name-Q .doc-Q{
   font-size: 25px;
-  margin-left:600px;
-  margin-top: 20px;
+  margin-left:500px;
+  
 }
 .name-Q p{
   font-size:40px;
-  margin-left:600px;
-  margin-top: 0px;
+  margin-left:500px;
+  margin-top:30px;
   
 }
 

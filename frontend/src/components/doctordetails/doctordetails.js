@@ -153,16 +153,17 @@ const DoctorDetails = () => {
         type="text/css"
       ></link>
       <div className="name-Q">
+      <p><span>Dr .</span> {result.firstName} {result.lastName}</p>
         <p className="doc-Q">{result.Qualifications} </p>
-        <p><span>Dr .</span> {result.firstName} {result.lastName}</p>
+        
       </div>
       <div className="parent">
         <div className="img1">
           <img
             src={result.img ? result.img : <></>}
             style={{
-              width: "450px",
-              height: "450px",
+              width: "400px",
+              height: "500px",
               borderRadius: "20px",
               borderRadius: "5px",
             }}
@@ -178,7 +179,7 @@ const DoctorDetails = () => {
           <div className="avgRating">
             <Stars stars={avgRating} defaultValue={avgRating} />
           </div>
-          <p>{result.description}</p>
+          
 
           <p>
             <span>price:</span> {result.price} jd
@@ -192,6 +193,7 @@ const DoctorDetails = () => {
             <span>practicalExperiences: </span>
             {result.practicalExperiences}{" "}
           </p>
+          <p>{result.description}</p>
           {token ? (
             <>
               {role_id == 2 ? (
