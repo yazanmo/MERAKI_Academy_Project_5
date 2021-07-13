@@ -70,9 +70,7 @@ const Doctor = () => {
 
   return (
     <>
-      <div class="background-oregon-grapes">
-      
-    </div>
+      <div class="background-oregon-grapes"></div>
 
       <div className="filter">
         <div className="row-a">
@@ -137,12 +135,12 @@ const Doctor = () => {
                 >
                   <img src={`${element.img}`} />
                   <div className="info">
-                    <h1>
+                    <p className="doctor-name">
                       {element.firstName} {element.lastName}
-                    </h1>
+                    </p>
 
-                    <h2>{element.price}</h2>
-                    <p>{element.description}</p>
+                    <p className="price">{element.price}</p>
+                    <p className="describe">{element.description}</p>
                   </div>
                 </div>
               );
@@ -190,12 +188,12 @@ const Doctor = () => {
                 <img src={`${elem.img}`} />
 
                 <div className="info">
-                  <h2>
+                  <p style={{ fontSize: "20px", fontWeight: "bold" }}>
                     {elem.firstName} {elem.lastName}
-                  </h2>
-
+                  </p>
+                  <p className="Qualifications">{elem.Qualifications}</p>
                   <p>
-                    {elem.price}
+                    {elem.price + " $"}
                     <br></br>
                     {elem.description}
                   </p>

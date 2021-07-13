@@ -15,7 +15,7 @@ import happy from "./happy.jpg";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import noAvatar from "./noAvatar.png";
-
+         
 import Slider from "react-slick";
 
 export default function Home({ homePageSection, setHomePageSection }) {
