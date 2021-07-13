@@ -30,6 +30,18 @@ const Login = () => {
         throw err;
       });
   };
+
+  const ResponseGoogle = (response) => {
+    console.log(response);
+    console.log(response.accessToken);
+    console.log("name" , response.profileObj.givenName);
+    setToken(response.accessToken);
+    localStorage.setItem("token", response.accessToken);
+    localStorage.setItem("nickName", response.profileObj.givenName);
+    history.push("/");
+  };
+
+
   return (
     <div className="login">
       <img src={Logo} />
@@ -49,7 +61,13 @@ const Login = () => {
       />
       <button onClick={signIn}>Login</button>
       {state1 ? <div style={{margin:"20px auto",color:"red",width:"300px",textAlign:"center",fontSize:"22px"}}>email or password not correct</div> : ""}
-
+<div>
+  <GoogleLogin
+  clientId="788133413345-7e8m2mkms0qvf91jvr8m4j7p7sr8329h.apps.googleusercontent.com"
+  onSuccess={ResponseGoogle}
+  onFailure={ResponseGoogle}
+  />
+</div>
       <p>
         {" "}
         Do not have an account ?
