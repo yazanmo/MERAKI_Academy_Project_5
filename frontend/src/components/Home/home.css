@@ -471,8 +471,10 @@ margin: 3%;
     background-color: rgb(204,211,219);
     text-align: center;
   }
-  .info-1 img,.info-2 img,.info-3 img{
+  .info-1 .icon-information,.info-2 .icon-information,.info-3 .icon-information{
     margin-top: 65px;
+    width:100px;
+    height: 100px;
   }
   .info-1 p,.info-2 p,.info-3 p{
    

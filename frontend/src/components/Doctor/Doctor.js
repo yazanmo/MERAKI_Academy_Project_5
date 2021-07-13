@@ -17,7 +17,7 @@ const Doctor = () => {
       .get(`http://localhost:5000/doctor`, { num1, num2 })
       .then((response) => {
         setDoctor(response.data);
-        console.log("doctor", response.data);
+        
       })
       .catch((err) => {});
   }, []);

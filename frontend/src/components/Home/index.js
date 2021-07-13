@@ -104,17 +104,17 @@ export default function Home({ homePageSection, setHomePageSection }) {
       </div>
       <div className="information">
         <div className="info-1">
-          <img  src="https://img.icons8.com/ios/80/000000/examination.png" />
+          <img className="icon-information"  src="https://img.icons8.com/ios/80/000000/examination.png" />
           <h3>Subscribe with a private doctor</h3>
           <p>Exactly what you want, how you want it. Get a personalized low-carb or keto meal plan for your diet goals. Start losing weight and improving your health now!</p>
         </div>
         <div className="info-2">
-        <img src="https://img.icons8.com/ios-filled/80/000000/heart-health.png"/>
+        <img className="icon-information" src="https://img.icons8.com/ios-filled/80/000000/heart-health.png"/>
         <h3>health food</h3>
           <p>What we eat doesn’t just affect our physical health: it can also affect our mental health and wellbeing.</p>
         </div>
         <div className="info-3">
-        <img src="https://img.icons8.com/dotty/80/000000/health-calendar.png"/>
+        <img className="icon-information" src="https://img.icons8.com/dotty/80/000000/health-calendar.png"/>
 
         <h3>UROLOGY CARE</h3>
           <p>Constant monitoring of your health system</p>
