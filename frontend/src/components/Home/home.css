@@ -51,6 +51,75 @@ body{
   box-sizing: border-box;
 }
 
+.service-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6%;
+  justify-content: center;
+}
+.service-page-p{
+  color: black;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0;
+    margin: 76px;
+    box-sizing: border-box;
+    word-break: break-all;
+}
+
+.container-service{
+  grid-template-columns: 50% 50%;
+  display: grid;
+  flex-direction: row;
+  
+}
+.h1p{
+  color: #683030;
+  margin-left: 81px;
+  margin-top: 41px;
+  position: absolute;
+  top: 190px;
+}
+
+.img-service2{
+
+  height: 700px;
+    width: 700px;
+    margin-top: -85px;
+}
+
+.symbol-service{
+  height: 100px;
+  width: 100px;
+}
+
+.symbol-service2,.symbol-service3{
+  height: 150px;
+  width: 150px;
+}
+.asdasdfafsdfsadf{
+  display: grid;
+    grid-column: 50%;
+    gap: 20px;
+}
+
+.card-service{
+  display: flex;
+  flex-direction: column;
+  grid-gap: 100px;
+  gap: 30px;
+  margin-left: 90px;
+}
+
+.card-service-partenr{
+
+  display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  gap: 10px;
+}
+
 .img {
   box-sizing: border-box;
   width: 100%;
@@ -379,15 +448,15 @@ margin: 3%;
     height: 900px;
     width: 100%;
   }
-  .home-p{
-    font-size: 70px;
+  .home-pp{
+    font-size: 26px;
     color: rgb(85, 85, 85);
     position: absolute;
-    margin-top:120px;
-    margin-left:120px;
-    width:700px;
+    margin-top: 200px;
+    margin-left: 81px;
+    width: 700px;
     height: 400px;
-    word-break: break-all;
+    
   }
   .information{
     display: flex;
@@ -408,7 +477,6 @@ margin: 3%;
   }
   .info-1 p,.info-2 p,.info-3 p{
    
-    word-break: break-all;
     color:white;
     width: 290px;
     margin:50px auto;
@@ -438,6 +506,7 @@ margin: 3%;
   }
 
 
+
   /* pagination */
 
   .pagination{
@@ -464,3 +533,37 @@ margin: 3%;
   cursor: pointer;
 
   }
+
+  .OUR-DEPARTMENT{
+
+    background-color: rgb(204,211,219);
+  }
+
+  .OUR-DEPARTMENT-h2{
+    margin-left: 40%;
+    margin-top: 25px;
+  }
+
+
+  .OUR-DEPARTMENT-card{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    grid-gap: 30px;
+    gap: 30px;
+    margin-left: 19%;
+    margin-top: 60px;
+    margin-bottom: 35px;
+  }
+
+  .OUR-DEPARTMENT-p{
+
+    /* margin-left:10px; */
+    
+    font-size: 20px;
+  }
+
+  .OUR-DEPARTMENT-p2{
+    margin-left: 25px;
+    font-size: 20px;
+  }
+

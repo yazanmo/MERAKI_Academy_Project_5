@@ -1,12 +1,12 @@
 .wrapper{
   display: flex;
-  gap: 10%;
-  margin-left: 12%;
-  margin-right: 0%;
+  grid-gap: -19%;
+  gap: 25px;
+  margin-left: 150px;
   margin-top: 90px;
   margin-bottom: 30px;
   flex-wrap: wrap;
-
+  flex-direction: row;
 }
 
 
@@ -23,9 +23,7 @@
   transition: 0.5s ease-in-out;
 }
 
-.card1:hover{
-  transform: translateY(20px);
-}
+
 
 .card1:before{
 
@@ -36,7 +34,7 @@
   display: block ;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom,rgba(0,176,155,0.5),rgba(150,201,61,1));
+  background: linear-gradient(to bottom,rgba(89, 100, 99, 0.5),rgb(90, 94, 83));
   z-index: 2;
   transition: 0.5s all;
   opacity: 0;
@@ -237,3 +235,25 @@ margin: 0;
 }
 
 
+
+/* Parallax CSS */
+.background-oregon-grapes {
+  background-image: url("https://images.pexels.com/photos/3772502/pexels-photo-3772502.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-size: 100%;
+  height: 450px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+
+/* Image CSS for your SVG */
+img {
+  height: 50%;
+  width: 50%;
+}
