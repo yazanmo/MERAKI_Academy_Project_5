@@ -75,9 +75,10 @@ const Doctor = () => {
       <div className="filter">
         <div className="row-a">
           <div className="btn-inp">
-            <div className="asdsadasd">
+            <div className="filter-input">
               <input
                 className="input-filter"
+                type="number"
                 placeholder="MIN"
                 onChange={(e) => {
                   setnum1(e.target.value);
@@ -85,6 +86,7 @@ const Doctor = () => {
               />
               <input
                 className="input-filter"
+                type="number"
                 placeholder="MAX"
                 onChange={(e) => {
                   setnum2(e.target.value);
@@ -97,7 +99,7 @@ const Doctor = () => {
               </button>
             </div>
           </div>
-          <div className="kapsayici">
+          <div className="search">
             <input id="checkbox" className="checkInp" type="checkbox" />
             <label class="label1" for="checkbox">
               <div class="checkDiv"></div>
@@ -122,12 +124,13 @@ const Doctor = () => {
             ></label>
           </div>
         </div>
-        <div className="parant-Doctor">
+        <div className="parant-Doctor-search">
           {DoctorName &&
             DoctorName.map((element, index) => {
               return (
-                <div
+                <div 
                   className="card1"
+                  
                   onClick={() => {
                     func(element.id);
                   }}
@@ -135,10 +138,10 @@ const Doctor = () => {
                 >
                   <img src={`${element.img}`} />
                   <div className="info">
-                    <p className="doctor-name">
+                    <p style={{ fontSize: "20px", fontWeight: "bold" }} className="doctor-name">
                       {element.firstName} {element.lastName}
                     </p>
-
+                    <p className="Qualifications">{element.Qualifications}</p>
                     <p className="price">{element.price}</p>
                     <p className="describe">{element.description}</p>
                   </div>
@@ -147,33 +150,32 @@ const Doctor = () => {
             })}
         </div>
       </div>
-
+      <div className="wrapper" >
       {filter &&
         filter.map((elem, i) => {
           return (
-            <div className="wrapper" key={i}>
-              <div
-                className="card1"
-                onClick={() => {
-                  func(elem.id);
-                }}
-                key={i}
-              >
-                <img src={`${elem.img}`} />
-                <div className="info">
-                  <h1>
-                    {elem.firstName} {elem.lastName}
-                  </h1>
-                  <p>{getAcgRating(elem.id)}</p>
-
-                  <h2>{elem.price}</h2>
-                  <p>{elem.description}</p>
+            
+               <div key={i}
+                  className="card1"
+                  onClick={() => {
+                    func(elem.id);
+                  }}
+                  key={i}
+                >
+                  <img src={`${elem.img}`} />
+                  <div className="info">
+                    <p style={{ fontSize: "20px", fontWeight: "bold" }} className="doctor-name">
+                      {elem.firstName} {elem.lastName}
+                    </p>
+                    <p className="Qualifications">{elem.Qualifications}</p>
+                    <p className="price">{elem.price}</p>
+                    <p className="describe">{elem.description}</p>
+                  </div>
                 </div>
-              </div>
-            </div>
+           
           );
         })}
-
+ </div>
       <div className="wrapper">
         {Doctor &&
           Doctor.map((elem, i) => {
