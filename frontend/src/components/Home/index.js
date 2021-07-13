@@ -34,17 +34,28 @@ export default function Home({ homePageSection, setHomePageSection }) {
     }
   }, [homePageSection]);
 
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://localhost:5000/stories?page=2&limit=1`)
+  //     .then((result) => {
+  //       dispatch(setStories(result.data));
+  //       localStorage.setItem("stories", JSON.stringify(result.data));
+  //     })
+  //     .catch((err) => {
+  //       dispatch(setStories("some thing bad"));
+  //     });
+  // }, []);
 
   useEffect(() => {
     axios
       .get(`http://localhost:5000/stories?page=${specificPage}&limit=1`)
       .then((result) => {
-        console.log(result.data);
+        console.log("==========",result.data);
         dispatch(setStories(result.data));
-        localStorage.setItem("stories", JSON.stringify(result.data));
+       localStorage.setItem("stories", JSON.stringify(result.data));
       })
       .catch((err) => {
-        dispatch(setStories("some thing bad"));
+     
       });
   }, [specificPage]);
 
@@ -242,18 +253,20 @@ console.log("sttate stories",state.stories);
               );
             })}
         </div>
-        <div>ghaidaa</div>
-        <h1>1</h1>
         <div className="pageNumber"> 
-        
-        {pageNum&&
+        <ul className="pagination" >
+        <li className="liPagination" onClick={(e)=>{setSpecificPage(1)}}>1</li>
+        <li className="liPagination" onClick={(e)=>{setSpecificPage(2)}}>2</li>
+        <li className="liPagination" onClick={(e)=>{setSpecificPage(3)}}>3</li>
+        <li className="liPagination" onClick={(e)=>{setSpecificPage(4)}}>4</li> </ul>
+        {/* {pageNum&&
         pageNum.map((element,index)=>{
           console.log("element",element);
           console.log("specificPage",specificPage);
-        return  <li key={index}  onClick={(e)=>{setSpecificPage(element)}} >{element}</li>
-        
+         
+         <li key={index}  onClick={(e)=>{setSpecificPage(element)}} >{element}</li> 
 
-        })}
+        })} */}
         </div>
        
       </section>

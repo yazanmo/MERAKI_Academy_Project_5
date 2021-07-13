@@ -33,7 +33,7 @@ const getAllSuccessStories = (req, res) => {
 
    console.log("stoooories",page,limit);
   db.query(command, (err, results) => {
-    if (err) res.status(404).send(err);
+        if (err) res.status(404).send(err);
     console.log("storyyyy array",results);
     const result = results.slice(starterIndex,endIndex)
     console.log("resultSlice",result);

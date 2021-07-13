@@ -79,10 +79,11 @@ body{
 
 .storyCard {
   display: flex;
+  justify-content: center;
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-margin-left: 98px
+
 
 } 
 
@@ -434,4 +435,32 @@ margin: 3%;
     justify-content: center;
     align-items: center;
     text-align: center;
+  }
+
+
+  /* pagination */
+
+  .pagination{
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    
+  }
+
+  .liPagination{
+  
+  border: 1px solid white;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding-right: 0rem 0rem;
+  background-color: black;
+  color: white;
+  box-shadow: 0 0 15px rgb(0 0 0 / 5%);
+  height: 30PX ;
+  width: 30PX;
+  margin: 0.5% ;
+  text-align: center;
+  padding-left: 0rem; 
+  cursor: pointer;
+
   }
