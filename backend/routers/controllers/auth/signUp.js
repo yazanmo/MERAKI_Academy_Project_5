@@ -2,6 +2,7 @@ const db = require("./../../../db/db");
 const bcrypt = require("bcrypt");
 
 const register = (req, res) => {
+  console.log("google register",req.body);
   const { firstName, lastName, age, email, password, role_id, img } = req.body;
 
   const query = `SELECT email FROM users WHERE email = ? AND is_deleted =0`;
@@ -30,7 +31,7 @@ const register = (req, res) => {
         });
       });
     } else {
-      res.status(400).send("email is exist");
+      res.status(400).send({message:result,status:400});
     }
   });
 };
