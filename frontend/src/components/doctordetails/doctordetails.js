@@ -193,7 +193,7 @@ const DoctorDetails = () => {
             <span>practicalExperiences: </span>
             {result.practicalExperiences}{" "}
           </p>
-          <p>{result.description}</p>
+          <p className="doctor-description">{result.description}</p>
           {token ? (
             <>
               {role_id == 2 ? (
