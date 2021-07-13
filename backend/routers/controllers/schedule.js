@@ -28,10 +28,22 @@ const getBookTime = (req, res) => {
     res.status(200).json(result);
   });
 };
+const getScheduleUser=(req,res)=>{
+  const users_id = req.token.id;
+  const query = `SELECT * FROM  doctorsDetails
+  INNER JOIN schedule  ON doctorsDetails.id=schedule.doctor_id 
+  INNER JOIN users ON users.id=doctorsDetails.user_id WHERE schedule.user_id=? ;`;
 
+  const arr = [users_id];
+  db.query(query, arr, (err, result) => {
+    if (err) res.status(400).send(err);
+    
+    res.status(200).json(result);
+  });
+}
 
 module.exports = {
   bookTime,
   getBookTime,
-  
+  getScheduleUser,
 };
