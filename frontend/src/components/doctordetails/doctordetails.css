@@ -17,7 +17,7 @@
   background-color: rgb(243, 243, 243);
   width: 70%;
   height: 450px;
-
+  border-radius: 0 0 5px 5px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
@@ -28,6 +28,7 @@
   margin-top: -15px;
   gap: 25px;
   color: black;
+  
 }
 .doctor-details span {
   font-weight: bold;
@@ -71,10 +72,10 @@
   resize: none;
   border-radius: 5px;
 }
-.img1 {
-  border-radius: 5px;
+.img1{
+  border-radius: 0 5px 5px 0;
   position: absolute;
-  top: 205px;
+  top: 220px;
 }
 
 .btnCommant {
@@ -220,6 +221,7 @@
   margin-top: 50px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 5px 5px 0 0;
 }
 .name-Q .doc-Q {
   font-size: 25px;
