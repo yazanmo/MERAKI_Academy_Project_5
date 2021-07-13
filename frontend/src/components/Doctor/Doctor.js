@@ -72,8 +72,6 @@ const Doctor = () => {
   return (
     <>
       <div class="background-oregon-grapes">
-
-        <div className="">fgnmgkmgvkmfvkgmkgfm</div>
       </div>
 
       <div className="filter">

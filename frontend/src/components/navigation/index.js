@@ -17,7 +17,7 @@ const Navigation = ({ setHomePageSection }) => {
   return (
     <div className="navBar">
       <div className="logo">
-        <img className="logo-img" src="https://scontent.xx.fbcdn.net/v/t1.15752-0/p206x206/217398588_274440084481758_4295520530263010685_n.png?_nc_cat=109&ccb=1-3&_nc_sid=aee45a&_nc_eui2=AeE4JcWp5f0sCwyUwvhC5TcF3O45NGlGr_Tc7jk0aUav9D63fij_Fl87u8UQa1xtq1QZZVQBPyfCeK2Kwy7psgl7&_nc_ohc=wdAT1sRUnqwAX8x-h_s&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=42cba1610e1464757ea9a4e462fe8fc9&oe=60F1F5B9"/>
+        <img className="logo-img" src="https://scontent.famm3-1.fna.fbcdn.net/v/t1.15752-9/217635563_1162193564273221_2538562333226498135_n.png?_nc_cat=109&ccb=1-3&_nc_sid=ae9488&_nc_eui2=AeHLB9AbtT3AuzmYxRVsD1-u03JRewQGLtTTclF7BAYu1BIct7bbJPsdF4miEofFNxJxaQzrYuIVpQ8oNhEXXJc8&_nc_ohc=RU0j3X7tMiUAX_Jtm2L&_nc_ht=scontent.famm3-1.fna&oh=801afb762b81abb4ea1a8277126694a2&oe=60F34017"/>
       </div>
       <div className="nav">
         <ul>
@@ -33,48 +33,8 @@ const Navigation = ({ setHomePageSection }) => {
               </li>
               <li>
                 {" "}
-                <Link to="/about" className="links">
-                  About
-                </Link>{" "}
-              </li>
-              <li>
-                {" "}
                 <Link to="/doctor" className="links">
                   Our nutritionist
-                </Link>{" "}
-              </li>
-              <li>
-                <Link
-                  to="/"
-                  className="links"
-                  onClick={() => {
-                    setHomePageSection("services");
-                  }}
-                >
-                  Services
-                </Link>{" "}
-              </li>
-              <li>
-                <Link
-                  to="/"
-                  className="links"
-                  onClick={() => {
-                    setHomePageSection("stories");
-                  }}
-                >
-                  Stories
-                </Link>{" "}
-              </li>
-              <li>
-                {" "}
-                <Link
-                  to="/"
-                  className="links"
-                  onClick={() => {
-                    setHomePageSection("contact");
-                  }}
-                >
-                  Contact Us
                 </Link>{" "}
               </li>
             </>
@@ -96,10 +56,11 @@ const Navigation = ({ setHomePageSection }) => {
                       variant="success"
                       id="dropdown-basic"
                       style={{
-                        backgroundColor: "#33383B",
-                        borderColor: "#33383B",
-                        marginTop: "-5px",
+                        backgroundColor: "rgb(89 96 108)",
+                        borderColor: "rgb(89 96 108)",
+                        marginTop: "-8px",
                         fontWeight: "700",
+                        fontSize:"20px",
                       }}
                     >
                       Profile
@@ -143,12 +104,6 @@ const Navigation = ({ setHomePageSection }) => {
               {role_id == 2 ? (
                 <>
                   <li>
-                    {" "}
-                    <Link to="/messages" className="links">
-                      messages
-                    </Link>{" "}
-                  </li>
-                  <li>
                     <Link to="/mypatient" className="links">
                       My patient
                     </Link>{" "}
@@ -159,24 +114,36 @@ const Navigation = ({ setHomePageSection }) => {
                       Booking schedule
                     </Link>{" "}
                   </li>
-                  <li>
-                    {" "}
-                    <Link to="/doctorProfile" className="links">
-                      Profile
-                    </Link>{" "}
-                  </li>
-                  <li>
-                    {" "}
-                    <Link
-                      to="/"
-                      className="links"
-                      onClick={() => {
-                        localStorage.clear();
-                      }}
-                    >
-                      Log out
-                    </Link>{" "}
-                  </li>
+                  <Dropdown>
+
+          <Dropdown.Toggle
+          className="dropdown"
+          variant="success"
+          id="dropdown-basic"
+          style={{
+            backgroundColor: "rgb(89 96 108)",
+            borderColor: "rgb(89 96 108)",
+            marginTop: "-8px",
+            fontWeight: "700",
+            fontSize:"20px",
+          }}
+          >
+              Profile
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+
+            <Dropdown.Item href="/doctorProfile">Profile</Dropdown.Item>
+            <Dropdown.Item
+              href="/"
+              onClick={() => {
+                localStorage.clear();
+              }}
+            >
+              Log out
+            </Dropdown.Item>
+
+                </Dropdown.Menu>
+                </Dropdown>
                 </>
               ) : (
                 <></>
