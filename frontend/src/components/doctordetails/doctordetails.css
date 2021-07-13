@@ -6,7 +6,7 @@
   align-items: center;
   gap:10px;
   margin:0px 0 0 0;
-  background-color:  rgb(216, 214, 214);
+  background-color:  rgb(243, 243, 243);
 }
 .parent{
   display: flex;
@@ -14,7 +14,7 @@
   align-items: center;
   gap:115px;
   margin-bottom:40px;
-  background-color:rgb(216, 214, 214);
+  background-color:rgb(243, 243, 243);
 width: 70%;
 height:450px;
 
@@ -57,6 +57,7 @@ box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1p
   
   margin-top: 80px;
   
+  
 }
 .feedBack{
   width:330px;
@@ -75,13 +76,14 @@ border-radius: 5px;
  .img1{
 border-radius: 5px;
 position: absolute;
-top:200px;
+top:205px;
+
 }
 
 .btnCommant{
   margin-top: 30px;
   border-radius: 5px;
-  background-color: #5383d3;
+  background-color:rgb(56, 56, 56);
   border: none;
   color: #fff;
   text-align: center; 
@@ -108,10 +110,10 @@ top:200px;
     height: 70px;
     position: absolute;
 
-    left: 70%;
-    bottom: 242px; 
+    left:75%;
+    bottom:50px; 
     
-    margin-top:50px;
+    margin-top:200px;
 
 }
 
@@ -177,7 +179,7 @@ top:200px;
   display: flex;
   flex-direction: row;
   padding: auto;
-  margin-left: 20px;
+  margin-left: -22%;
   margin-top: 25px;
 
                      
@@ -199,7 +201,7 @@ top:200px;
 .cmt{
   position:flex;
   flex-direction:row;
- 
+margin-left:465px;
 }
 
 .commenter{
@@ -207,7 +209,7 @@ top:200px;
 }
 .commentRating{
   margin-top:25px;
-  margin-right:115px;
+  margin-right:51%;
 
 
 
@@ -215,9 +217,10 @@ top:200px;
 .comments{
   margin-top:40px;
   padding-bottom:20px;
-  width:330px;
-  font-size: 32px;
+  width:450px;
+  font-size: 25px;
   border-bottom:1.5px solid rgb(163, 160, 160);
+  border: none;
 }
 .name-Q{
   background-color:rgb(56, 56, 56);
