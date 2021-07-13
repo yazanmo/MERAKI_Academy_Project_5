@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./Doctor.css";
 
@@ -17,7 +17,7 @@ const Doctor = () => {
       .get(`http://localhost:5000/doctor`, { num1, num2 })
       .then((response) => {
         setDoctor(response.data);
-        console.log("doctor", response.data);
+        
       })
       .catch((err) => {});
   }, []);
@@ -38,8 +38,9 @@ const Doctor = () => {
         DoctorName: name,
       })
       .then((res) => {
-        console.log(res.data);
+       
         setDoctorName(res.data);
+        setDoctor([]);
       })
       .catch((err) => {});
   };
@@ -71,15 +72,17 @@ const Doctor = () => {
   return (
     <>
       <div class="background-oregon-grapes">
-      
-    </div>
+
+        <div className="">fgnmgkmgvkmfvkgmkgfm</div>
+      </div>
 
       <div className="filter">
         <div className="row-a">
           <div className="btn-inp">
-            <div className="asdsadasd">
+            <div className="filter-input">
               <input
                 className="input-filter"
+                type="number"
                 placeholder="MIN"
                 onChange={(e) => {
                   setnum1(e.target.value);
@@ -87,6 +90,7 @@ const Doctor = () => {
               />
               <input
                 className="input-filter"
+                type="number"
                 placeholder="MAX"
                 onChange={(e) => {
                   setnum2(e.target.value);
@@ -99,7 +103,7 @@ const Doctor = () => {
               </button>
             </div>
           </div>
-          <div className="kapsayici">
+          <div className="search">
             <input id="checkbox" className="checkInp" type="checkbox" />
             <label class="label1" for="checkbox">
               <div class="checkDiv"></div>
@@ -124,12 +128,13 @@ const Doctor = () => {
             ></label>
           </div>
         </div>
-        <div className="parant-Doctor">
+        <div className="parant-Doctor-search">
           {DoctorName &&
             DoctorName.map((element, index) => {
               return (
-                <div
+                <div 
                   className="card1"
+                  
                   onClick={() => {
                     func(element.id);
                   }}
@@ -137,45 +142,44 @@ const Doctor = () => {
                 >
                   <img src={`${element.img}`} />
                   <div className="info">
-                    <h1>
+                    <p style={{ fontSize: "20px", fontWeight: "bold" }} className="doctor-name">
                       {element.firstName} {element.lastName}
-                    </h1>
-
-                    <h2>{element.price}</h2>
-                    <p>{element.description}</p>
+                    </p>
+                    <p className="Qualifications">{element.Qualifications}</p>
+                    <p className="price">{element.price}</p>
+                    <p className="describe">{element.description}</p>
                   </div>
                 </div>
               );
             })}
         </div>
       </div>
-
+      <div className="wrapper" >
       {filter &&
         filter.map((elem, i) => {
           return (
-            <div className="wrapper" key={i}>
-              <div
-                className="card1"
-                onClick={() => {
-                  func(elem.id);
-                }}
-                key={i}
-              >
-                <img src={`${elem.img}`} />
-                <div className="info">
-                  <h1>
-                    {elem.firstName} {elem.lastName}
-                  </h1>
-                  <p>{getAcgRating(elem.id)}</p>
-
-                  <h2>{elem.price}</h2>
-                  <p>{elem.description}</p>
+            
+               <div key={i}
+                  className="card1"
+                  onClick={() => {
+                    func(elem.id);
+                  }}
+                  key={i}
+                >
+                  <img src={`${elem.img}`} />
+                  <div className="info">
+                    <p style={{ fontSize: "20px", fontWeight: "bold" }} className="doctor-name">
+                      {elem.firstName} {elem.lastName}
+                    </p>
+                    <p className="Qualifications">{elem.Qualifications}</p>
+                    <p className="price">{elem.price}</p>
+                    <p className="describe">{elem.description}</p>
+                  </div>
                 </div>
-              </div>
-            </div>
+           
           );
         })}
-
+ </div>
       <div className="wrapper">
         {Doctor &&
           Doctor.map((elem, i) => {
@@ -190,12 +194,12 @@ const Doctor = () => {
                 <img src={`${elem.img}`} />
 
                 <div className="info">
-                  <h2>
+                  <p style={{ fontSize: "20px", fontWeight: "bold" }}>
                     {elem.firstName} {elem.lastName}
-                  </h2>
-
+                  </p>
+                  <p className="Qualifications">{elem.Qualifications}</p>
                   <p>
-                    {elem.price}
+                    {elem.price + " $"}
                     <br></br>
                     {elem.description}
                   </p>

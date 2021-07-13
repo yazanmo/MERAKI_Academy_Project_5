@@ -64,6 +64,8 @@ const DoctorDetails = () => {
         setAllComment(result.data);
       })
       .catch((err) => {});
+
+      
   }, [sa]);
   useEffect(() => {
     axios
