@@ -33,48 +33,8 @@ const Navigation = ({ setHomePageSection }) => {
               </li>
               <li>
                 {" "}
-                <Link to="/about" className="links">
-                  About
-                </Link>{" "}
-              </li>
-              <li>
-                {" "}
                 <Link to="/doctor" className="links">
                   Our nutritionist
-                </Link>{" "}
-              </li>
-              <li>
-                <Link
-                  to="/"
-                  className="links"
-                  onClick={() => {
-                    setHomePageSection("services");
-                  }}
-                >
-                  Services
-                </Link>{" "}
-              </li>
-              <li>
-                <Link
-                  to="/"
-                  className="links"
-                  onClick={() => {
-                    setHomePageSection("stories");
-                  }}
-                >
-                  Stories
-                </Link>{" "}
-              </li>
-              <li>
-                {" "}
-                <Link
-                  to="/"
-                  className="links"
-                  onClick={() => {
-                    setHomePageSection("contact");
-                  }}
-                >
-                  Contact Us
                 </Link>{" "}
               </li>
             </>
@@ -142,12 +102,6 @@ const Navigation = ({ setHomePageSection }) => {
             <>
               {role_id == 2 ? (
                 <>
-                  <li>
-                    {" "}
-                    <Link to="/messages" className="links">
-                      messages
-                    </Link>{" "}
-                  </li>
                   <li>
                     <Link to="/mypatient" className="links">
                       My patient
