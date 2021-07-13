@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -9,7 +9,7 @@ import win from "./win.png";
 import food from "./food.png";
 import checklist from "./checklist.png";
 import rules from "./rules.png";
-// import { scroller } from "react-scroll";
+import { scroller } from "react-scroll";
 import "./home.css";
 import happy from "./happy.jpg";
 import { Slide } from "react-slideshow-image";
@@ -20,19 +20,24 @@ import Slider from "react-slick";
 
 export default function Home({ homePageSection, setHomePageSection }) {
   const dispatch = useDispatch();
+  const [pageNum, setPageNum] = useState([])
+
+  
 
   // smooth scroller
   useEffect(() => {
     if (homePageSection !== "") {
       console.log(homePageSection);
-      // scroller.scrollTo(homePageSection, { smooth: true });
+      scroller.scrollTo(homePageSection, { smooth: true });
       setHomePageSection(" ");
     }
   }, [homePageSection]);
 
+//?page=1&limit=1
+
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/stories`)
+      .get(`http://localhost:5000/stories?page=1&limit=1`)
       .then((result) => {
         console.log(result.data);
         dispatch(setStories(result.data));
@@ -46,9 +51,22 @@ export default function Home({ homePageSection, setHomePageSection }) {
   const state = useSelector((state) => {
     return {
       stories: state.storiesReducer.stories,
+
     };
   });
+  
+  const pageArray=[]
+  useEffect(() => {
+    for (let index = 0; index < state.stories.length; index++) {
+      pageArray.push(index+1)
+    }
+    setPageNum([...pageArray])
+  }, [])
+  
+  
 
+  console.log("pageNum",pageNum);
+console.log("sttate stories",state.stories);
   //array for slider
   const arr = [
     "https://images.unsplash.com/photo-1604480131833-5d7aea770e1c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=890&q=80",
@@ -197,6 +215,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
       {/* stories section */}
 
       <section className="stories" title="stories" id="stories">
+        
         <div className="hi">
           <span className="welcome">STORIES</span>
           <h3 className="h3">Successfull Stories</h3>
@@ -223,6 +242,17 @@ export default function Home({ homePageSection, setHomePageSection }) {
               );
             })}
         </div>
+        <div>ghaidaa</div>
+        <h1>1</h1>
+        <div className="pageNumber"> 
+        
+        {pageNum&&
+        pageNum.map((element,index)=>{
+          <li key={index}>1</li>
+          console.log("element",element);
+
+        })}</div>
+       
       </section>
 
       {/* footer */}

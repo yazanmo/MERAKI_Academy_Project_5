@@ -22,10 +22,22 @@ const createSuccessStory = (req, res) => {
 //As a user, I should be able to get all successful stories
 
 const getAllSuccessStories = (req, res) => {
-  const command = `SELECT users.lastName,users.firstName ,users.img ,Success.description  FROM Success INNER JOIN users ON users.id=Success.user_id WHERE Success.is_deleted=0 `;
-  db.query(command, (err, result) => {
+  const command = `SELECT users.lastName,users.firstName ,users.img ,Success.description  FROM Success
+   INNER JOIN users ON 
+   users.id=Success.user_id WHERE 
+   Success.is_deleted=0 `;
+   const page = req.query.page
+   const limit = req.query.limit
+   const starterIndex = (page-1)*limit
+   const endIndex = page * limit
+
+   console.log("stoooories",page,limit);
+  db.query(command, (err, results) => {
     if (err) res.status(404).send(err);
-    res.status(200).json(result);
+    console.log("storyyyy array",results);
+    const result = results.slice(starterIndex,endIndex)
+    console.log("resultSlice",result);
+    res.status(200).json(results);
   });
 };
 
