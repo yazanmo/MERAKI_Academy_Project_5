@@ -51,10 +51,10 @@ const Schedule = () => {
         result.map((element, index) => {
           return (
             <div className="schedule-card">
-  <Card style={{ width: '40rem' }}>
+  <Card style={{ width: '50rem' }}>
     <div className="parennt-schedule">
-    <div className="card-img">
-  <Card.Img variant="top"  src={element.img} />
+    <div>
+  <Card.Img className="card-img-schedule" variant="top"  src={element.img} />
   </div>
   <div className="card-body">
   <Card.Body>
