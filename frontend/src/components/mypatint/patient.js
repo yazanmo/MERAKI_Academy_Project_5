@@ -12,8 +12,7 @@ const Patient = () => {
   const [date, onChange] = useState("");
   const today = Date.now();
   console.log(typeof date);
-  const [totalCal, setTotalCal] = useState(0);
-  console.log(date);
+  console.log("dsaaaaaaaaaaaaaaaaaaaaaaaaaa", date);
   const { id } = useParams();
 
   const heading = [
@@ -31,111 +30,67 @@ const Patient = () => {
 
   useEffect(() => {
     axios
-      .post(`http://localhost:5000/patient/breakfast`, { date, id })
+      .get(`http://localhost:5000/patient/breakfast/${date}/${id}`)
       .then((result) => {
         setBreakfast(result.data);
-        console.log(result.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [breakfast]);
+  }, [date]);
   useEffect(() => {
     axios
       .post(`http://localhost:5000/patient/lunch`, { date, id })
       .then((result) => {
-        console.log(result.data);
         setLunch(result.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [Lunch]);
+  }, [date]);
 
   useEffect(() => {
     axios
       .post(`http://localhost:5000/patient/dinner`, { date, id })
       .then((result) => {
-        console.log(result.data);
         setDinner(result.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [dinner]);
+  }, [date]);
 
   useEffect(() => {
     axios
       .post(`http://localhost:5000/patient/glassesofwater`, { date, id })
       .then((result) => {
-        console.log(result.data);
         setGlassesOfWater(result.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [glassesOfWater]);
+  }, [date]);
   useEffect(() => {
     axios
       .post(`http://localhost:5000/patient/activetime`, { date, id })
       .then((result) => {
-        console.log(result.data);
         setActiveTime(result.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [activeTime]);
+  }, [date]);
   useEffect(() => {
     axios
       .post(`http://localhost:5000/patient/snack`, { date, id })
       .then((result) => {
-        console.log(result.data);
         setSnack(result.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [snack]);
-  const getData = (meal, title) => {
-    return (
-      <>
-        <table style={{ width: 500, marginBottom: "30px" }}>
-          <thead>
-            <tr style={{ textAlign: "center", fontWeight: "bold" }}>{title}</tr>
-          </thead>
-          <thead>
-            <tr>
-              {heading.map((head) => (
-                <th>{head}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody style={{ marginBottom: "20px" }}>
-            {meal &&
-              meal.map((element) => {
-                return (
-                  <>
-                    <tr>
-                      <th>{element.name}</th>
-                      <th>{element.calories}</th>
-                      <th>{element.serving_size_g}</th>
-                      <th>{element.sugar_g}</th>
-                      <th>{element.protein_g}</th>
-                      <th>{element.carbohydrates_total_g}</th>
-                      <th>{element.cholesterol_mg}</th>
-                      <th>{element.fat_saturated_g}</th>
-                      <th>{element.potassium_mg}</th>
-                      <th>{element.sodium_mg}</th>
-                    </tr>
-                  </>
-                );
-              })}
-          </tbody>
-        </table>
-      </>
-    );
-  };
+  }, [date]);
+
   return (
     <div className="food">
       <input
@@ -144,6 +99,7 @@ const Patient = () => {
         defaultValue={today}
         onChange={(e) => {
           onChange(e.target.value);
+          console.log(e.target.value);
         }}
         min="2021-07-09"
       />

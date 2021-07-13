@@ -8,10 +8,24 @@ import Dinner from "./dinner";
 const FoodTracker = () => {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
-
+  const [date, onChange] = useState();
+  const today = new Date();
+  console.log(date);
   return (
     <div class="">
-      <Breakfast />
+      <input
+        defaultValue={today}
+        type="date"
+        class="datepicker"
+        onChange={(e) => {
+          onChange(e.target.value);
+        }}
+        min="2021-07-09"
+      />
+      <Breakfast date={date} />
+      <Lunch date={date} />
+      <Dinner date={date} />
+      <Snack date={date} />
     </div>
   );
 };

@@ -7,19 +7,37 @@ input {
   height: 30px;
   width: 200px;
 }
-          
+
 .desc-food-tracker {
   display: flex;
   flex-direction: row;
-  width: 90%;
-  font-size: 10px;
+  width: 12%;
+  font-size: 1px;
   font-weight: 500;
   gap: 30px;
-  background-color: aqua;
+  background-color: rgb(238, 236, 236);
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  position: absolute;
   cursor: pointer;
-  margin-bottom: 20px;
+  padding: 5px 4px;
 }
-
+.search-food {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  margin: 5px 0px 1px 0px;
+}
+.search-food button {
+  background-color: #194a4e;
+  border: none;
+  padding: 2px 5px;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
 /*profile*/
 .buttons {
   display: flex;
@@ -52,11 +70,11 @@ input {
   gap: 10px;
   margin-left: 6%;
 }
-.profileImg{
+.profileImg {
   border-radius: 5px;
   height: 250px;
   width: 250px;
-  margin-left:50px;
+  margin-left: 50px;
   margin-top: 13px;
 }
 .buttons-child-2 button {
@@ -120,7 +138,7 @@ input {
 
   align-items: center;
   margin-top: 35px;
-}      
+}
 .update-profile-info {
   font-size: 20px;
   display: flex;
@@ -140,7 +158,7 @@ input {
   padding: 0 10px;
   justify-content: flex-start;
   margin-bottom: 25px;
-  margin-left:-30px;
+  margin-left: -30px;
   width: 250px;
 }
 
@@ -149,7 +167,6 @@ input {
   height: 40px;
   width: 300px;
   margin-left: -7px;
-  
 }
 
 .update-profile button {
@@ -162,13 +179,62 @@ input {
   width: 150px;
   margin-left: 40px;
 }
-.update-profile button:hover{
-  background-color:green;
+.update-profile button:hover {
+  background-color: green;
 }
-.profileImage{
+.profileImage {
   border-radius: 5px;
   height: 250px;
   width: 250px;
-  margin-left:50px;
-  
+  margin-left: 50px;
+}
+
+/*food tracker*/
+
+.food-profile {
+  border-collapse: collapse;
+  /* margin: 25px 0; */
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); */
+  margin-top: 20px;
+}
+.food-profile table {
+  margin: auto;
+}
+
+.food-profile thead {
+  border-radius: 100px;
+}
+.food-profile thead tr {
+  background-color: #19af8a;
+  color: #ffffff;
+  text-align: left;
+}
+.food-profile th,
+.food-profile td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.food-profile tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.food-profile tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.food-profile tbody tr:last-of-type {
+  border-bottom: 2px solid #6e6b66;
+}
+
+.food-profile tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+.datepicker {
+  margin: auto;
 }

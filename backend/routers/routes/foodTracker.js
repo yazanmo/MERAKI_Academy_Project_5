@@ -36,20 +36,20 @@ const {
 const foodTracker = express.Router();
 
 //get
-foodTracker.get("/breakfast/:date", authentication, getBreakfast);
-foodTracker.get("/snack", authentication, getSnack);
-foodTracker.get("/lunch", authentication, getLunch);
-foodTracker.get("/dinner", authentication, getDinner);
-foodTracker.get("/glassesofwater", authentication, getGlassesOfWater);
-foodTracker.get("/activetime", authentication, getActiveTime);
+foodTracker.post("/breakfast/", authentication, getBreakfast);
+foodTracker.post("/snack/", authentication, getSnack);
+foodTracker.post("/lunch/", authentication, getLunch);
+foodTracker.post("/dinner/", authentication, getDinner);
+foodTracker.post("/glassesofwater/", authentication, getGlassesOfWater);
+foodTracker.post("/activetime/", authentication, getActiveTime);
 
 //post
-foodTracker.post("/breakfast", authentication, addToBreakfast);
-foodTracker.post("/snack", authentication, addToSnack);
-foodTracker.post("/lunch", authentication, addToLunch);
-foodTracker.post("/dinner", authentication, addToDinner);
-foodTracker.post("/glassesofwater", authentication, addToGlassesOfWater);
-foodTracker.post("/activetime", authentication, addToActiveTime);
+foodTracker.post("/add/breakfast", authentication, addToBreakfast);
+foodTracker.post("/add/snack", authentication, addToSnack);
+foodTracker.post("/add/lunch", authentication, addToLunch);
+foodTracker.post("/add/dinner", authentication, addToDinner);
+foodTracker.post("/add/glassesofwater", authentication, addToGlassesOfWater);
+foodTracker.post("/add/activetime", authentication, addToActiveTime);
 
 //put
 foodTracker.put("/breakfast", authentication, updateBreakfast);

@@ -3,7 +3,7 @@ import axios from "axios";
 // import "./profile.css";
 import "./../mypatint/mypatint.css";
 
-const Lunch = ({ date }) => {
+const ActiveTime = ({ date }) => {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
   const [result2, setResult2] = useState([]);
@@ -36,13 +36,15 @@ const Lunch = ({ date }) => {
       })
       .then((res) => {
         setResult(res.data.items);
+        setResult2(res.data.items);
+        setQuery("");
       })
       .catch((err) => {});
   };
   useEffect(() => {
     axios
       .post(
-        `http://localhost:5000/lunch`,
+        `http://localhost:5000/breakfast`,
         { date },
         {
           headers: {
@@ -51,14 +53,14 @@ const Lunch = ({ date }) => {
         }
       )
       .then((res) => {
-        setLunch(res.data);
+        setGetBreakfast(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [lunch]);
+  }, [getBreakfast]);
   return (
-    <div className="food">
+    <div className="food-profile">
       <div></div>
       <div>
         <form
@@ -69,7 +71,9 @@ const Lunch = ({ date }) => {
         >
           <table style={{ width: 500, marginBottom: "30px" }}>
             <thead>
-              <tr style={{ textAlign: "center", fontWeight: "bold" }}>Lunch</tr>
+              <tr style={{ textAlign: "center", fontWeight: "bold" }}>
+                breakfast
+              </tr>
               <div className="search-food">
                 <input
                   id="input-breakfast"
@@ -95,12 +99,12 @@ const Lunch = ({ date }) => {
                   let sugar_g = elem.sugar_g;
                   return (
                     <div
-                      className="desc-food-tracker"
+                      className=""
                       key={i}
                       onClick={() => {
                         axios
                           .post(
-                            `http://localhost:5000/add/lunch`,
+                            `http://localhost:5000/add/breakfast`,
                             {
                               name,
                               calories,
@@ -124,6 +128,7 @@ const Lunch = ({ date }) => {
                           )
                           .then((res) => {
                             setResult([]);
+                            console.log(res.data);
                           })
                           .catch((err) => {});
                         document.getElementById("input-breakfast").value = "";
@@ -142,8 +147,8 @@ const Lunch = ({ date }) => {
               </tr>
             </thead>
             <tbody style={{ marginBottom: "20px" }}>
-              {lunch &&
-                lunch.map((element) => {
+              {getBreakfast &&
+                getBreakfast.map((element) => {
                   return (
                     <>
                       <tr>
@@ -164,7 +169,7 @@ const Lunch = ({ date }) => {
                             onClick={() => {
                               axios
                                 .delete(
-                                  `http://localhost:5000/lunch/${element.lunch_id}`,
+                                  `http://localhost:5000/breakfast/${element.breakfast_id}`,
                                   {
                                     headers: {
                                       authorization: "Bearer " + token,
@@ -190,4 +195,4 @@ const Lunch = ({ date }) => {
   );
 };
 
-export default Lunch;
+export default ActiveTime;
