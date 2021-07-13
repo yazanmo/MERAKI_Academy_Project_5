@@ -37,6 +37,7 @@ const Breakfast = ({ date }) => {
       .then((res) => {
         setResult(res.data.items);
         setResult2(res.data.items);
+        setQuery("");
       })
       .catch((err) => {});
   };
@@ -59,7 +60,7 @@ const Breakfast = ({ date }) => {
       });
   }, [getBreakfast]);
   return (
-    <div className="food">
+    <div className="food-profile">
       <div></div>
       <div>
         <form
@@ -98,7 +99,7 @@ const Breakfast = ({ date }) => {
                   let sugar_g = elem.sugar_g;
                   return (
                     <div
-                      className="desc-food-tracker"
+                      className=""
                       key={i}
                       onClick={() => {
                         axios

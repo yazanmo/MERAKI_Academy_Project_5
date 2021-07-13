@@ -18,7 +18,7 @@ const userRouter = express.Router();
 
 //APIs
 userRouter.get("/profile", auth, getUserInformation);
-userRouter.post("/patient/breakfast", getUserBreakfast);
+userRouter.get("/patient/breakfast/:date/:id", getUserBreakfast);
 userRouter.post("/patient/lunch", getUserLunch);
 userRouter.post("/patient/snack", getUserSnack);
 userRouter.post("/patient/dinner", getUserDinner);
