@@ -12,12 +12,13 @@ const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [state1, setState1] = useState(false);
+
   const dispatch = useDispatch();
   const signIn = () => {
     axios
       .post("http://localhost:5000/login", { email, password })
       .then((result) => {
-        setState1(false)
+        setState1(false);
         localStorage.setItem("token", result.data.token);
         localStorage.setItem("role_id", result.data.role_id);
         localStorage.setItem("user_id", result.data.user_id);
@@ -26,21 +27,56 @@ const Login = () => {
         history.push("/");
       })
       .catch((err) => {
-        setState1(true)
+        setState1(true);
         throw err;
       });
   };
 
   const ResponseGoogle = (response) => {
-    console.log(response);
-    console.log(response.accessToken);
-    console.log("name" , response.profileObj.givenName);
-    setToken(response.accessToken);
-    localStorage.setItem("token", response.accessToken);
-    localStorage.setItem("nickName", response.profileObj.givenName);
-    history.push("/");
+    console.log("all info", response.profileObj);
+    console.log("name", response.profileObj.givenName)
+    axios
+      .post("http://localhost:5000/register", {
+        firstName: response.profileObj.givenName,
+        lastName: response.profileObj.familyName,
+        email: response.profileObj.email,
+        password: response.profileObj.googleId,
+      })
+      .then((result) => {
+      
+          console.log("elllllllllllllllllllllllllllllseeeeeeeeeeeeeeeeeeee",result);
+          localStorage.setItem("token", result.data.token);
+          localStorage.setItem("role_id", 1);
+          dispatch(setToken(response.accessToken));
+          history.push("/");
+       
+      })
+      .catch((err) => {
+        console.log("hiiiiiiiiiii mai");
+      console.log(" login err",err.message,err.status);
+        if (err.message==="Request failed with status code 400") {
+          console.log("400 error",err.message);
+          axios
+          .post("http://localhost:5000/login", {
+            email: response.profileObj.email,
+            password: response.profileObj.googleId,
+          })
+          .then((result) => {
+            console.log("TOKEN",result.data.token);
+            localStorage.setItem("token",  result.data.token);
+            localStorage.setItem("role_id", 1);
+            localStorage.setItem("user_id", result.data.user_id);
+            console.log("user_id", result.data.user_id);
+            dispatch(setToken(response.accessToken));
+            history.push("/");
+          })
+          .catch((err) => {
+            console.log(" login errrrrrrrrrr",err);
+          });
+        }
+   
+      });
   };
-
 
   return (
     <div className="login">
@@ -60,14 +96,28 @@ const Login = () => {
         placeholder="Enter Password Here"
       />
       <button onClick={signIn}>Login</button>
-      {state1 ? <div style={{margin:"20px auto",color:"red",width:"300px",textAlign:"center",fontSize:"22px"}}>email or password not correct</div> : ""}
-<div>
-  <GoogleLogin
-  clientId="788133413345-7e8m2mkms0qvf91jvr8m4j7p7sr8329h.apps.googleusercontent.com"
-  onSuccess={ResponseGoogle}
-  onFailure={ResponseGoogle}
-  />
-</div>
+      {state1 ? (
+        <div
+          style={{
+            margin: "20px auto",
+            color: "red",
+            width: "300px",
+            textAlign: "center",
+            fontSize: "22px",
+          }}
+        >
+          email or password not correct
+        </div>
+      ) : (
+        ""
+      )}
+      <div>
+        <GoogleLogin
+          clientId="788133413345-7e8m2mkms0qvf91jvr8m4j7p7sr8329h.apps.googleusercontent.com"
+          onSuccess={ResponseGoogle}
+          onFailure={ResponseGoogle}
+        />
+      </div>
       <p>
         {" "}
         Do not have an account ?
@@ -79,15 +129,14 @@ const Login = () => {
         </span>
       </p>{" "}
       <p>
-          Join as a{" "}
-          <span>
-            <Link className="render" to="/doctorInfo">
-              Doctor
-            </Link>
-          </span>
-        </p>
+        Join as a{" "}
+        <span>
+          <Link className="render" to="/doctorInfo">
+            Doctor
+          </Link>
+        </span>
+      </p>
     </div>
-
   );
 };
 
