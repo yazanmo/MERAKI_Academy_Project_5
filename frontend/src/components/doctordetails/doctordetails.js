@@ -64,8 +64,6 @@ const DoctorDetails = () => {
         setAllComment(result.data);
       })
       .catch((err) => {});
-
-      
   }, [sa]);
   useEffect(() => {
     axios
@@ -117,7 +115,7 @@ const DoctorDetails = () => {
           headers: {
             authorization: "Bearer " + token,
           },
-        }                
+        }
       )
       .then((res) => {
         setUpdateComment(false);
@@ -154,12 +152,16 @@ const DoctorDetails = () => {
         rel="stylesheet"
         type="text/css"
       ></link>
+      <div className="name-Q">
+        <p className="doc-Q">{result.Qualifications} </p>
+        <p><span>Dr .</span> {result.firstName} {result.lastName}</p>
+      </div>
       <div className="parent">
         <div className="img1">
           <img
             src={result.img ? result.img : <></>}
             style={{
-              width: "300px",
+              width: "450px",
               height: "450px",
               borderRadius: "20px",
               borderRadius: "5px",
@@ -168,10 +170,10 @@ const DoctorDetails = () => {
         </div>
 
         <div className="doctor-details">
-          <h2>
+          {/* <h2>
             {" "}
             <span>Dr .</span> {result.firstName} {result.lastName}
-          </h2>
+          </h2> */}
 
           <div className="avgRating">
             <Stars stars={avgRating} defaultValue={avgRating} />

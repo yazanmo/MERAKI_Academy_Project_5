@@ -12,16 +12,18 @@
   flex-direction: row;
   align-items: center;
   gap:115px;
-  margin-bottom: 20px;
-
+  margin-bottom:40px;
+  background-color:rgb(97, 97, 97);
+width: 70%;
+height:600px;
 }
 .doctor-details{
   display: flex;
   flex-direction: column;
-  margin-left:21px;
-  margin-top: -87px;
-  gap:15px;
-  
+  margin-left:500px;
+  margin-top: -200px;
+  gap:25px;
+  color:white;
 }
 .doctor-details span{
   font-weight: bold;
@@ -68,6 +70,8 @@ border-radius: 5px;
 }
  .img1{
 border-radius: 5px;
+position: absolute;
+top:225px;
 }
 
 .btnCommant{
@@ -156,7 +160,7 @@ border-radius: 5px;
 
   display: flex;
   flex-direction: column;
-}
+}             
 .Reviews{
   width:330px;
   font-size: 32px;
@@ -210,5 +214,25 @@ border-radius: 5px;
   width:330px;
   font-size: 32px;
   border-bottom:1.5px solid rgb(163, 160, 160);
+}
+.name-Q{
+  background-color:rgb(56, 56, 56);
+  display: flex;
+  flex-direction:column;
+  height: 200px;
+  width:70%;
+  margin-bottom:-10px;
+  color:white;
+}
+.name-Q .doc-Q{
+  font-size: 25px;
+  margin-left:600px;
+  margin-top: 20px;
+}
+.name-Q p{
+  font-size:40px;
+  margin-left:600px;
+  margin-top: 0px;
+  
 }
 
