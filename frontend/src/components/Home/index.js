@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -9,7 +9,7 @@ import win from "./win.png";
 import food from "./food.png";
 import checklist from "./checklist.png";
 import rules from "./rules.png";
-// import { scroller } from "react-scroll";
+import { scroller } from "react-scroll";
 import "./home.css";
 import happy from "./happy.jpg";
 import { Slide } from "react-slideshow-image";
@@ -20,35 +20,64 @@ import Slider from "react-slick";
 
 export default function Home({ homePageSection, setHomePageSection }) {
   const dispatch = useDispatch();
+  const [pageNum, setPageNum] = useState([])
+  const [specificPage, setSpecificPage] = useState(1)
+
+  
 
   // smooth scroller
   useEffect(() => {
     if (homePageSection !== "") {
       console.log(homePageSection);
-      // scroller.scrollTo(homePageSection, { smooth: true });
+      scroller.scrollTo(homePageSection, { smooth: true });
       setHomePageSection(" ");
     }
   }, [homePageSection]);
 
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://localhost:5000/stories?page=2&limit=1`)
+  //     .then((result) => {
+  //       dispatch(setStories(result.data));
+  //       localStorage.setItem("stories", JSON.stringify(result.data));
+  //     })
+  //     .catch((err) => {
+  //       dispatch(setStories("some thing bad"));
+  //     });
+  // }, []);
+
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/stories`)
+      .get(`http://localhost:5000/stories?page=${specificPage}&limit=1`)
       .then((result) => {
-        console.log(result.data);
+        console.log("==========",result.data);
         dispatch(setStories(result.data));
-        localStorage.setItem("stories", JSON.stringify(result.data));
+       localStorage.setItem("stories", JSON.stringify(result.data));
       })
       .catch((err) => {
-        dispatch(setStories("some thing bad"));
+     
       });
-  }, []);
+  }, [specificPage]);
 
   const state = useSelector((state) => {
     return {
       stories: state.storiesReducer.stories,
+
     };
   });
+  
+  const pageArray=[]
+  useEffect(() => {
+    for (let index = 0; index < state.stories.length; index++) {
+      pageArray.push(index+1)
+    }
+    setPageNum([...pageArray])
+  }, [])
+  
+  
 
+  console.log("pageNum",pageNum);
+console.log("sttate stories",state.stories);
   //array for slider
   const arr = [
     "https://images.unsplash.com/photo-1604480131833-5d7aea770e1c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=890&q=80",
@@ -197,6 +226,9 @@ export default function Home({ homePageSection, setHomePageSection }) {
 
       {/* stories section */}
 
+      <section className="stories" title="stories" id="stories">
+        
+
 <div className="service-page">
     <h2>A MODERN, FULL-SERVICE Health CARE</h2>
 <p className="service-page-p">At Health Care Website, we believe health is not just the absence of disease, but a state of immense vitality. It is our mission to help you feel better, live longer, and become the best possible you!</p>
@@ -304,6 +336,7 @@ style={{fill:"#000000;"}}><g style={{ fill:"none", fillrule:"nonzero", stroke:"n
 
 
       {/* <section className="stories" title="stories" id="stories">
+
         <div className="hi">
           <span className="welcome">STORIES</span>
           <h3 className="h3">Successfull Stories</h3>
@@ -330,7 +363,27 @@ style={{fill:"#000000;"}}><g style={{ fill:"none", fillrule:"nonzero", stroke:"n
               );
             })}
         </div>
+
+        <div className="pageNumber"> 
+        <ul className="pagination" >
+        <li className="liPagination" onClick={(e)=>{setSpecificPage(1)}}>1</li>
+        <li className="liPagination" onClick={(e)=>{setSpecificPage(2)}}>2</li>
+        <li className="liPagination" onClick={(e)=>{setSpecificPage(3)}}>3</li>
+        <li className="liPagination" onClick={(e)=>{setSpecificPage(4)}}>4</li> </ul>
+        {/* {pageNum&&
+        pageNum.map((element,index)=>{
+          console.log("element",element);
+          console.log("specificPage",specificPage);
+         
+         <li key={index}  onClick={(e)=>{setSpecificPage(element)}} >{element}</li> 
+
+        })} */}
+        </div>
+       
+      </section>
+
       </section> */}
+
 
       {/* footer */}
       <link
