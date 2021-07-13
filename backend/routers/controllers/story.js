@@ -37,7 +37,7 @@ const getAllSuccessStories = (req, res) => {
     console.log("storyyyy array",results);
     const result = results.slice(starterIndex,endIndex)
     console.log("resultSlice",result);
-    res.status(200).json(results);
+    res.status(200).json(result);
   });
 };
 

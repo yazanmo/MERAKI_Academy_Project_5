@@ -21,6 +21,7 @@ import Slider from "react-slick";
 export default function Home({ homePageSection, setHomePageSection }) {
   const dispatch = useDispatch();
   const [pageNum, setPageNum] = useState([])
+  const [specificPage, setSpecificPage] = useState(1)
 
   
 
@@ -33,11 +34,10 @@ export default function Home({ homePageSection, setHomePageSection }) {
     }
   }, [homePageSection]);
 
-//?page=1&limit=1
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/stories?page=1&limit=1`)
+      .get(`http://localhost:5000/stories?page=${specificPage}&limit=1`)
       .then((result) => {
         console.log(result.data);
         dispatch(setStories(result.data));
@@ -46,7 +46,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
       .catch((err) => {
         dispatch(setStories("some thing bad"));
       });
-  }, []);
+  }, [specificPage]);
 
   const state = useSelector((state) => {
     return {
@@ -248,10 +248,13 @@ console.log("sttate stories",state.stories);
         
         {pageNum&&
         pageNum.map((element,index)=>{
-          <li key={index}>1</li>
           console.log("element",element);
+          console.log("specificPage",specificPage);
+        return  <li key={index}  onClick={(e)=>{setSpecificPage(element)}} >{element}</li>
+        
 
-        })}</div>
+        })}
+        </div>
        
       </section>
 
