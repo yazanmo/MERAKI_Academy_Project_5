@@ -18,7 +18,8 @@ const Conversation = (props) => {
   const [message, setMessage] = useState("");
   const [username, setUsername] = useState("");
   const [messageList, setMessageList] = useState([]);
-  const [idSender, setIdSender] = useState(null);
+
+  const scrollRef = useRef();
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
@@ -35,6 +36,7 @@ const Conversation = (props) => {
       room,
       message,
     };
+
     socket.emit("send_message", messageContent);
     setMessageList([...messageList, messageContent.message]);
     axios
@@ -54,12 +56,14 @@ const Conversation = (props) => {
       .then((result) => {
         setRoom(result.data.conversation.conversation[0].id);
         setResult(result.data.result.result);
-        setIdSender();
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [message]);
+  }, [messageList]);
+  useEffect(() => {
+    scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messageList]);
   connectToRoom();
   return (
     <div>
@@ -69,18 +73,22 @@ const Conversation = (props) => {
             result.map((val, i) => {
               if (val.id_sender == userId) {
                 return (
-                  <div className={"message-right"} key={i}>
-                    <p className="message-r" key={i}>
-                      {val.message}
-                    </p>
+                  <div className="width">
+                    <div className={"message-right"} key={i}>
+                      <p className="message-r" ref={scrollRef} key={i}>
+                        {val.message}
+                      </p>
+                    </div>
                   </div>
                 );
               } else {
                 return (
-                  <div className={"message-left"} key={i}>
-                    <p className="message-l" key={i}>
-                      {val.message}
-                    </p>
+                  <div className="width">
+                    <div className={"message-left"} key={i}>
+                      <p className="message-l" ref={scrollRef} key={i}>
+                        {val.message}
+                      </p>
+                    </div>
                   </div>
                 );
               }
