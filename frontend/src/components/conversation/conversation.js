@@ -54,6 +54,7 @@ const Conversation = (props) => {
       .then((result) => {
         setRoom(result.data.conversation.conversation[0].id);
         setResult(result.data.result.result);
+        setIdSender();
       })
       .catch((err) => {
         console.log(err);
@@ -61,53 +62,43 @@ const Conversation = (props) => {
   }, [message]);
   connectToRoom();
   return (
-    <div className="conversation">
-      <>
-        <div className="message">
+    <div>
+      <div className="conversation">
+        <div className="">
           {result &&
             result.map((val, i) => {
-              // if (val.id_sender === userId) {
-              return (
-                <>
-                  <div
-                    className={
-                      val.id_sender == userId ? "message-right" : "message-left"
-                    }
-                    key={i}
-                  >
-                    <p key={i}>{val.message}</p>
-                    {console.log(
-                      "hiiiiiiiiiiii mai",
-                      val.id_sender,
-                      "user_id" + userId
-                    )}
+              if (val.id_sender == userId) {
+                return (
+                  <div className={"message-right"} key={i}>
+                    <p className="message-r" key={i}>
+                      {val.message}
+                    </p>
                   </div>
-                </>
-              );
-              // } else {
-              //   return (
-              //     <>
-              //       <div className="message-left">
-              //         <p key={i}>{val.message}</p>
-              //         {console.log("hiiiiiiiiiiii mai", val.id_sender)}
-              //       </div>
-              //     </>
-              //   );
+                );
+              } else {
+                return (
+                  <div className={"message-left"} key={i}>
+                    <p className="message-l" key={i}>
+                      {val.message}
+                    </p>
+                  </div>
+                );
+              }
               // }
             })}
         </div>
-
-        <div>
-          <input
-            type="text"
-            placeholder="write you message ..."
-            onChange={(e) => {
-              setMessage(e.target.value);
-            }}
-          />
-          <button onClick={sendMessage}>send</button>
-        </div>
-      </>
+      </div>
+      <div>
+        <input
+          style={{ margin: "auto" }}
+          type="text"
+          placeholder="write you message ..."
+          onChange={(e) => {
+            setMessage(e.target.value);
+          }}
+        />
+        <button onClick={sendMessage}>send</button>
+      </div>
     </div>
   );
 };
