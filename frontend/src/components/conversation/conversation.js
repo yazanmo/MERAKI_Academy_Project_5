@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import { io } from "socket.io-client";
+import "./conversation.css";
 
 let socket;
 const CONNECTION_PORT = "http://localhost:5000";
@@ -17,6 +18,7 @@ const Conversation = (props) => {
   const [message, setMessage] = useState("");
   const [username, setUsername] = useState("");
   const [messageList, setMessageList] = useState([]);
+  const [idSender, setIdSender] = useState(null);
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
@@ -56,26 +58,46 @@ const Conversation = (props) => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [message]);
   connectToRoom();
   return (
-    <div>
+    <div className="conversation">
       <>
-        <div>
+        <div className="message">
           {result &&
             result.map((val, i) => {
-              return <h1 key={i}>{val.message}</h1>;
+              // if (val.id_sender === userId) {
+              return (
+                <>
+                  <div
+                    className={
+                      val.id_sender == userId ? "message-right" : "message-left"
+                    }
+                    key={i}
+                  >
+                    <p key={i}>{val.message}</p>
+                    {console.log(
+                      "hiiiiiiiiiiii mai",
+                      val.id_sender,
+                      "user_id" + userId
+                    )}
+                  </div>
+                </>
+              );
+              // } else {
+              //   return (
+              //     <>
+              //       <div className="message-left">
+              //         <p key={i}>{val.message}</p>
+              //         {console.log("hiiiiiiiiiiii mai", val.id_sender)}
+              //       </div>
+              //     </>
+              //   );
+              // }
             })}
         </div>
 
         <div>
-          <div>
-            {messageList &&
-              messageList.map((val, i) => {
-                console.log("val", val);
-                return <h1 key={i}>{val}</h1>;
-              })}
-          </div>{" "}
           <input
             type="text"
             placeholder="write you message ..."

@@ -9,12 +9,15 @@ const FoodTracker = () => {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
   const [date, onChange] = useState();
+
   const today = new Date();
+
   console.log(date);
   return (
     <div class="">
       <input
         defaultValue={today}
+        id="input-date"
         type="date"
         class="datepicker"
         onChange={(e) => {

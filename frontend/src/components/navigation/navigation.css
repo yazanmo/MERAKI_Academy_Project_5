@@ -22,12 +22,11 @@
   color: rgb(216, 215, 215);
   height: 50px;
 }
-.logo-img{
+.logo-img {
   margin-top: -60px;
   width: 250px;
   height: 190px;
-  margin-left:-60px ;
-  
+  margin-left: -60px;
 }
 
 .logo span {
