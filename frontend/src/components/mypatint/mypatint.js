@@ -11,6 +11,8 @@ const MyPatient = ({ setSender, setReceiver }) => {
   const history = useHistory();
 
   const [result, setResult] = useState([]);
+
+
   useEffect(() => {
     axios
       .get("http://localhost:5000/mypatient", {
@@ -20,7 +22,7 @@ const MyPatient = ({ setSender, setReceiver }) => {
       })
       .then((result) => {
         setResult(result.data);
-        console.log(result.data);
+        
       })
       .catch((err) => {
         console.log(err);
@@ -30,7 +32,7 @@ const MyPatient = ({ setSender, setReceiver }) => {
   return (
     <div className="my-patient">
       {result.map((element, index) => {
-        console.log(element);
+        
         return (
           <div>
             <Card style={{ width: "18rem" }}>
@@ -63,8 +65,6 @@ const MyPatient = ({ setSender, setReceiver }) => {
                   onClick={() => {
                     setSender(element.user_id);
                     setReceiver(element.doctor_id);
-                    console.log(element.user_id);
-                    console.log(element.doctor_id);
                     history.push("/conversation");
                   }}
                   style={{ backgroundColor: "black", border: "none" }}

@@ -53,7 +53,6 @@ const Navigation = ({ setHomePageSection }) => {
 
                     <Dropdown.Toggle
                       className="dropdown"
-                      variant="success"
                       id="dropdown-basic"
                       style={{
                         backgroundColor: "rgb(89 96 108)",
@@ -118,7 +117,6 @@ const Navigation = ({ setHomePageSection }) => {
 
           <Dropdown.Toggle
           className="dropdown"
-          variant="success"
           id="dropdown-basic"
           style={{
             backgroundColor: "rgb(89 96 108)",
@@ -128,7 +126,7 @@ const Navigation = ({ setHomePageSection }) => {
             fontSize:"20px",
           }}
           >
-             z
+             profile
             </Dropdown.Toggle>
             <Dropdown.Menu>
 

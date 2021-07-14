@@ -8,7 +8,6 @@ import { BrowserRouter, Route } from "react-router-dom";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      {/* render App if the path is `/` */}
       <Provider store={store}>
         <Route path="/" component={App} />
       </Provider>

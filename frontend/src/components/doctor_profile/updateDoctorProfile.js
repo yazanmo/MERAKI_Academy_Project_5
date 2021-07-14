@@ -19,7 +19,6 @@ const UpdateDoctorProfile = () => {
   const [price, setPrice] = useState(profile.doctor.price);
   const [email, setEmail] = useState(profile.doctor.email);
   const [description, setDescription] = useState(profile.doctor.description);
-
   const [Qualifications, setQualifications] = useState(
     profile.doctor.Qualifications
   );
@@ -33,7 +32,6 @@ const UpdateDoctorProfile = () => {
     axios
       .put(
         "http://localhost:5000/doctor/details",
-
         {
           firstName,
           lastName,
@@ -82,18 +80,6 @@ const UpdateDoctorProfile = () => {
             <h3>Image :</h3>
 
             <h3>Age :</h3>
-
-            {/* <h3>Email :</h3>
-        <input
-          className="inputs"
-          type="text"
-          placeholder="email here"
-          readOnly
-          defaultValue={data.email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        /> */}
           </div>
           <div className="left-side_update_input">
             <input

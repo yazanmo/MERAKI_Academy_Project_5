@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Switch, Route, Link, useParams, useHistory } from "react-router-dom";
+import React, { useState} from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./profile.css";
 const UpdateUserInfo = () => {

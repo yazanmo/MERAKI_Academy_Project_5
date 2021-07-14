@@ -35,7 +35,7 @@ const add =  ()=>{
 
     return (
         <>
-        <div className="yzn">
+        <div className="accept-doctor">
           
             <input className="inpt1" type="text" placeholder="password here"  onChange={(e)=>{setPassword(e.target.value)} }/>
             <button className="btnadd" onClick={ add }>ADD DOCTOR</button>

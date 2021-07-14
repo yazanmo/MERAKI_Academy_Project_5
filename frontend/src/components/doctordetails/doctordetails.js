@@ -25,7 +25,6 @@ const DoctorDetails = () => {
   const [updateComment, setUpdateComment] = useState(false);
   const [updateText, setUpdateCommentText] = useState("");
   const [avgRating, setAvgRating] = useState(0);
-
   const token = localStorage.getItem("token");
   const commenter_id = localStorage.getItem("user_id");
   const role_id = localStorage.getItem("role_id");

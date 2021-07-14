@@ -66,27 +66,14 @@ const App = () => {
           <Route exact path="/date" render={() => <Date />} />
           <Route exact path="/about" render={() => <About />} />
           <Route exact path="/edit/profile" render={() => <UpdateUserInfo />} />
-          <Route
-            exact
-            path="/mypatient"
-            render={() => (
-              <MyPatient setSender={setSender} setReceiver={setReceiver} />
-            )}
-          />
-          <Route
-            exact
-            path="/mydoctor"
-            render={() => (
-              <MyDoctor setSender={setSender} setReceiver={setReceiver} />
-            )}
-          />
+          <Route exact path="/mypatient" render={() => (
+          <MyPatient setSender={setSender} setReceiver={setReceiver} />)}/>
+          <Route exact path="/mydoctor" render={() => (
+          <MyDoctor setSender={setSender} setReceiver={setReceiver} />)}/>
           <Route exact path="/patient/:id" render={() => <Patient />} />
           <Route exact path="/booking" render={() => <Booking />} />
-          <Route
-            exact
-            path="/conversation"
-            render={() => <Conversation sender={sender} receiver={receiver} />}
-          />
+          <Route exact path="/conversation" render={() => 
+          <Conversation sender={sender} receiver={receiver} />}/>
           <Route exact path="/userSchedule" render={() => <UserSchedule />} />
 
         </Switch>

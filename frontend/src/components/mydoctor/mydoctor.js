@@ -7,10 +7,8 @@ import Conversation from "./../conversation/conversation";
 import "./mydoctor.css";
 const MyDoctor = ({ setSender, setReceiver }) => {
   let token = localStorage.getItem("token");
-
   const [result, setResult] = useState([]);
   const [sa, setSa] = useState(false);
-
   const history = useHistory();
   const func = (id) => {
     return history.push(`/schedule/${id}`);
@@ -66,8 +64,6 @@ const MyDoctor = ({ setSender, setReceiver }) => {
                   onClick={() => {
                     setSender(element.user_id);
                     setReceiver(element.doctor_id);
-                    console.log(element.user_id);
-                    console.log(element.doctor_id);
                     history.push("/conversation");
                   }}
                 >

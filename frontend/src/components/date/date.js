@@ -19,7 +19,6 @@ const Date = () => {
       )
       .then((response) => {
         setDate(response.data);
-        console.log(response.data);
       })
 
       .catch((err) => {});

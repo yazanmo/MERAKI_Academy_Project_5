@@ -16,9 +16,7 @@ const Booking = () => {
         },
       })
       .then((result) => {
-      
         setResult(result.data);
-
       })
       .catch((err) => {
         throw err;
@@ -40,7 +38,6 @@ const Booking = () => {
   <Card.Body>
     <Card.Title>{element.firstName} {element.lastName}</Card.Title>
     <Card.Text>
-      
               <p>age: {element.age}</p>
               <p>Booking time: {element.time}</p>
               <p>Booking date: {element.date}</p>
@@ -55,7 +52,6 @@ const Booking = () => {
             </div>
         );
         })}
-    
     </div>
 );
 };

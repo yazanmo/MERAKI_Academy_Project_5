@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./admin.css";
 import { useHistory } from "react-router-dom";
-import { Button,Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 const Accept = () => {
   const history = useHistory();
@@ -76,14 +76,14 @@ const Accept = () => {
                   </div>
             </Card.Body>
           </Card>
-               
-             
+            
+          
             );
 
-         
+      
           })}
       </div>
- 
+
     </>
   );
 };

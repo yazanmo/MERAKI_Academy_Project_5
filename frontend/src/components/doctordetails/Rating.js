@@ -12,7 +12,7 @@ export default function Rating({ idProduct, thisToken, setInfo }) {
   console.log(rating);
   const handleClick = (value) => {
     setRating(value);
-    //console.log(currentValue)
+    
   };
   const handleMouseOver = (newHoverValue) => {
     setHover(newHoverValue);

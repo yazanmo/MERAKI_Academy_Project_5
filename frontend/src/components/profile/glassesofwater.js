@@ -4,7 +4,6 @@ import "./profile.css"
 const Dinner = () => {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
-  const [infoFood, setInfoFood] = useState(false);
   const [getBreakfast, setGetBreakfast] = useState([]);
   const token = localStorage.getItem("token");
  
@@ -35,7 +34,6 @@ const Dinner = () => {
               body: JSON.stringify("Hello from Lambda!"),
             })
             .then((res) => {
-              console.log(res);
               setResult(res.data.items);
             })
             .catch((err) => {
@@ -46,8 +44,6 @@ const Dinner = () => {
         <input
           id="input-breakfast"
           onChange={(e) => {
-            console.log(query);
-            console.log(result);
             setQuery(e.target.value);
           }}
         />

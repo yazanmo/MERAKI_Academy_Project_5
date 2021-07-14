@@ -9,7 +9,6 @@ const colors = {
 };
 
 const Starts = (props) => {
-           
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(undefined);
   const stars = Array(5).fill(0);

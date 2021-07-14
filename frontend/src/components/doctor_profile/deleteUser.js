@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { setData } from "../../reducers/doctorProfile";
 import { useHistory } from "react-router-dom";
 import "./doctor_profile.css";
 const DeleteUser = () => {

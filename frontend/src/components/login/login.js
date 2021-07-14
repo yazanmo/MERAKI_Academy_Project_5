@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { setToken } from "./../../reducers/login";
 import { Link, useHistory } from "react-router-dom";
 import "./login.css";
@@ -22,7 +22,6 @@ const Login = () => {
         localStorage.setItem("token", result.data.token);
         localStorage.setItem("role_id", result.data.role_id);
         localStorage.setItem("user_id", result.data.user_id);
-        console.log(result.data.user_id);
         dispatch(setToken(result.data.token));
         history.push("/");
       })
@@ -33,8 +32,6 @@ const Login = () => {
   };
 
   const ResponseGoogle = (response) => {
-    console.log("all info", response.profileObj);
-    console.log("name", response.profileObj.givenName)
     axios
       .post("http://localhost:5000/register", {
         firstName: response.profileObj.givenName,
@@ -52,8 +49,7 @@ const Login = () => {
        
       })
       .catch((err) => {
-        console.log("hiiiiiiiiiii mai");
-      console.log(" login err",err.message,err.status);
+        
         if (err.message==="Request failed with status code 400") {
           console.log("400 error",err.message);
           axios
@@ -62,19 +58,18 @@ const Login = () => {
             password: response.profileObj.googleId,
           })
           .then((result) => {
-            console.log("TOKEN",result.data.token);
+            
             localStorage.setItem("token",  result.data.token);
             localStorage.setItem("role_id", 1);
             localStorage.setItem("user_id", result.data.user_id);
-            console.log("user_id", result.data.user_id);
             dispatch(setToken(response.accessToken));
             history.push("/");
           })
           .catch((err) => {
-            console.log(" login errrrrrrrrrr",err);
+          
           });
         }
-   
+  
       });
   };
 

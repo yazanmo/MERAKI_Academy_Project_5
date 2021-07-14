@@ -11,8 +11,6 @@ const Patient = () => {
   const [glassesOfWater, setGlassesOfWater] = useState([]);
   const [date, onChange] = useState("");
   const today = Date.now();
-  console.log(typeof date);
-  console.log("dsaaaaaaaaaaaaaaaaaaaaaaaaaa", date);
   const { id } = useParams();
 
   const heading = [
@@ -99,7 +97,6 @@ const Patient = () => {
         defaultValue={today}
         onChange={(e) => {
           onChange(e.target.value);
-          console.log(e.target.value);
         }}
         min="2021-07-09"
       />
@@ -304,13 +301,6 @@ const Patient = () => {
             })}
         </tbody>
       </table>
-
-      {/* {getData(Lunch, "Lunch")}
-      {getData(dinner, "Dinner")}
-      {getData(snack, "Snack")}
-      {getData(activeTime, "Exercises")} */}
-      {/* {getData(glassesOfWater, "Glasses Of Water")}
-      {totalCal}  */}
     </div>
   );
 };

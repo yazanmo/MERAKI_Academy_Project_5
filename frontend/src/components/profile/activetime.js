@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import "./profile.css";
 import "./../mypatint/mypatint.css";
 
 const ActiveTime = ({ date }) => {
@@ -9,7 +8,6 @@ const ActiveTime = ({ date }) => {
   const [result2, setResult2] = useState([]);
   const [getBreakfast, setGetBreakfast] = useState([]);
   const [lunch, setLunch] = useState([]);
-  // const [date, onChange] = useState();
   const token = localStorage.getItem("token");
   const today = new Date();
   const heading = [
@@ -128,7 +126,7 @@ const ActiveTime = ({ date }) => {
                           )
                           .then((res) => {
                             setResult([]);
-                            console.log(res.data);
+                            
                           })
                           .catch((err) => {});
                         document.getElementById("input-breakfast").value = "";

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import "./profile.css";
 import "./../mypatint/mypatint.css";
 
 const Lunch = ({ date }) => {

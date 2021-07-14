@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route, Link, useParams, useHistory } from "react-router-dom";
+import {  useHistory } from "react-router-dom";
 import DeleteUser from "./../doctor_profile/deleteUser";
 import axios from "axios";
 function Profile() {

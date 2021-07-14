@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setData } from "../../reducers/doctorProfile";
 import { useHistory } from "react-router-dom";
 import DeleteUser from "./deleteUser";
@@ -22,9 +22,7 @@ const DoctorProfile = () => {
         },
       })
       .then((result) => {
-        console.log(result.data);
         setResult(result.data[0]);
-
         dispatch(setData(result.data[0]));
       })
       .catch((err) => {

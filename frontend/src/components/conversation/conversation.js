@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import { io } from "socket.io-client";
 
@@ -15,7 +14,6 @@ const Conversation = (props) => {
 
   const [room, setRoom] = useState("");
   const [message, setMessage] = useState("");
-  const [username, setUsername] = useState("");
   const [messageList, setMessageList] = useState([]);
 
   useEffect(() => {
@@ -43,7 +41,7 @@ const Conversation = (props) => {
       })
       .then((result) => {})
       .catch((err) => {
-        console.log(err);
+      
       });
   };
   useEffect(() => {
@@ -72,7 +70,6 @@ const Conversation = (props) => {
           <div>
             {messageList &&
               messageList.map((val, i) => {
-                console.log("val", val);
                 return <h1 key={i}>{val}</h1>;
               })}
           </div>{" "}

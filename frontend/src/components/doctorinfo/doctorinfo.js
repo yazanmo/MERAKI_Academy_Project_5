@@ -25,9 +25,6 @@ const Admin = () => {
         qualificationsFile,
       })
       .then((result) => {
-        console.log(result.data);
-        console.log("email:", email);
-        console.log("description:", description);
       })
       .catch((err) => {});
   };

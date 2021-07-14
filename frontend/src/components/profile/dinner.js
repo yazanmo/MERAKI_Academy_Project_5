@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import "./profile.css";
 import "./../mypatint/mypatint.css";
 
 const Dinner = ({ date }) => {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
-  const [result2, setResult2] = useState([]);
-  const [getBreakfast, setGetBreakfast] = useState([]);
   const [dinner, setDinner] = useState([]);
-  // const [date, onChange] = useState();
   const token = localStorage.getItem("token");
   const today = new Date();
   const heading = [

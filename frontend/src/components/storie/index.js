@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { createStories } from "../../reducers/story";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import "./storie.css";
 
@@ -13,7 +13,6 @@ export default function CreateStories() {
 
   const token = localStorage.getItem("token");
   const stories = JSON.parse(localStorage.getItem("stories"));
-  console.log(stories);
   const add = () => {
     axios
       .post(
@@ -30,7 +29,6 @@ export default function CreateStories() {
       .then((result) => {
         dispatch(createStories(description));
         setMessage("Thanks for your story");
-        // history.push("/profile");
       })
       .catch((err) => {});
   };

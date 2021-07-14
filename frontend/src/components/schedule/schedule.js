@@ -10,10 +10,9 @@ const Schedule = () => {
   const { id } = useParams();
   const [result, setResult] = useState([]);
   const [message, setMessage] = useState("");
-  const [btata, setBtata] = useState("");
   const [time, setTime] = useState("");
   const [date, setDate] = useState("");
-  const [sa, setSa] = useState(false);
+
 
   useEffect(() => {
     axios
@@ -40,7 +39,6 @@ const Schedule = () => {
         }
       )
       .then((result) => {
-        console.log(result.data);
         setMessage("Booking successfully");
       })
       .catch((err) => {
@@ -109,7 +107,7 @@ const Schedule = () => {
 </Card>
 <p className="book-done">{message}</p>
               
-             
+            
             </div>
           );
         })}
