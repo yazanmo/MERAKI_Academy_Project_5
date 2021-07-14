@@ -72,7 +72,8 @@ const MyDoctor = ({
                     setSender(element.user_id);
                     setReceiver(element.doctor_id);
                     setFirstName(element.firstName);
-                    setLastName(element.img);
+                    setLastName(element.lastName);
+                    setImg(element.img);
                     console.log(element.user_id);
                     console.log(element.doctor_id);
                     history.push("/conversation");

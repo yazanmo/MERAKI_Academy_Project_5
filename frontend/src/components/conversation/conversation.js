@@ -67,10 +67,13 @@ const Conversation = (props) => {
   connectToRoom();
   return (
     <div>
-      <div className="info-user">
-        <img src={img} />
-        <p>{firstName}</p>
-        <p>{lastName}</p>
+      <div className="user-i">
+        <div className="info-user">
+          <img src={img} />
+          <p>
+            {firstName} {lastName}
+          </p>
+        </div>
       </div>
       <div className="conversation">
         <div className="">
