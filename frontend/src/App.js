@@ -84,7 +84,12 @@ const App = () => {
             exact
             path="/mypatient"
             render={() => (
-              <MyPatient setSender={setSender} setReceiver={setReceiver} />
+              <MyPatient
+                setSender={setSender}
+                setReceiver={setReceiver}
+                setFirstName={setFirstName}
+                setFirstName={setLastName}
+              />
             )}
           />
           <Route
