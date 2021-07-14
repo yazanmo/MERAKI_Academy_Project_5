@@ -33,6 +33,7 @@ const App = () => {
   const [receiver, setReceiver] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [img, setImg] = useState("");
 
   return (
     <>
@@ -89,6 +90,7 @@ const App = () => {
                 setReceiver={setReceiver}
                 setFirstName={setFirstName}
                 setFirstName={setLastName}
+                setImg={setImg}
               />
             )}
           />
@@ -101,6 +103,7 @@ const App = () => {
                 setReceiver={setReceiver}
                 setFirstName={setFirstName}
                 setFirstName={setLastName}
+                setImg={setImg}
               />
             )}
           />
@@ -115,6 +118,7 @@ const App = () => {
                 receiver={receiver}
                 firstName={firstName}
                 lastName={lastName}
+                img={img}
               />
             )}
           />
