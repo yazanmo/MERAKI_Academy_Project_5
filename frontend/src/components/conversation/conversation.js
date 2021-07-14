@@ -66,7 +66,7 @@ const Conversation = (props) => {
   }, [messageList]);
   connectToRoom();
   return (
-    <div>
+    <div className="conversation-pa">
       <div className="user-i">
         <div className="info-user">
           <img src={img} />
@@ -104,7 +104,7 @@ const Conversation = (props) => {
             })}
         </div>
       </div>
-      <div>
+      <div className="input-message">
         <input
           style={{ margin: "auto" }}
           type="text"
@@ -113,6 +113,8 @@ const Conversation = (props) => {
             setMessage(e.target.value);
           }}
         />
+
+        {/* <img src="https://img.icons8.com/ios-glyphs/30/000000/filled-sent.png" /> */}
         <button onClick={sendMessage}>send</button>
       </div>
     </div>

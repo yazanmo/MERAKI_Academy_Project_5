@@ -71,7 +71,7 @@ const MyDoctor = ({
                   onClick={() => {
                     setSender(element.user_id);
                     setReceiver(element.doctor_id);
-                    setFirstName(element.firstName);
+                    setFirstName("Dr " + element.firstName);
                     setLastName(element.lastName);
                     setImg(element.img);
                     console.log(element.user_id);
