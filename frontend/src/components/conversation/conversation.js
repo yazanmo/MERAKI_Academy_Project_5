@@ -9,7 +9,7 @@ const CONNECTION_PORT = "http://localhost:5000";
 socket = io(CONNECTION_PORT);
 
 const Conversation = (props) => {
-  const { sender, receiver } = props;
+  const { sender, receiver, firstName, lastName, img } = props;
 
   const userId = localStorage.getItem("user_id");
   const [result, setResult] = useState([]);
@@ -67,6 +67,11 @@ const Conversation = (props) => {
   connectToRoom();
   return (
     <div>
+      <div className="info-user">
+        <img src={img} />
+        <p>{firstName}</p>
+        <p>{lastName}</p>
+      </div>
       <div className="conversation">
         <div className="">
           {result &&

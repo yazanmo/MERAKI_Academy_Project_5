@@ -89,7 +89,7 @@ const App = () => {
                 setSender={setSender}
                 setReceiver={setReceiver}
                 setFirstName={setFirstName}
-                setFirstName={setLastName}
+                setLastName={setLastName}
                 setImg={setImg}
               />
             )}
@@ -102,7 +102,7 @@ const App = () => {
                 setSender={setSender}
                 setReceiver={setReceiver}
                 setFirstName={setFirstName}
-                setFirstName={setLastName}
+                setLastName={setLastName}
                 setImg={setImg}
               />
             )}
