@@ -62,15 +62,17 @@ const Schedule = () => {
   </div>
   <div className="card-body">
   <Card.Body>
-    <Card.Title>{element.firstName} {element.lastName}</Card.Title>
+    <Card.Title> <h2>{element.firstName} {element.lastName}</h2></Card.Title>
     <Card.Text>
       <br></br>
               <p> {element.price}</p>
-              <br></br>
-              <p> {element.description}</p>
-              <br></br>
+              
               <div>
-              <br></br>
+              <p className="card-desc"> {element.description}</p>
+              </div>
+              
+              <div>
+              
               <br></br>
               <div class="quesadilla">
         <label className="datetext">Choose Date: </label>
@@ -97,7 +99,7 @@ const Schedule = () => {
         />
       </div>
     </Card.Text>
-    <br></br>
+    
         <br></br>
     <Button variant="outline-secondary" onClick={info}>Book</Button>
 

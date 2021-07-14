@@ -21,7 +21,14 @@
 
     font-size: 20px;
     position: absolute;
-    bottom: 180px;
+    bottom: 190px;
     left: 630px;
 
+}
+
+.card-desc{
+    color: gray;
+    word-break: break-all;
+    font-size: 20px;
+    height: 105px;
 }
