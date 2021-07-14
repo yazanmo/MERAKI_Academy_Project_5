@@ -9,6 +9,7 @@ const Schedule = () => {
   const token = localStorage.getItem("token");
   const { id } = useParams();
   const [result, setResult] = useState([]);
+  const [message, setMessage] = useState("");
   const [btata, setBtata] = useState("");
   const [time, setTime] = useState("");
   const [date, setDate] = useState("");
@@ -19,6 +20,7 @@ const Schedule = () => {
       .get(`http://localhost:5000/doctor/${id}`)
       .then((result) => {
         setResult(result.data);
+       
       })
       .catch((err) => {});
   }, []);
@@ -39,9 +41,11 @@ const Schedule = () => {
       )
       .then((result) => {
         console.log(result.data);
+        setMessage("Booking successfully");
       })
       .catch((err) => {
-        res.status(400).send(err);
+      
+        setMessage("you must choose date and time !!");
       });
   };
 
@@ -101,7 +105,7 @@ const Schedule = () => {
   </div>
   </div>
 </Card>
-             
+<p className="book-done">{message}</p>
               
              
             </div>

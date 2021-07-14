@@ -16,3 +16,12 @@
     height: 375px;
     width: 20px;
 }
+
+.book-done{
+
+    font-size: 20px;
+    position: absolute;
+    bottom: 180px;
+    left: 630px;
+
+}
