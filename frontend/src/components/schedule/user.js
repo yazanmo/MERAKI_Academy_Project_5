@@ -16,21 +16,47 @@ const UserSchedule = () => {
         },
       })
       .then((result) => {
-        console.log(result.data);
         setResult(result.data);
       })
       .catch((err) => {});
-  }, []);
+  }, [result]);
+
   return (
     <>
       {result &&
         result.map((elem, i) => {
           return (
             <div>
-                <img src={elem.img}/>
-              <p>{elem.firstName}{elem.lastName}</p>
+              <img src={elem.img} />
+              <p>
+                {elem.firstName}
+                {elem.lastName}
+              </p>
               <p>{elem.date}</p>
               <p>{elem.time}</p>
+              <img
+                style={{ height: "50px", width: "50px" }}
+                src="https://img.icons8.com/color/48/000000/delete-sign--v1.png"
+                onClick={() => {
+                  console.log(elem.schedule_id);
+                  axios
+                    .delete(
+                      `http://localhost:5000/delete-scheduleUser/${elem.schedule_id}`,
+
+                      {
+                        headers: {
+                          authorization: "Bearer " + token,
+                        },
+                      }
+                    )
+                    .then((result) => {
+                      console.log(result);
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                    });
+                }}
+              />
             </div>
           );
         })}
