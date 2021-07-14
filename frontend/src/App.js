@@ -26,7 +26,7 @@ import MyPatient from "./components/mypatint/mypatint";
 import MyDoctor from "./components/mydoctor/mydoctor";
 import Patient from "./components/mypatint/patient";
 import Conversation from "./components/conversation/conversation";
-
+import UserSchedule from "./components/schedule/user"
 const App = () => {
   const [homePageSection, setHomePageSection] = useState("");
   const [sender, setSender] = useState("");
@@ -87,6 +87,8 @@ const App = () => {
             path="/conversation"
             render={() => <Conversation sender={sender} receiver={receiver} />}
           />
+          <Route exact path="/userSchedule" render={() => <UserSchedule />} />
+
         </Switch>
       </div>
     </>

@@ -9,7 +9,7 @@ const scheduleRoute = express.Router();
 scheduleRoute.post("/schedule/:id", authentication, bookTime);
 scheduleRoute.get("/schedule", authentication, getBookTime);
 scheduleRoute.get("/userSchedule",authentication,getScheduleUser)
-scheduleRoute.delete("/delete-scheduleUser",authentication,deleteScheduleUser)
+scheduleRoute.delete("/delete-scheduleUser/:id",authentication,deleteScheduleUser)
 scheduleRoute.delete("/delete-scheduleDoctor",deleteScheduleDoctor)
 
 module.exports = scheduleRoute;
