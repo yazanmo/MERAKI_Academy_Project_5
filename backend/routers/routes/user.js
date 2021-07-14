@@ -24,7 +24,6 @@ userRouter.post("/patient/snack", getUserSnack);
 userRouter.post("/patient/dinner", getUserDinner);
 userRouter.post("/patient/glassesofwater", getUserGlassesOfWater);
 userRouter.post("/patient/activetime", getUserActiveTime);
-
 userRouter.put("/profile", auth, updateUserInformationById);
 userRouter.delete("/profile", auth, deleteUserById);
 

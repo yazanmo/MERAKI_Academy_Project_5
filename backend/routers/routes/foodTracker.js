@@ -64,11 +64,7 @@ foodTracker.delete("/breakfast/:id", authentication, deleteToBreakfast);
 foodTracker.delete("/snack/:id", authentication, deleteToSnack);
 foodTracker.delete("/lunch/:id", authentication, deleteToLunch);
 foodTracker.delete("/dinner/:id", authentication, deleteToDinner);
-foodTracker.delete(
-  "/glassesofwater/:id",
-  authentication,
-  deleteToGlassesOfWater
-);
+foodTracker.delete("/glassesofwater/:id",authentication,deleteToGlassesOfWater);
 foodTracker.delete("/activetime/:id", authentication, deleteToActiveTime);
 
 module.exports = foodTracker;

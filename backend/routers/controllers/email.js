@@ -15,7 +15,6 @@ const sendEmail = (req, res) => {
 
     send(receiverEmail);
   });
-  console.log("receiverEmailOUT", receiverEmail);
 
   const send = (receiverEmail) => {
     let transporter = nodemailer.createTransport({
@@ -32,10 +31,9 @@ const sendEmail = (req, res) => {
       subject: "Welcome to you in our family",
       text: `your password : ${password}
 
-             and your email : ${receiverEmail}`,
+            and your email : ${receiverEmail}`,
     };
 
-    console.log("mailOptions", mailOptions.to);
     transporter.sendMail(mailOptions, (err, data) => {
       if (err) {
         console.log("error in sending email", err);

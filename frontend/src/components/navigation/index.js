@@ -128,7 +128,7 @@ const Navigation = ({ setHomePageSection }) => {
             fontSize:"20px",
           }}
           >
-              Profile
+             z
             </Dropdown.Toggle>
             <Dropdown.Menu>
 

@@ -58,16 +58,6 @@ const allInfoOfDoctor = (req, res) => {
   const command = `INSERT INTO doctors  (firstName, lastName,age, email,description,
         Qualifications,practicalExperiences,qualificationsFile) VALUES (?,?,?,?,?,?,?,?)`;
 
-  console.log(
-    firstName,
-    lastName,
-    age,
-    email,
-    description,
-    Qualifications,
-    practicalExperiences,
-    qualificationsFile
-  );
   db.query(command, arr, (err, result) => {
     if (err) res.status(400).send(err);
     res.status(201).json(result);
@@ -93,14 +83,12 @@ const deleteDoctorAdmin = (req, res) => {
 
 const searchDoctor = (req, res) => {
   const DoctorName = req.body.DoctorName;
-  console.log(DoctorName);
   const query = `SELECT doctorsDetails.* ,users.firstName ,users.lastName  ,users.img 
   FROM doctorsDetails INNER JOIN  users ON users.id = doctorsDetails.user_id WHERE users.is_deleted =0 AND users.firstName LIKE ?`;
   const nameSearched = [`%${DoctorName}%`];
 
   db.query(query, nameSearched, (err, result) => {
     if (err) {
-      console.log(err);
       return res.send(err);
     }
     res.status(200).json(result);
@@ -115,13 +103,11 @@ const deleteDoctorUsers = (req, res) => {
   const command = `UPDATE users SET is_deleted = 1 WHERE id = ? `;
   db.query(command, arr, (err, result) => {
     if (err) {
-      console.log(err);
       return res.send(err);
     }
     const command = `UPDATE doctorsDetails SET is_deleted = 1 WHERE user_id = ? `;
     db.query(command, arr, (err, result) => {
       if (err) {
-        console.log(err);
         return res.send(err);
       }
       res.status(200).json(result);

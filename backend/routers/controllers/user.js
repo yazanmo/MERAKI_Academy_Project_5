@@ -33,7 +33,6 @@ const deleteUserById = (req, res) => {
   const query = `UPDATE users
      SET is_deleted=1
      WHERE id=${id}`;
-
   db.query(query, (err, result) => {
     if (err) res.status(400).send(err);
     res.status(200).json(result);
@@ -43,7 +42,6 @@ const deleteUserById = (req, res) => {
 const getUserBreakfast = (req, res) => {
   const user_id = req.params.id;
   const date = req.params.date;
-
   const query = `SELECT breakfast.* ,foodTraker.foodTraker_id
   FROM foodTraker
   INNER JOIN breakfast ON foodTraker.breakfast_id = breakfast.breakfast_id 
@@ -58,7 +56,6 @@ const getUserBreakfast = (req, res) => {
 const getUserSnack = (req, res) => {
   const user_id = req.body.id;
   const date = req.body.date;
-
   const query = `SELECT snack.* ,foodTraker.foodTraker_id
   FROM foodTraker
   INNER JOIN snack ON foodTraker.snack_id = snack.snack_id 
@@ -73,7 +70,6 @@ const getUserSnack = (req, res) => {
 const getUserLunch = (req, res) => {
   const user_id = req.body.id;
   const date = req.body.date;
-
   const query = `SELECT lunch.* ,foodTraker.foodTraker_id
   FROM foodTraker
   INNER JOIN lunch ON foodTraker.lunch_id = lunch.lunch_id 

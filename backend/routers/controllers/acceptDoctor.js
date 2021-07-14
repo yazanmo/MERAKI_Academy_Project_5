@@ -2,7 +2,6 @@ const db = require("../../db/db");
 const bcrypt = require("bcrypt");
 
 const acceptDoctor = async (req, res) => {
-  console.log("backkkkkk");
   const { password, doctor_id } = req.body;
   let userResult = [{ id: 7 }];
   const arr = [doctor_id];
@@ -11,7 +10,6 @@ const acceptDoctor = async (req, res) => {
 // select the doctor from doctor table
   const command = `SELECT * FROM doctors WHERE doctor_id = ?`;
   db.query(command, arr, (err, result) => {
-    console.log(result);
     const arr1 = [
       result[0].firstName,
       result[0].lastName,
