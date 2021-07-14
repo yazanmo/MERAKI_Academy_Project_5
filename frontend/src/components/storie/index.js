@@ -49,8 +49,9 @@ export default function CreateStories() {
           }}
         ></textarea>
         <button onClick={add}>ADD</button>
+        <p>{message}</p>
       </div>
-      <p>{message}</p>
+      
     </div>
   );
 }
