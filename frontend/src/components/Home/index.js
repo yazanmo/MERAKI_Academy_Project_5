@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+
 import axios from "axios";
 import { setStories } from "../../reducers/story";
 
@@ -13,6 +15,8 @@ export default function Home({ homePageSection, setHomePageSection }) {
   const [pageNum, setPageNum] = useState([]);
   const [specificPage, setSpecificPage] = useState(1);
   const [resultLength, setResultLength] = useState(0);
+
+  const history = useHistory();
 
   // smooth scroller
   useEffect(() => {
@@ -74,7 +78,13 @@ export default function Home({ homePageSection, setHomePageSection }) {
             immense vitality. It is our mission to help you feel better, live
             longer, and become the best possible you!
           </p>
-          <button>Get Started</button>
+          <button
+            onClick={() => {
+              history.push("/doctor");
+            }}
+          >
+            Get Started
+          </button>
         </div>
       </div>
       <div className="information">

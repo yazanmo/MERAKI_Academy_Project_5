@@ -436,6 +436,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: -150px auto;
+  width: 90%;
 }
 .info-1 {
   width: 450px;

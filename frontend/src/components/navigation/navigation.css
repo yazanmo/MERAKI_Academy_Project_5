@@ -14,7 +14,7 @@
   width: 100%;
   justify-content: space-between;
   list-style: none;
-  padding: 2% 1%;
+  padding: 1.5% 1%;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   font-family: "bello-pro-1", "bello-pro-2", sans-serif;
 }
@@ -27,11 +27,10 @@
 }
 
 .logo-img {
-  margin-top: -42px;
-  width: 220px;
-  height: 115px;
-  margin-left: -14px;
-  margin-left: 5px;
+  margin-top: -25px;
+  width: 210px;
+  height: 95px;
+  margin-left: 3%;
 }
 
 .logo span {
@@ -47,14 +46,15 @@
   display: flex;
   flex-direction: row;
   font-weight: bold;
-  gap: 20px;
+  gap: 15px;
   list-style-type: none;
   color: white;
   text-decoration: none;
+  margin-top: 2%;
 }
 
 .nav ul li a {
-  color: #494f53;
+  color: #52585c;
   text-decoration: none;
   font-weight: 550;
 }

@@ -54,11 +54,11 @@ const Navigation = ({ setHomePageSection }) => {
                     <Dropdown.Toggle
                       style={{
                         backgroundColor: "#fff",
-                        // borderColor: "rgb(89 96 108)",
-                        color: "#707a83",
-                        marginTop: "-8px",
-                        fontWeight: "700",
-                        fontSize: "20px",
+                        borderColor: "#fff",
+                        color: "#52585c",
+                        marginTop: "-6px",
+                        fontWeight: "550",
+                        fontSize: "1.2rem",
                       }}
                     >
                       Profile
