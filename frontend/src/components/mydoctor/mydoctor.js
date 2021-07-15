@@ -52,12 +52,13 @@ const MyDoctor = ({
               <Card.Img variant="top" src={element.img} />
               <Card.Body>
                 <Card.Title>
-                  {element.firstName} {element.lastName}
+              <h1> {element.firstName} {element.lastName}</h1> 
                 </Card.Title>
                 <Card.Text>
                   <p> {element.price}</p>
-                  <p> {element.description}</p>
+                  <p className="p-my-doc"> {element.description}</p>
                 </Card.Text>
+                <div className="btn-card">
                 <Button
                   variant="outline-secondary"
                   onClick={() => {
@@ -81,6 +82,7 @@ const MyDoctor = ({
                 >
                   Conversation
                 </Button>
+                </div>
               </Card.Body>
             </Card>
           </div>

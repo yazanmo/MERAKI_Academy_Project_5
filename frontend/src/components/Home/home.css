@@ -148,10 +148,11 @@ body{
 
 .storyCard {
   display: flex;
+  justify-content: center;
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-margin-left: 98px
+
 
 } 
 
@@ -393,7 +394,7 @@ margin: 3%;
   margin-right: 3px;
   margin-bottom: 5px;
  }
-  
+            
   
  @media (max-width: 880px) {
   
@@ -471,8 +472,10 @@ margin: 3%;
     background-color: rgb(204,211,219);
     text-align: center;
   }
-  .info-1 img,.info-2 img,.info-3 img{
+  .info-1 .icon-information,.info-2 .icon-information,.info-3 .icon-information{
     margin-top: 65px;
+    width:100px;
+    height: 100px;
   }
   .info-1 p,.info-2 p,.info-3 p{
    
@@ -504,9 +507,38 @@ margin: 3%;
     text-align: center;
   }
 
+
+
+  /* pagination */
+
+  .pagination{
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    
+  }
+
+  .liPagination{
+  
+  border: 1px solid white;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding-right: 0rem 0rem;
+  background-color: black;
+  color: white;
+  box-shadow: 0 0 15px rgb(0 0 0 / 5%);
+  height: 30PX ;
+  width: 30PX;
+  margin: 0.5% ;
+  text-align: center;
+  padding-left: 0rem; 
+  cursor: pointer;
+
+  }
+
   .OUR-DEPARTMENT{
 
-    background-color: #858e99;
+    background-color: rgb(204,211,219);
   }
 
   .OUR-DEPARTMENT-h2{
@@ -536,3 +568,4 @@ margin: 3%;
     margin-left: 25px;
     font-size: 20px;
   }
+

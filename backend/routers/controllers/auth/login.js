@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const login = (req, res) => {
+  console.log("google login",req.body);
   const { email, password } = req.body;
   const query = `SELECT * FROM users WHERE email = ? AND is_deleted =0`;
   const data = [email];

@@ -5,13 +5,13 @@
 
     display: flex;
     grid-gap: 10%;
-    grid-gap: 10%;
-    gap: 4%;
+    gap: 0%;
     margin-left: 4%;
     margin-right: 0%;
     margin-top: 30px;
     margin-bottom: 30px;
     flex-wrap: wrap;
+    height: 570px;
 
 
 }
@@ -32,4 +32,18 @@
 .containerdoc{
 
     padding: 2px 16px;
+}
+
+.btn-card{
+    margin-top: 130px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.p-my-doc{
+color: darkgrey;
+    word-break: break-all;
+    font-size: 30px;
+
 }

@@ -1,110 +1,116 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
 
-.doctor{
+.doctor {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap:10px;
-  margin:45px 0 0 0;
+  gap: 10px;
+  margin: 0px 0 0 0;
+  background-color: rgb(243, 243, 243);
 }
-.parent{
+.parent {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap:115px;
-  margin-bottom: 20px;
-
+  gap: 115px;
+  margin-bottom: 40px;
+  background-color: rgb(243, 243, 243);
+  width: 70%;
+  height: 450px;
+  border-radius: 0 0 5px 5px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
-.doctor-details{
+.doctor-details {
   display: flex;
   flex-direction: column;
-  margin-left:21px;
-  margin-top: -87px;
-  gap:15px;
+  margin-left: 500px;
+  margin-top: -15px;
+  gap: 25px;
+  color: black;
   
 }
-.doctor-details span{
+.doctor-details span {
   font-weight: bold;
-
+  font-size: 25px;
 }
-.doctor-details p{
+.doctor-details p {
   font-weight: 300px;
-
-
-  font-size: 16px;
-
+  font-size: 20px;
 }
-.rating{
+.doctor-details .doctor-description{
+  font-weight: 300px;
+  font-size: 20px;
+  width:450px;
+  height: 125px;
+  word-break: break-all;
+}
+.rating {
   display: flex;
-  
-  margin-left:0;
-  
-  
+
+  margin-left: 0;
 }
-.avgRating{
-
-  margin-left: -70px;
-
+.avgRating {
+  margin-left: -165px;
 }
 
-.comment{
-  
+.comment {
   margin-top: 80px;
   
 }
-.feedBack{
-  width:330px;
+.feedBack {
+  width: 330px;
   font-size: 32px;
-  margin:0 auto;
-  border-bottom:1.5px solid rgb(163, 160, 160);
+  margin: 0 auto;
+  border-bottom: 1.5px solid rgb(163, 160, 160);
 }
-.input-coment1{
-margin-left: 49px;
-margin-top:40px;
-height: 100px;
-width:800px;
-resize: none;
-border-radius: 5px;
+.input-coment1 {
+  margin-left: 49px;
+  margin-top: 40px;
+  height: 100px;
+  width: 800px;
+  resize: none;
+  border-radius: 5px;
 }
- .img1{
-border-radius: 5px;
+.img1{
+  border-radius: 0 5px 5px 0;
+  position: absolute;
+  top: 220px;
 }
 
-.btnCommant{
+.btnCommant {
   margin-top: 30px;
   border-radius: 5px;
-  background-color: #5383d3;
+  background-color: rgb(56, 56, 56);
   border: none;
   color: #fff;
-  text-align: center; 
+  text-align: center;
   width: 140px;
   padding: 8px;
   transition: all 0.5s;
   cursor: pointer;
   text-align: center;
-  font-size:22px;
+  font-size: 22px;
 }
 
-
 .doctor-details .btn-1 {
-   font-family: Hack, monospace;
-    background: #5383d3;
-    color: #fff;
-    cursor: pointer;
-    font-size: 25px;
-    padding:10px;
-    border: 0;
-    transition: all 0.5s;
-    border-radius: 10px;
-    width: auto;
-    height: 70px;
-    position: absolute;
+  font-family: Hack, monospace;
+  background: rgb(56, 56, 56);
+  color: #fff;
+  cursor: pointer;
+  font-size: 25px;
+  padding: 10px;
+  border: 0;
+  transition: all 0.5s;
+  border-radius: 10px;
+  width: auto;
+  height: 70px;
+  position: absolute;
 
-    left: 79.2%;
-    bottom: 242px; 
-    margin-left: -433px;
-    margin-top:50px;
+  left: 73%;
+  bottom: 50px;
 
+  margin-top: 200px;
 }
 
 .doctor-details .btn-1::after {
@@ -119,7 +125,7 @@ border-radius: 5px;
   opacity: 0;
 }
 .doctor-details .btn-1:hover {
-  background: #13139e;
+  background: rgb(56, 56, 56);
   transition: all 0.5s;
   border-radius: 10px;
   box-shadow: 0px 6px 15px #00f 61;
@@ -130,18 +136,18 @@ border-radius: 5px;
   transition: all 0.5s;
 }
 
- .btnCommant:after {
-  content: '»';
-  
-  opacity: 0;  
+.btnCommant:after {
+  content: "»";
+
+  opacity: 0;
   top: 7px;
   right: -20px;
   transition: 0.5s;
-} 
+}
 
-.btnCommant:hover{
+.btnCommant:hover {
   padding-right: 24px;
-  padding-left:8px;
+  padding-left: 8px;
 }
 
 .btnCommant:hover:after {
@@ -149,7 +155,7 @@ border-radius: 5px;
   right: 10px;
 }
 
-.parent-commint{
+.parent-commint {
   margin-top: 100px;
 
   margin-right: 410px;
@@ -157,58 +163,72 @@ border-radius: 5px;
   display: flex;
   flex-direction: column;
 }
-.Reviews{
-  width:330px;
+.Reviews {
+  width: 330px;
   font-size: 32px;
 
-  margin:0 auto;
-  border-bottom:1.5px solid rgb(163, 160, 160);
-
+  margin: 0 auto;
+  border-bottom: 1.5px solid rgb(163, 160, 160);
 }
-.userImg{
+.userImg {
   display: flex;
   flex-direction: row;
   padding: auto;
-  margin-left: 20px;
+  margin-left: -21%;
   margin-top: 25px;
-
-                     
- 
 }
- 
 
-.userImg .commenterimg{
+.userImg .commenterimg {
   height: 100px;
   width: 300px;
 }
-.commenterimg{
+.commenterimg {
   margin-left: 174px;
-
 }
-.commenter-details{
+.commenter-details {
   margin-left: 35px;
 }
-.cmt{
-  position:flex;
-  flex-direction:row;
- 
+.cmt {
+  position: flex;
+  flex-direction: row;
+  margin-left: 485px;
 }
 
-.commenter{
+.commenter {
   margin-top: 0px;
 }
-.commentRating{
-  margin-top:25px;
-  margin-right:115px;
-
-
-
+.commentRating {
+  margin-top: 25px;
+  margin-right: 57%;
 }
-.comments{
-  margin-top:40px;
-  padding-bottom:20px;
-  width:330px;
-  font-size: 32px;
-  border-bottom:1.5px solid rgb(163, 160, 160);
+.comments {
+  margin-top: 40px;
+  padding-bottom: 20px;
+  width:500px;
+  word-break: break-all;
+  font-size: 25px;
+  border-bottom: 1.5px solid rgb(163, 160, 160);
+  border: none;
 }
-
+.name-Q {
+  background-color: rgb(56, 56, 56);
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 70%;
+  margin-bottom: -10px;
+  color: white;
+  margin-top: 50px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 5px 5px 0 0;
+}
+.name-Q .doc-Q {
+  font-size: 25px;
+  margin-left: 500px;
+}
+.name-Q p {
+  font-size: 40px;
+  margin-left: 500px;
+  margin-top: 30px;
+}

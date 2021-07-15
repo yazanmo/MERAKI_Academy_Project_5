@@ -7,13 +7,14 @@
 }
 
 .navBar {
-  background-color: #33383b;
-  box-shadow: rgba(110, 110, 110, 0.24) 0px 3px 8px;
+  background-color: rgb(89 96 108);
   display: flex;
   flex-direction: row;
+  height: 125px;
   justify-content: space-between;
   list-style: none;
-  padding: 30px 20px;
+  padding: 45px 32px;
+  border: 2px solid rgb(93 103 119);
 }
 
 .logo {
@@ -22,11 +23,12 @@
   color: rgb(216, 215, 215);
   height: 50px;
 }
-.logo-img {
-  margin-top: -60px;
-  width: 250px;
-  height: 190px;
-  margin-left: -60px;
+
+.logo-img{
+  margin-top: -49px;
+  width: 125px;
+  height: 125px;
+  margin-left: -12px;
 }
 
 .logo span {
@@ -38,11 +40,11 @@
 }
 
 .nav ul {
-  font-size: 15px;
+  font-size: 20px;
   display: flex;
   flex-direction: row;
   font-weight: bold;
-  gap: 15px;
+  gap: 20px;
   list-style-type: none;
   color: white;
   text-decoration: none;
@@ -51,7 +53,6 @@
 .nav ul li a {
   color: white;
   text-decoration: none;
-  /* font-size: 1rem; */
 }
 
 .nav ul li a:hover {

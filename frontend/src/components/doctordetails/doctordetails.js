@@ -115,7 +115,7 @@ const DoctorDetails = () => {
           headers: {
             authorization: "Bearer " + token,
           },
-        }                
+        }
       )
       .then((res) => {
         setUpdateComment(false);
@@ -152,29 +152,34 @@ const DoctorDetails = () => {
         rel="stylesheet"
         type="text/css"
       ></link>
+      <div className="name-Q">
+      <p><span>Dr .</span> {result.firstName} {result.lastName}</p>
+        <p className="doc-Q">{result.Qualifications} </p>
+        
+      </div>
       <div className="parent">
         <div className="img1">
           <img
             src={result.img ? result.img : <></>}
             style={{
-              width: "300px",
-              height: "450px",
-              borderRadius: "20px",
-              borderRadius: "5px",
+              width: "400px",
+              height: "500px",
+              
+              borderRadius: "0 5px 5px 0",
             }}
           />
         </div>
 
         <div className="doctor-details">
-          <h2>
+          {/* <h2>
             {" "}
             <span>Dr .</span> {result.firstName} {result.lastName}
-          </h2>
+          </h2> */}
 
           <div className="avgRating">
             <Stars stars={avgRating} defaultValue={avgRating} />
           </div>
-          <p>{result.description}</p>
+          
 
           <p>
             <span>price:</span> {result.price} jd
@@ -188,6 +193,7 @@ const DoctorDetails = () => {
             <span>practicalExperiences: </span>
             {result.practicalExperiences}{" "}
           </p>
+          <p className="doctor-description">{result.description}</p>
           {token ? (
             <>
               {role_id == 2 ? (

@@ -1,100 +1,79 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect,useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setStories } from "../../reducers/story";
-import health from "./health.jpg";
-import health2 from "./health2.png";
-import win from "./win.png";
-import food from "./food.png";
-import checklist from "./checklist.png";
-import rules from "./rules.png";
-// import { scroller } from "react-scroll";
+
+import { scroller } from "react-scroll";
 import "./home.css";
-import happy from "./happy.jpg";
-import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import noAvatar from "./noAvatar.png";
+         
 
-import Slider from "react-slick";
 
 export default function Home({ homePageSection, setHomePageSection }) {
   const dispatch = useDispatch();
+  const [pageNum, setPageNum] = useState([])
+  const [specificPage, setSpecificPage] = useState(1)
+
+  
 
   // smooth scroller
   useEffect(() => {
     if (homePageSection !== "") {
       console.log(homePageSection);
-      // scroller.scrollTo(homePageSection, { smooth: true });
+      scroller.scrollTo(homePageSection, { smooth: true });
       setHomePageSection(" ");
     }
   }, [homePageSection]);
 
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://localhost:5000/stories?page=2&limit=1`)
+  //     .then((result) => {
+  //       dispatch(setStories(result.data));
+  //       localStorage.setItem("stories", JSON.stringify(result.data));
+  //     })
+  //     .catch((err) => {
+  //       dispatch(setStories("some thing bad"));
+  //     });
+  // }, []);
+
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/stories`)
+      .get(`http://localhost:5000/stories?page=${specificPage}&limit=1`)
       .then((result) => {
-        console.log(result.data);
+        console.log("==========",result.data);
         dispatch(setStories(result.data));
-        localStorage.setItem("stories", JSON.stringify(result.data));
+       localStorage.setItem("stories", JSON.stringify(result.data));
       })
       .catch((err) => {
-        dispatch(setStories("some thing bad"));
+     
       });
-  }, []);
+  }, [specificPage]);
 
   const state = useSelector((state) => {
     return {
       stories: state.storiesReducer.stories,
+
     };
   });
+  
+  const pageArray=[]
+  useEffect(() => {
+    for (let index = 0; index < state.stories.length; index++) {
+      pageArray.push(index+1)
+    }
+    setPageNum([...pageArray])
+  }, [])
+  
+  
 
-  //array for slider
-  const arr = [
-    "https://images.unsplash.com/photo-1604480131833-5d7aea770e1c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=890&q=80",
-    "https://images.unsplash.com/photo-1467453678174-768ec283a940?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=728&q=80",
-    "https://images.unsplash.com/photo-1607962837359-5e7e89f86776?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80",
-    "https://images.unsplash.com/photo-1486218119243-13883505764c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1504&q=80",
-    "https://images.unsplash.com/photo-1494597564530-871f2b93ac55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=701&q=80",
-  ];
+  
+  
 
   return (
     <div className="home">
-      {/* slider */}
-      {/* <div className="slide-container">
-        <Slide>
-          <div className="each-slide">
-            <div
-              className="imageSlider"
-              style={{ backgroundImage: `url(${arr[0]})` }}
-            ></div>
-          </div>
-          <div className="each-slide">
-            <div
-              className="imageSlider"
-              style={{ backgroundImage: `url(${arr[1]})` }}
-            ></div>
-          </div>
-          <div className="each-slide">
-            <div
-              className="imageSlider"
-              style={{ backgroundImage: `url(${arr[2]})` }}
-            ></div>
-          </div>
-          <div className="each-slide">
-            <div
-              className="imageSlider"
-              style={{ backgroundImage: `url(${arr[3]})` }}
-            ></div>
-          </div>
-          <div className="each-slide">
-            <div
-              className="imageSlider"
-              style={{ backgroundImage: `url(${arr[4]})` }}
-            ></div>
-          </div>
-        </Slide>
-      </div> */}
+      
       <div className="home-Img">
         <p className="home-p">
         <h1 className="h1p">At Health Care Website</h1>
@@ -104,106 +83,34 @@ export default function Home({ homePageSection, setHomePageSection }) {
       </div>
       <div className="information">
         <div className="info-1">
-          <img  src="https://img.icons8.com/ios/80/000000/examination.png" />
+          <img className="icon-information"  src="https://img.icons8.com/ios/80/000000/examination.png" />
           <h3>Subscribe with a private doctor</h3>
           <p>Exactly what you want, how you want it. Get a personalized low-carb or keto meal plan for your diet goals. Start losing weight and improving your health now!</p>
         </div>
         <div className="info-2">
-        <img src="https://img.icons8.com/ios-filled/80/000000/heart-health.png"/>
+        <img className="icon-information" src="https://img.icons8.com/ios-filled/80/000000/heart-health.png"/>
         <h3>health food</h3>
           <p>What we eat doesn’t just affect our physical health: it can also affect our mental health and wellbeing.</p>
         </div>
         <div className="info-3">
-        <img src="https://img.icons8.com/dotty/80/000000/health-calendar.png"/>
+        <img className="icon-information" src="https://img.icons8.com/dotty/80/000000/health-calendar.png"/>
 
         <h3>UROLOGY CARE</h3>
           <p>Constant monitoring of your health system</p>
         </div>
       </div>
-      <div className=""></div>
-      {/* about section */}
+      
+      
 
-      {/* <section className="About" title="About">
-        <img className="img" src={health} alt="healthy life" />
-        <div className="paragraph">
-          <span className="welcome">WELCOME TO HEALTHCARE</span>
-          <h3 className="h3Section">
-            Hello! Health Care is a natural way of improving your health
-          </h3>
-          <p className="pSection">
-            A small river named Duden flows by their place and supplies it with
-            the necessary regelialia. It is a paradisematic country, in which
-            roasted parts of sentences fly into your mouth. Even the
-            all-powerful Pointing has no control about the blind texts it is an
-            almost unorthographic life One day however a small line of blind
-            text by the name of Lorem Ipsum decided to leave for the far World
-            of Grammar.
-          </p>
-          <img
-            className="img2"
-            src={health2}
-            alt="healthy life"
-            width="250rem"
-            heigh="100rem"
-          />
-        </div>
-      </section> */}
-
-      {/* services section */}
-
-      {/* <section title="ourServices" id="services">
-        <div className="line">
-          <span className="welcome">OUR SERVICES</span>
-          <h3 className="h3">How it works?</h3>
-        </div>
-        <div className="allServices">
-          <div className="once">
-            <img src={rules} className="serviceImg" />
-            <h4>Follow the program</h4>
-            <p className="servicesParagraph">
-              Even the all-powerful Pointing has no control about the blind
-              texts it is an almost unorthographic.
-            </p>
-          </div>
-          <div className="once">
-            {" "}
-            <img src={checklist} className="serviceImg" />
-            <h4>Work for result</h4>
-            <p className="servicesParagraph">
-              Even the all-powerful Pointing has no control about the blind
-              texts it is an almost unorthographic.
-            </p>
-          </div>
-          <div className="once">
-            {" "}
-            <img src={food} className="serviceImg" />
-            <h4>Eat healthy food</h4>
-            <p className="servicesParagraph">
-              Even the all-powerful Pointing has no control about the blind
-              texts it is an almost unorthographic.
-            </p>
-          </div>
-          <div className="once">
-            {" "}
-            <img src={win} className="serviceImg" />
-            <h4>Enjoy your life</h4>
-            <p className="servicesParagraph">
-              Even the all-powerful Pointing has no control about the blind
-              texts it is an almost unorthographic.
-            </p>
-          </div>
-        </div>
-      </section> */}
-
-      {/* stories section */}
+      
 
 <div className="service-page">
     <h2>A MODERN, FULL-SERVICE Health CARE</h2>
 <p className="service-page-p">At Health Care Website, we believe health is not just the absence of disease, but a state of immense vitality. It is our mission to help you feel better, live longer, and become the best possible you!</p>
 
     </div>
-
-
+                         
+    
 
 
 
@@ -301,9 +208,10 @@ style={{fill:"#000000;"}}><g style={{ fill:"none", fillrule:"nonzero", stroke:"n
 
 </div>
 
+{/* stories section */}
 
+      <section className="stories" title="stories" id="stories">
 
-      {/* <section className="stories" title="stories" id="stories">
         <div className="hi">
           <span className="welcome">STORIES</span>
           <h3 className="h3">Successfull Stories</h3>
@@ -330,7 +238,28 @@ style={{fill:"#000000;"}}><g style={{ fill:"none", fillrule:"nonzero", stroke:"n
               );
             })}
         </div>
-      </section> */}
+
+        <div className="pageNumber"> 
+        <ul className="pagination" >
+        <li className="liPagination" onClick={(e)=>{setSpecificPage(1)}}>1</li>
+        <li className="liPagination" onClick={(e)=>{setSpecificPage(2)}}>2</li>
+        <li className="liPagination" onClick={(e)=>{setSpecificPage(3)}}>3</li>
+        <li className="liPagination" onClick={(e)=>{setSpecificPage(4)}}>4</li> </ul>
+         {/* {pageNum&&
+        pageNum.map((element,index)=>{
+          console.log("element",element);
+          console.log("specificPage",specificPage);
+         
+         <li key={index}  onClick={(e)=>{setSpecificPage(element)}} >{element}</li> 
+
+        })*/}
+        
+         </div>
+        </section> 
+       
+
+      
+
 
       {/* footer */}
       <link
@@ -399,6 +328,7 @@ style={{fill:"#000000;"}}><g style={{ fill:"none", fillrule:"nonzero", stroke:"n
           </div>
         </div>
       </footer>
-    </div>
+   
+</div>
   );
 }
