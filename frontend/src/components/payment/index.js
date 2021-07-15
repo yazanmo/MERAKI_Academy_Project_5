@@ -6,15 +6,7 @@ import axios from "axios";
 import "./payment.css";
 
 export default function Payment({ paymentId, paymentReceiver, name2 }) {
-  console.log("id in payment", paymentId);
-  console.log("doctorResult in payment", paymentReceiver);
-  console.log("name in payment", name2);
 
-  //   const [cvc, setCvc] = useState("");
-  //   const [expiry, setExpiry] = useState("");
-  //   const [focus, setFocus] = useState("");
-  //   const [name, setName] = useState("");
-  //   const [number, setNumber] = useState("");
 
   let token = localStorage.getItem("token");
 
@@ -24,6 +16,7 @@ export default function Payment({ paymentId, paymentReceiver, name2 }) {
   const [cvc, setCvc] = useState("");
   const [focused, setFocused] = useState("");
   const [pay, setPay] = useState(false);
+
 
   const payNow = () => {
     let date = Date()
@@ -44,6 +37,7 @@ export default function Payment({ paymentId, paymentReceiver, name2 }) {
         }
       )
       .then((result) => {
+
         console.log("payment doctor result", result.data);
       })
       .catch((err) => {

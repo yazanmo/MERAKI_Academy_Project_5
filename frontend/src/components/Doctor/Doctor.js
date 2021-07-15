@@ -62,7 +62,7 @@ const Doctor = () => {
     axios
       .put(`http://localhost:5000/admin/delete/${id}`)
       .then((result) => {
-        history.push("/adminPage");
+        history.push("/");
       })
       .catch((err) => {
         console.log(err);
