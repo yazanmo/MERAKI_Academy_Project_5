@@ -12,7 +12,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
   const dispatch = useDispatch();
   const [pageNum, setPageNum] = useState([]);
   const [specificPage, setSpecificPage] = useState(1);
-  const [resultLength, setResultLength] = useState(0)
+  const [resultLength, setResultLength] = useState(0);
 
   // smooth scroller
   useEffect(() => {
@@ -39,8 +39,8 @@ export default function Home({ homePageSection, setHomePageSection }) {
     axios
       .get(`http://localhost:5000/stories?page=${specificPage}&limit=2`)
       .then((result) => {
-        setResultLength(result.data.length) ;
-        console.log("resultLength ",resultLength );
+        setResultLength(result.data.length);
+        console.log("resultLength ", resultLength);
         console.log("==========", result.data);
         dispatch(setStories(result.data));
         localStorage.setItem("stories", JSON.stringify(result.data));
@@ -65,15 +65,17 @@ export default function Home({ homePageSection, setHomePageSection }) {
   return (
     <div className="home">
       <div className="home-Img">
-        <p className="home-p">
-          <h1 className="h1p">At Health Care Website</h1>
-          <p className="home-pp">
+        <div className="decs-home">
+          <h1>At Health Care Website</h1>
+
+          <p>
             {" "}
             we believe health is not just the absence of disease, but a state of
             immense vitality. It is our mission to help you feel better, live
             longer, and become the best possible you!
           </p>
-        </p>
+          <button>Get Started</button>
+        </div>
       </div>
       <div className="information">
         <div className="info-1">
@@ -334,7 +336,11 @@ export default function Home({ homePageSection, setHomePageSection }) {
                 </ul>
               );
             })}
-            {resultLength == 0?< div style={{fontSize:'15rem'}}>...</div>:<></>}
+          {resultLength == 0 ? (
+            <div style={{ fontSize: "15rem" }}>...</div>
+          ) : (
+            <></>
+          )}
         </div>
 
         <div className="pageNumber">
@@ -348,12 +354,12 @@ export default function Home({ homePageSection, setHomePageSection }) {
             {" "}
             previous{" "}
           </button>
-          
-          {resultLength == 1 || resultLength == 0  ? (
+
+          {resultLength == 1 || resultLength == 0 ? (
             <button
-            onClick={() => {
-              setSpecificPage(1);
-            }}
+              onClick={() => {
+                setSpecificPage(1);
+              }}
             >
               {" "}
               Return{" "}
@@ -362,15 +368,12 @@ export default function Home({ homePageSection, setHomePageSection }) {
             <button
               onClick={() => {
                 setSpecificPage(specificPage + 1);
-                
               }}
             >
               {" "}
               next{" "}
             </button>
           )}
-
-    
         </div>
       </section>
 

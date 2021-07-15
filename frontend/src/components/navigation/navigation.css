@@ -7,14 +7,16 @@
 }
 
 .navBar {
-  background-color: rgb(89 96 108);
+  background-color: #ffffff;
   display: flex;
   flex-direction: row;
-  height: 125px;
+  /* height: 1%; */
+  width: 100%;
   justify-content: space-between;
   list-style: none;
-  padding: 45px 32px;
-  border: 2px solid rgb(93 103 119);
+  padding: 2% 1%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  font-family: "bello-pro-1", "bello-pro-2", sans-serif;
 }
 
 .logo {
@@ -24,11 +26,12 @@
   height: 50px;
 }
 
-.logo-img{
-  margin-top: -49px;
-  width: 125px;
-  height: 125px;
-  margin-left: -12px;
+.logo-img {
+  margin-top: -42px;
+  width: 220px;
+  height: 115px;
+  margin-left: -14px;
+  margin-left: 5px;
 }
 
 .logo span {
@@ -40,7 +43,7 @@
 }
 
 .nav ul {
-  font-size: 20px;
+  font-size: 1.2rem;
   display: flex;
   flex-direction: row;
   font-weight: bold;
@@ -51,10 +54,11 @@
 }
 
 .nav ul li a {
-  color: white;
+  color: #494f53;
   text-decoration: none;
+  font-weight: 550;
 }
 
 .nav ul li a:hover {
-  color: royalblue;
+  color: #86cb6a;
 }
