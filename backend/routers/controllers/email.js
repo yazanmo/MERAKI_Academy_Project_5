@@ -30,8 +30,15 @@ const sendEmail = (req, res) => {
       from: "ATeamMeraki@gmail.com",
       to: `${receiverEmail}`,
       subject: "Welcome to you in our family",
-  
-      
+      text: `You have been chosen to be part of our family,
+      We hope you will do your best to help our customers
+
+     your email is : ${receiverEmail}
+     your password is: ${password}
+
+
+     Health care administration
+      `,
     };
 
     console.log("mailOptions", mailOptions.to);
