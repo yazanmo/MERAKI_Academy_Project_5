@@ -26,7 +26,11 @@ import MyPatient from "./components/mypatint/mypatint";
 import MyDoctor from "./components/mydoctor/mydoctor";
 import Patient from "./components/mypatint/patient";
 import Conversation from "./components/conversation/conversation";
-import Payment from "./components/payment";
+
+import Payment  from "./components/payment";
+import UserSchedule from "./components/schedule/user"
+
+
 
 const App = () => {
   const [homePageSection, setHomePageSection] = useState("");
@@ -146,6 +150,11 @@ const App = () => {
               />
             )}
           />
+
+          
+          <Route exact path="/userSchedule" render={() => <UserSchedule/>}  />
+        
+
         </Switch>
       </div>
     </>
