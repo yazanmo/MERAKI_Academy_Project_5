@@ -6,13 +6,14 @@ import Rating from "./Rating";
 import Stars from "./Stars";
 import { createTodo, setTodos } from "./../../reducers/review";
 import { FaStar } from "react-icons/fa";
+import Payment from "../payment";
 
 import "./doctordetails.css";
 const colors = {
   orange: "#FFBA5A",
   grey: "#a9a9a9",
 };
-const DoctorDetails = () => {
+const DoctorDetails = ({setPaymentId,setPaymentReceiver}) => {
   const { id } = useParams();
   const history = useHistory();
 
@@ -31,6 +32,7 @@ const DoctorDetails = () => {
   const role_id = localStorage.getItem("role_id");
 
   let doctorsService_id = parseInt(id);
+  setPaymentId(doctorsService_id)
   const dispatch = useDispatch();
 
   const state = useSelector((state) => {
@@ -54,6 +56,7 @@ const DoctorDetails = () => {
       .then((result) => {
         console.log(result.data[0]);
         setResult(result.data[0]);
+        setPaymentReceiver(result.data[0].user_id)
       })
       .catch((err) => {});
   }, []);
@@ -202,44 +205,14 @@ const DoctorDetails = () => {
                 <button
                   className="btn-1"
                   onClick={() => {
-                    axios
-                      .post(
-                        `http://localhost:5000/mypatient`,
-
-                        { id },
-                        {
-                          headers: {
-                            authorization: "Bearer " + token,
-                          },
-                        }
-                      )
-                      .then((result) => {
-                        setResult(result.data);
-                        console.log(result.data);
-                      })
-                      .catch((err) => {
-                        console.log(err);
-                      });
-                    axios
-                      .post(
-                        `http://localhost:5000/conversation`,
-
-                        { receiver_id: result.user_id },
-                        {
-                          headers: {
-                            authorization: "Bearer " + token,
-                          },
-                        }
-                      )
-                      .then((result) => {
-                        console.log(result.data);
-                      })
-                      .catch((err) => {
-                        console.log(err);
-                      });
+                  
+                    
+      
                   }}
                 >
-                  <span onClick={() => {}}>Subscribe</span>
+                  <span onClick={() => {
+               history.push("/payment")
+               }}>Subscribe</span>
                 </button>
               )}
             </>
