@@ -15,7 +15,8 @@ const bookTime = (req, res) => {
 const getBookTime = (req, res) => {
   const doctor_id = req.token.id;
 
-  const query = `SELECT doctorsDetails.id AS doctorServes,schedule.*,users.*  FROM schedule JOIN users ON schedule.user_id=users.id
+  const query = `SELECT doctorsDetails.id AS doctorServes,schedule.id AS schedule_id,schedule.doctor_id,schedule.user_id,schedule.time,schedule.date,
+  users.*  FROM schedule JOIN users ON schedule.user_id=users.id
 
   JOIN doctorsDetails ON schedule.doctor_id=doctorsDetails.id WHERE doctorsDetails.user_id= ?`;
 
@@ -48,17 +49,19 @@ const deleteScheduleUser = (req, res) => {
   const array = [users_id, schedule_id];
   db.query(query, array, (err, result) => {
     if (err) throw err;
-    res.status(400).json(result);
+    res.status(200).json(result);
   });
 };
 const deleteScheduleDoctor = (req, res) => {
   const doctorServer_id = req.body.doctorServes;
-  const schedule_id = req.body.id;
+  const schedule_id = req.body.schedule_id;
+  console.log(doctorServer_id, schedule_id);
   const query = `DELETE FROM schedule WHERE doctor_id=? AND id=? ; `;
   const array = [doctorServer_id, schedule_id];
   db.query(query, array, (err, result) => {
+    console.log(result);
     if (err) throw err;
-    res.status(400).json(result);
+    res.status(200).json(result);
   });
 };
 module.exports = {
