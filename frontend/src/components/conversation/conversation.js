@@ -16,17 +16,19 @@ const Conversation = (props) => {
 
   const [room, setRoom] = useState("");
   const [message, setMessage] = useState("");
-  const [username, setUsername] = useState("");
   const [messageList, setMessageList] = useState([]);
 
-  const scrollRef = useRef();
+  const [firstNameUse, setFirstName] = useState(firstName);
+  const [lastNameUse, setLastName] = useState(lastName);
+  const [imgUse, setImgUse] = useState(img);
+
+  const scrollRef = useRef(null);
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
       setMessageList([...messageList, data]);
     });
   });
-  console.log("message List", messageList);
   useEffect(() => {});
   const connectToRoom = () => {
     socket.emit("join_room", room);
@@ -61,17 +63,19 @@ const Conversation = (props) => {
         console.log(err);
       });
   }, [messageList]);
+
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messageList]);
+
   connectToRoom();
   return (
     <div className="conversation-pa">
       <div className="user-i">
         <div className="info-user">
-          <img src={img} />
+          <img src={imgUse} />
           <p>
-            {firstName} {lastName}
+            {firstNameUse} {lastNameUse}
           </p>
         </div>
       </div>
@@ -81,9 +85,9 @@ const Conversation = (props) => {
             result.map((val, i) => {
               if (val.id_sender == userId) {
                 return (
-                  <div className="width">
-                    <div className={"message-right"} key={i}>
-                      <p className="message-r" ref={scrollRef} key={i}>
+                  <div className="width" key={i}>
+                    <div className={"message-right"}>
+                      <p className="message-r" ref={scrollRef}>
                         {val.message}
                       </p>
                     </div>
@@ -91,9 +95,9 @@ const Conversation = (props) => {
                 );
               } else {
                 return (
-                  <div className="width">
-                    <div className={"message-left"} key={i}>
-                      <p className="message-l" ref={scrollRef} key={i}>
+                  <div className="width" key={i}>
+                    <div className={"message-left"}>
+                      <p className="message-l" ref={scrollRef}>
                         {val.message}
                       </p>
                     </div>
