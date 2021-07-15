@@ -12,6 +12,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
   const dispatch = useDispatch();
   const [pageNum, setPageNum] = useState([]);
   const [specificPage, setSpecificPage] = useState(1);
+  const [resultLength, setResultLength] = useState(0)
 
   // smooth scroller
   useEffect(() => {
@@ -34,12 +35,12 @@ export default function Home({ homePageSection, setHomePageSection }) {
   //     });
   // }, []);
 
-  let resultLength = 0;
   useEffect(() => {
     axios
       .get(`http://localhost:5000/stories?page=${specificPage}&limit=2`)
       .then((result) => {
-        resultLength = result.length;
+        setResultLength(result.data.length) ;
+        console.log("resultLength ",resultLength );
         console.log("==========", result.data);
         dispatch(setStories(result.data));
         localStorage.setItem("stories", JSON.stringify(result.data));
@@ -346,17 +347,21 @@ export default function Home({ homePageSection, setHomePageSection }) {
             {" "}
             previous{" "}
           </button>
-          {resultLength == 1 ? (
+          
+          {resultLength == 1 || resultLength == 0  ? (
             <button
-              onClick={"style.display = 'none'"}
+            onClick={() => {
+              setSpecificPage(1);
+            }}
             >
               {" "}
-              next{" "}
+              end{" "}
             </button>
           ) : (
             <button
               onClick={() => {
                 setSpecificPage(specificPage + 1);
+                
               }}
             >
               {" "}
@@ -364,11 +369,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
             </button>
           )}
 
-          {/* <ul className="pagination" >
-        <li className="liPagination" onClick={(e)=>{setSpecificPage(1)}}>1</li>
-        <li className="liPagination" onClick={(e)=>{setSpecificPage(2)}}>2</li>
-        <li className="liPagination" onClick={(e)=>{setSpecificPage(3)}}>3</li>
-        <li className="liPagination" onClick={(e)=>{setSpecificPage(4)}}>4</li> </ul> */}
+    
         </div>
       </section>
 
