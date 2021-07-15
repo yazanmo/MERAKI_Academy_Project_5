@@ -164,8 +164,8 @@ const DoctorDetails = () => {
             style={{
               width: "400px",
               height: "500px",
-              borderRadius: "20px",
-              borderRadius: "5px",
+              
+              borderRadius: "0 5px 5px 0",
             }}
           />
         </div>

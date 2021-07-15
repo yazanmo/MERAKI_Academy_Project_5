@@ -8,7 +8,6 @@
 
 .navBar {
   background-color: rgb(89 96 108);
-  box-shadow: rgb(38 57 77) 0px 20px 30px -10px;
   display: flex;
   flex-direction: row;
   height: 125px;
@@ -24,6 +23,7 @@
   color: rgb(216, 215, 215);
   height: 50px;
 }
+
 .logo-img{
   margin-top: -49px;
   width: 125px;

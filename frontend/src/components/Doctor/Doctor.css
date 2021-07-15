@@ -7,7 +7,7 @@
   margin-bottom: 30px;
   flex-wrap: wrap;
   flex-direction: row;
-}
+}       
 
 .card1 {
   margin-bottom: 40px;
@@ -30,7 +30,7 @@
   top: 0;
   left: 0;
   transition: all 0.3s ease 0s;
-  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
 }
 .card1 img:hover{
   height: 62%;
