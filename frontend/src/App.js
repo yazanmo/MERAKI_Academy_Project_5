@@ -31,6 +31,9 @@ const App = () => {
   const [homePageSection, setHomePageSection] = useState("");
   const [sender, setSender] = useState("");
   const [receiver, setReceiver] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [img, setImg] = useState("");
 
   return (
     <>
@@ -56,13 +59,25 @@ const App = () => {
           <Route exact path="/doctorProfile" render={() => <DoctorProfile />} />
           <Route exact path="/addyourstory" render={() => <AddStory />} />
           <Route exact path="/schedule/:id" render={() => <Schedule />} />
-          <Route exact path="/editProfile" render={() => <UpdateDoctorProfile />}/>
+          <Route
+            exact
+            path="/editProfile"
+            render={() => <UpdateDoctorProfile />}
+          />
           <Route exact path="/foodtracker" render={() => <FoodTracker />} />
-          <Route exact path="/create/stories" render={() => <CreateStories />}/>
+          <Route
+            exact
+            path="/create/stories"
+            render={() => <CreateStories />}
+          />
           <Route exact path="/adminPage" render={() => <AdminPage />} />
           <Route exact path="/accept" render={() => <Accept />} />
           <Route exact path="/doctorInfo" render={() => <Info />} />
-          <Route exact path="/accept/doctor/:doctor_id" render={() => <AcceptDoctor />}/>
+          <Route
+            exact
+            path="/accept/doctor/:doctor_id"
+            render={() => <AcceptDoctor />}
+          />
           <Route exact path="/date" render={() => <Date />} />
           <Route exact path="/about" render={() => <About />} />
           <Route exact path="/edit/profile" render={() => <UpdateUserInfo />} />
@@ -70,14 +85,26 @@ const App = () => {
             exact
             path="/mypatient"
             render={() => (
-              <MyPatient setSender={setSender} setReceiver={setReceiver} />
+              <MyPatient
+                setSender={setSender}
+                setReceiver={setReceiver}
+                setFirstName={setFirstName}
+                setLastName={setLastName}
+                setImg={setImg}
+              />
             )}
           />
           <Route
             exact
             path="/mydoctor"
             render={() => (
-              <MyDoctor setSender={setSender} setReceiver={setReceiver} />
+              <MyDoctor
+                setSender={setSender}
+                setReceiver={setReceiver}
+                setFirstName={setFirstName}
+                setLastName={setLastName}
+                setImg={setImg}
+              />
             )}
           />
           <Route exact path="/patient/:id" render={() => <Patient />} />
@@ -85,7 +112,15 @@ const App = () => {
           <Route
             exact
             path="/conversation"
-            render={() => <Conversation sender={sender} receiver={receiver} />}
+            render={() => (
+              <Conversation
+                sender={sender}
+                receiver={receiver}
+                firstName={firstName}
+                lastName={lastName}
+                img={img}
+              />
+            )}
           />
           <Route exact path="/userSchedule" render={() => <UserSchedule />} />
 

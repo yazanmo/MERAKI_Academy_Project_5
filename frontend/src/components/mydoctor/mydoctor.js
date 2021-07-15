@@ -5,7 +5,13 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Conversation from "./../conversation/conversation";
 import "./mydoctor.css";
-const MyDoctor = ({ setSender, setReceiver }) => {
+const MyDoctor = ({
+  setSender,
+  setReceiver,
+  setFirstName,
+  setLastName,
+  setImg,
+}) => {
   let token = localStorage.getItem("token");
 
   const [result, setResult] = useState([]);
@@ -66,6 +72,9 @@ const MyDoctor = ({ setSender, setReceiver }) => {
                   onClick={() => {
                     setSender(element.user_id);
                     setReceiver(element.doctor_id);
+                    setFirstName("Dr " + element.firstName);
+                    setLastName(element.lastName);
+                    setImg(element.img);
                     console.log(element.user_id);
                     console.log(element.doctor_id);
                     history.push("/conversation");
