@@ -214,7 +214,7 @@ CREATE TABLE purchased(
  id INT AUTO_INCREMENT NOT NULL,
  doctorsService_id INT,
  time Varchar(255),
- date DATE ,
+ date   Varchar(255) ,
  user_id INT,
  is_deleted TINYINT DEFAULT 0,
  FOREIGN KEY ( doctorsService_id ) REFERENCES doctorsDetails(id),
