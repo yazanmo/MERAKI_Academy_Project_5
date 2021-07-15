@@ -75,31 +75,40 @@ body{
   
 }
 .h1p{
-  color: #683030;
-  margin-left: 81px;
-  margin-top: 41px;
-  position: absolute;
-  top: 190px;
+    color: #002952;
+    margin-left: 81px;
+    margin-top: 140px;
+    position: absolute;
+    top: 190px;
 }
 
 .img-service2{
 
-  height: 700px;
-    width: 700px;
+    height: 700px;
+    width:900px;
     margin-top: -85px;
 }
 
 .symbol-service{
-  height: 100px;
+  height: 110px;
   width: 100px;
 }
 
-.symbol-service2,.symbol-service3{
-  height: 150px;
-  width: 150px;
+.symbol-service2{
+  height: 131px;
+  width: 265px;
 }
+
+.symbol-service3{
+
+  height: 112px;
+    width: 180px;
+}
+
+
+
 .asdasdfafsdfsadf{
-  display: grid;
+    display: grid;
     grid-column: 50%;
     gap: 20px;
 }
@@ -108,8 +117,10 @@ body{
   display: flex;
   flex-direction: column;
   grid-gap: 100px;
+  grid-gap: 30px;
   gap: 30px;
   margin-left: 90px;
+  justify-content: space-around;
 }
 
 .card-service-partenr{
@@ -422,24 +433,7 @@ margin: 3%;
   
  }
 
- /* slider  */
-
- /* .slide-container{
-  height: 500px;
-  width: 100%;
-  margin-bottom: 3%;
-   
-  }
-  .each-slide{
-    height: 550px;
-    width: 100%;  
-  }
-  .imageSlider{
-      height: 100%;
-      width:100%; 
-     background-position: center;
-     background-size: cover;
-  } */
+ 
   .home-Img{
     background-image: url("https://hausarztpraxis-winkler.de/templates/yootheme/cache/header_1-c4f90bf4.jpeg");
   background-position: inherit;
@@ -449,13 +443,13 @@ margin: 3%;
     width: 100%;
   }
   .home-pp{
-    font-size: 26px;
+    font-size: 30px;
     color: rgb(85, 85, 85);
     position: absolute;
-    margin-top: 200px;
+    margin-top: 300px;
     margin-left: 81px;
     width: 700px;
-    height: 400px;
+    height: 307px;
     
   }
   .information{
@@ -469,7 +463,7 @@ margin: 3%;
   .info-1{
     width: 450px;
     height: 450px;
-    background-color: rgb(204,211,219);
+    background-color: #858e99;
     text-align: center;
   }
   .info-1 .icon-information,.info-2 .icon-information,.info-3 .icon-information{
@@ -484,6 +478,15 @@ margin: 3%;
     margin:50px auto;
     
   }
+
+  .icon-information1{
+
+    margin-top: 65px;
+    width:100px;
+    height: 100px;
+    margin-left: 170px;
+  }
+
   .info-1 h3,.info-2 h3,.info-3 h3{
     margin-top: 25px;
     word-break: break-all;
@@ -492,7 +495,7 @@ margin: 3%;
   .info-2{
     width: 450px;
     height: 450px;
-    background-color: #858e99;
+    background-color: rgb(85,93,102);
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -501,7 +504,7 @@ margin: 3%;
   .info-3{
     width: 450px;
     height: 450px;
-    background-color: rgb(85,93,102);
+    background-color: rgb(60 67 76);
     justify-content: center;
     align-items: center;
     text-align: center;

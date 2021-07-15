@@ -6,7 +6,29 @@
 
 .schedule-card{
 
-    margin-top: 30px;
+    margin-top: 90px;
     margin-bottom: 30px;
-    margin-left: 30px;
+    margin-left: 28%;
+}
+
+.card-img-schedule{
+
+    height: 375px;
+    width: 20px;
+}
+
+.book-done{
+
+    font-size: 20px;
+    position: absolute;
+    bottom: 190px;
+    left: 630px;
+
+}
+
+.card-desc{
+    color: gray;
+    word-break: break-all;
+    font-size: 20px;
+    height: 105px;
 }
