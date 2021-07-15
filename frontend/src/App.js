@@ -26,14 +26,14 @@ import MyPatient from "./components/mypatint/mypatint";
 import MyDoctor from "./components/mydoctor/mydoctor";
 import Patient from "./components/mypatint/patient";
 import Conversation from "./components/conversation/conversation";
-import UserSchedule from "./components/schedule/user"
+import Payment  from "./components/payment";
+
 const App = () => {
   const [homePageSection, setHomePageSection] = useState("");
   const [sender, setSender] = useState("");
   const [receiver, setReceiver] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [img, setImg] = useState("");
+  const [paymentId, setPaymentId] = useState('')
+  const [paymentReceiver, setPaymentReceiver] = useState('')
 
   return (
     <>
@@ -52,32 +52,20 @@ const App = () => {
           />
           <Route exact path="/login" render={() => <Login />} />
           <Route exact path="/profile" render={() => <Profile />} />
-          <Route exact path="/doctor/:id" render={() => <DoctorDetails />} />
+          <Route exact path="/doctor/:id" render={() => <DoctorDetails setPaymentId={setPaymentId} setPaymentReceiver={setPaymentReceiver}/>} />
           <Route exact path="/admin" render={() => <Accept />} />
           <Route exact path="/doctor" render={() => <Doctor />} />
           <Route exact path="/register" render={() => <SignUp />} />
           <Route exact path="/doctorProfile" render={() => <DoctorProfile />} />
           <Route exact path="/addyourstory" render={() => <AddStory />} />
           <Route exact path="/schedule/:id" render={() => <Schedule />} />
-          <Route
-            exact
-            path="/editProfile"
-            render={() => <UpdateDoctorProfile />}
-          />
+          <Route exact path="/editProfile" render={() => <UpdateDoctorProfile />}/>
           <Route exact path="/foodtracker" render={() => <FoodTracker />} />
-          <Route
-            exact
-            path="/create/stories"
-            render={() => <CreateStories />}
-          />
+          <Route exact path="/create/stories" render={() => <CreateStories />}/>
           <Route exact path="/adminPage" render={() => <AdminPage />} />
           <Route exact path="/accept" render={() => <Accept />} />
           <Route exact path="/doctorInfo" render={() => <Info />} />
-          <Route
-            exact
-            path="/accept/doctor/:doctor_id"
-            render={() => <AcceptDoctor />}
-          />
+          <Route exact path="/accept/doctor/:doctor_id" render={() => <AcceptDoctor />}/>
           <Route exact path="/date" render={() => <Date />} />
           <Route exact path="/about" render={() => <About />} />
           <Route exact path="/edit/profile" render={() => <UpdateUserInfo />} />
@@ -85,26 +73,14 @@ const App = () => {
             exact
             path="/mypatient"
             render={() => (
-              <MyPatient
-                setSender={setSender}
-                setReceiver={setReceiver}
-                setFirstName={setFirstName}
-                setLastName={setLastName}
-                setImg={setImg}
-              />
+              <MyPatient setSender={setSender} setReceiver={setReceiver} />
             )}
           />
           <Route
             exact
             path="/mydoctor"
             render={() => (
-              <MyDoctor
-                setSender={setSender}
-                setReceiver={setReceiver}
-                setFirstName={setFirstName}
-                setLastName={setLastName}
-                setImg={setImg}
-              />
+              <MyDoctor setSender={setSender} setReceiver={setReceiver} />
             )}
           />
           <Route exact path="/patient/:id" render={() => <Patient />} />
@@ -112,18 +88,9 @@ const App = () => {
           <Route
             exact
             path="/conversation"
-            render={() => (
-              <Conversation
-                sender={sender}
-                receiver={receiver}
-                firstName={firstName}
-                lastName={lastName}
-                img={img}
-              />
-            )}
+            render={() => <Conversation sender={sender} receiver={receiver} />}
           />
-          <Route exact path="/userSchedule" render={() => <UserSchedule />} />
-
+          <Route exact path ="/payment" render={()=>  <Payment   paymentId={paymentId}  paymentReceiver={paymentReceiver} name2={"ghaidaa"}/>}/>
         </Switch>
       </div>
     </>
