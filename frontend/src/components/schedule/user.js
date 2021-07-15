@@ -22,20 +22,21 @@ const UserSchedule = () => {
   }, [result]);
 
   return (
-    <>
+    <><div className="allBooking">
       {result &&
         result.map((elem, i) => {
           return (
-            <div>
+            <div className="doctorInfo">
               <img src={elem.img} />
-              <p>
-                {elem.firstName}
-                {elem.lastName}
+              <p className="doctorName">
+                {elem.firstName}<span>{elem.lastName}</span>
               </p>
-              <p>{elem.date}</p>
-              <p>{elem.time}</p>
+              <p className="time-date"><span>time :</span>{elem.time}</p>
+              <p className="time-date"><span>date :</span>{elem.date}</p>
+              <button>
+               
               <img
-                style={{ height: "50px", width: "50px" }}
+                style={{ height: "30px", width: "30px" }}
                 src="https://img.icons8.com/color/48/000000/delete-sign--v1.png"
                 onClick={() => {
                   console.log(elem.schedule_id);
@@ -57,9 +58,11 @@ const UserSchedule = () => {
                     });
                 }}
               />
+              </button>
             </div>
           );
         })}
+        </div>
     </>
   );
 };
