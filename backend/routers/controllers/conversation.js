@@ -33,7 +33,7 @@ const getConversation = (req, res) => {
   const user_id = req.body.sender;
   const receiverId = req.body.receiver;
 
-  const query = `SELECT messages.sender_id AS id_sender ,messages.message , conversation.* FROM conversation INNER JOIN messages ON conversation.id= messages.conversation_id  
+  const query = `SELECT * FROM conversation INNER JOIN messages ON conversation.id= messages.conversation_id  
   WHERE conversation.sender_id =? AND conversation.reciver_id=? `;
   const data = [user_id, receiverId];
   db.query(query, data, (err, result) => {
