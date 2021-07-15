@@ -131,7 +131,7 @@ export default function Payment({ paymentId, paymentReceiver, name2 }) {
         </div>
         <div className="button">
           {!pay ? (
-            <button onClick={payNow}>Confirm Payment</button>
+            <button onClick={payNow}  className="payButton" >Confirm Payment</button>
           ) : (
             <div>Payment done</div>
           )}
