@@ -334,7 +334,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
                 </ul>
               );
             })}
-            {resultLength == 1 || resultLength == 0?< div style={{fontSize:'15rem'}}>...</div>:<></>}
+            {resultLength == 0?< div style={{fontSize:'15rem'}}>...</div>:<></>}
         </div>
 
         <div className="pageNumber">
