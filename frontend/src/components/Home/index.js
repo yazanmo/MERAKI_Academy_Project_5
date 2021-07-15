@@ -87,6 +87,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
           </button>
         </div>
       </div>
+      <div className="card-home"></div>
       <div className="information">
         <div className="info-1">
           <div className="icon-information1">
@@ -122,13 +123,13 @@ export default function Home({ homePageSection, setHomePageSection }) {
                 </g>
               </g>
             </svg>
+            <h3>Subscribe with a private doctor</h3>
+            <p>
+              Exactly what you want, how you want it. Get a personalized
+              low-carb or keto meal plan for your diet goals. Start losing
+              weight and improving your health now!
+            </p>
           </div>
-          <h3>Subscribe with a private doctor</h3>
-          <p>
-            Exactly what you want, how you want it. Get a personalized low-carb
-            or keto meal plan for your diet goals. Start losing weight and
-            improving your health now!
-          </p>
         </div>
         <div className="info-2">
           <div className="icon-information1">
@@ -164,12 +165,12 @@ export default function Home({ homePageSection, setHomePageSection }) {
                 </g>
               </g>
             </svg>
+            <h3>health food</h3>
+            <p>
+              What we eat doesn’t just affect our physical health: it can also
+              affect our mental health and wellbeing.
+            </p>
           </div>
-          <h3>health food</h3>
-          <p>
-            What we eat doesn’t just affect our physical health: it can also
-            affect our mental health and wellbeing.
-          </p>
         </div>
         <div className="info-3">
           <div className="icon-information1">
@@ -205,9 +206,9 @@ export default function Home({ homePageSection, setHomePageSection }) {
                 </g>
               </g>
             </svg>
+            <h3>UROLOGY CARE</h3>
+            <p>Constant monitoring of your health system</p>
           </div>
-          <h3>UROLOGY CARE</h3>
-          <p>Constant monitoring of your health system</p>
         </div>
       </div>
 
