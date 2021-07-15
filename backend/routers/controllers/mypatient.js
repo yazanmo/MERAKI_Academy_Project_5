@@ -2,14 +2,15 @@ const db = require("./../../db/db");
 
 const buyService = (req, res) => {
   const user_id = req.token.id;
-  const id = req.body.id;
+  const {id,date} = req.body;
 
-  const query = `INSERT INTO purchased (doctorsService_id,user_id) VALUES (?,?)`;
-  const data = [id, user_id];
+  const query = `INSERT INTO purchased (doctorsService_id,user_id,date) VALUES (?,?,?)`;
+  const data = [id, user_id,date];
 
   db.query(query, data, (err, result) => {
     if (err) res.status(400).send("insert is not done");
-    res.status(200).send("insert is done");
+    console.log("ERROR IN PATIENT",err);
+    // res.status(200).send("insert is done");
   });
 };
 

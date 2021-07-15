@@ -30,9 +30,8 @@ const sendEmail = (req, res) => {
       from: "ATeamMeraki@gmail.com",
       to: `${receiverEmail}`,
       subject: "Welcome to you in our family",
-      text: `your password : ${password}
-
-             and your email : ${receiverEmail}`,
+  
+      
     };
 
     console.log("mailOptions", mailOptions.to);
