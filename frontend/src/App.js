@@ -93,7 +93,7 @@ const App = () => {
             render={() => <Conversation sender={sender} receiver={receiver} />}
           />
           <Route exact path ="/payment" render={()=>  <Payment   paymentId={paymentId}  paymentReceiver={paymentReceiver} name2={"ghaidaa"}/>}/>
-          <Route exact path="/userSchedule" render={() => <UserSchedule/>} />
+          <Route exact path="/userSchedule" render={() => <UserSchedule/>}  />
         
         </Switch>
       </div>
