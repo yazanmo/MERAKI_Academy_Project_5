@@ -10,7 +10,7 @@ scheduleRoute.post("/schedule/:id", authentication, bookTime);
 scheduleRoute.get("/schedule", authentication, getBookTime);
 scheduleRoute.get("/userSchedule",authentication,getScheduleUser)
 scheduleRoute.delete("/delete-scheduleUser/:id",authentication,deleteScheduleUser)
-scheduleRoute.delete("/delete-scheduleDoctor",deleteScheduleDoctor)
+scheduleRoute.put("/delete-scheduleDoctor/:doctorServes/:id",deleteScheduleDoctor)
 
 module.exports = scheduleRoute;
 

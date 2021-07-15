@@ -48,17 +48,18 @@ const deleteScheduleUser = (req, res) => {
   const array = [users_id, schedule_id];
   db.query(query, array, (err, result) => {
     if (err) throw err;
-    res.status(400).json(result);
+    res.status(200).json(result);
   });
-};
+};            
 const deleteScheduleDoctor = (req, res) => {
-  const doctorServer_id = req.body.doctorServes;
-  const schedule_id = req.body.id;
+  const doctorServer_id = req.params.doctor_id;
+  const schedule_id = req.params.id;
+  console.log(doctorServer_id ,schedule_id);
   const query = `DELETE FROM schedule WHERE doctor_id=? AND id=? ; `;
   const array = [doctorServer_id, schedule_id];
   db.query(query, array, (err, result) => {
     if (err) throw err;
-    res.status(400).json(result);
+    res.status(200).json(result);
   });
 };
 module.exports = {
