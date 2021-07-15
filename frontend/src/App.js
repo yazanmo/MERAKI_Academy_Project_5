@@ -34,6 +34,7 @@ const App = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [img, setImg] = useState("");
+  const [state, setstate] = useState(initialState)
 
   return (
     <>
