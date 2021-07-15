@@ -1,34 +1,78 @@
-
-.parennt-schedule{
-    display: flex;
-    gap: 30px;
+.parennt-schedule {
+  display: flex;
+  gap: 30px;
 }
 
-.schedule-card{
-
-    margin-top: 90px;
-    margin-bottom: 30px;
-    margin-left: 28%;
+.schedule-card {
+  margin-top: 90px;
+  margin-bottom: 30px;
+  margin-left: 28%;
 }
 
-.card-img-schedule{
-
-    height: 375px;
-    width: 20px;
+.card-img-schedule {
+  height: 375px;
+  width: 20px;
 }
 
-.book-done{
-
-    font-size: 20px;
-    position: absolute;
-    bottom: 190px;
-    left: 630px;
-
+.book-done {
+  font-size: 20px;
+  position: absolute;
+  bottom: 190px;
+  left: 630px;
 }
 
-.card-desc{
-    color: gray;
-    word-break: break-all;
-    font-size: 20px;
-    height: 105px;
+.card-desc {
+  color: gray;
+  word-break: break-all;
+  font-size: 20px;
+  height: 105px;
+}
+.allBooking {
+  display: flex;
+  margin: 3% auto;
+  gap: 6%;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.doctorInfo {
+    margin-top:2%;
+  height: 30rem;
+  width: 18rem;
+ 
+  border-radius:5px;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5);
+}
+.doctorInfo img{
+    width:100%;
+    height:60%;
+    border-radius:5px 5px 0 0;
+}
+.doctorInfo .time-date{
+    margin-top:5%;
+    font-size:18px;
+}
+.doctorInfo button{
+    border-radius:5px;
+    border:1px solid rgb(173, 173, 173);
+    color:red;
+    background-color:white;
+}
+.doctorInfo button:hover{
+    background-color:rgb(192, 192, 192);
+    
+    
+}
+.doctorName{
+    font-size:25px;
+    font-weight:bolder;
+    margin-top: 3.5%;
+}
+.doctorName  span{
+    margin-left: 5%;
+}
+.time-date span{
+    font-weight:bold;
 }

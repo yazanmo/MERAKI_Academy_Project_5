@@ -59,7 +59,7 @@ const Navigation = ({ setHomePageSection }) => {
                         marginTop: "-8px",
                         fontWeight: "700",
                         fontSize:"20px",
-                      }}
+                      }}  
                     >
                       Profile
                     </Dropdown.Toggle>
@@ -70,7 +70,9 @@ const Navigation = ({ setHomePageSection }) => {
                       <Dropdown.Item href="/foodtracker">
                         Your Food
                       </Dropdown.Item>
+                      <Dropdown.Item href="/userSchedule">My Schedule</Dropdown.Item>
                       <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                      
                       <Dropdown.Item
                         href="/"
                         onClick={() => {
