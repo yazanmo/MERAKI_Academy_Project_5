@@ -25,6 +25,8 @@ const reviewRouter = require("./routers/routes/review");
 const doctorRouter = require("./routers/routes/doctor");
 const userRouter = require("./routers/routes/user");
 const Conversation = require("./routers/routes/conversation");
+const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST)
+const bodyParser = require("body-parser")
 
 const app = express();
 
@@ -52,6 +54,36 @@ app.use(scheduleRoute);
 
 app.use(sendEmailRouter);
 app.use(Conversation);
+
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+
+
+app.post("/payment", cors(), async (req, res) => {
+	let { amount, id } = req.body
+	try {
+		const payment = await stripe.paymentIntents.create({
+			amount,
+			currency: "USD",
+			description: "A_TEAM company",
+			payment_method: id,
+			confirm: true
+		})
+		console.log("Payment", payment)
+		res.json({
+			message: "Payment successful",
+			success: true
+		})
+	} catch (error) {
+		console.log("Error", error)
+		res.json({
+			message: "Payment failed",
+			success: false
+		})
+	}
+})
+
+
 
 const PORT = process.env.PORT || 5000;
 

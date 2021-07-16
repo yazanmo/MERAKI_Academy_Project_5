@@ -27,6 +27,8 @@ import MyDoctor from "./components/mydoctor/mydoctor";
 import Patient from "./components/mypatint/patient";
 import Conversation from "./components/conversation/conversation";
 import Payment from "./components/payment";
+import StripeContainer from "./components/payment-setup/StripeContainer";
+
 
 const App = () => {
   const [homePageSection, setHomePageSection] = useState("");
@@ -122,6 +124,7 @@ const App = () => {
           />
           <Route exact path="/patient/:id" render={() => <Patient />} />
           <Route exact path="/booking" render={() => <Booking />} />
+          <Route exact path="/test" render={() => <StripeContainer />} />
           <Route
             exact
             path="/conversation"
