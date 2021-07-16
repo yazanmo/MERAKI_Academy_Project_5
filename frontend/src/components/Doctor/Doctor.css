@@ -1,10 +1,12 @@
 .parent-doctor-page {
   background-color: #f1f1f1;
+  height: 100%;
+  padding-bottom: 60px;
 }
 .wrapper {
   display: flex;
   gap: 55px;
-  margin-top: 0px;
+  margin-top: 40px;
   margin-bottom: 30px;
   flex-wrap: wrap;
   flex-direction: row;
@@ -197,7 +199,7 @@
   width: 60px;
   height: 40px;
   border: none;
-  background-color: black;
+  background-color: #86cb6a;
   color: white;
   border-radius: 5px;
 }
