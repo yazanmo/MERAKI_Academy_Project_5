@@ -123,7 +123,7 @@ export default function Payment({ paymentId, paymentReceiver, price }) {
                     <CardElement options={CARD_OPTIONS}/>
                 </div>
             </fieldset>
-            <button>Pay</button>
+            <button className="payButton">Pay</button>
         </form>
         :
        <div>
