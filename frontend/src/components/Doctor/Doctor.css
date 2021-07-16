@@ -1,3 +1,6 @@
+.parent-doctor-page {
+  background-color: #f1f1f1;
+}
 .wrapper {
   display: flex;
   grid-gap: -19%;
@@ -7,7 +10,7 @@
   margin-bottom: 30px;
   flex-wrap: wrap;
   flex-direction: row;
-}       
+}
 
 .card1 {
   margin-bottom: 40px;
@@ -21,7 +24,7 @@
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
 }
-     
+
 .card1 img {
   width: 100%;
   height: 60%;
@@ -32,9 +35,8 @@
   transition: all 0.3s ease 0s;
   border-radius: 5px 5px 0 0;
 }
-.card1 img:hover{
+.card1 img:hover {
   height: 62%;
-  
 }
 .card1 .info {
   display: flex;
@@ -49,12 +51,11 @@
 .card1:hover {
   background-color: rgb(141, 138, 138);
   color: white;
-  
 }
-.parant-Doctor-search{
+.parant-Doctor-search {
   margin-top: 100px;
   display: flex;
-  gap:50px;
+  gap: 50px;
 }
 .filter-input {
   display: flex;
@@ -204,9 +205,9 @@
 
 /* Parallax CSS */
 .background-oregon-grapes {
-  background-image: url("https://images.pexels.com/photos/3772502/pexels-photo-3772502.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  background-size: 100%;
-  height: 580px;
+  background-image: url("https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-size: 70%;
+  height: 22rem;
   width: 100%;
   background-repeat: no-repeat;
   background-position: center;

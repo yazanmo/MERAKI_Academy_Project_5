@@ -17,7 +17,6 @@ const Doctor = () => {
       .get(`http://localhost:5000/doctor`, { num1, num2 })
       .then((response) => {
         setDoctor(response.data);
-        
       })
       .catch((err) => {});
   }, []);
@@ -38,7 +37,6 @@ const Doctor = () => {
         DoctorName: name,
       })
       .then((res) => {
-       
         setDoctorName(res.data);
         setDoctor([]);
       })
@@ -68,96 +66,98 @@ const Doctor = () => {
         console.log(err);
       });
   };
-      
+
   return (
     <>
-      <div class="background-oregon-grapes">
-      </div>
-
-      <div className="filter">
-        <div className="row-a">
-          <div className="btn-inp">
-            <div className="filter-input">
-              <input
-                className="input-filter"
-                type="number"
-                placeholder="MIN"
-                onChange={(e) => {
-                  setnum1(e.target.value);
-                }}
-              />
-              <input
-                className="input-filter"
-                type="number"
-                placeholder="MAX"
-                onChange={(e) => {
-                  setnum2(e.target.value);
-                }}
-              />
-            </div>
-            <div>
-              <button className="Filter-btn" onClick={callType_1}>
-                $
-              </button>
-            </div>
-          </div>
-          <div className="search">
-            <input id="checkbox" className="checkInp" type="checkbox" />
-            <label class="label1" for="checkbox">
-              <div class="checkDiv"></div>
-            </label>
-            <input
-              required
-              id="text"
-              class="textInp"
-              onChange={(e) => {
-                if (e.target.value.length === 0) {
-                  searchDoctor("''");
-                } else {
-                  searchDoctor(e.target.value);
-                }
-              }}
-            />
-            <label
-              class="label2"
-              for="text"
-              title="Search for Doctor Name"
-              data-title="Doctor Name"
-            ></label>
-          </div>
-        </div>
-        <div className="parant-Doctor-search">
-          {DoctorName &&
-            DoctorName.map((element, index) => {
-              return (
-                <div 
-                  className="card1"
-                  
-                  onClick={() => {
-                    func(element.id);
+      <div className="parent-doctor-page">
+        <div class="background-oregon-grapes"></div>
+        <div className="filter">
+          <div className="row-a">
+            <div className="btn-inp">
+              <div className="filter-input">
+                <input
+                  className="input-filter"
+                  type="number"
+                  placeholder="MIN"
+                  onChange={(e) => {
+                    setnum1(e.target.value);
                   }}
-                  key={index}
-                >
-                  <img src={`${element.img}`} />
-                  <div className="info">
-                    <p style={{ fontSize: "20px", fontWeight: "bold" }} className="doctor-name">
-                      {element.firstName} {element.lastName}
-                    </p>
-                    <p className="Qualifications">{element.Qualifications}</p>
-                    <p className="price">{element.price}</p>
-                    <p className="describe">{element.description}</p>
+                />
+                <input
+                  className="input-filter"
+                  type="number"
+                  placeholder="MAX"
+                  onChange={(e) => {
+                    setnum2(e.target.value);
+                  }}
+                />
+              </div>
+              <div>
+                <button className="Filter-btn" onClick={callType_1}>
+                  $
+                </button>
+              </div>
+            </div>
+            <div className="search">
+              <input id="checkbox" className="checkInp" type="checkbox" />
+              <label class="label1" for="checkbox">
+                <div class="checkDiv"></div>
+              </label>
+              <input
+                required
+                id="text"
+                class="textInp"
+                onChange={(e) => {
+                  if (e.target.value.length === 0) {
+                    searchDoctor("''");
+                  } else {
+                    searchDoctor(e.target.value);
+                  }
+                }}
+              />
+              <label
+                class="label2"
+                for="text"
+                title="Search for Doctor Name"
+                data-title="Doctor Name"
+              ></label>
+            </div>
+          </div>
+          <div className="parant-Doctor-search">
+            {DoctorName &&
+              DoctorName.map((element, index) => {
+                return (
+                  <div
+                    className="card1"
+                    onClick={() => {
+                      func(element.id);
+                    }}
+                    key={index}
+                  >
+                    <div></div>
+                    <img src={`${element.img}`} />
+                    <div className="info">
+                      <p
+                        style={{ fontSize: "20px", fontWeight: "bold" }}
+                        className="doctor-name"
+                      >
+                        {element.firstName} {element.lastName}
+                      </p>
+                      <p className="Qualifications">{element.Qualifications}</p>
+                      <p className="price">{element.price}</p>
+                      <p className="describe">{element.description}</p>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+          </div>
         </div>
-      </div>
-      <div className="wrapper" >
-      {filter &&
-        filter.map((elem, i) => {
-          return (
-            
-               <div key={i}
+        <div className="wrapper">
+          {filter &&
+            filter.map((elem, i) => {
+              return (
+                <div
+                  key={i}
                   className="card1"
                   onClick={() => {
                     func(elem.id);
@@ -166,7 +166,10 @@ const Doctor = () => {
                 >
                   <img src={`${elem.img}`} />
                   <div className="info">
-                    <p style={{ fontSize: "20px", fontWeight: "bold" }} className="doctor-name">
+                    <p
+                      style={{ fontSize: "20px", fontWeight: "bold" }}
+                      className="doctor-name"
+                    >
                       {elem.firstName} {elem.lastName}
                     </p>
                     <p className="Qualifications">{elem.Qualifications}</p>
@@ -174,49 +177,49 @@ const Doctor = () => {
                     <p className="describe">{elem.description}</p>
                   </div>
                 </div>
-           
-          );
-        })}
- </div>
-      <div className="wrapper">
-        {Doctor &&
-          Doctor.map((elem, i) => {
-            return (
-              <div
-                className="card1"
-                onClick={() => {
-                  func(role_id === 3 ? "" : elem.id);
-                }}
-                key={i}
-              >
-                <img src={`${elem.img}`} />
+              );
+            })}
+        </div>
+        <div className="wrapper">
+          {Doctor &&
+            Doctor.map((elem, i) => {
+              return (
+                <div
+                  className="card1"
+                  onClick={() => {
+                    func(role_id === 3 ? "" : elem.id);
+                  }}
+                  key={i}
+                >
+                  <img src={`${elem.img}`} />
 
-                <div className="info">
-                  <p style={{ fontSize: "20px", fontWeight: "bold" }}>
-                    {elem.firstName} {elem.lastName}
-                  </p>
-                  <p className="Qualifications">{elem.Qualifications}</p>
-                  <p>
-                    {elem.price + " $"}
-                    <br></br>
-                    {elem.description}
-                  </p>
+                  <div className="info">
+                    <p style={{ fontSize: "20px", fontWeight: "bold" }}>
+                      {elem.firstName} {elem.lastName}
+                    </p>
+                    <p className="Qualifications">{elem.Qualifications}</p>
+                    <p>
+                      {elem.price + " $"}
+                      <br></br>
+                      {elem.description}
+                    </p>
 
-                  {role_id == 3 ? (
-                    <button
-                      onClick={() => {
-                        deleteDoctor(elem.user_id);
-                      }}
-                    >
-                      delete{" "}
-                    </button>
-                  ) : (
-                    <></>
-                  )}
+                    {role_id == 3 ? (
+                      <button
+                        onClick={() => {
+                          deleteDoctor(elem.user_id);
+                        }}
+                      >
+                        delete{" "}
+                      </button>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+        </div>
       </div>
     </>
   );
