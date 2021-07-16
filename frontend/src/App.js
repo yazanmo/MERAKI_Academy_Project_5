@@ -31,7 +31,7 @@ import Payment  from "./components/payment";
 import UserSchedule from "./components/schedule/user"
 
 
-
+import Video from "./components/conversation/video";
 const App = () => {
   const [homePageSection, setHomePageSection] = useState("");
   const [sender, setSender] = useState("");
@@ -41,7 +41,7 @@ const App = () => {
   const [img, setImg] = useState("");
   const [paymentId, setPaymentId] = useState("");
   const [paymentReceiver, setPaymentReceiver] = useState("");
-
+const [video,setVideo]=useState(null)
   return (
     <>
       <div className="App">
@@ -136,6 +136,7 @@ const App = () => {
                 firstName={firstName}
                 lastName={lastName}
                 img={img}
+                setVideo={setVideo}
               />
             )}
           />
@@ -154,6 +155,7 @@ const App = () => {
           
           <Route exact path="/userSchedule" render={() => <UserSchedule/>}  />
         
+          <Route exact path="/video" render={() => <Video /> }  />
 
         </Switch>
       </div>

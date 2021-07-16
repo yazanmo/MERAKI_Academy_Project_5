@@ -66,6 +66,7 @@ const io = socket(server, {
   },
 });
 io.on("connection", (socket) => {
+  socket.emit("me", socket.id)
   socket.on("join_room", (data) => {
     socket.join(data);
     // console.log("user joined room:", data);
@@ -76,7 +77,15 @@ io.on("connection", (socket) => {
     socket.to(data.room).emit("receive_message", data.message);
   });
 
+socket.on("callUser", (data) => {
+		io.to(data.userToCall).emit("callUser", { signal: data.signalData, from: data.from, name: data.name })
+	})
+
+	socket.on("answerCall", (data) => {
+		io.to(data.to).emit("callAccepted", data.signal)
+	})
   socket.on("disconnect", () => {
-    console.log("user disconnected");
-  });
+		socket.broadcast.emit("callEnded")
+	})
 });
+        
