@@ -128,13 +128,13 @@ const Doctor = () => {
                     }}
                     key={index}
                   >
-                    <img src={`${element.img}`} />
                     <p
                       style={{ fontSize: "20px", fontWeight: "bold" }}
                       className="doctor-name"
                     >
                       {element.firstName} {element.lastName}
                     </p>
+                    <img src={`${element.img}`} />
                   </div>
                 );
               })}
@@ -144,27 +144,38 @@ const Doctor = () => {
           {filter &&
             filter.map((elem, i) => {
               return (
-                <div
-                  key={i}
-                  className="card1"
-                  onClick={() => {
-                    func(elem.id);
-                  }}
-                  key={i}
-                >
-                  <img src={`${elem.img}`} />
-                  <div className="info">
-                    <p
-                      style={{ fontSize: "20px", fontWeight: "bold" }}
-                      className="doctor-name"
-                    >
-                      {elem.firstName} {elem.lastName}
-                    </p>
-                    <p className="Qualifications">{elem.Qualifications}</p>
-                    <p className="price">{elem.price}</p>
-                    <p className="describe">{elem.description}</p>
-                  </div>
-                </div>
+                <>
+                  <Card
+                    onClick={() => {
+                      func(role_id === 3 ? "" : elem.id);
+                    }}
+                    key={i}
+                    style={{ width: "18rem", height: "5%", cursor: "pointer" }}
+                  >
+                    <Card.Img variant="top" src={`${elem.img}`} />
+                    <Card.Body>
+                      <Card.Title>
+                        {elem.firstName} {elem.lastName}
+                      </Card.Title>
+                      <Card.Text>{elem.description}</Card.Text>
+                      <Card.Text style={{ color: "#86cb6a" }}>
+                        {elem.price + " $"}
+                      </Card.Text>
+                      <Card.Text>{elem.Qualifications}</Card.Text>
+                    </Card.Body>
+                    {role_id == 3 ? (
+                      <button
+                        onClick={() => {
+                          deleteDoctor(elem.user_id);
+                        }}
+                      >
+                        delete{" "}
+                      </button>
+                    ) : (
+                      <></>
+                    )}
+                  </Card>
+                </>
               );
             })}
         </div>

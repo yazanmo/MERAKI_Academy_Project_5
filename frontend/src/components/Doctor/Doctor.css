@@ -67,6 +67,7 @@
   margin-top: 100px;
   display: flex;
   gap: 50px;
+  position: absolute;
 }
 .search-result {
   display: flex;
