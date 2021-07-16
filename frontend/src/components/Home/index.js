@@ -9,7 +9,7 @@ import { scroller } from "react-scroll";
 import "./home.css";
 import "react-slideshow-image/dist/styles.css";
 import noAvatar from "./noAvatar.png";
-
+import Logo from "./../../components/logo.png";
 export default function Home({ homePageSection, setHomePageSection }) {
   const dispatch = useDispatch();
   const [pageNum, setPageNum] = useState([]);
@@ -400,10 +400,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
 
       <footer class="footer-distributed" id="contact">
         <div class="footer-left">
-          <h3>
-            Health<span>Care</span>
-          </h3>
-
+          <img src={Logo} />
           <p class="footer-links">
             <a href="/">Home</a>·<a href="/doctor"> Our nutrition</a>·
             <a href="/success">Stories</a>·<a href="#">About</a>·
