@@ -168,7 +168,7 @@ const Doctor = () => {
               );
             })}
         </div>
-        <div className="wrapper">
+        <div className="wrapper bg-image hover-overlay shadow-1-strong rounded">
           {Doctor &&
             Doctor.map((elem, i) => {
               return (
@@ -178,7 +178,7 @@ const Doctor = () => {
                       func(role_id === 3 ? "" : elem.id);
                     }}
                     key={i}
-                    style={{ width: "18rem", height: "5%" }}
+                    style={{ width: "18rem", height: "5%", cursor: "pointer" }}
                   >
                     <Card.Img variant="top" src={`${elem.img}`} />
                     <Card.Body>

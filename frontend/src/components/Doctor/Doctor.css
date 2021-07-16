@@ -3,13 +3,12 @@
 }
 .wrapper {
   display: flex;
-  grid-gap: -19%;
   gap: 55px;
-  margin-left: 170px;
   margin-top: 0px;
   margin-bottom: 30px;
   flex-wrap: wrap;
   flex-direction: row;
+  justify-content: center;
 }
 
 .card1 {
