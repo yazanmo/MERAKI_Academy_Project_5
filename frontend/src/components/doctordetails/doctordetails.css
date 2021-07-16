@@ -12,14 +12,19 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 115px;
+  gap: 50px;
   margin-bottom: 40px;
-  background-color: rgb(243, 243, 243);
-  width: 70%;
-  height: 450px;
+  background-color: rgb(252, 252, 252);
+  width: 40%;
+  height: 100%;
   border-radius: 0 0 5px 5px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  box-sizing: content-box;
+  object-fit: cover;
+  text-overflow: ellipsis;
+  width: calc(80%);
+  margin: 50px 0 0 0;
 }
 .doctor-details {
   display: flex;
@@ -28,20 +33,19 @@
   margin-top: -15px;
   gap: 25px;
   color: black;
-  
 }
-.doctor-details span {
+.decs-do span {
   font-weight: bold;
   font-size: 25px;
 }
-.doctor-details p {
+.decs-do p {
   font-weight: 300px;
-  font-size: 20px;
+  /* font-size: 20px; */
 }
-.doctor-details .doctor-description{
+.doctor-details .doctor-description {
   font-weight: 300px;
   font-size: 20px;
-  width:450px;
+  width: 450px;
   height: 125px;
   word-break: break-all;
 }
@@ -56,7 +60,6 @@
 
 .comment {
   margin-top: 80px;
-  
 }
 .feedBack {
   width: 330px;
@@ -64,18 +67,19 @@
   margin: 0 auto;
   border-bottom: 1.5px solid rgb(163, 160, 160);
 }
+
 .input-coment1 {
   margin-left: 49px;
   margin-top: 40px;
-  height: 100px;
-  width: 800px;
+  height: 100%;
+  width: 100%;
   resize: none;
   border-radius: 5px;
-}     
-.img1{
-  border-radius: 0 5px 5px 0;
-  position: absolute;
-  top: 220px;
+}
+.img111 img {
+  width: "80%";
+  height: "-webkit-fill-available";
+  /* border-radius: "5px"; */
 }
 
 .btnCommant {
@@ -204,7 +208,7 @@
 .comments {
   margin-top: 40px;
   padding-bottom: 20px;
-  width:500px;
+  width: 500px;
   word-break: break-all;
   font-size: 25px;
   border-bottom: 1.5px solid rgb(163, 160, 160);
@@ -221,7 +225,7 @@
   margin-top: 50px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-    border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
 }
 .name-Q .doc-Q {
   font-size: 25px;
