@@ -26,14 +26,16 @@ import MyPatient from "./components/mypatint/mypatint";
 import MyDoctor from "./components/mydoctor/mydoctor";
 import Patient from "./components/mypatint/patient";
 import Conversation from "./components/conversation/conversation";
-import Payment  from "./components/payment";
+import Payment from "./components/payment";
+import Recipe from "./components/recipe";
+import BMI from "./components/BMI"
 
 const App = () => {
   const [homePageSection, setHomePageSection] = useState("");
   const [sender, setSender] = useState("");
   const [receiver, setReceiver] = useState("");
-  const [paymentId, setPaymentId] = useState('')
-  const [paymentReceiver, setPaymentReceiver] = useState('')
+  const [paymentId, setPaymentId] = useState("");
+  const [paymentReceiver, setPaymentReceiver] = useState("");
 
   return (
     <>
@@ -52,20 +54,41 @@ const App = () => {
           />
           <Route exact path="/login" render={() => <Login />} />
           <Route exact path="/profile" render={() => <Profile />} />
-          <Route exact path="/doctor/:id" render={() => <DoctorDetails setPaymentId={setPaymentId} setPaymentReceiver={setPaymentReceiver}/>} />
+          <Route
+            exact
+            path="/doctor/:id"
+            render={() => (
+              <DoctorDetails
+                setPaymentId={setPaymentId}
+                setPaymentReceiver={setPaymentReceiver}
+              />
+            )}
+          />
           <Route exact path="/admin" render={() => <Accept />} />
           <Route exact path="/doctor" render={() => <Doctor />} />
           <Route exact path="/register" render={() => <SignUp />} />
           <Route exact path="/doctorProfile" render={() => <DoctorProfile />} />
           <Route exact path="/addyourstory" render={() => <AddStory />} />
           <Route exact path="/schedule/:id" render={() => <Schedule />} />
-          <Route exact path="/editProfile" render={() => <UpdateDoctorProfile />}/>
+          <Route
+            exact
+            path="/editProfile"
+            render={() => <UpdateDoctorProfile />}
+          />
           <Route exact path="/foodtracker" render={() => <FoodTracker />} />
-          <Route exact path="/create/stories" render={() => <CreateStories />}/>
+          <Route
+            exact
+            path="/create/stories"
+            render={() => <CreateStories />}
+          />
           <Route exact path="/adminPage" render={() => <AdminPage />} />
           <Route exact path="/accept" render={() => <Accept />} />
           <Route exact path="/doctorInfo" render={() => <Info />} />
-          <Route exact path="/accept/doctor/:doctor_id" render={() => <AcceptDoctor />}/>
+          <Route
+            exact
+            path="/accept/doctor/:doctor_id"
+            render={() => <AcceptDoctor />}
+          />
           <Route exact path="/date" render={() => <Date />} />
           <Route exact path="/about" render={() => <About />} />
           <Route exact path="/edit/profile" render={() => <UpdateUserInfo />} />
@@ -90,7 +113,20 @@ const App = () => {
             path="/conversation"
             render={() => <Conversation sender={sender} receiver={receiver} />}
           />
-          <Route exact path ="/payment" render={()=>  <Payment   paymentId={paymentId}  paymentReceiver={paymentReceiver} name2={"ghaidaa"}/>}/>
+          <Route
+            exact
+            path="/payment"
+            render={() => (
+              <Payment
+                paymentId={paymentId}
+                paymentReceiver={paymentReceiver}
+                name2={"ghaidaa"}
+              />
+            )}
+          />
+          <Route exact path ="/recipe" render={()=>  <Recipe/>  }/>
+          <Route exact path ="/bmi" render={()=>  <BMI/>  }/>
+
         </Switch>
       </div>
     </>
