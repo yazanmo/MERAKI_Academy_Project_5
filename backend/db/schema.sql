@@ -43,9 +43,9 @@ CREATE TABLE doctors (
 
 CREATE TABLE doctorsDetails (
  id INT AUTO_INCREMENT NOT NULL,
- description VARCHAR(255),
- Qualifications VARCHAR (255) ,
- practicalExperiences VARCHAR(255) , 
+ description TEXT,
+ Qualifications TEXT ,
+ practicalExperiences TEXT , 
  price INT,
  user_id INT,
  is_deleted TINYINT DEFAULT 0,

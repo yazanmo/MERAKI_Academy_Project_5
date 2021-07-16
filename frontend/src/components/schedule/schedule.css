@@ -1,78 +1,89 @@
 .parennt-schedule {
   display: flex;
-  gap: 30px;
+  gap: 20px;
 }
 
 .schedule-card {
-  margin-top: 90px;
-  margin-bottom: 30px;
-  margin-left: 28%;
+  /* margin-top: 90px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 7px;
+  align-items: center;
+  margin: auto;
+  width: 2%px;
 }
-
+.decs-schedule {
+  display: flex;
+  flex-direction: column;
+}
+.decs-schedule p {
+  object-fit: cover;
+}
 .card-img-schedule {
-  height: 375px;
-  width: 20px;
+  height: 300px;
+  width: 200px;
 }
-
+.card-body h2 {
+  color: #86cb6a;
+}
 .book-done {
-  font-size: 20px;
-  position: absolute;
-  bottom: 190px;
-  left: 630px;
+  font-size: 15px;
+  text-align: center;
 }
-
+.quesadilla {
+  margin-top: 20px;
+}
 .card-desc {
   color: gray;
   word-break: break-all;
   font-size: 20px;
-  height: 105px;
+  height: 90px;
 }
 .allBooking {
   display: flex;
   margin: 3% auto;
   gap: 6%;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   flex-wrap: wrap;
   flex-direction: row;
 }
 .doctorInfo {
-    margin-top:2%;
+  margin-top: 2%;
   height: 30rem;
   width: 18rem;
- 
-  border-radius:5px;
+
+  border-radius: 5px;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5);
 }
-.doctorInfo img{
-    width:100%;
-    height:60%;
-    border-radius:5px 5px 0 0;
+.doctorInfo img {
+  width: 100%;
+  height: 60%;
+  border-radius: 5px 5px 0 0;
 }
-.doctorInfo .time-date{
-    margin-top:5%;
-    font-size:18px;
+.doctorInfo .time-date {
+  margin-top: 5%;
+  font-size: 18px;
 }
-.doctorInfo button{
-    border-radius:5px;
-    border:1px solid rgb(173, 173, 173);
-    color:red;
-    background-color:white;
+.doctorInfo button {
+  border-radius: 5px;
+  border: 1px solid rgb(173, 173, 173);
+  color: red;
+  background-color: white;
 }
-.doctorInfo button:hover{
-    background-color:rgb(192, 192, 192);
-    
-    
+.doctorInfo button:hover {
+  background-color: rgb(192, 192, 192);
 }
-.doctorName{
-    font-size:25px;
-    font-weight:bolder;
-    margin-top: 3.5%;
+.doctorName {
+  font-size: 25px;
+  font-weight: bolder;
+  margin-top: 3.5%;
 }
-.doctorName  span{
-    margin-left: 5%;
+.doctorName span {
+  margin-left: 5%;
 }
-.time-date span{
-    font-weight:bold;
+.time-date span {
+  font-weight: bold;
 }

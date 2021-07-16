@@ -2,14 +2,14 @@ const db = require("./../../db/db");
 
 const buyService = (req, res) => {
   const user_id = req.token.id;
-  const {id,date} = req.body;
+  const { id, date } = req.body;
 
   const query = `INSERT INTO purchased (doctorsService_id,user_id,date) VALUES (?,?,?)`;
-  const data = [id, user_id,date];
+  const data = [id, user_id, date];
 
   db.query(query, data, (err, result) => {
     if (err) res.status(400).send("insert is not done");
-    console.log("ERROR IN PATIENT",err);
+    console.log("ERROR IN PATIENT", err);
     // res.status(200).send("insert is done");
   });
 };
@@ -17,7 +17,7 @@ const buyService = (req, res) => {
 const getMyDoctor = (req, res) => {
   const user_id = req.token.id;
   const query = `SELECT doctorsDetails.user_id AS doctor_id,doctorsDetails.description  , users.*, purchased.* FROM doctorsDetails JOIN purchased ON purchased.doctorsService_id=doctorsDetails.id
-   JOIN users on users.id= doctorsDetails.user_id where purchased.user_id= ?;
+   JOIN users on users.id= doctorsDetails.user_id where purchased.user_id= ? AND users.is_deleted = 0 ;
   `;
   const data = [user_id];
 
