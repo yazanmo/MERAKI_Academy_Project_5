@@ -114,9 +114,6 @@ export default function Payment({ paymentId, paymentReceiver, price }) {
 
   return (
     <>
-        <div className="h4">
-          <h4>inter your credit Card details to continue</h4>
-        </div>
      
 
         {!success ? 
