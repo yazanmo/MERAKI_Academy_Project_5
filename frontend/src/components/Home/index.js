@@ -348,12 +348,11 @@ export default function Home({ homePageSection, setHomePageSection }) {
               );
             })}
           {resultLength == 0 ? (
-            <div style={{ fontSize: "15rem" }}>...</div>
+            <div style={{ fontSize: "6rem" }}>...</div>
           ) : (
             <></>
           )}
         </div>
-
         <div className="pageNumber">
           <button
             onClick={() => {

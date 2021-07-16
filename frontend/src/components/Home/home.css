@@ -9,7 +9,8 @@ body {
 /* about section */
 .About {
   display: flex;
-  justify-content: space-between;
+
+  justify-content: center;
   background-color: #f8f9fd;
 }
 
@@ -439,7 +440,7 @@ body {
   align-items: center;
 }
 .info-1 {
-  background-color: #95cf80;
+  background-color: #86cb6a;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -448,7 +449,7 @@ body {
   width: 30%;
 }
 .info-2 {
-  background-color: #84c26d;
+  background-color: #77b860;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -457,7 +458,7 @@ body {
   width: 30%;
 }
 .info-3 {
-  background-color: #76b65e;
+  background-color: #67a352;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -483,84 +484,19 @@ body {
   width: 80%;
 }
 
-/* .icon-information {
-  width: 100px;
-  height: 100px;
-}
-.icon-information .info-1 .icon-information,
-.info-2 .icon-information,
-.info-3 .icon-information {
-  margin-top: 65px;
-  width: 100px;
-  height: 100px;
-}
-.info-1 .icon-information svg {
-  height: 2000px;
-  width: 50px;
-} */
-/* .icon-information {
-  width: 50px;
-  height: 50px;
-} */
-/* .info-1 .icon-information,
-.info-2 .icon-information,
-.info-3 .icon-information {
-  margin-top: 65px;
-  width: 100px;
-  height: 100px;
-}
-.info-1 p,
-.info-2 p,
-.info-3 p {
-  color: white;
-  /* width: 290px; */
-/* margin: 50px auto; */
-/* } */
-*/
-
-/* .icon-information1 {
-  margin-top: 65px;
-  width: 100px;
-  height: 100px;
-  margin-left: 170px;
-}
-
-.info-1 h3,
-.info-2 h3,
-.info-3 h3 {
-  margin-top: 25px;
-  word-break: break-all;
-  color: white;
-} */
-/* .info-2 {
-  width: 400px;
-  height: 400px;
-  background-color: #84c26d;
-  text-align: center;
+.pageNumber {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  margin: auto;
+  gap: 20px;
+  margin-bottom: 20px;
 }
-.info-3 {
-  width: 400px;
-  height: 400px;
-  background-color: #76b65e;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: auto;
+.pageNumber button {
+  border: none;
+  padding: 5px 8px;
+  background-color: #5e9948;
+  color: white;
 }
-.icon-information1 {
-  /* margin: auto; */
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
-/* } */
-*/ */
-
 /* pagination */
 
 .pagination {
@@ -621,7 +557,7 @@ body {
   margin: 10%;
 }
 .decs-home h1 {
-  color: #5e9948;
+  color: #86cb6a;
 }
 .decs-home p {
   width: 75%;
