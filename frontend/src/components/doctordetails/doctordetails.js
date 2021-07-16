@@ -14,8 +14,7 @@ const colors = {
   grey: "#a9a9a9",
 };
 
-const DoctorDetails = ({setPaymentId,setPaymentReceiver,setPrice}) => {
-
+const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
   const { id } = useParams();
   const history = useHistory();
 
@@ -56,11 +55,10 @@ const DoctorDetails = ({setPaymentId,setPaymentReceiver,setPrice}) => {
     axios
       .get(`http://localhost:5000/doctor/${id}`)
       .then((result) => {
-        console.log("dooooooooooooooooooooooctor",result.data[0]);
+        console.log("dooooooooooooooooooooooctor", result.data[0]);
         setResult(result.data[0]);
-        setPaymentReceiver(result.data[0].user_id)
-        setPrice(result.data[0].price)
-
+        setPaymentReceiver(result.data[0].user_id);
+        setPrice(result.data[0].price);
       })
       .catch((err) => {});
   }, []);
