@@ -26,7 +26,8 @@ import MyPatient from "./components/mypatint/mypatint";
 import MyDoctor from "./components/mydoctor/mydoctor";
 import Patient from "./components/mypatint/patient";
 import Conversation from "./components/conversation/conversation";
-import Payment  from "./components/payment";
+import Payment  from "./components/payment/PaymentForm";
+import StripeContainer from "./components/payment/StripeContainer";
 
 const App = () => {
   const [homePageSection, setHomePageSection] = useState("");
@@ -34,6 +35,7 @@ const App = () => {
   const [receiver, setReceiver] = useState("");
   const [paymentId, setPaymentId] = useState('')
   const [paymentReceiver, setPaymentReceiver] = useState('')
+  const [price, setPrice] = useState('')
 
   return (
     <>
@@ -52,7 +54,7 @@ const App = () => {
           />
           <Route exact path="/login" render={() => <Login />} />
           <Route exact path="/profile" render={() => <Profile />} />
-          <Route exact path="/doctor/:id" render={() => <DoctorDetails setPaymentId={setPaymentId} setPaymentReceiver={setPaymentReceiver}/>} />
+          <Route exact path="/doctor/:id" render={() => <DoctorDetails setPaymentId={setPaymentId} setPaymentReceiver={setPaymentReceiver}  setPrice={setPrice}/>} />
           <Route exact path="/admin" render={() => <Accept />} />
           <Route exact path="/doctor" render={() => <Doctor />} />
           <Route exact path="/register" render={() => <SignUp />} />
@@ -90,7 +92,7 @@ const App = () => {
             path="/conversation"
             render={() => <Conversation sender={sender} receiver={receiver} />}
           />
-          <Route exact path ="/payment" render={()=>  <Payment   paymentId={paymentId}  paymentReceiver={paymentReceiver} name2={"ghaidaa"}/>}/>
+          <Route exact path ="/payment" render={()=>  <StripeContainer   paymentId={paymentId}  paymentReceiver={paymentReceiver} price={price}/>}/>
         </Switch>
       </div>
     </>
