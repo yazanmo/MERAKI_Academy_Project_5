@@ -47,8 +47,6 @@ const App = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [img, setImg] = useState("");
-  const [paymentId, setPaymentId] = useState("");
-  const [paymentReceiver, setPaymentReceiver] = useState("");
 const [video,setVideo]=useState(null)
   return (
     <>
