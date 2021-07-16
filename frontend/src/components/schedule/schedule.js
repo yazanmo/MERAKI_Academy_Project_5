@@ -48,13 +48,13 @@ const Schedule = () => {
   };
 
   return (
-    <div style={{ backgroundColor: "#f1f1f1", paddingBottom: "90px" }}>
+    <div style={{ backgroundColor: "#f1f1f1", paddingBottom: "180px" }}>
       {result &&
         result.map((element, index) => {
           return (
             <div className="schedule-card">
               <Card
-                style={{ width: "60rem", height: "400px", marginTop: "40px" }}
+                style={{ width: "60rem", height: "300px", marginTop: "40px" }}
               >
                 <div className="parennt-schedule">
                   <div>
@@ -62,7 +62,7 @@ const Schedule = () => {
                       className="card-img-schedule"
                       variant="top"
                       src={element.img}
-                      style={{ height: "400px", width: "370px" }}
+                      style={{ height: "300px", width: "270px" }}
                     />
                   </div>
                   <div className="card-body">
@@ -74,13 +74,6 @@ const Schedule = () => {
                         </h2>
                       </Card.Title>
                       <Card.Text>
-                        <br></br>
-                        <p> {element.price}</p>
-
-                        <div>
-                          <p className="card-desc"> {element.description}</p>
-                        </div>
-
                         <div>
                           <br></br>
                           <div class="quesadilla">
@@ -113,11 +106,11 @@ const Schedule = () => {
                       <Button variant="outline-secondary" onClick={info}>
                         Book
                       </Button>
+                      <p className="book-done">{message}</p>
                     </Card.Body>
                   </div>
                 </div>
               </Card>
-              <p className="book-done">{message}</p>
             </div>
           );
         })}
