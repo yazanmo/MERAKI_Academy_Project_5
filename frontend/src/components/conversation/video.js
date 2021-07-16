@@ -11,7 +11,8 @@ import io from "socket.io-client"
 
 
 const socket = io.connect('http://localhost:5000')
-function Video() {
+const Video=()=> {
+    
 	const [ me, setMe ] = useState("")
 	const [ stream, setStream ] = useState()
 	const [ receivingCall, setReceivingCall ] = useState(false)
@@ -21,6 +22,7 @@ function Video() {
 	const [ idToCall, setIdToCall ] = useState("")
 	const [ callEnded, setCallEnded] = useState(false)
 	const [ name, setName ] = useState("")
+    
 	const myVideo = useRef()
 	const userVideo = useRef()
 	const connectionRef= useRef()
@@ -38,7 +40,6 @@ function Video() {
 		socket.on("callUser", (data) => {
 			setReceivingCall(true)
 			setCaller(data.from)
-			setName(data.name)
 			setCallerSignal(data.signal)
 		})
 	}, [])
@@ -54,7 +55,7 @@ function Video() {
 				userToCall: id,
 				signalData: data,
 				from: me,
-				name: name
+				
 			})
 		})
 		peer.on("stream", (stream) => {
@@ -108,14 +109,14 @@ function Video() {
 				</div>
 			</div>
 			<div className="myId">
-				<TextField
+				{/* <TextField
 					id="filled-basic"
 					label="Name"
 					variant="filled"
 					value={name}
 					onChange={(e) => setName(e.target.value)}
 					style={{ marginBottom: "20px" }}
-				/>
+				/> */}
 				<CopyToClipboard text={me} style={{ marginBottom: "2rem" }}>
 					<Button variant="contained" color="primary" startIcon={<AssignmentIcon fontSize="large" />}>
 						Copy ID
@@ -145,7 +146,7 @@ function Video() {
 			<div>
 				{receivingCall && !callAccepted ? (
 						<div className="caller">
-						<h1 >{name} is calling...</h1>
+						<h1 > you have a call...</h1>
 						<Button variant="contained" color="primary" onClick={answerCall}>
 							Answer
 						</Button>

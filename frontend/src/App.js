@@ -155,7 +155,7 @@ const [video,setVideo]=useState(null)
           
           <Route exact path="/userSchedule" render={() => <UserSchedule/>}  />
         
-          <Route exact path="/video" render={() => <Video video={video}/> }  />
+          <Route exact path="/video" render={() => <Video /> }  />
 
         </Switch>
       </div>
