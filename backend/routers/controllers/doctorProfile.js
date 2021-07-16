@@ -44,7 +44,7 @@ const createDetails = (req, res) => {
 
 const updateDetailsById = (req, res) => {
   const user_id = req.token.id;
-  
+
   const {
     description,
     Qualifications,
@@ -54,13 +54,18 @@ const updateDetailsById = (req, res) => {
     firstName,
     lastName,
     age,
-    
     email,
     img,
   } = req.body;
   const query = `UPDATE doctorsDetails SET
   description=?, Qualifications=?,practicalExperiences=?,price=? WHERE user_id=? `;
-  const data = [description, Qualifications, practicalExperiences,price, user_id];
+  const data = [
+    description,
+    Qualifications,
+    practicalExperiences,
+    price,
+    user_id,
+  ];
 
   db.query(query, data, (err, result) => {
     if (err) res.status(400).send(err);
@@ -78,7 +83,7 @@ const updateDetailsById = (req, res) => {
 
       db.query(query1, data2, (err, result_2) => {
         if (err) res.status(400).send(err);
-        
+
         res.status(200).json(result_2);
       });
     });

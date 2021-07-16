@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
@@ -14,7 +13,9 @@ const colors = {
   orange: "#FFBA5A",
   grey: "#a9a9a9",
 };
+
 const DoctorDetails = ({setPaymentId,setPaymentReceiver,setPrice}) => {
+
   const { id } = useParams();
   const history = useHistory();
 
@@ -33,7 +34,7 @@ const DoctorDetails = ({setPaymentId,setPaymentReceiver,setPrice}) => {
   const role_id = localStorage.getItem("role_id");
 
   let doctorsService_id = parseInt(id);
-  setPaymentId(doctorsService_id)
+  setPaymentId(doctorsService_id);
   const dispatch = useDispatch();
 
   const state = useSelector((state) => {
@@ -59,6 +60,7 @@ const DoctorDetails = ({setPaymentId,setPaymentReceiver,setPrice}) => {
         setResult(result.data[0]);
         setPaymentReceiver(result.data[0].user_id)
         setPrice(result.data[0].price)
+
       })
       .catch((err) => {});
   }, []);
@@ -157,34 +159,19 @@ const DoctorDetails = ({setPaymentId,setPaymentReceiver,setPrice}) => {
         rel="stylesheet"
         type="text/css"
       ></link>
-      <div className="name-Q">
-      <p><span>Dr .</span> {result.firstName} {result.lastName}</p>
-        <p className="doc-Q">{result.Qualifications} </p>
-        
-      </div>
+      {/* <div className="name-Q"></div> */}
       <div className="parent">
-        <div className="img1">
+        <div className="img111">
           <img
+            style={{ width: "500px", height: "400px" }}
             src={result.img ? result.img : <></>}
-            style={{
-              width: "400px",
-              height: "500px",
-              borderRadius: "20px",
-              borderRadius: "5px",
-            }}
           />
         </div>
-
-        <div className="doctor-details">
-          {/* <h2>
-            {" "}
+        <div className="decs-do">
+          <p>
             <span>Dr .</span> {result.firstName} {result.lastName}
-          </h2> */}
-
-          <div className="avgRating">
             <Stars stars={avgRating} defaultValue={avgRating} />
-          </div>
-          
+          </p>
 
           <p>
             <span>price:</span> {result.price} jd
@@ -204,17 +191,14 @@ const DoctorDetails = ({setPaymentId,setPaymentReceiver,setPrice}) => {
               {role_id == 2 ? (
                 ""
               ) : (
-                <button
-                  className="btn-1"
-                  onClick={() => {
-                  
-                    
-      
-                  }}
-                >
-                  <span onClick={() => {
-               history.push("/payment")
-               }}>Subscribe</span>
+                <button className="btn-1" onClick={() => {}}>
+                  <span
+                    onClick={() => {
+                      history.push("/payment");
+                    }}
+                  >
+                    Subscribe
+                  </span>
                 </button>
               )}
             </>
@@ -222,12 +206,6 @@ const DoctorDetails = ({setPaymentId,setPaymentReceiver,setPrice}) => {
             ""
           )}
         </div>
-
-        <link
-          href="http://fonts.googleapis.com/css?family=Cookie"
-          rel="stylesheet"
-          type="text/css"
-        ></link>
       </div>
 
       {token ? (
@@ -253,7 +231,7 @@ const DoctorDetails = ({setPaymentId,setPaymentReceiver,setPrice}) => {
                             onMouseLeave={handleMouseLeave}
                             color={
                               (rating || hover) > ratingValue
-                                ? colors.orange
+                                ? colors.oarange
                                 : colors.grey
                             }
                             style={{

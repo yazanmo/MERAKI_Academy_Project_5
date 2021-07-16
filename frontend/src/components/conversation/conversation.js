@@ -9,7 +9,8 @@ const CONNECTION_PORT = "http://localhost:5000";
 socket = io(CONNECTION_PORT);
 
 const Conversation = (props) => {
-  const { sender, receiver, firstName, lastName, img } = props;
+  const history = useHistory();
+  const { sender, receiver, firstName, lastName, img,setVideo } = props;
 
   const userId = localStorage.getItem("user_id");
   const [result, setResult] = useState([]);
@@ -58,6 +59,8 @@ const Conversation = (props) => {
       .then((result) => {
         setRoom(result.data.conversation.conversation[0].id);
         setResult(result.data.result.result);
+        setVideo(result.data.conversation.conversation[0].id)
+        
       })
       .catch((err) => {
         console.log(err);
@@ -77,6 +80,7 @@ const Conversation = (props) => {
           <p>
             {firstNameUse} {lastNameUse}
           </p>
+          <button onClick={()=>{history.push("/video")}}>video</button>
         </div>
       </div>
       <div className="conversation">

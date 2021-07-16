@@ -1,0 +1,28 @@
+.BMI {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+ margin: 5% 20% 5% 20%;
+ padding: 3%  3% 20% 3%;
+  align-items: flex-start;
+  row-gap: 1.5rem;
+  border: 5px #86CB6A solid;
+}
+
+.WH {
+  display: flex;
+  gap: 2%;
+}
+
+.bmiButton {
+    padding: 0.2% 1% 0.1% 1%;
+    cursor: pointer;
+    border-radius: 2px;
+    background-color:   #a8f789;
+    
+}
+
+.bmiButton:hover {
+    color:black;
+    background-color :  #86CB6A;
+}

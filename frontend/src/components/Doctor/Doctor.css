@@ -1,14 +1,28 @@
+.parent-doctor-page {
+  background-color: #f1f1f1;
+  height: 100%;
+  padding-bottom: 60px;
+}
 .wrapper {
   display: flex;
-  grid-gap: -19%;
   gap: 55px;
-  margin-left: 170px;
-  margin-top: 0px;
+  margin-top: 40px;
   margin-bottom: 30px;
   flex-wrap: wrap;
   flex-direction: row;
-}       
-
+  justify-content: center;
+}
+.wrapper button {
+  width: 40%;
+  background-color: #86cb6a;
+  border: none;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 10px auto;
+}
+.wrapper button:hover {
+  background-color: #c42e2e;
+}
 .card1 {
   margin-bottom: 40px;
   width: 300px;
@@ -21,7 +35,7 @@
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
 }
-     
+
 .card1 img {
   width: 100%;
   height: 60%;
@@ -32,9 +46,8 @@
   transition: all 0.3s ease 0s;
   border-radius: 5px 5px 0 0;
 }
-.card1 img:hover{
+.card1 img:hover {
   height: 62%;
-  
 }
 .card1 .info {
   display: flex;
@@ -49,12 +62,25 @@
 .card1:hover {
   background-color: rgb(141, 138, 138);
   color: white;
-  
 }
-.parant-Doctor-search{
+.parant-Doctor-search {
   margin-top: 100px;
   display: flex;
-  gap:50px;
+  gap: 50px;
+  position: absolute;
+}
+.search-result {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1px black solid;
+}
+.Doctor-search {
+  display: flex;
+  flex-direction: column;
+  width: 9%;
+  margin: -10;
 }
 .filter-input {
   display: flex;
@@ -75,9 +101,13 @@
   justify-content: center;
   display: flex;
   flex-direction: row-reverse;
-  position: relative;
   width: 354px;
   /* margin-bottom:100px; */
+}
+.search img {
+  width: 60px;
+  height: 75px;
+  border-radius: 100%;
 }
 .checkDiv {
   width: 18px;
@@ -160,13 +190,13 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  gap: 10%;
+  gap: 9%;
 }
 
 .btn-inp {
   display: flex;
   flex-direction: row;
-  gap: 15px;
+  gap: 10px;
 }
 
 .filter {
@@ -180,7 +210,7 @@
   width: 60px;
   height: 40px;
   border: none;
-  background-color: black;
+  background-color: #86cb6a;
   color: white;
   border-radius: 5px;
 }
@@ -204,9 +234,9 @@
 
 /* Parallax CSS */
 .background-oregon-grapes {
-  background-image: url("https://images.pexels.com/photos/3772502/pexels-photo-3772502.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  background-size: 100%;
-  height: 580px;
+  background-image: url("https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-size: 70%;
+  height: 22rem;
   width: 100%;
   background-repeat: no-repeat;
   background-position: center;
