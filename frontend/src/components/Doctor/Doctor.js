@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { Card, ListGroupItem, ListGroup } from "react-bootstrap";
 import "./Doctor.css";
 
 const Doctor = () => {
@@ -38,7 +39,6 @@ const Doctor = () => {
       })
       .then((res) => {
         setDoctorName(res.data);
-        setDoctor([]);
       })
       .catch((err) => {});
   };
@@ -115,38 +115,26 @@ const Doctor = () => {
                   }
                 }}
               />
-              <label
-                class="label2"
-                for="text"
-                title="Search for Doctor Name"
-                data-title="Doctor Name"
-              ></label>
             </div>
           </div>
-          <div className="parant-Doctor-search">
+          <div className="Doctor-search">
             {DoctorName &&
               DoctorName.map((element, index) => {
                 return (
                   <div
-                    className="card1"
+                    className="search"
                     onClick={() => {
                       func(element.id);
                     }}
                     key={index}
                   >
-                    <div></div>
                     <img src={`${element.img}`} />
-                    <div className="info">
-                      <p
-                        style={{ fontSize: "20px", fontWeight: "bold" }}
-                        className="doctor-name"
-                      >
-                        {element.firstName} {element.lastName}
-                      </p>
-                      <p className="Qualifications">{element.Qualifications}</p>
-                      <p className="price">{element.price}</p>
-                      <p className="describe">{element.description}</p>
-                    </div>
+                    <p
+                      style={{ fontSize: "20px", fontWeight: "bold" }}
+                      className="doctor-name"
+                    >
+                      {element.firstName} {element.lastName}
+                    </p>
                   </div>
                 );
               })}
@@ -184,26 +172,23 @@ const Doctor = () => {
           {Doctor &&
             Doctor.map((elem, i) => {
               return (
-                <div
-                  className="card1"
-                  onClick={() => {
-                    func(role_id === 3 ? "" : elem.id);
-                  }}
-                  key={i}
-                >
-                  <img src={`${elem.img}`} />
-
-                  <div className="info">
-                    <p style={{ fontSize: "20px", fontWeight: "bold" }}>
-                      {elem.firstName} {elem.lastName}
-                    </p>
-                    <p className="Qualifications">{elem.Qualifications}</p>
-                    <p>
-                      {elem.price + " $"}
-                      <br></br>
-                      {elem.description}
-                    </p>
-
+                <>
+                  <Card
+                    onClick={() => {
+                      func(role_id === 3 ? "" : elem.id);
+                    }}
+                    key={i}
+                    style={{ width: "18rem", height: "5%" }}
+                  >
+                    <Card.Img variant="top" src={`${elem.img}`} />
+                    <Card.Body>
+                      <Card.Title>
+                        {elem.firstName} {elem.lastName}
+                      </Card.Title>
+                      <Card.Text>{elem.description}</Card.Text>
+                      <Card.Text>{elem.price + " $"}</Card.Text>
+                      <Card.Text>{elem.Qualifications}</Card.Text>
+                    </Card.Body>
                     {role_id == 3 ? (
                       <button
                         onClick={() => {
@@ -215,8 +200,8 @@ const Doctor = () => {
                     ) : (
                       <></>
                     )}
-                  </div>
-                </div>
+                  </Card>
+                </>
               );
             })}
         </div>
