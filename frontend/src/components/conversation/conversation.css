@@ -8,10 +8,11 @@
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   margin: auto;
   padding: 40px;
+  padding-bottom: 40px;
   overflow-x: hidden;
   overflow-y: visible;
   /* background-image: linear-gradient(150, #23195a 10%, #ffffff 99%); */
-  background-color: rgb(255, 255, 255);
+  background-color: #ffffff;
 
   background-size: 100%;
 }
@@ -35,7 +36,7 @@
   border-radius: 10px;
   padding: 10px;
   margin-top: 10px;
-  background-color: rgb(22, 95, 124);
+  background-color: #86cb6a;
   color: white;
   box-sizing: border-box;
   word-break: break-all;
@@ -57,12 +58,13 @@
   word-break: break-all;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-  background-color: rgb(221, 220, 220);
+  background-color: rgb(204, 203, 203);
+  color: rgb(39, 36, 36);
 }
 .user-i {
   display: flex;
   flex-direction: row;
-  background-color: rgb(22, 82, 105);
+  background-color: #86cb6a;
   width: 60%;
   margin: auto;
   margin-top: 20px;
@@ -93,6 +95,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: #f1f1f1;
+  margin-bottom: 20px;
 }
 .input-message {
   /* margin: auto;
@@ -104,20 +108,24 @@
   /* margin-top: 50px; */
   margin: auto;
   display: flex;
+  width: 60%;
 }
 .input-message input {
   margin: auto;
-  width: 870px;
+  width: 600%;
   border-radius: 5px;
   height: 40px;
   background-color: rgb(233, 232, 232);
 }
 .input-message button {
   border: none;
-  background-color: rgb(56, 56, 56);
+  background-color: #57a836;
   color: white;
   padding: 0px 5px;
-  border-radius: 5px;
+  border-radius: 2px;
+}
+.input-message button:hover {
+  background-color: #9bdb82;
 }
 .input-message img {
   width: 5%;

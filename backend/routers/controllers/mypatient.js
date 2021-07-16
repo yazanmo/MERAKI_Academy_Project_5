@@ -31,7 +31,7 @@ const getMyPatient = (req, res) => {
   const user_id = req.token.id;
   const query = `SELECT  purchased.*  , users.* ,doctorsDetails.user_id AS doctor_id  FROM users JOIN purchased ON purchased.user_id=users.id
   JOIN doctorsDetails ON purchased.doctorsService_id=doctorsDetails.id WHERE purchased.doctorsService_id
-   AND doctorsDetails.user_id= ? AND  is_deleted = 0 ;
+   AND doctorsDetails.user_id= ? ;
   `;
   const data = [user_id];
   db.query(query, data, (err, result) => {
