@@ -133,8 +133,8 @@ const Doctor = () => {
                       className="doctor-name"
                     >
                       {element.firstName} {element.lastName}
+                      <img src={`${element.img}`} />
                     </p>
-                    <img src={`${element.img}`} />
                   </div>
                 );
               })}
@@ -150,11 +150,19 @@ const Doctor = () => {
                       func(role_id === 3 ? "" : elem.id);
                     }}
                     key={i}
-                    style={{ width: "18rem", height: "5%", cursor: "pointer" }}
+                    style={{
+                      width: "250px",
+                      height: "400px",
+                      cursor: "pointer",
+                    }}
                   >
                     <Card.Img variant="top" src={`${elem.img}`} />
                     <Card.Body>
-                      <Card.Title>
+                      <Card.Title
+                        style={{
+                          color: "#86cb6a",
+                        }}
+                      >
                         {elem.firstName} {elem.lastName}
                       </Card.Title>
                       <Card.Text>{elem.description}</Card.Text>
@@ -189,15 +197,29 @@ const Doctor = () => {
                       func(role_id === 3 ? "" : elem.id);
                     }}
                     key={i}
-                    style={{ width: "18rem", height: "5%", cursor: "pointer" }}
+                    style={{
+                      width: "250px",
+                      height: "400px",
+                      cursor: "pointer",
+                    }}
                   >
                     <Card.Img variant="top" src={`${elem.img}`} />
                     <Card.Body>
-                      <Card.Title>
+                      <Card.Title
+                        style={{
+                          color: "#67ac4b",
+                        }}
+                      >
                         {elem.firstName} {elem.lastName}
                       </Card.Title>
+                      <Card.Text
+                        style={{
+                          color: "#67ac4b",
+                        }}
+                      >
+                        {elem.price + " $"}
+                      </Card.Text>
                       <Card.Text>{elem.description}</Card.Text>
-                      <Card.Text>{elem.price + " $"}</Card.Text>
                       <Card.Text>{elem.Qualifications}</Card.Text>
                     </Card.Body>
                     {role_id == 3 ? (

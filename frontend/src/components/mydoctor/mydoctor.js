@@ -43,52 +43,59 @@ const MyDoctor = ({
   }, []);
 
   return (
-    <div className="my-doc-card">
+    <div className="my-doc-card-p">
       {result.map((element, index) => {
         console.log("element", element);
         return (
-          <div className="my-doc-card">
-            <Card style={{ width: "300px", height: "300px" }}>
-              <Card.Img variant="top" src={element.img} />
-              <Card.Body style={{ hight: "50px" }}>
-                <Card.Title>
-                  <h1>
-                    {" "}
-                    {element.firstName} {element.lastName}
-                  </h1>
-                </Card.Title>
-                <Card.Text>
-                  <p> {element.price}</p>
-                  <p className="p-my-doc"> {element.description}</p>
-                </Card.Text>
-                <div className="btn-card">
-                  <Button
-                    variant="outline-secondary"
-                    onClick={() => {
-                      func(element.doctorsService_id);
-                    }}
-                  >
-                    doctor
-                  </Button>
-                  <Button
-                    variant="outline-secondary"
-                    onClick={() => {
-                      setSender(element.user_id);
-                      setReceiver(element.doctor_id);
-                      setFirstName("Dr " + element.firstName);
-                      setLastName(element.lastName);
-                      setImg(element.img);
-                      console.log(element.user_id);
-                      console.log(element.doctor_id);
-                      history.push("/conversation");
-                    }}
-                  >
-                    Conversation
-                  </Button>
-                </div>
-              </Card.Body>
-            </Card>
-          </div>
+          <Card style={{ width: "18rem", marginTop: "40px", height: "400px" }}>
+            <Card.Img
+              style={{ width: "100%", height: "50%" }}
+              variant="top"
+              src={element.img}
+            />
+            <Card.Body>
+              <Card.Title>
+                {" "}
+                {element.firstName} {element.lastName}
+              </Card.Title>
+              <Card.Text>{element.price}</Card.Text>
+              <Card.Text>{element.description}</Card.Text>
+              <Button
+                style={{
+                  backgroundColor: "#86cb6a",
+                  marginLeft: "5px",
+                  border: "none",
+                }}
+                variant="primary"
+                onClick={() => {
+                  func(element.doctorsService_id);
+                }}
+              >
+                Booking
+              </Button>
+              <Button
+                style={{
+                  // backgroundColor: "#86cb6a",
+                  width: "48%",
+                  // border: "none"
+                  marginLeft: "5px",
+                }}
+                variant="outline-secondary"
+                onClick={() => {
+                  setSender(element.user_id);
+                  setReceiver(element.doctor_id);
+                  setFirstName("Dr " + element.firstName);
+                  setLastName(element.lastName);
+                  setImg(element.img);
+                  console.log(element.user_id);
+                  console.log(element.doctor_id);
+                  history.push("/conversation");
+                }}
+              >
+                Chat
+              </Button>{" "}
+            </Card.Body>
+          </Card>
         );
       })}
     </div>
