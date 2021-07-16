@@ -48,40 +48,43 @@ const MyDoctor = ({
         console.log("element", element);
         return (
           <div className="my-doc-card">
-            <Card style={{ width: "300px" }}>
+            <Card style={{ width: "300px", height: "300px" }}>
               <Card.Img variant="top" src={element.img} />
-              <Card.Body>
+              <Card.Body style={{ hight: "50px" }}>
                 <Card.Title>
-              <h1> {element.firstName} {element.lastName}</h1> 
+                  <h1>
+                    {" "}
+                    {element.firstName} {element.lastName}
+                  </h1>
                 </Card.Title>
                 <Card.Text>
                   <p> {element.price}</p>
                   <p className="p-my-doc"> {element.description}</p>
                 </Card.Text>
                 <div className="btn-card">
-                <Button
-                  variant="outline-secondary"
-                  onClick={() => {
-                    func(element.doctorsService_id);
-                  }}
-                >
-                  doctor
-                </Button>
-                <Button
-                  variant="outline-secondary"
-                  onClick={() => {
-                    setSender(element.user_id);
-                    setReceiver(element.doctor_id);
-                    setFirstName("Dr " + element.firstName);
-                    setLastName(element.lastName);
-                    setImg(element.img);
-                    console.log(element.user_id);
-                    console.log(element.doctor_id);
-                    history.push("/conversation");
-                  }}
-                >
-                  Conversation
-                </Button>
+                  <Button
+                    variant="outline-secondary"
+                    onClick={() => {
+                      func(element.doctorsService_id);
+                    }}
+                  >
+                    doctor
+                  </Button>
+                  <Button
+                    variant="outline-secondary"
+                    onClick={() => {
+                      setSender(element.user_id);
+                      setReceiver(element.doctor_id);
+                      setFirstName("Dr " + element.firstName);
+                      setLastName(element.lastName);
+                      setImg(element.img);
+                      console.log(element.user_id);
+                      console.log(element.doctor_id);
+                      history.push("/conversation");
+                    }}
+                  >
+                    Conversation
+                  </Button>
                 </div>
               </Card.Body>
             </Card>
