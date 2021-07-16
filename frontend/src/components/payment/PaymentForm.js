@@ -114,9 +114,6 @@ export default function Payment({ paymentId, paymentReceiver, price }) {
 
   return (
     <>
-        <div className="h4">
-          <h4>inter your credit Card details to continue</h4>
-        </div>
      
 
         {!success ? 
@@ -126,7 +123,7 @@ export default function Payment({ paymentId, paymentReceiver, price }) {
                     <CardElement options={CARD_OPTIONS}/>
                 </div>
             </fieldset>
-            <button>Pay</button>
+            <button className="payButton">Pay</button>
         </form>
         :
        <div>
