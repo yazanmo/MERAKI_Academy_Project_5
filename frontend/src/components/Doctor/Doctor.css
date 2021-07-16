@@ -12,7 +12,17 @@
   flex-direction: row;
   justify-content: center;
 }
-
+.wrapper button {
+  width: 40%;
+  background-color: #86cb6a;
+  border: none;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 10px auto;
+}
+.wrapper button:hover {
+  background-color: #c42e2e;
+}
 .card1 {
   margin-bottom: 40px;
   width: 300px;
@@ -179,13 +189,13 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  gap: 10%;
+  gap: 9%;
 }
 
 .btn-inp {
   display: flex;
   flex-direction: row;
-  gap: 15px;
+  gap: 10px;
 }
 
 .filter {
