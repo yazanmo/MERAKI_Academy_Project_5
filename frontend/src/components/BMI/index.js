@@ -131,6 +131,7 @@ export default function BMI() {
         Your Basal metabolic rate
         <b>{BMR} </b>{" "}
       </div>
+      
     </div>
   );
 }
