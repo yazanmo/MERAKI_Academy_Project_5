@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import jwt from "jsonwebtoken";
 import { useEffect, useState } from "react";
+import Logo from "./../../components/logo.png";
 import "./navigation.css";
 
-import {  animateScroll as scroll } from "react-scroll";
-import { Dropdown } from 'react-bootstrap';
+import { animateScroll as scroll } from "react-scroll";
+import { Dropdown } from "react-bootstrap";
 require("dotenv").config();
 const Navigation = ({ setHomePageSection }) => {
   const state = useSelector((state) => {
@@ -17,7 +18,7 @@ const Navigation = ({ setHomePageSection }) => {
   return (
     <div className="navBar">
       <div className="logo">
-        <img className="logo-img" src="https://scontent.famm3-1.fna.fbcdn.net/v/t1.15752-9/217635563_1162193564273221_2538562333226498135_n.png?_nc_cat=109&ccb=1-3&_nc_sid=ae9488&_nc_eui2=AeHLB9AbtT3AuzmYxRVsD1-u03JRewQGLtTTclF7BAYu1BIct7bbJPsdF4miEofFNxJxaQzrYuIVpQ8oNhEXXJc8&_nc_ohc=RU0j3X7tMiUAX_Jtm2L&_nc_ht=scontent.famm3-1.fna&oh=801afb762b81abb4ea1a8277126694a2&oe=60F34017"/>
+        <img className="logo-img" src={Logo} />
       </div>
       <div className="nav">
         <ul>
@@ -50,16 +51,15 @@ const Navigation = ({ setHomePageSection }) => {
                     </Link>{" "}
                   </li>
                   <Dropdown>
-
                     <Dropdown.Toggle
-                      
                       style={{
-                        backgroundColor: "rgb(89 96 108)",
-                        borderColor: "rgb(89 96 108)",
-                        marginTop: "-8px",
-                        fontWeight: "700",
-                        fontSize:"20px",
-                      }}  
+                        backgroundColor: "#fff",
+                        borderColor: "#fff",
+                        color: "#52585c",
+                        marginTop: "-6px",
+                        fontWeight: "550",
+                        fontSize: "1.2rem",
+                      }}
                     >
                       Profile
                     </Dropdown.Toggle>
@@ -70,9 +70,11 @@ const Navigation = ({ setHomePageSection }) => {
                       <Dropdown.Item href="/foodtracker">
                         Your Food
                       </Dropdown.Item>
-                      <Dropdown.Item href="/userSchedule">My Schedule</Dropdown.Item>
+                      <Dropdown.Item href="/userSchedule">
+                        My Schedule
+                      </Dropdown.Item>
                       <Dropdown.Item href="/profile">Profile</Dropdown.Item>
-                      
+
                       <Dropdown.Item
                         href="/"
                         onClick={() => {
@@ -81,7 +83,6 @@ const Navigation = ({ setHomePageSection }) => {
                       >
                         Log out
                       </Dropdown.Item>
-
                     </Dropdown.Menu>
                   </Dropdown>
                 </>
@@ -114,33 +115,36 @@ const Navigation = ({ setHomePageSection }) => {
                       Booking schedule
                     </Link>{" "}
                   </li>
-                  <Dropdown>
-
-          <Dropdown.Toggle
-          style={{
-            backgroundColor: "rgb(89 96 108)",
-            borderColor: "rgb(89 96 108)",
-            marginTop: "-8px",
-            fontWeight: "700",
-            fontSize:"20px",
-          }}
-          >
-              Profile
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-
-            <Dropdown.Item href="/doctorProfile">Profile</Dropdown.Item>
-            <Dropdown.Item
-              href="/"
-              onClick={() => {
-                localStorage.clear();
-              }}
-            >
-              Log out
-            </Dropdown.Item>
-
-                </Dropdown.Menu>
-                </Dropdown>
+                  <li>
+                    <Dropdown>
+                      <Dropdown.Toggle
+                        style={
+                          {
+                            // backgroundColor: "rgb(89 96 108)",
+                            // borderColor: "rgb(89 96 108)",
+                            // marginTop: "-8px",
+                            // fontWeight: "700",
+                            // fontSize: "1.2rem",
+                          }
+                        }
+                      >
+                        Profile
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item href="/doctorProfile">
+                          Profile
+                        </Dropdown.Item>
+                        <Dropdown.Item
+                          href="/"
+                          onClick={() => {
+                            localStorage.clear();
+                          }}
+                        >
+                          Log out
+                        </Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </li>
                 </>
               ) : (
                 <></>
@@ -162,7 +166,7 @@ const Navigation = ({ setHomePageSection }) => {
                   <li>
                     {" "}
                     <Link to="/doctor" className="links">
-                    nutritionist
+                      nutritionist
                     </Link>{" "}
                   </li>
                   <li>

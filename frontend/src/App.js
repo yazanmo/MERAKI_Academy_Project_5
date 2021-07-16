@@ -26,17 +26,25 @@ import MyPatient from "./components/mypatint/mypatint";
 import MyDoctor from "./components/mydoctor/mydoctor";
 import Patient from "./components/mypatint/patient";
 import Conversation from "./components/conversation/conversation";
-import Payment from "./components/payment";
 import Recipe from "./components/recipe";
 import BMI from "./components/BMI"
 
+import Payment  from "./components/payment";
+import UserSchedule from "./components/schedule/user"
+
+
+import Video from "./components/conversation/video";
 const App = () => {
   const [homePageSection, setHomePageSection] = useState("");
   const [sender, setSender] = useState("");
   const [receiver, setReceiver] = useState("");
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [img, setImg] = useState("");
   const [paymentId, setPaymentId] = useState("");
   const [paymentReceiver, setPaymentReceiver] = useState("");
-
+const [video,setVideo]=useState(null)
   return (
     <>
       <div className="App">
@@ -96,14 +104,27 @@ const App = () => {
             exact
             path="/mypatient"
             render={() => (
-              <MyPatient setSender={setSender} setReceiver={setReceiver} />
+              <MyPatient
+                setSender={setSender}
+                setReceiver={setReceiver}
+                setFirstName={setFirstName}
+                setLastName={setLastName}
+                setImg={setImg}
+              />
             )}
           />
+
           <Route
             exact
             path="/mydoctor"
             render={() => (
-              <MyDoctor setSender={setSender} setReceiver={setReceiver} />
+              <MyDoctor
+                setSender={setSender}
+                setReceiver={setReceiver}
+                setFirstName={setFirstName}
+                setLastName={setLastName}
+                setImg={setImg}
+              />
             )}
           />
           <Route exact path="/patient/:id" render={() => <Patient />} />
@@ -111,7 +132,16 @@ const App = () => {
           <Route
             exact
             path="/conversation"
-            render={() => <Conversation sender={sender} receiver={receiver} />}
+            render={() => (
+              <Conversation
+                sender={sender}
+                receiver={receiver}
+                firstName={firstName}
+                lastName={lastName}
+                img={img}
+                setVideo={setVideo}
+              />
+            )}
           />
           <Route
             exact
@@ -126,6 +156,11 @@ const App = () => {
           />
           <Route exact path ="/recipe" render={()=>  <Recipe/>  }/>
           <Route exact path ="/bmi" render={()=>  <BMI/>  }/>
+
+          
+          <Route exact path="/userSchedule" render={() => <UserSchedule/>}  />
+        
+          <Route exact path="/video" render={() => <Video /> }  />
 
         </Switch>
       </div>

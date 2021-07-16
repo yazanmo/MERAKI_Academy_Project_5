@@ -28,7 +28,7 @@ const createUserDoctor = (req, res) => {
 
 const deleteDoctorById = (req, res) => {
   const id = req.body.id;
-  const query = `UPDATE users SET is_deleted = 1 WHERE id = ? AND role_id=2`;
+  const query = `DELETE FROM  users WHERE id = ? AND role_id=2`;
   const data = [id];
 
   db.query(query, data, (err, result) => {

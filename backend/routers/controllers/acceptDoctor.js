@@ -8,7 +8,7 @@ const acceptDoctor = async (req, res) => {
   const arr = [doctor_id];
   let hashed = await bcrypt.hash(password, 10);
 
-// select the doctor from doctor table
+  // select the doctor from doctor table
   const command = `SELECT * FROM doctors WHERE doctor_id = ?`;
   db.query(command, arr, (err, result) => {
     console.log(result);
@@ -26,7 +26,6 @@ const acceptDoctor = async (req, res) => {
     db.query(command1, arr1, (err, result) => {
       if (err) return res.send(err);
     });
-
 
     const arr11 = [result[0].email];
     const command11 = `SELECT * FROM users WHERE email = ?`;
@@ -46,13 +45,11 @@ const acceptDoctor = async (req, res) => {
         if (err) return res.send(err);
       });
 
-
       //update is_deleted in doctors table
-      const command3=`UPDATE doctors SET is_deleted=1 WHERE email=?`
-      db.query(command3,arr11,(err,result)=>{
-        res.status(201).json("doctor add successfully");
-
-      })
+      const command3 = `UPDATE doctors SET is_deleted=1 WHERE email=?`;
+      db.query(command3, arr11, (err, result) => {
+        res.status(200).json("doctor add successfully");
+      });
     });
   });
 };

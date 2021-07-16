@@ -55,7 +55,6 @@ const deleteScheduleUser = (req, res) => {
 const deleteScheduleDoctor = (req, res) => {
   const doctorServer_id = req.body.doctorServes;
   const schedule_id = req.body.schedule_id;
-  console.log(doctorServer_id, schedule_id);
   const query = `DELETE FROM schedule WHERE doctor_id=? AND id=? ; `;
   const array = [doctorServer_id, schedule_id];
   db.query(query, array, (err, result) => {

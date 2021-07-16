@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+
 import axios from "axios";
 import { setStories } from "../../reducers/story";
 
@@ -7,12 +9,14 @@ import { scroller } from "react-scroll";
 import "./home.css";
 import "react-slideshow-image/dist/styles.css";
 import noAvatar from "./noAvatar.png";
-
+import Logo from "./../../components/logo.png";
 export default function Home({ homePageSection, setHomePageSection }) {
   const dispatch = useDispatch();
   const [pageNum, setPageNum] = useState([]);
   const [specificPage, setSpecificPage] = useState(1);
-  const [resultLength, setResultLength] = useState(0)
+  const [resultLength, setResultLength] = useState(0);
+
+  const history = useHistory();
 
   // smooth scroller
   useEffect(() => {
@@ -39,8 +43,8 @@ export default function Home({ homePageSection, setHomePageSection }) {
     axios
       .get(`http://localhost:5000/stories?page=${specificPage}&limit=2`)
       .then((result) => {
-        setResultLength(result.data.length) ;
-        console.log("resultLength ",resultLength );
+        setResultLength(result.data.length);
+        console.log("resultLength ", resultLength);
         console.log("==========", result.data);
         dispatch(setStories(result.data));
         localStorage.setItem("stories", JSON.stringify(result.data));
@@ -65,16 +69,25 @@ export default function Home({ homePageSection, setHomePageSection }) {
   return (
     <div className="home">
       <div className="home-Img">
-        <p className="home-p">
-          <h1 className="h1p">At Health Care Website</h1>
-          <p className="home-pp">
+        <div className="decs-home">
+          <h1>At Health Care Website</h1>
+
+          <p>
             {" "}
             we believe health is not just the absence of disease, but a state of
             immense vitality. It is our mission to help you feel better, live
             longer, and become the best possible you!
           </p>
-        </p>
+          <button
+            onClick={() => {
+              history.push("/doctor");
+            }}
+          >
+            Get Started
+          </button>
+        </div>
       </div>
+      <div className="card-home"></div>
       <div className="information">
         <div className="info-1">
           <div className="icon-information1">
@@ -110,13 +123,13 @@ export default function Home({ homePageSection, setHomePageSection }) {
                 </g>
               </g>
             </svg>
+            <h3>Subscribe with a private doctor</h3>
+            <p>
+              Exactly what you want, how you want it. Get a personalized
+              low-carb or keto meal plan for your diet goals. Start losing
+              weight and improving your health now!
+            </p>
           </div>
-          <h3>Subscribe with a private doctor</h3>
-          <p>
-            Exactly what you want, how you want it. Get a personalized low-carb
-            or keto meal plan for your diet goals. Start losing weight and
-            improving your health now!
-          </p>
         </div>
         <div className="info-2">
           <div className="icon-information1">
@@ -152,12 +165,12 @@ export default function Home({ homePageSection, setHomePageSection }) {
                 </g>
               </g>
             </svg>
+            <h3>health food</h3>
+            <p>
+              What we eat doesn’t just affect our physical health: it can also
+              affect our mental health and wellbeing.
+            </p>
           </div>
-          <h3>health food</h3>
-          <p>
-            What we eat doesn’t just affect our physical health: it can also
-            affect our mental health and wellbeing.
-          </p>
         </div>
         <div className="info-3">
           <div className="icon-information1">
@@ -193,9 +206,9 @@ export default function Home({ homePageSection, setHomePageSection }) {
                 </g>
               </g>
             </svg>
+            <h3>UROLOGY CARE</h3>
+            <p>Constant monitoring of your health system</p>
           </div>
-          <h3>UROLOGY CARE</h3>
-          <p>Constant monitoring of your health system</p>
         </div>
       </div>
 
@@ -239,7 +252,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
                 style={{ mixblendmode: " normal" }}
               >
                 <path d="M0,172v-172h172v172z" fill="none"></path>
-                <g fill="#3498db">
+                <g fill="#86cb6a">
                   <path d="M65.84375,22.57605c-2.28438,0 -4.03125,1.74688 -4.03125,4.03125c0,2.28438 1.74687,4.03125 4.03125,4.03125h40.3125c2.28437,0 4.03125,-1.74687 4.03125,-4.03125c0,-2.28437 -1.74688,-4.03125 -4.03125,-4.03125zM43,35.07135c-9.675,0 -17.46875,7.79375 -17.46875,17.46875v66.9198c0,9.675 7.79375,17.46875 17.46875,17.46875h86c9.675,0 17.46875,-7.79375 17.46875,-17.46875v-66.9198c0,-9.675 -7.79375,-17.46875 -17.46875,-17.46875zM43,43.13385h86c5.24062,0 9.40625,4.16563 9.40625,9.40625v66.9198c0,5.24063 -4.16563,9.40625 -9.40625,9.40625h-86c-5.24063,0 -9.40625,-4.16562 -9.40625,-9.40625v-66.9198c0,-5.24062 4.16562,-9.40625 9.40625,-9.40625zM86,64.5c-3.7625,0 -6.71875,2.95625 -6.71875,6.71875v9.67395h-9.67395c-3.7625,0 -6.71875,2.95625 -6.71875,6.71875c0,3.7625 2.95625,6.71875 6.71875,6.71875h9.67395v9.67657c0,3.7625 2.95625,6.71875 6.71875,6.71875c3.7625,0 6.71875,-2.95625 6.71875,-6.71875v-9.67657h9.67395c3.7625,0 6.71875,-2.95625 6.71875,-6.71875c0,-3.7625 -3.09063,-6.71875 -6.71875,-6.71875h-9.67395v-9.67395c0,-3.7625 -2.95625,-6.71875 -6.71875,-6.71875z"></path>
                 </g>
               </g>
@@ -284,7 +297,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
                 style={{ mixblendmode: " normal" }}
               >
                 <path d="M0,172v-172h172v172z" fill="none"></path>
-                <g fill="#3498db">
+                <g fill="#86cb6a">
                   <path d="M153.1875,95.00581c0,-12.96987 -7.0735,-20.37394 -7.0735,-20.37394c2.408,-20.02725 -2.84875,-29.70762 -18.0815,-38.13025c-6.89881,-13.62025 -29.11906,-27.41787 -42.07012,-16.15187c-13.68206,-10.67475 -32.77138,1.02662 -37.81581,11.70406c-3.15781,1.892 -11.33856,6.92031 -11.91369,16.899c-6.99287,5.27556 -10.89244,10.89781 -10.42213,28.36656c-5.51475,5.934 -11.79006,14.40231 -1.45394,26.45038c-2.61494,10.01094 2.47519,19.53006 9.58362,25.83762c2.34887,8.84994 13.12575,17.95519 22.1665,18.64588c6.61394,10.72044 23.13669,8.86337 29.85544,1.43244c7.03319,8.59731 24.9185,8.34469 29.85544,-1.43244c9.03269,-0.68531 20.812,-9.40625 23.1555,-18.25081c3.95331,-7.63519 11.21762,-16.23788 8.59731,-26.23269c0,0 5.61688,-1.13681 5.61688,-8.76394zM62.62144,138.63469c-8.93056,-1.36794 -19.16456,-4.43975 -19.96812,-14.19c-6.40969,-3.92106 -6.60856,-7.83944 -7.58681,-13.74656c3.28412,1.85169 6.78594,4.07694 13.39988,4.69238c5.504,11.94325 17.40156,11.95131 25.92363,12.95106l1.25775,-5.73244c-5.95012,-0.57244 -15.33488,-3.44 -16.07931,-9.54063c5.10088,-0.44075 7.93888,-4.94231 7.93888,-4.94231l-3.68725,-5.08744c-9.03269,8.78006 -20.24225,-0.49719 -29.86619,-4.30269c-7.17025,-7.94694 -0.559,-13.96156 0.946,-15.45312c4.97994,-0.645 7.912,6.67575 7.912,6.67575l5.95819,-1.85975c-1.49962,-4.71656 -4.46125,-13.96156 -12.6205,-16.82644c0.08062,-6.9015 -0.03494,-13.94813 7.64594,-17.04412c0.344,-7.57069 6.20544,-13.56112 9.98406,-13.03169c11.1155,3.96944 -0.46494,22.32237 12.34638,30.13225l4.38869,-5.17075c-9.288,-9.40625 6.76444,-16.05781 -9.31756,-33.454c2.20913,-4.28387 13.06394,-7.73194 19.38494,-3.02881c1.52919,9.64275 1.22281,22.39225 -1.54263,29.15131c3.07181,7.98725 2.64181,17.75094 1.54263,26.5955c-5.38306,-3.03419 -16.75119,4.07962 -18.98719,-2.19837l-3.07181,4.72731c7.67819,10.51619 14.64956,2.36231 22.059,9.12406c1.93231,9.38475 2.55581,18.103 0,25.19531c1.68237,6.60587 1.52919,12.90269 0,17.92025c-11.66644,11.21225 -17.96056,-1.55606 -17.96056,-1.55606zM105.80956,45.94281c0,0 -2.05056,13.29775 -14.4695,11.27138c-2.23062,-12.4485 0,-27.5415 0,-27.5415c14.46412,-7.89856 27.52806,8.31244 30.79337,13.91319c10.03244,4.54994 14.78125,13.41063 13.45094,28.54394l-0.20425,-0.18275c-11.77662,13.82719 -21.08612,-12.65812 -35.5395,7.43363l4.10381,3.26263c10.94887,-11.16925 13.11231,12.69575 34.58812,0.72562c5.3105,4.44781 5.16537,10.17219 -0.50256,15.20856c-4.63594,0.44881 -12.1905,1.89738 -17.72675,6.407c0,0 -11.99969,-2.99656 -8.92787,-10.86288l-4.42363,-1.73075c-6.63544,8.37963 -2.95087,17.2215 6.82894,21.69619c0,0 -3.50987,6.46612 -11.36275,6.22156l-0.81431,6.622c25.24906,0.301 15.59556,-17.05756 37.29981,-17.40156c-1.14487,6.36131 -8.22106,11.36544 -9.84969,16.31313c-2.66063,7.54112 -8.46294,10.87363 -16.89631,12.18781c-1.34106,5.25675 -10.59144,0.81162 -20.82006,2.15269c-0.44344,0.05912 1.37331,-8.23719 -0.6235,-18.98988c1.53725,-6.45269 1.58025,-13.53425 0.38969,-21.80638c2.42681,-11.59925 1.08038,-22.661 0.23381,-31.15081c22.17994,-0.87613 21.92462,-18.76144 20.35512,-24.03163"></path>
                 </g>
               </g>
@@ -302,7 +315,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
 
         <img
           className="img-service2"
-          src="https://static.wixstatic.com/media/ce9e0d_d5ab1339ca5342b3bd98c2a818616190~mv2_d_2339_2101_s_2.jpg"
+          src="https://alllife.co.za/wp-content/uploads/sites/2/2020/05/undraw_yoga_248n.svg"
         />
       </div>
 
@@ -334,9 +347,12 @@ export default function Home({ homePageSection, setHomePageSection }) {
                 </ul>
               );
             })}
-            {resultLength == 0?< div style={{fontSize:'15rem'}}>...</div>:<></>}
+          {resultLength == 0 ? (
+            <div style={{ fontSize: "6rem" }}>...</div>
+          ) : (
+            <></>
+          )}
         </div>
-
         <div className="pageNumber">
           <button
             onClick={() => {
@@ -348,12 +364,12 @@ export default function Home({ homePageSection, setHomePageSection }) {
             {" "}
             previous{" "}
           </button>
-          
-          {resultLength == 1 || resultLength == 0  ? (
+
+          {resultLength == 1 || resultLength == 0 ? (
             <button
-            onClick={() => {
-              setSpecificPage(1);
-            }}
+              onClick={() => {
+                setSpecificPage(1);
+              }}
             >
               {" "}
               Return{" "}
@@ -362,15 +378,12 @@ export default function Home({ homePageSection, setHomePageSection }) {
             <button
               onClick={() => {
                 setSpecificPage(specificPage + 1);
-                
               }}
             >
               {" "}
               next{" "}
             </button>
           )}
-
-    
         </div>
       </section>
 
@@ -387,10 +400,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
 
       <footer class="footer-distributed" id="contact">
         <div class="footer-left">
-          <h3>
-            Health<span>Care</span>
-          </h3>
-
+          <img src={Logo} />
           <p class="footer-links">
             <a href="/">Home</a>·<a href="/doctor"> Our nutrition</a>·
             <a href="/success">Stories</a>·<a href="#">About</a>·
