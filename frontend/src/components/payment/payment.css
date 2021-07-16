@@ -1,40 +1,55 @@
-.h4 {
-    width: 400px;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.payment-input {
-display: flex;
-flex-direction: column;
-}
-.payment-input div {
-    margin: auto;
-    width: 400px;
-    margin-bottom: 10px;
-}
-.payment-input input  {
-    width: 400px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
+.FormGroup {
+    margin: 0 15px 20px;
+    padding: 0;
+    border-style: none;
+    background-color: #7795F8;
+    will-change: opacity, transform;
+    box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #829FFF;
     border-radius: 4px;
-    box-sizing: border-box;
-    background-color: #F2F2F2;
-  }
-.button {
-    width: 400px;
-    margin: auto;
-    margin-top: 20px;
 }
-.payButton {
-    width: 150px;
-    height: 30px;
-    cursor: pointer;
-    transition-duration: 0.4s;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+.FormRow {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: 15px;
+    border-top: 1px solid #819EFC;
+}
+.StripeElement--webkit-autofill {
+    background: transparent !important;
+}
+.StripeElement {
+    width: 100%;
+    padding: 11px 15px 11px 0;
+}
+button {
+    display: block;
     font-size: 16px;
-    background-color: #2E5D73;
-    color: white;
+    width: calc(100% - 30px);
+    height: 40px;
+    margin: 40px 15px 0;
+    background-color: #F6A4EB;
+    box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #FFB9F6;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+    will-change: transform, background-color, box-shadow;
+    border: none;
+}
+button:active {
+    background-color: #D782D9;
+    box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #E298D8;
+    transform: scale(0.99);
+}
+h1,
+h3 {
+    text-align: center;
+}
+.zzz{
+    margin-right: 20%;
+}
+.message{
+    font-size: 10px;
 }

@@ -6,14 +6,16 @@ import Rating from "./Rating";
 import Stars from "./Stars";
 import { createTodo, setTodos } from "./../../reducers/review";
 import { FaStar } from "react-icons/fa";
-import Payment from "../payment";
+import Payment from "../payment/PaymentForm";
 
 import "./doctordetails.css";
 const colors = {
   orange: "#FFBA5A",
   grey: "#a9a9a9",
 };
-const DoctorDetails = ({ setPaymentId, setPaymentReceiver }) => {
+
+const DoctorDetails = ({setPaymentId,setPaymentReceiver,setPrice}) => {
+
   const { id } = useParams();
   const history = useHistory();
 
@@ -54,9 +56,11 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver }) => {
     axios
       .get(`http://localhost:5000/doctor/${id}`)
       .then((result) => {
-        console.log(result.data[0]);
+        console.log("dooooooooooooooooooooooctor",result.data[0]);
         setResult(result.data[0]);
-        setPaymentReceiver(result.data[0].user_id);
+        setPaymentReceiver(result.data[0].user_id)
+        setPrice(result.data[0].price)
+
       })
       .catch((err) => {});
   }, []);
