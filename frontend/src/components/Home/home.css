@@ -72,18 +72,19 @@ body {
   grid-template-columns: 50% 50%;
   display: grid;
   flex-direction: row;
+  margin-top: 5%;
 }
 .h1p {
   color: #002952;
   margin-left: 81px;
-  margin-top: 140px;
+  /* margin-top: 140px; */
   /* position: absolute; */
   top: 190px;
 }
 
 .img-service2 {
-  height: 700px;
-  width: 900px;
+  height: 400px;
+  width: 600px;
   margin-top: -85px;
 }
 
@@ -113,16 +114,14 @@ body {
   flex-direction: column;
   grid-gap: 100px;
   grid-gap: 30px;
-  gap: 30px;
   margin-left: 90px;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .card-service-partenr {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  gap: 10px;
 }
 
 .img {
