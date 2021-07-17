@@ -1,83 +1,73 @@
 .asd card{
-
-    display: flex;
-    margin-left: 30px;
+  display: flex;
 }
-
-
-.element.style{
-    margin-left: 30px;
+.asd{
+margin: 0 auto;
 }
-
+.admin-body{
+background-color:#f1f1f1;
+padding-top:3%;
+padding-bottom: 3%;
+}
 .parant11{
-    display: flex;
-    gap: 30px;
-    margin-left: 30px;
-    margin-top: 50px;
-    margin-left: 19%;
-    margin-right: 0%;
-    margin-bottom: 30px;
-    flex-direction: column;
+  display: flex;
+  gap: 30px;
+  margin-top: 50px;
+  margin-right: 0%;
+  margin-bottom: 30px;
+  flex-direction: column;
 }
-
 .text-muted{
-
-    font-size: 30px;
-    color: black;
-    margin-left: 30px;
+  font-size: 30px;
+  color: black;
+  margin-left: 30px;
 }
 .desdoc{
-
-    color: black;
-    margin-left: 30px;
-    margin-top: 30px;
-
+  color: black;
+  margin-left: 30px;
+  margin-top: 30px;
+  box-sizing: border-box;
+word-break: break-all;
+width:85%;
 }
-
-
+.desdoc span{
+font-weight:bolder;
+}
 .accdel{
-
-    margin-top: 48px;
-    margin-left: 50px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 60px;
+  margin:0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 60px;
 }
-
 .btnaccdel{
-    width: 90px;
-    height: 40px;
-    border: none;
-    background-color: black;
-    color: white;
-  }
-  
-  .btnaccdel:hover{
-  
-    background-color:rgba(150,201,61,1);
-  }
-
-  .btnaccdel11{
-    width: 90px;
-    height: 40px;
-    border: none;
-    background-color: black;
-    color: white;
-  }
-  
-  .btnaccdel11:hover{
-  
-    background-color:rgb(255, 0, 0);
-  }
-  
-
-  .titleAdmin{
-    margin: 30px auto ;
-    align-items: center;
-    text-align: center;
-    border-bottom:1.5px solid rgb(163, 160, 160);
-    width: 17%;
-    
-  }
+  width: 90px;
+  height: 40px;
+  border: none;
+  background-color: #86CB6A;
+  border-radius: 5px;
+  color: white;
+}
+.btnaccdel:hover{
+  background-color:rgba(150,201,61,1);
+}
+.btnaccdel11{
+  width: 90px;
+  height: 40px;
+  border: none;
+  background-color: #86CB6A;
+  color: white;
+  border-radius: 5px;
+}
+.btnaccdel11:hover{
+  background-color:rgb(255, 0, 0);
+}
+.titleAdmin{
+  margin: 30px auto ;
+  align-items: center;
+  text-align: center;
+  border-bottom:1.5px solid rgb(163, 160, 160);
+  width: 17%;
+  color: #6DA556;
+}

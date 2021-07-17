@@ -1,19 +1,25 @@
 import React from 'react';
 import axios from "axios";
-import {useParams} from "react-router-dom"
+import {useParams,useHistory} from "react-router-dom"
 import { useState } from 'react';
 import './accept.css';
 export default function AcceptDoctor() {
     const {doctor_id}= useParams()
     const [password, setPassword] = useState("")
     const [message, setMessage] = useState("")
+    const history = useHistory();
+
 const add =  ()=>{
+
     axios.post(`http://localhost:5000/accept/doctor/${doctor_id}`,{
     doctor_id,  
     password
     })
     .then((result)=>{
         setMessage("added successfully")
+
+            history.push("/accept");
+          
     })
     .catch((err)=>{
         setMessage("not added !!")
