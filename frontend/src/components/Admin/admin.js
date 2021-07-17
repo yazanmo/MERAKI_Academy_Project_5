@@ -9,7 +9,7 @@ const Accept = () => {
   const [Doctor, setDoctor] = useState();
   const [info, setInfo] = useState(false);
   const [id, setId] = useState(0);
-
+         
   useEffect(() => {
     axios
       .get(`http://localhost:5000/doctoradmin`)
@@ -41,6 +41,7 @@ const Accept = () => {
 
   return (
     <>
+    <div className="admin-body">
     <h1 className="titleAdmin">New request</h1>
       <div className="parant11">
       
@@ -83,7 +84,7 @@ const Accept = () => {
          
           })}
       </div>
- 
+      </div>
     </>
   );
 };
