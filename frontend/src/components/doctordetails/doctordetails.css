@@ -91,7 +91,7 @@
 
 .btnCommant {
   border-radius: 5px;
-  background-color: rgb(56, 56, 56);
+  background-color: #86cb6a;
   border: none;
   color: #fff;
   text-align: center;
@@ -139,78 +139,70 @@
   transition: all 0.5s;
 }
 
-.btnCommant:after {
-  content: "»";
-  opacity: 0;
-  top: 7px;
-  right: -20px;
-  transition: 0.5s;
-}
 
 .btnCommant:hover {
-  padding-right: 24px;
-  padding-left: 8px;
+ background-color: #62964d
+ ;
 }
 
-.btnCommant:hover:after {
-  opacity: 1;
-  right: 10px;
-}
 
 .parent-commint {
-  margin-top: 100px;
-
-  margin-right: 410px;
 
   display: flex;
   flex-direction: column;
+  
 }
 .Reviews {
   width: 330px;
   font-size: 32px;
 
   margin: 0 auto;
-  border-bottom: 1.5px solid rgb(163, 160, 160);
 }
 .userImg {
-  display: flex;
-  flex-direction: row;
-  padding: auto;
-  margin-left: -21%;
-  margin-top: 25px;
+  
 }
 
-.userImg .commenterimg {
-  height: 100px;
-  width: 300px;
+.userImg img {
+ 
+  height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    margin-left: -25px;
 }
 .commenterimg {
-  margin-left: 174px;
+  
 }
 .commenter-details {
-  margin-left: 35px;
-}
-.cmt {
-  position: flex;
-  flex-direction: row;
-  margin-left: 485px;
+ 
 }
 
-.commenter {
-  margin-top: 0px;
+
+.cmt {
+  margin-top: 3%;
+  width: 130%;
+  height: 10rem;
+  display: flex;
+  flex-direction: row;
+  grid-gap: 30px;
+  gap: 30px;
+  justify-content: center;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 2%) 0px 1px 3px 0px, rgb(27 31 35 / 15%) 0px 0px 0px 1px;
 }
-.commentRating {
-  margin-top: 25px;
-  margin-right: 57%;
+
+.cmt-child{
+  margin-top: 3%;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
 }
-.comments {
-  margin-top: 40px;
-  padding-bottom: 20px;
-  width: 500px;
-  word-break: break-all;
-  font-size: 25px;
-  border-bottom: 1.5px solid rgb(163, 160, 160);
-  border: none;
+
+
+.input-text{
+
+  height: auto;
+  width: 100%;
+resize: none;
 }
 
 .comment{

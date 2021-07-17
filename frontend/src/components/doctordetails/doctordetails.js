@@ -292,23 +292,21 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
           <p className="Reviews">Reviews :</p>
           {allComment.map((element, index) => {
             return (
+              <div className="parent-cmt"> 
               <div className="cmt" key={index + 1}>
-                <hr />
+              <div className="cmt-child">
                 <div className="userImg">
                   <img
-                    className="commenterimg"
+                
                     src={element.img}
-                    style={{
-                      width: "75px",
-                      height: "75px",
-                      borderRadius: "5px",
-                    }}
+                  
                   />
+                </div>
 
                   <div className="commenter-details">
-                    <h3 className="commenter">
+                    <p >
                       {element.firstName} {element.lastName}
-                    </h3>
+                    </p>
                     <div className="commentRating">
                       <Stars
                         stars={element.rating}
@@ -333,7 +331,7 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
                               onClick={() => {
                                 updateComments(element.id);
                               }}
-                              style={{ width: "30px", height: "30px" }}
+                              style={{ width: "30px", height: "30px" ,cursor:"pointer" }}
                               src="https://img.icons8.com/wired/50/000000/edit.png"
                             />
                           </>
@@ -350,7 +348,7 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
                           onClick={() => {
                             deleteComment(element.id);
                           }}
-                          style={{ width: "30px", height: "30px" }}
+                          style={{ width: "30px", height: "30px" ,cursor:"pointer" }}
                           src="https://img.icons8.com/ios/50/000000/delete-forever--v1.png"
                         />
 
@@ -359,7 +357,7 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
                             onClick={() => {
                               setUpdateComment(true);
                             }}
-                            style={{ width: "30px", height: "30px" }}
+                            style={{ width: "30px", height: "30px" ,cursor:"pointer" }}
                             src="https://img.icons8.com/wired/50/000000/edit.png"
                           />
                         ) : (
@@ -370,13 +368,16 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
                       ""
                     )}
                   </div>
-                </div>
+                
+              </div>
+              </div>
               </div>
             );
           })}
         </div>
       </div>
     </div>
+    
   );
 };
 const styles = {
@@ -384,7 +385,7 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    margin: "5% 0 0 6%",
+    
   },
   stars: {
     display: "flex",
