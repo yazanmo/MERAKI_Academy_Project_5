@@ -64,11 +64,14 @@ export default function BMI() {
   };
 
   return (
+    <div className="outerBMI">
     <div className="BMI">
-      <h2>Calculate your Body Mass Index</h2>
+      <h3 style={{alignItems:"center"}}  >check your health by free</h3>
+      <div className="allWH">
       <div className="WH">
-        <label>Weight</label>
+        <label   className="bmiLabel">Weight</label>
         <input
+        
           type="number"
           onChange={(e) => {
             setWeight(e.target.value);
@@ -77,7 +80,7 @@ export default function BMI() {
         />
       </div>
       <div className="WH">
-        <label>Height</label>
+        <label   className="bmiLabel">Height</label>
         <input
           type="number"
           onChange={(e) => {
@@ -88,7 +91,7 @@ export default function BMI() {
       </div>
 
       <div className="WH">
-        <label>Age</label>
+        <label  className="bmiLabel">Age</label>
         <input
           type="number"
           onChange={(e) => {
@@ -99,7 +102,7 @@ export default function BMI() {
       </div>
 
       <div className="WH">
-        <label>Gender</label>
+        <label className="bmiLabel" >Gender</label>
         <input
           type="text"
           onChange={(e) => {
@@ -108,6 +111,8 @@ export default function BMI() {
           placeholder=" male or female "
         />
       </div>
+      </div>
+      <div className="bmiButtons" >
       <button className="bmiButton" onClick={calculate}>
         Calculate BMI
       </button>
@@ -117,6 +122,7 @@ export default function BMI() {
       <button className="bmiButton" onClick={calculateCal}>
         Calorie need per day
       </button>
+      </div>
       <div>
         {" "}
         Your Body Mass Index is <b>{BMI} kg/m</b> <sup>2</sup>. <br></br>This is
@@ -132,6 +138,7 @@ export default function BMI() {
         <b>{BMR} </b>{" "}
       </div>
       
+    </div>
     </div>
   );
 }
