@@ -47,7 +47,7 @@ const MyDoctor = ({
       {result.map((element, index) => {
         console.log("element", element);
         return (
-          <Card style={{ width: "18rem", marginTop: "40px", height: "400px" }}>
+          <Card style={{ width: "18rem", marginTop: "90px", height: "400px" }}>
             <Card.Img
               style={{ width: "100%", height: "50%" }}
               variant="top"
