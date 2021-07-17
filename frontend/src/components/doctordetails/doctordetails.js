@@ -166,8 +166,7 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
         </div>
         <div className="decs-do">
           <p style={{ fontSize: "20px", fontWeight: "bold" }}>
-            <span>Dr</span> {result.firstName.toUpperCase()}{" "}
-            {result.lastName.toUpperCase()}
+            <span>Dr</span> {result.firstName} {result.lastName}
           </p>
           <div
             style={{
@@ -186,13 +185,13 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
               fontFamily: "font-family: Palatino, Georgia, serif",
             }}
           >
-            {result.price}{" "}
+            {result.price} ${" "}
             <span
               style={{
                 color: "#568c40",
               }}
             >
-              $ Per Month
+              Per Month
             </span>{" "}
           </p>
 
@@ -238,46 +237,54 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
             ""
           ) : (
             <div className="comment">
-              <p className="feedBack">give us your feedBack</p>
-              <div className="rating">
-                <div className="rating1" style={styles.container}>
-                  {[...Array(5)].map((element, i) => {
-                    let ratingValue = i;
-                    return (
-                      <div className="rating">
-                        <div>
-                          <FaStar
-                            style={styles.container}
-                            key={ratingValue}
-                            size={24}
-                            onClick={() => handleClick(ratingValue + 1)}
-                            onMouseOver={() => handleMouseOver(ratingValue + 1)}
-                            onMouseLeave={handleMouseLeave}
-                            color={
-                              (rating || hover) > ratingValue
-                                ? colors.oarange
-                                : colors.grey
-                            }
-                            style={{
-                              fontSize: 50,
-                              marginRight: 10,
-                              cursor: "pointer",
-                            }}
-                          />
-                        </div>
+              <div className="rating1" style={styles.container}>
+                {[...Array(5)].map((element, i) => {
+                  let ratingValue = i;
+                  return (
+                    <div className="rating">
+                      <div>
+                        <FaStar
+                          style={styles.container}
+                          key={ratingValue}
+                          size={24}
+                          onClick={() => handleClick(ratingValue + 1)}
+                          onMouseOver={() => handleMouseOver(ratingValue + 1)}
+                          onMouseLeave={handleMouseLeave}
+                          color={
+                            (rating || hover) > ratingValue
+                              ? colors.oarange
+                              : colors.grey
+                          }
+                          style={{
+                            fontSize: 50,
+                            marginRight: 10,
+                            cursor: "pointer",
+                          }}
+                        />
                       </div>
-                    );
-                  })}
-                </div>
+                    </div>
+                  );
+                })}
               </div>
-
-              <textarea
-                className="input-coment1"
-                placeholder="  Comment Here ...."
-                onChange={(e) => {
-                  setComment(e.target.value);
-                }}
-              ></textarea>
+              <div>
+                <textarea
+                  className="input-coment1"
+                  placeholder="  Comment Here ...."
+                  onChange={(e) => {
+                    setComment(e.target.value);
+                  }}
+                ></textarea>
+              </div>
+              <div>
+                <textarea
+                  className="input-coment1"
+                  placeholder="  Comment Here ...."
+                  onChange={(e) => {
+                    setComment(e.target.value);
+                  }}
+                ></textarea>
+              </div>
+              <div className="rating"></div>
             </div>
           )}
         </>
