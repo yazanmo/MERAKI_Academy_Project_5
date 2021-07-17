@@ -201,26 +201,36 @@ const Doctor = () => {
                       width: "250px",
                       height: "400px",
                       cursor: "pointer",
+                      // backgroundColor: "#f4ffef",
                     }}
                   >
                     <Card.Img variant="top" src={`${elem.img}`} />
                     <Card.Body>
                       <Card.Title
                         style={{
-                          color: "#67ac4b",
+                          color: "#383333",
+                          fontSize: "25px",
                         }}
                       >
                         {elem.firstName} {elem.lastName}
                       </Card.Title>
                       <Card.Text
                         style={{
-                          color: "#67ac4b",
+                          color: "#557946",
+                          fontSize: "24px",
+                          fontWeight: "bold",
                         }}
                       >
                         {elem.price + " $"}
                       </Card.Text>
-                      <Card.Text>{elem.description}</Card.Text>
-                      <Card.Text>{elem.Qualifications}</Card.Text>
+                      <Card.Text
+                        style={{
+                          color: "#557946",
+                          fontSize: "20px",
+                        }}
+                      >
+                        {elem.Qualifications}
+                      </Card.Text>
                     </Card.Body>
                     {role_id == 3 ? (
                       <button

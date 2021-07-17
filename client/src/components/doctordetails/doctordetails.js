@@ -14,8 +14,7 @@ const colors = {
   grey: "#a9a9a9",
 };
 
-const DoctorDetails = ({setPaymentId,setPaymentReceiver,setPrice}) => {
-
+const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
   const { id } = useParams();
   const history = useHistory();
 
@@ -56,11 +55,10 @@ const DoctorDetails = ({setPaymentId,setPaymentReceiver,setPrice}) => {
     axios
       .get(`${process.env.REACT_APP_BACKEND_SERVER}/doctor/${id}`)
       .then((result) => {
-        console.log("dooooooooooooooooooooooctor",result.data[0]);
+        console.log("dooooooooooooooooooooooctor", result.data[0]);
         setResult(result.data[0]);
-        setPaymentReceiver(result.data[0].user_id)
-        setPrice(result.data[0].price)
-
+        setPaymentReceiver(result.data[0].user_id);
+        setPrice(result.data[0].price);
       })
       .catch((err) => {});
   }, []);
@@ -159,53 +157,78 @@ const DoctorDetails = ({setPaymentId,setPaymentReceiver,setPrice}) => {
         rel="stylesheet"
         type="text/css"
       ></link>
-      {/* <div className="name-Q"></div> */}
       <div className="parent">
         <div className="img111">
           <img
-            style={{ width: "500px", height: "400px" }}
+            style={{ width: "350px", height: "300px" }}
             src={result.img ? result.img : <></>}
           />
         </div>
         <div className="decs-do">
-          <p>
-            <span>Dr .</span> {result.firstName} {result.lastName}
+          <p style={{ fontSize: "20px", fontWeight: "bold" }}>
+            <span>Dr</span> {result.firstName} {result.lastName}
+          </p>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              margin: "-6% 0px 10% -19%",
+            }}
+          >
             <Stars stars={avgRating} defaultValue={avgRating} />
+          </div>
+          <p
+            style={{
+              color: "#2e2e2e",
+              fontWeight: "700",
+              fontFamily: "font-family: Palatino, Georgia, serif",
+            }}
+          >
+            {result.price} ${" "}
+            <span
+              style={{
+                color: "#568c40",
+              }}
+            >
+              Per Month
+            </span>{" "}
           </p>
 
-          <p>
-            <span>price:</span> {result.price} jd
+          <p style={{ color: "#2e2e2e", fontWeight: "400" }}>
+            {result.Qualifications}{" "}
           </p>
 
-          <p>
-            <span>Qualifications:</span> {result.Qualifications}{" "}
-          </p>
-
-          <p>
-            <span>practicalExperiences: </span>
+          <p style={{ color: "#2e2e2e", fontWeight: "400" }}>
             {result.practicalExperiences}{" "}
           </p>
-          <p className="doctor-description">{result.description}</p>
-          {token ? (
-            <>
-              {role_id == 2 ? (
-                ""
-              ) : (
-                <button className="btn-1" onClick={() => {}}>
-                  <span
-                    onClick={() => {
-                      history.push("/payment");
-                    }}
-                  >
-                    Subscribe
-                  </span>
-                </button>
-              )}
-            </>
-          ) : (
-            ""
-          )}
+          <p style={{ color: "#2e2e2e", fontWeight: "400" }}>
+            {result.description}
+          </p>
         </div>
+        {token ? (
+          <>
+            {role_id == 2 ? (
+              ""
+            ) : (
+              <button
+                style={{
+                  marginBottom: "20%",
+                  marginLeft: "20%",
+                  marginLeft: "10%",
+                }}
+                className="btn-1"
+                onClick={() => {
+                  history.push("/payment");
+                }}
+              >
+                Subscribe
+              </button>
+            )}
+          </>
+        ) : (
+          ""
+        )}
       </div>
 
       {token ? (
@@ -214,46 +237,54 @@ const DoctorDetails = ({setPaymentId,setPaymentReceiver,setPrice}) => {
             ""
           ) : (
             <div className="comment">
-              <p className="feedBack">give us your feedBack</p>
-              <div className="rating">
-                <div className="rating1" style={styles.container}>
-                  {[...Array(5)].map((element, i) => {
-                    let ratingValue = i;
-                    return (
-                      <div className="rating">
-                        <div>
-                          <FaStar
-                            style={styles.container}
-                            key={ratingValue}
-                            size={24}
-                            onClick={() => handleClick(ratingValue + 1)}
-                            onMouseOver={() => handleMouseOver(ratingValue + 1)}
-                            onMouseLeave={handleMouseLeave}
-                            color={
-                              (rating || hover) > ratingValue
-                                ? colors.oarange
-                                : colors.grey
-                            }
-                            style={{
-                              fontSize: 50,
-                              marginRight: 10,
-                              cursor: "pointer",
-                            }}
-                          />
-                        </div>
+              <div className="rating1" style={styles.container}>
+                {[...Array(5)].map((element, i) => {
+                  let ratingValue = i;
+                  return (
+                    <div className="rating">
+                      <div>
+                        <FaStar
+                          style={styles.container}
+                          key={ratingValue}
+                          size={24}
+                          onClick={() => handleClick(ratingValue + 1)}
+                          onMouseOver={() => handleMouseOver(ratingValue + 1)}
+                          onMouseLeave={handleMouseLeave}
+                          color={
+                            (rating || hover) > ratingValue
+                              ? colors.oarange
+                              : colors.grey
+                          }
+                          style={{
+                            fontSize: 50,
+                            marginRight: 10,
+                            cursor: "pointer",
+                          }}
+                        />
                       </div>
-                    );
-                  })}
-                </div>
+                    </div>
+                  );
+                })}
               </div>
-
-              <textarea
-                className="input-coment1"
-                placeholder="  Comment Here ...."
-                onChange={(e) => {
-                  setComment(e.target.value);
-                }}
-              ></textarea>
+              <div>
+                <textarea
+                  className="input-coment1"
+                  placeholder="  Comment Here ...."
+                  onChange={(e) => {
+                    setComment(e.target.value);
+                  }}
+                ></textarea>
+              </div>
+              <div>
+                <textarea
+                  className="input-coment1"
+                  placeholder="  Comment Here ...."
+                  onChange={(e) => {
+                    setComment(e.target.value);
+                  }}
+                ></textarea>
+              </div>
+              <div className="rating"></div>
             </div>
           )}
         </>

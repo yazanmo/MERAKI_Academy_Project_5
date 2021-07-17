@@ -1,23 +1,31 @@
 .asd card{
 
     display: flex;
-    margin-left: 30px;
+    
+   
+}
+.asd{
+  margin: 0 auto;
+}
+.admin-body{
+  background-color:#f1f1f1;
+ padding-top:3%;
+ padding-bottom: 3%;
 }
 
-
-.element.style{
-    margin-left: 30px;
-}
+        
 
 .parant11{
     display: flex;
     gap: 30px;
-    margin-left: 30px;
+    
     margin-top: 50px;
-    margin-left: 19%;
+    
     margin-right: 0%;
     margin-bottom: 30px;
     flex-direction: column;
+    
+
 }
 
 .text-muted{
@@ -31,14 +39,20 @@
     color: black;
     margin-left: 30px;
     margin-top: 30px;
+    box-sizing: border-box;
+  word-break: break-all;
+  
+  width:85%;
 
 }
-
+.desdoc span{
+  font-weight:bolder;
+}
 
 .accdel{
 
-    margin-top: 48px;
-    margin-left: 50px;
+    
+    margin:0 auto;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -50,7 +64,8 @@
     width: 90px;
     height: 40px;
     border: none;
-    background-color: black;
+    background-color: #86cb6a;
+    border-radius: 5px;
     color: white;
   }
   
@@ -63,8 +78,9 @@
     width: 90px;
     height: 40px;
     border: none;
-    background-color: black;
+    background-color: #86cb6a;
     color: white;
+    border-radius: 5px;
   }
   
   .btnaccdel11:hover{
@@ -79,5 +95,7 @@
     text-align: center;
     border-bottom:1.5px solid rgb(163, 160, 160);
     width: 17%;
+    color: #6da556;
     
   }
+ 
