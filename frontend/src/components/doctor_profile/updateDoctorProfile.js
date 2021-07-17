@@ -70,7 +70,7 @@ const UpdateDoctorProfile = () => {
   };
 
   return (
-    <>
+    <div className="backgrond4">
       <div className="profile_page_update">
         <h1 className="title">update your information</h1>
         <div className="allInfo_update">
@@ -185,7 +185,7 @@ const UpdateDoctorProfile = () => {
           Edit Profile
         </button>
       </div>
-    </>
+    </div>
   );
 };
 export default UpdateDoctorProfile;
