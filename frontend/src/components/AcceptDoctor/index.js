@@ -30,11 +30,12 @@ const add =  ()=>{
         doctor_id,
         password
     })
-
+        
 }
 
     return (
         <>
+        <div className="accept-body">
         <div className="yzn">
           
             <input className="inpt1" type="text" placeholder="password here"  onChange={(e)=>{setPassword(e.target.value)} }/>
@@ -42,6 +43,7 @@ const add =  ()=>{
            
         </div>
          <p className="message">{message}</p>
+         </div>
          </>
     )
 }
