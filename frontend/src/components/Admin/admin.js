@@ -9,7 +9,7 @@ const Accept = () => {
   const [Doctor, setDoctor] = useState();
   const [info, setInfo] = useState(false);
   const [id, setId] = useState(0);
-
+         
   useEffect(() => {
     axios
       .get(`http://localhost:5000/doctoradmin`)
@@ -41,6 +41,7 @@ const Accept = () => {
 
   return (
     <>
+    <div className="admin-body">
     <h1 className="titleAdmin">New request</h1>
       <div className="parant11">
       
@@ -48,15 +49,16 @@ const Accept = () => {
           Doctor.map((elem, i) => {
             return (
              
-                  <Card className="asd" style={{ width: '61rem',height: '26rem'}}>
-            <Card.Body>
-              <Card.Subtitle className="mb-2 text-muted">{elem.firstName} {elem.lastName}</Card.Subtitle>
+                  <Card className="asd" style={{ width: '40rem',height: 'auto',boxShadow:"0.5px 0.5px 0.5px 0.5px silver"}}>
+            <Card.Body className="card-body">
+              <Card.Subtitle style={{fontSize:"25px"}} className="mb-2 text-muted"><span>Doctor Name :</span>{elem.firstName} {elem.lastName}</Card.Subtitle>
               <Card.Text>
-                  <p className="desdoc">{elem.description}</p>
-                  <p className="desdoc">{elem.email}</p>
-                  <p className="desdoc">{elem.Qualifications}</p>
-                  <p className="desdoc">{elem.practicalExperiences}</p>
-                  <p className="desdoc">{elem.qualificationsFile}</p>
+                
+                  <p className="desdoc"><span>Description :</span>{elem.description}</p>
+                  <p className="desdoc"><span>Email :</span>{elem.email}</p>
+                  <p className="desdoc"><span>Qualifications :</span>{elem.Qualifications}</p>
+                  <p className="desdoc"><span>practicalExperiences :</span>{elem.practicalExperiences}</p>
+                  <p className="desdoc"><span>qualificationsFile :</span>{elem.qualificationsFile}</p>
               </Card.Text>
               <div className="accdel">
               <button className="btnaccdel"
@@ -83,7 +85,7 @@ const Accept = () => {
          
           })}
       </div>
- 
+      </div>
     </>
   );
 };
