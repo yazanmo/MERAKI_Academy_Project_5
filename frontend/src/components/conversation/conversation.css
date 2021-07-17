@@ -75,6 +75,7 @@
   display: flex;
   flex-direction: row;
   padding: 15px 0px;
+  gap:10px
 }
 
 .info-user img {
@@ -96,7 +97,7 @@
   flex-direction: column;
   justify-content: center;
   background-color: #f1f1f1;
-  padding-bottom: 2.9%;
+  padding-bottom: 12.5%;
 }
 
 .input-message {
@@ -126,4 +127,55 @@
 }
 .conversation-pa {
   /* background-color: rgb(63, 56, 56); */
+}
+
+.info-user svg:hover{
+  color:black;
+}  
+.container{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap:5%;
+  margin-top: 20px;
+}  
+
+.video-body{
+
+  background-color: #f1f1f1;
+  padding-bottom: 11.4%;
+  margin: 0px auto;
+
+}   
+.myId{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+  margin-top: 15px;
+
+}
+.myId .call-button{
+  display: flex;
+  flex-direction: column;
+  margin: 4.5rem;
+}
+.video-container{
+  display: flex;
+  flex-direction: column;
+
+}
+.have-Call{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+.have-Call Button{
+  background-color:#9bdb82;
 }

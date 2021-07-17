@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
   margin-bottom: 40px;
   background-color: rgb(222, 238, 225);
   width: 20%;
@@ -41,7 +41,7 @@
 }
 .decs-do p {
   font-weight: 300px;
-  width: 50%;
+  width: 100%;
 
   /* font-size: 20px; */
 }
@@ -104,6 +104,7 @@
 }
 
 .btn-1 {
+  margin-top: 102px;
   background: #70b950;
   color: #fff;
   cursor: pointer;
@@ -153,9 +154,9 @@
   
 }
 .Reviews {
-  width: 330px;
+  width: 717px;
   font-size: 32px;
-
+margin-left: -15rem;
   margin: 0 auto;
 }
 
@@ -165,19 +166,19 @@
   height: 75px;
     width: 75px;
     border-radius: 50%;
-    margin-left: -25px;
+    margin-left: 25px;
 }
 
 
 .cmt {
   margin-top: 3%;
-  width: 130%;
+  width: 45rem;
   height: 10rem;
   display: flex;
   flex-direction: row;
   grid-gap: 30px;
   gap: 30px;
-  justify-content: center;
+  justify-content:space-between;
   background-color: white;
   box-shadow: rgb(0 0 0 / 2%) 0px 1px 3px 0px, rgb(27 31 35 / 15%) 0px 0px 0px 1px;
 }
@@ -228,4 +229,7 @@ resize: none;
   font-size: 40px;
   margin-left: 500px;
   margin-top: 30px;
+}
+.update_delete{
+  margin-left: 15rem;
 }

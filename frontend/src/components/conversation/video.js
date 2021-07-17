@@ -7,9 +7,6 @@ import React, { useEffect, useRef, useState } from "react"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 import Peer from "simple-peer"
 import io from "socket.io-client"
-
-
-
 const socket = io.connect('http://localhost:5000')
 const Video=()=> {
     
@@ -26,24 +23,20 @@ const Video=()=> {
 	const myVideo = useRef()
 	const userVideo = useRef()
 	const connectionRef= useRef()
-
 	useEffect(() => {
 		navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
 			setStream(stream)
 				myVideo.current.srcObject = stream
 		})
-
 	socket.on("me", (id) => {
 			setMe(id)
 		})
-
 		socket.on("callUser", (data) => {
 			setReceivingCall(true)
 			setCaller(data.from)
 			setCallerSignal(data.signal)
 		})
 	}, [])
-
 	const callUser = (id) => {
 		const peer = new Peer({
 			initiator: true,
@@ -67,10 +60,8 @@ const Video=()=> {
 			setCallAccepted(true)
 			peer.signal(signal)
 		})
-
 		connectionRef.current = peer
 	}
-
 	const answerCall =() =>  {
 		setCallAccepted(true)
 		const peer = new Peer({
@@ -84,11 +75,9 @@ const Video=()=> {
 		peer.on("stream", (stream) => {
 			userVideo.current.srcObject = stream
 		})
-
 		peer.signal(callerSignal)
 		connectionRef.current = peer
 	}
-
 	const leaveCall = () => {
 		setCallEnded(true)
 		connectionRef.current.destroy()
@@ -96,15 +85,17 @@ const Video=()=> {
 
 	return (
 		<>
-			<h1 style={{ textAlign: "center", color: '#fff' }}>Zoomish</h1>
+		<div style={{paddingTop:"3%",backgroundColor:"#f1f1f1"}}>
+			<h1 className="title-video" style={{ textAlign: "center", color: '#52585c' ,margin:"0",backgroundColor: "#f1f1f1",padding:"0.5%"}}>Video Call</h1>
+			<div className="video-body">
 		<div className="container">
 			<div className="video-container">
 				<div className="video">
-					{stream &&  <video playsInline muted ref={myVideo} autoPlay style={{ width: "300px" }} />}
+					{stream &&  <video playsInline muted ref={myVideo} autoPlay style={{ width: "200px" }} />}
 				</div>
 				<div className="video">
 					{callAccepted && !callEnded ?
-					<video playsInline ref={userVideo} autoPlay style={{ width: "300px"}} />:
+					<video playsInline ref={userVideo} autoPlay style={{ width: "400px"}} />:
 					null}
 				</div>
 			</div>
@@ -117,37 +108,41 @@ const Video=()=> {
 					onChange={(e) => setName(e.target.value)}
 					style={{ marginBottom: "20px" }}
 				/> */}
-				<CopyToClipboard text={me} style={{ marginBottom: "2rem" }}>
+				<div className="call-button">
+				<CopyToClipboard text={me} style={{ marginBottom: "0.5rem",width:"210px" ,height:"50px",backgroundColor:"#9bdb82" }}>
 					<Button variant="contained" color="primary" startIcon={<AssignmentIcon fontSize="large" />}>
 						Copy ID
 					</Button>
 				</CopyToClipboard>
 
-				<TextField
+				<TextField 
 					id="filled-basic"
 					label="ID to call"
 					variant="filled"
 					value={idToCall}
 					onChange={(e) => setIdToCall(e.target.value)}
 				/>
-				<div className="call-button">
+
 					{callAccepted && !callEnded ? (
-						<Button variant="contained" color="secondary" onClick={leaveCall}>
+						<Button variant="contained" color="secondary" width="100px" onClick={leaveCall}>
 							End Call
 						</Button>
 					) : (
-						<IconButton color="primary" aria-label="call" onClick={() => callUser(idToCall)}>
+						<IconButton color="black" aria-label="call" onClick={() => callUser(idToCall)}>
 							<PhoneIcon fontSize="large" />
 						</IconButton>
 					)}
-					{idToCall}
+
 				</div>
-			</div>
-			<div>
+			</div>     
+
+		</div>
+		</div>
+		<div className="have-Call">
 				{receivingCall && !callAccepted ? (
 						<div className="caller">
 						<h1 > you have a call...</h1>
-						<Button variant="contained" color="primary" onClick={answerCall}>
+						<Button variant="contained"  onClick={answerCall}>
 							Answer
 						</Button>
 					</div>
@@ -157,5 +152,4 @@ const Video=()=> {
 		</>
 	)
 }
-
 export default Video

@@ -30,6 +30,7 @@ const MyPatient = ({
       });
   }, []);
   return (
+    <div className="background9">
     <div className="my-patient">
       {result.map((element, index) => {
         console.log(element);
@@ -82,6 +83,8 @@ const MyPatient = ({
         );
       })}
     </div>
+    </div>
   );
+  
 };
 export default MyPatient;

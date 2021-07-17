@@ -160,7 +160,7 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
       <div className="parent">
         <div className="img111">
           <img
-            style={{ width: "350px", height: "300px" }}
+            style={{ width: "350px", height: "100%" }}
             src={result.img ? result.img : <></>}
           />
         </div>
@@ -304,7 +304,7 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
                 </div>
 
                   <div className="commenter-details">
-                    <p >
+                    <p style={{fontWeight:"bold" ,fontSize:"15px"}}>
                       {element.firstName} {element.lastName}
                     </p>
                     <div className="commentRating">
@@ -390,6 +390,7 @@ const styles = {
   stars: {
     display: "flex",
     flexDirection: "row",
+    marginLeft:"15px"
   },
 };
 export default DoctorDetails;
