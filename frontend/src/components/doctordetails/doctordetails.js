@@ -315,7 +315,7 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
                     </div>
 
                     {updateComment == false ? (
-                      <p className="comments">{element.comment}</p>
+                      <p style={{ marginTop:"7%" }} className="comments">{element.comment}</p>
                     ) : (
                       <div>
                         {element.commenter_id == commenter_id ? (
