@@ -1,34 +1,39 @@
 .yzn{
   display: flex;
+  flex-direction: column;
   text-align-last: center;
   justify-content: center;
-  margin-top: 15%;
+  margin: 15% auto;
   grid-gap: 30px;
-  gap: 30px;
-  
+  gap: 9px;
 }
-
+.accept-body{
+  padding:4.5%;
+  background-color: #F1F1F1;
+}
 .message{
-  
     font-size: 20px;
     font-family: monospace;
     margin-top: 4%;
     margin-left: 43%;
 }
-
 .btnadd{
-  width: 130px;
-    height: 60px;
+  width: 150px;
+    height: 45px;
     border: none;
-    background-color: black;
+    background-color: #86CB6A;
     color: white;
-    border-radius: 50px 20px;
+    border-radius: 5px;
+    margin: 0 auto;
 }
-
+.btnadd:hover{
+  background-color:#5e924a;
+}
 .inpt1{
-  width: 130px;
-  height: 60px;
+  width: 250px;
+  height: 45px;
   background-color: white;
   color: rgb(0, 0, 0);
-  border-radius: 6px 15px;
+  border-radius: 5px ;
+  margin: 0 auto;
 }
