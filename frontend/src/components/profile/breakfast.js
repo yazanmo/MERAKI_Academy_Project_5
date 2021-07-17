@@ -60,7 +60,7 @@ const Breakfast = ({ date }) => {
       });
   }, [getBreakfast]);
   return (
-    <div className="food-profile">
+    <div className="food">
       <div></div>
       <div>
         <form
@@ -134,7 +134,9 @@ const Breakfast = ({ date }) => {
                         document.getElementById("input-breakfast").value = "";
                       }}
                     >
+                      <div className="desc-food-tracker">
                       <h2>{elem.name}</h2>
+                      </div>
                     </div>
                   );
                 })}
