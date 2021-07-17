@@ -35,18 +35,18 @@ function Profile() {
           )}
         </div>
         <div className="profile-info">
-          <p>
+          <p style={{marginTop:"0px"}}>
             <span>FirstName: </span>
             {result.firstName}
           </p>
-          <p>
+          <p style={{marginTop:"0px"}}>
             <span>LastName: </span> {result.lastName}
           </p>
-          <p>
+          <p style={{marginTop:"0px"}}>
             <span>Age: </span>
             {result.age}
           </p>
-          <p>
+          <p style={{marginTop:"0px"}}>
             <span>Email: </span>
             {result.email}
           </p>
@@ -54,7 +54,7 @@ function Profile() {
         </div>
         <div className="buttons">
         <div className="buttons-child-2">
-          <DeleteUser />
+         
           <button
             onClick={() => {
               history.push("/edit/profile");
@@ -62,6 +62,7 @@ function Profile() {
           >
             update
           </button>
+          <DeleteUser />
         </div>
       </div>
       </div>
