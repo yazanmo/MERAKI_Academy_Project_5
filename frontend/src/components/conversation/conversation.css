@@ -36,7 +36,7 @@
   border-radius: 10px;
   padding: 10px;
   margin-top: 10px;
-  background-color: #86cb6a;
+  background-color: #9dd381;
   color: white;
   box-sizing: border-box;
   word-break: break-all;
@@ -64,7 +64,7 @@
 .user-i {
   display: flex;
   flex-direction: row;
-  background-color: #86cb6a;
+  background-color: #8ab478;
   width: 60%;
   margin: auto;
   margin-top: 20px;
@@ -96,16 +96,10 @@
   flex-direction: column;
   justify-content: center;
   background-color: #f1f1f1;
-  margin-bottom: 20px;
+  padding-bottom: 2.9%;
 }
+
 .input-message {
-  /* margin: auto;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  border: 1px black; */
-  /* margin-top: 50px; */
   margin: auto;
   display: flex;
   width: 60%;
@@ -119,13 +113,13 @@
 }
 .input-message button {
   border: none;
-  background-color: #57a836;
+  background-color: #9dd381;
   color: white;
   padding: 0px 5px;
   border-radius: 2px;
 }
 .input-message button:hover {
-  background-color: #9bdb82;
+  background-color: #8bb478;
 }
 .input-message img {
   width: 5%;
