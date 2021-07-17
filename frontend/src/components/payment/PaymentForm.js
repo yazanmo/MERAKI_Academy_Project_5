@@ -1,29 +1,21 @@
-
 import React, { useState } from "react";
 import axios from "axios";
 import "./payment.css";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"
-
 export default function Payment({ paymentId, paymentReceiver, price }) {
-
-
   let token = localStorage.getItem("token");
-
-  const [pay, setPay] = useState(false);
-
-
   const CARD_OPTIONS = {
     iconStyle: "solid",
     style: {
         base: {
-            iconColor: "#C4F0FF",
+            iconColor: "#FFCD42",
             color: "#fff",
             fontWeight: 500,
             fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
             fontSize: "16px",
             fontSmoothing: "antialiased",
-            ":-webkit-autofill": { color: "#FCE883" },
-            "::placeholder": { color: "#87BBFD" }
+            ":-webkit-autofill": { color: "#F7B600" },
+            "::placeholder": { color: "#F7B600" }
         },
         invalid: {
             iconColor: "#FFC7EE",
@@ -31,7 +23,6 @@ export default function Payment({ paymentId, paymentReceiver, price }) {
         }
     }
 }
-
   const payNow = () => {
     console.log("paymentId",paymentId);
     console.log("paymentReceiver",paymentReceiver);
@@ -39,12 +30,9 @@ export default function Payment({ paymentId, paymentReceiver, price }) {
     let date = Date()
       .split(" GMT+0300 (Eastern European Summer Time)")[0]
       .replaceAll(" ", "-");
-
-
     axios
       .post(
         `http://localhost:5000/mypatient`,
-
         { id: paymentId ,
           date},
         {
@@ -54,7 +42,6 @@ export default function Payment({ paymentId, paymentReceiver, price }) {
         }
       )
       .then((result) => {
-
         console.log("payment doctor result", result.data);
       })
       .catch((err) => {
@@ -63,7 +50,6 @@ export default function Payment({ paymentId, paymentReceiver, price }) {
     axios
       .post(
         `http://localhost:5000/conversation`,
-
         { receiver_id: paymentReceiver },
         {
           headers: {
@@ -78,12 +64,9 @@ export default function Payment({ paymentId, paymentReceiver, price }) {
         console.log(err);
       });
   };
-
   const [success, setSuccess ] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
-
-
     const handleSubmit = async (e) => {
         e.preventDefault()
         const {error, paymentMethod} = await stripe.createPaymentMethod({
@@ -107,17 +90,13 @@ export default function Payment({ paymentId, paymentReceiver, price }) {
     } else {
         console.log(error.message)
     }
-
     payNow()
 }
-
-
   return (
     <>
-     
-
         {!success ? 
-        <form onSubmit={handleSubmit}>
+        <form className="pay" onSubmit={handleSubmit}>
+          <h3 className="h3Pay" >Enter Credit Card Details </h3>
             <fieldset className="FormGroup">
                 <div className="FormRow">
                     <CardElement options={CARD_OPTIONS}/>
@@ -126,13 +105,10 @@ export default function Payment({ paymentId, paymentReceiver, price }) {
             <button className="payButton">Pay</button>
         </form>
         :
-       <div>
-           <h2>congrats this is the best decision of you're life</h2>
+       <div className="h3Payy">
+           <h3 >congrats this is the best decision of you're life</h3>
        </div> 
         }
-
-
-
     </>
   );
 }
