@@ -79,6 +79,7 @@ const Login = () => {
   };
 
   return (
+    <div className="background">
     <div className="login">
       <img src={Logo} />
       <input
@@ -136,6 +137,7 @@ const Login = () => {
           </Link>
         </span>
       </p>
+    </div>
     </div>
   );
 };
