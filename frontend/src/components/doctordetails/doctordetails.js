@@ -275,38 +275,18 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
                   }}
                 ></textarea>
               </div>
-              <div>
-                <textarea
-                  className="input-coment1"
-                  placeholder="  Comment Here ...."
-                  onChange={(e) => {
-                    setComment(e.target.value);
-                  }}
-                ></textarea>
-              </div>
               <div className="rating"></div>
+              <button className="btnCommant" onClick={createComment}>
+              {" "}
+              comment
+            </button>
             </div>
           )}
         </>
       ) : (
         ""
       )}
-      {token ? (
-        <>
-          {" "}
-          {role_id == 2 ? (
-            ""
-          ) : (
-            <button className="btnCommant" onClick={createComment}>
-              {" "}
-              comment
-            </button>
-          )}{" "}
-        </>
-      ) : (
-        ""
-      )}
-
+        
       <div>
         <div className="parent-commint">
           <p className="Reviews">Reviews :</p>

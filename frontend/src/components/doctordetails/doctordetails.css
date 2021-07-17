@@ -66,6 +66,7 @@
 
 .comment {
   margin-top: 80px;
+  width: 70%;
 }
 .feedBack {
   width: 330px;
@@ -75,12 +76,12 @@
 }
 
 .input-coment1 {
-  margin-left: 49px;
-  margin-top: 40px;
   height: 100%;
   width: 100%;
   resize: none;
   border-radius: 5px;
+  padding: 0px 0px 120px 0px;
+
 }
 .img111 img {
   width: "50%";
@@ -89,7 +90,6 @@
 }
 
 .btnCommant {
-  margin-top: 30px;
   border-radius: 5px;
   background-color: rgb(56, 56, 56);
   border: none;
@@ -141,7 +141,6 @@
 
 .btnCommant:after {
   content: "»";
-
   opacity: 0;
   top: 7px;
   right: -20px;
@@ -213,6 +212,14 @@
   border-bottom: 1.5px solid rgb(163, 160, 160);
   border: none;
 }
+
+.comment{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap:10px;
+}
+
 .name-Q {
   background-color: rgb(56, 56, 56);
   display: flex;
