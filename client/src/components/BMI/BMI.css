@@ -13,11 +13,8 @@
   align-self: center;
  margin: 0% 20% 0% 20%;
  padding: 3%  3% 20% 3%;
-  /* align-items: flex-start; */
   row-gap: 1.5rem;
-  /* border: 1px #86CB6A solid; */
-  box-shadow: 0 0 15px rgb(0 0 0 / 5%);
-  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;  background-color: white;
 }
 
 /* #f1f1f1 */
@@ -37,21 +34,49 @@
 
 .bmiLabel{
   width: -webkit-fill-available;
-  padding-left: 30%;
+  padding-left: 26%;
+  font-size: large;
 }
-.bmiButtons{
-  display:flex;
-  justify-content: space-around;
-}
+
+
 .bmiButton {
     padding: 0.2% 1% 0.1% 1%;
     cursor: pointer;
-    border-radius: 5px;
-    background-color:   #a8f789;
+    box-shadow: 0 0 15px rgb(0 0 0 / 5%);
+    border: none;
+    background-color:   #53b821
+    ;
+    margin-bottom: 3%;
+    border-radius: 2px;
+    width: auto;
+    font-size: large;
+    color: white;
+    font-weight: bold;
+
     
 }
 
 .bmiButton:hover {
     color:black;
     background-color :  #86CB6A;
+} 
+
+
+.bmiButtons{
+  display: grid;
+  grid-template-columns: 1fr ;
+  justify-content: space-between;
+  row-gap: 30px;
+column-gap: 30px;
+margin-top: 5%;
+}
+
+.miniDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+row-gap: 15%;
+column-gap: 15%;
+align-items: baseline;
+margin-bottom: 2%;
 }
