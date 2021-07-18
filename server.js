@@ -3,6 +3,7 @@ require("dotenv").config();
 require("./db/db");
 const cors = require("cors");
 const socket = require("socket.io");
+const path = require('path');
 
 //routers
 const registerRouter = require("./routers/routes/auth/signUp");
@@ -28,8 +29,10 @@ const Conversation = require("./routers/routes/conversation");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST)
 const bodyParser = require("body-parser")
 
-
 const app = express();
+
+app.use(express.static(path.resolve(__dirname, './client/build')));
+
 
 //built-in middlewares
 app.use(express.json());

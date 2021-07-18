@@ -169,7 +169,7 @@ const ActiveTime = ({ date }) => {
                             onClick={() => {
                               axios
                                 .delete(
-                                  `http://localhost:5000/breakfast/${element.breakfast_id}`,
+                                  `${process.env.REACT_APP_BACKEND_SERVER}/breakfast/${element.breakfast_id}`,
                                   {
                                     headers: {
                                       authorization: "Bearer " + token,

@@ -27,17 +27,6 @@ export default function Home({ homePageSection, setHomePageSection }) {
     }
   }, [homePageSection]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`http://localhost:5000/stories?page=2&limit=1`)
-  //     .then((result) => {
-  //       dispatch(setStories(result.data));
-  //       localStorage.setItem("stories", JSON.stringify(result.data));
-  //     })
-  //     .catch((err) => {
-  //       dispatch(setStories("some thing bad"));
-  //     });
-  // }, []);
 
   useEffect(() => {
     axios

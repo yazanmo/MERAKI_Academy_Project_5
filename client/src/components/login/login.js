@@ -54,18 +54,18 @@ const Login = () => {
         
         console.log(" login err",err.message,err.status);
         if (err.message==="Request failed with status code 400") {
-          console.log("400 error",err.message);
+         
           axios
           .post(`${process.env.REACT_APP_BACKEND_SERVER}/login`, {
             email: response.profileObj.email,
             password: response.profileObj.googleId,
           })
           .then((result) => {
-            console.log("TOKEN",result.data.token);
+            
             localStorage.setItem("token",  result.data.token);
             localStorage.setItem("role_id", 1);
             localStorage.setItem("user_id", result.data.user_id);
-            console.log("user_id", result.data.user_id);
+            
             dispatch(setToken(response.accessToken));
             history.push("/");
           })
