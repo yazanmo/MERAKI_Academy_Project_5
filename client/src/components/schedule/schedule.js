@@ -48,7 +48,7 @@ const Schedule = () => {
   };
 
   return (
-    <div style={{ backgroundColor: "#f1f1f1", paddingBottom: "180px" }}>
+    <div style={{ backgroundColor: "#f1f1f1", paddingBottom: "245px" }}>
       {result &&
         result.map((element, index) => {
           return (

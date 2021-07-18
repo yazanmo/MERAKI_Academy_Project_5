@@ -1,4 +1,8 @@
 /* food tracker */
+body{
+  background-color:#f1f1f1;
+  }
+
 .food-tracker {
   margin: auto;
 }
@@ -78,24 +82,23 @@ input {
   margin-top: 13px;
 }
 .buttons-child-2 button {
-  width: 150px;
+  width: 120px;
   height: 62px;
-  background-color: rgb(10, 153, 153);
+  background-color:#90c873;
   border-radius: 5px;
 }
 .buttons-child-2 button:hover {
-  background-color: rgb(14, 175, 175);
+  background-color: #85bb69;
 }
 
 .profile {
-  margin-top: 3%;
   margin-left: 20%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(252, 252, 252);
   width: 50%;
+  padding-bottom: 3.5%
 }
 .profile img {
   /* border-radius: 100%; */
@@ -104,15 +107,13 @@ input {
 }
 
 .profile-page {
-  background-color: white;
+  background-color: #f1f1f1;
 }
 
 .profile-info {
   font-size: 20px;
   display: flex;
   flex-direction: column;
-  grid-gap: 7px;
-  gap: 7px;
   padding: 0 10px;
   justify-content: flex-start;
   margin-top: 10px;
@@ -150,6 +151,8 @@ input {
   width: 300px;
   margin-left: -130px;
 }
+
+
 .update-profile-desc {
   font-size: 20px;
   display: flex;
@@ -170,17 +173,16 @@ input {
 }
 
 .update-profile button {
-  border: none;
-  background-color: black;
-  cursor: pointer;
-  padding: 10px 20px;
-  color: white;
+  width: 120px;
+  height: 62px;
+  background-color: #90c873;
   border-radius: 5px;
-  width: 150px;
-  margin-left: 40px;
+  color: white;
+  border: none;
 }
+
 .update-profile button:hover {
-  background-color: green;
+  background-color: #85bb69;
 }
 .profileImage {
   border-radius: 5px;
@@ -237,4 +239,15 @@ input {
 
 .datepicker {
   margin: auto;
+}
+
+.input-date{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.input-date{
+
+  padding-top: 2%;
 }

@@ -44,7 +44,6 @@ const Login = () => {
       })
       .then((result) => {
       
-          console.log("elllllllllllllllllllllllllllllseeeeeeeeeeeeeeeeeeee",result);
           localStorage.setItem("token", result.data.token);
           localStorage.setItem("role_id", 1);
           dispatch(setToken(response.accessToken));
@@ -52,7 +51,8 @@ const Login = () => {
        
       })
       .catch((err) => {
-      
+        
+        console.log(" login err",err.message,err.status);
         if (err.message==="Request failed with status code 400") {
          
           axios
@@ -78,6 +78,7 @@ const Login = () => {
   };
 
   return (
+    <div className="background">
     <div className="login">
       <img src={Logo} />
       <input
@@ -135,6 +136,7 @@ const Login = () => {
           </Link>
         </span>
       </p>
+    </div>
     </div>
   );
 };

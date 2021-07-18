@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
   margin-bottom: 40px;
   background-color: rgb(222, 238, 225);
   width: 20%;
@@ -41,7 +41,7 @@
 }
 .decs-do p {
   font-weight: 300px;
-  width: 50%;
+  width: 100%;
 
   /* font-size: 20px; */
 }
@@ -66,6 +66,7 @@
 
 .comment {
   margin-top: 80px;
+  width: 70%;
 }
 .feedBack {
   width: 330px;
@@ -75,12 +76,12 @@
 }
 
 .input-coment1 {
-  margin-left: 49px;
-  margin-top: 40px;
   height: 100%;
   width: 100%;
   resize: none;
   border-radius: 5px;
+  padding: 0px 0px 120px 0px;
+
 }
 .img111 img {
   width: "50%";
@@ -89,9 +90,8 @@
 }
 
 .btnCommant {
-  margin-top: 30px;
   border-radius: 5px;
-  background-color: rgb(56, 56, 56);
+  background-color: #86cb6a;
   border: none;
   color: #fff;
   text-align: center;
@@ -104,6 +104,7 @@
 }
 
 .btn-1 {
+  margin-top: 102px;
   background: #70b950;
   color: #fff;
   cursor: pointer;
@@ -139,80 +140,74 @@
   transition: all 0.5s;
 }
 
-.btnCommant:after {
-  content: "»";
-
-  opacity: 0;
-  top: 7px;
-  right: -20px;
-  transition: 0.5s;
-}
 
 .btnCommant:hover {
-  padding-right: 24px;
-  padding-left: 8px;
+ background-color: #62964d
+ ;
 }
 
-.btnCommant:hover:after {
-  opacity: 1;
-  right: 10px;
-}
 
 .parent-commint {
-  margin-top: 100px;
-
-  margin-right: 410px;
 
   display: flex;
   flex-direction: column;
+  
 }
 .Reviews {
-  width: 330px;
+  width: 717px;
   font-size: 32px;
-
+margin-left: -15rem;
   margin: 0 auto;
-  border-bottom: 1.5px solid rgb(163, 160, 160);
 }
-.userImg {
+
+
+.userImg img {
+ 
+  height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    margin-left: 25px;
+}
+
+
+.cmt {
+  margin-top: 3%;
+  width: 45rem;
+  height: 10rem;
   display: flex;
   flex-direction: row;
-  padding: auto;
-  margin-left: -21%;
-  margin-top: 25px;
+  grid-gap: 30px;
+  gap: 30px;
+  justify-content:space-between;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 2%) 0px 1px 3px 0px, rgb(27 31 35 / 15%) 0px 0px 0px 1px;
 }
 
-.userImg .commenterimg {
-  height: 100px;
-  width: 300px;
-}
-.commenterimg {
-  margin-left: 174px;
-}
-.commenter-details {
-  margin-left: 35px;
-}
-.cmt {
-  position: flex;
+.cmt-child{
+  margin-top: 5%;
+  display: flex;
   flex-direction: row;
-  margin-left: 485px;
+  gap: 50px;
 }
 
-.commenter {
-  margin-top: 0px;
+.upd-delete{
+  margin-top: 38%;
 }
-.commentRating {
-  margin-top: 25px;
-  margin-right: 57%;
+
+.input-text{
+
+  height: auto;
+  width: 100%;
+resize: none;
 }
-.comments {
-  margin-top: 40px;
-  padding-bottom: 20px;
-  width: 500px;
-  word-break: break-all;
-  font-size: 25px;
-  border-bottom: 1.5px solid rgb(163, 160, 160);
-  border: none;
+
+.comment{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap:10px;
 }
+
 .name-Q {
   background-color: rgb(56, 56, 56);
   display: flex;
@@ -234,4 +229,7 @@
   font-size: 40px;
   margin-left: 500px;
   margin-top: 30px;
+}
+.update_delete{
+  margin-left: 15rem;
 }

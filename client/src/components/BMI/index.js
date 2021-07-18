@@ -1,24 +1,19 @@
 import React, { useState } from "react";
 import "./BMI.css";
-
 export default function BMI() {
   const [weight, setWeight] = useState(1);
   const [length, setLength] = useState(1);
   const [BMI, setBMI] = useState("------");
   const [status, setStatus] = useState("------");
-
   const [age, setAge] = useState(1);
   const [gender, setGender] = useState("");
   const [cal, setCal] = useState("------");
-
   const [BMR, setBMR] = useState("------");
-
   //CALCULATE BMI
   const calculate = () => {
     let answer = weight / (length * length);
     let finalAnswer = Math.round(answer * 100) / 100;
     setBMI(finalAnswer);
-
     if (BMI < 18.5) {
       setStatus("underweight");
     } else if (BMI < 24.9) {
@@ -27,7 +22,6 @@ export default function BMI() {
       setStatus("overweight");
     }
   };
-
   //CALCULATE BMR
   const calculateBMR = () => {
     let Gender = gender.toLowerCase();
@@ -37,14 +31,12 @@ export default function BMI() {
       let finalAnswer = Math.round(answer * 100) / 100;
       setBMR(finalAnswer);
     }
-
     if (Gender === "female") {
       let answer = 447.593 + 9.247 * weight + 3.098 * length * 100 - 4.33 * age;
       let finalAnswer = Math.round(answer * 100) / 100;
       setBMR(finalAnswer);
     }
   };
-
   //CALCULATE CALORIE
   const calculateCal = () => {
     let Gender = gender.toLowerCase();
@@ -54,7 +46,6 @@ export default function BMI() {
       let finalAnswer = Math.round(answer * 100) / 100;
       setCal(finalAnswer);
     }
-
     if (Gender === "female") {
       let answer =
         (447.593 + 9.247 * weight + 3.098 * length * 100 - 4.33 * age) * 1.2;
@@ -62,11 +53,10 @@ export default function BMI() {
       setCal(finalAnswer);
     }
   };
-
   return (
     <div className="outerBMI">
       <div className="BMI">
-        <h3 style={{ alignItems: "center" ,color:"#90c873" }}>check your health by free</h3>
+        <h3 style={{ alignItems: "center" ,color:"#90C873" }}>check your health by free</h3>
         <div className="allWH">
           <div className="WH">
             <label className="bmiLabel">Weight</label>
@@ -88,7 +78,6 @@ export default function BMI() {
               placeholder="  Ex : 1.87 m "
             />
           </div>
-
           <div className="WH">
             <label className="bmiLabel">Age</label>
             <input
@@ -99,7 +88,6 @@ export default function BMI() {
               placeholder="  EX :20 "
             />
           </div>
-
           <div className="WH">
             <label className="bmiLabel">Gender</label>
             <input
@@ -122,10 +110,9 @@ export default function BMI() {
               This is considered <b>{status}</b>{" "}
             </div>
           </div>
-
           <div className="miniDiv">
             <button className="bmiButton" onClick={calculateBMR}>
-            Click here to calculate BMR ...                      
+            Click here to calculate BMR ...
             </button>
             <div>
               {" "}
@@ -133,7 +120,6 @@ export default function BMI() {
               <b>{BMR} </b>{" "}
             </div>
           </div>
-
           <div className="miniDiv">
             <button className="bmiButton" onClick={calculateCal}>
             Click here to calculate calorie need per day ...

@@ -6,27 +6,21 @@
   margin: 15% auto;
   grid-gap: 30px;
   gap: 9px;
-  
-         
-
 }
 .accept-body{
   padding:4.5%;
-  background-color: #f1f1f1;
+  background-color: #F1F1F1;
 }
 .message{
-  
-    font-size: 20px;
+    font-size: 30px;
     font-family: monospace;
-    margin-top: 4%;
     margin-left: 43%;
 }
-
 .btnadd{
   width: 150px;
     height: 45px;
     border: none;
-    background-color: #86cb6a;
+    background-color: #86CB6A;
     color: white;
     border-radius: 5px;
     margin: 0 auto;
@@ -34,7 +28,6 @@
 .btnadd:hover{
   background-color:#5e924a;
 }
-
 .inpt1{
   width: 250px;
   height: 45px;
@@ -42,5 +35,4 @@
   color: rgb(0, 0, 0);
   border-radius: 5px ;
   margin: 0 auto;
-
 }

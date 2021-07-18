@@ -32,13 +32,14 @@
 
 .signup button {
   border: none;
-  background-color: black;
+  background-color:rgb(124, 201, 114) ;
   padding: 0.5rem 3rem;
   color: white;
   cursor: pointer;
+  border-radius: 5px;
 }
 .signup button:hover {
-  background-color: rgb(83, 83, 83);
+  background-color:#97d479 ;
 }
 
 .signup p {
@@ -52,4 +53,10 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 15px;
+}
+
+.background1{
+  background-color: #f1f1f1;
+  padding-top: 1%;
+  padding-bottom: 0.5%;
 }

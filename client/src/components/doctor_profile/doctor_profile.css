@@ -4,7 +4,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(252, 252, 252);
   width: 60%;
 }
 .profile_page img {
@@ -33,19 +32,17 @@
 .btnS {
   display: flex;
   flex-direction: row;
+  gap: 20px;
   margin-bottom: 25px;
   margin-right: 50px;
 }
 .btnS button {
-  margin-left: 15px;
-  width: 150px;
-  height: 50px;
+  width: 120px;
+  height: 62px;
+  background-color: #90c873;
   border-radius: 5px;
-  border: none;
-  background-color: black;
-  cursor: pointer;
-  padding: 10px 20px;
   color: white;
+  border: none;
  
 }
 .btnS button:hover {
@@ -58,7 +55,6 @@
 .allInfo {
   display: flex;
   flex-direction: row;
-  gap: 65px;
   padding: 0 10px;
   justify-content: center;
   align-items: center;
@@ -93,7 +89,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(252, 252, 252);
   width: 80%;
   height: 600px;
 }
@@ -141,17 +136,15 @@
 }
 .edit {
   margin-left: 15px;
-  width: 150px;
-  height: 50px;
+  width: 120px;
+  height: 62px;
+  background-color: #90c873;
   border-radius: 5px;
-  border: none;
-  background-color: black;
-  cursor: pointer;
-  padding: 10px 20px;
   color: white;
+  border: none;
 }
 .edit:hover {
-  background-color: green;
+  background-color: rgb(111, 175, 111);
 }
 .left-side_update_input {
   font-size: 20px;
@@ -189,4 +182,14 @@
 }
 .title {
   border-bottom: 1.5px solid rgb(163, 160, 160);
+}
+
+.backgrond3{
+  background-color: #f1f1f1;
+}
+
+.backgrond4{
+  background-color: #f1f1f1;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }

@@ -23,12 +23,14 @@ const Booking = () => {
   }, [result]);
 
   return (
+    <div className="background6">
     <div className="book-card">
       {result &&
         result.map((element, index) => {
           
 
           return (
+            
             <div className="schedule-Card">
               <Card style={{ width: "20rem", height: "33rem" }}>
                 <div className="parent-book">
@@ -46,9 +48,9 @@ const Booking = () => {
                         <p>Booking date: {element.date}</p>
                         <div></div>
                       </Card.Text>
-                      <button>
+                      
                         <img
-                          style={{ height: "30px", width: "30px" }}
+                          style={{ height: "30px", width: "30px" ,cursor:"pointer",marginLeft:"-7px",marginTop:"-13px" }}
                           src="https://img.icons8.com/color/48/000000/delete-sign--v1.png"
                           onClick={() => {
                             axios
@@ -67,15 +69,19 @@ const Booking = () => {
                               });
                           }}
                         />
-                      </button>
+                     
                     </Card.Body>
                   </div>
                 </div>
               </Card>
             </div>
+            
           );
+        
         })}
     </div>
+    </div>
   );
+  
 };
 export default Booking;

@@ -38,6 +38,7 @@ const SignUp = () => {
       });
   };
   return (
+    <div className="background1">
     <div className="signup">
       <form onSubmit={signUpButton}>
         <img src={Logo} />
@@ -99,6 +100,7 @@ const SignUp = () => {
         
       </form>
      
+    </div>
     </div>
   );
 };

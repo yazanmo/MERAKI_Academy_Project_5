@@ -67,6 +67,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
             immense vitality. It is our mission to help you feel better, live
             longer, and become the best possible you!
           </p>
+          <div className="btn-home">
           <button
             onClick={() => {
               history.push("/doctor");
@@ -74,6 +75,15 @@ export default function Home({ homePageSection, setHomePageSection }) {
           >
             Get Started
           </button>
+
+          <button 
+            onClick={() => {
+              history.push("/bmi");
+            }}
+          >
+          check your health
+          </button>
+          </div>
         </div>
       </div>
       <div className="card-home"></div>
@@ -115,8 +125,7 @@ export default function Home({ homePageSection, setHomePageSection }) {
             <h3>Subscribe with a private doctor</h3>
             <p>
               Exactly what you want, how you want it. Get a personalized
-              low-carb or keto meal plan for your diet goals. Start losing
-              weight and improving your health now!
+              low-carb or keto meal plan for your diet goals.
             </p>
           </div>
         </div>
@@ -196,7 +205,8 @@ export default function Home({ homePageSection, setHomePageSection }) {
               </g>
             </svg>
             <h3>UROLOGY CARE</h3>
-            <p>Constant monitoring of your health system</p>
+            <p>Start losing
+              weight and improving your health now! Constant monitoring of your health system</p>
           </div>
         </div>
       </div>

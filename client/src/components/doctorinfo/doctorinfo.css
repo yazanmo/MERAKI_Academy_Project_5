@@ -18,12 +18,20 @@
 }
 
 .join-doctor form button {
-  border: none;
-  background-color: black;
+  width: 120px;
+  height: 62px;
+  background-color: #90c873;
+  border-radius: 5px;
   color: white;
-  padding: 0.5rem 5rem;
+  border: none;
 }
 
 .join-doctor form button:hover {
-  background-color: rgb(105, 104, 104);
+  background-color: #85bb69;
+}
+
+.background2{
+
+  background-color:#f1f1f1;
+  padding-top: 1.5%;
 }

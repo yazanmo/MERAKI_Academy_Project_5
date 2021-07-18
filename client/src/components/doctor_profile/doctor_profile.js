@@ -33,7 +33,8 @@ const DoctorProfile = () => {
   }, []);
 
   return (
-    <>
+    <div className="backgrond3">
+    
       <div className="profile_page">
         <div className="profile-info">
           <img src={result.img} />
@@ -94,7 +95,7 @@ const DoctorProfile = () => {
           <DeleteUser/>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
