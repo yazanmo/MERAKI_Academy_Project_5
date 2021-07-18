@@ -32,7 +32,7 @@ const UpdateDoctorProfile = () => {
   const editProfile = () => {
     axios
       .put(
-        `${process.env.REACT_APP_BACKEND_SERVER}/doctor/details`,
+        `/doctor/details`,
 
         {
           firstName,

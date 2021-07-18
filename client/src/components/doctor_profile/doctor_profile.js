@@ -16,7 +16,7 @@ const DoctorProfile = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_SERVER}/doctor/details`, {
+      .get(`/doctor/details`, {
         headers: {
           authorization: "Bearer " + token,
         },
@@ -34,13 +34,12 @@ const DoctorProfile = () => {
 
   return (
     <div className="backgrond3">
-    
       <div className="profile_page">
         <div className="profile-info">
           <img src={result.img} />
           <div className="allInfo">
             <div className="left-side">
-              <p>    
+              <p>
                 <span>FirstName :</span>
                 {result.firstName}
               </p>
@@ -92,7 +91,7 @@ const DoctorProfile = () => {
             edit
           </button>
 
-          <DeleteUser/>
+          <DeleteUser />
         </div>
       </div>
     </div>

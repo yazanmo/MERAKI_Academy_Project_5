@@ -27,10 +27,9 @@ export default function Home({ homePageSection, setHomePageSection }) {
     }
   }, [homePageSection]);
 
-
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_SERVER}/stories?page=${specificPage}&limit=2`)
+      .get(`/stories?page=${specificPage}&limit=2`)
       .then((result) => {
         setResultLength(result.data.length);
         console.log("resultLength ", resultLength);
@@ -68,21 +67,21 @@ export default function Home({ homePageSection, setHomePageSection }) {
             longer, and become the best possible you!
           </p>
           <div className="btn-home">
-          <button
-            onClick={() => {
-              history.push("/doctor");
-            }}
-          >
-            Get Started
-          </button>
+            <button
+              onClick={() => {
+                history.push("/doctor");
+              }}
+            >
+              Get Started
+            </button>
 
-          <button 
-            onClick={() => {
-              history.push("/bmi");
-            }}
-          >
-          check your health
-          </button>
+            <button
+              onClick={() => {
+                history.push("/bmi");
+              }}
+            >
+              check your health
+            </button>
           </div>
         </div>
       </div>
@@ -205,8 +204,10 @@ export default function Home({ homePageSection, setHomePageSection }) {
               </g>
             </svg>
             <h3>UROLOGY CARE</h3>
-            <p>Start losing
-              weight and improving your health now! Constant monitoring of your health system</p>
+            <p>
+              Start losing weight and improving your health now! Constant
+              monitoring of your health system
+            </p>
           </div>
         </div>
       </div>

@@ -4,6 +4,8 @@ import "./about.css";
 export default function about() {
     return (
         <div>
+
+          
               <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"></link>
             <div className="row">
 <div className="containers col-lg-6 col-md-6">

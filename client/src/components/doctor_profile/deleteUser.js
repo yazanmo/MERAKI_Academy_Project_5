@@ -10,7 +10,7 @@ const DeleteUser = () => {
   const deleteAccount = (req, res) => {
     localStorage.clear();
     axios
-      .delete(`${process.env.REACT_APP_BACKEND_SERVER}/doctor/details`, {
+      .delete(`/doctor/details`, {
         headers: {
           authorization: "Bearer " + token,
         },
@@ -23,7 +23,7 @@ const DeleteUser = () => {
       });
 
     axios
-      .delete(`${process.env.REACT_APP_BACKEND_SERVER}/profile`, {
+      .delete(`/profile`, {
         headers: {
           authorization: "Bearer " + token,
         },
@@ -39,7 +39,9 @@ const DeleteUser = () => {
 
   return (
     <>
-      <button className="delete" onClick={deleteAccount}>Delete Account</button>
+      <button className="delete" onClick={deleteAccount}>
+        Delete Account
+      </button>
     </>
   );
 };

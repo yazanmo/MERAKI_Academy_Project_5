@@ -16,7 +16,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const signIn = () => {
     axios
-      .post(`${process.env.REACT_APP_BACKEND_SERVER}/login`, { email, password })
+      .post(`/login`, { email, password })
       .then((result) => {
         setState1(false);
         localStorage.setItem("token", result.data.token);
@@ -34,109 +34,103 @@ const Login = () => {
 
   const ResponseGoogle = (response) => {
     console.log("all info", response.profileObj);
-    console.log("name", response.profileObj.givenName)
+    console.log("name", response.profileObj.givenName);
     axios
-      .post(`${process.env.REACT_APP_BACKEND_SERVER}/register`, {
+      .post(`/register`, {
         firstName: response.profileObj.givenName,
         lastName: response.profileObj.familyName,
         email: response.profileObj.email,
         password: response.profileObj.googleId,
       })
       .then((result) => {
-      
-          localStorage.setItem("token", result.data.token);
-          localStorage.setItem("role_id", 1);
-          dispatch(setToken(response.accessToken));
-          history.push("/");
-       
+        localStorage.setItem("token", result.data.token);
+        localStorage.setItem("role_id", 1);
+        dispatch(setToken(response.accessToken));
+        history.push("/");
       })
       .catch((err) => {
-        
-        console.log(" login err",err.message,err.status);
-        if (err.message==="Request failed with status code 400") {
-         
+        console.log(" login err", err.message, err.status);
+        if (err.message === "Request failed with status code 400") {
           axios
-          .post(`${process.env.REACT_APP_BACKEND_SERVER}/login`, {
-            email: response.profileObj.email,
-            password: response.profileObj.googleId,
-          })
-          .then((result) => {
-            
-            localStorage.setItem("token",  result.data.token);
-            localStorage.setItem("role_id", 1);
-            localStorage.setItem("user_id", result.data.user_id);
-            
-            dispatch(setToken(response.accessToken));
-            history.push("/");
-          })
-          .catch((err) => {
-            console.log(" login errrrrrrrrrr",err);
-          });
+            .post(`/login`, {
+              email: response.profileObj.email,
+              password: response.profileObj.googleId,
+            })
+            .then((result) => {
+              localStorage.setItem("token", result.data.token);
+              localStorage.setItem("role_id", 1);
+              localStorage.setItem("user_id", result.data.user_id);
+
+              dispatch(setToken(response.accessToken));
+              history.push("/");
+            })
+            .catch((err) => {
+              console.log(" login errrrrrrrrrr", err);
+            });
         }
-   
       });
   };
 
   return (
     <div className="background">
-    <div className="login">
-      <img src={Logo} />
-      <input
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
-        type="email"
-        placeholder="Enter E-mail Here"
-      />
-      <input
-        onChange={(e) => {
-          setPassword(e.target.value);
-        }}
-        type="password"
-        placeholder="Enter Password Here"
-      />
-      <button onClick={signIn}>Login</button>
-      {state1 ? (
-        <div
-          style={{
-            margin: "20px auto",
-            color: "red",
-            width: "300px",
-            textAlign: "center",
-            fontSize: "22px",
+      <div className="login">
+        <img src={Logo} />
+        <input
+          onChange={(e) => {
+            setEmail(e.target.value);
           }}
-        >
-          email or password not correct
-        </div>
-      ) : (
-        ""
-      )}
-      <div>
-        <GoogleLogin
-          clientId="788133413345-7e8m2mkms0qvf91jvr8m4j7p7sr8329h.apps.googleusercontent.com"
-          onSuccess={ResponseGoogle}
-          onFailure={ResponseGoogle}
+          type="email"
+          placeholder="Enter E-mail Here"
         />
+        <input
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+          type="password"
+          placeholder="Enter Password Here"
+        />
+        <button onClick={signIn}>Login</button>
+        {state1 ? (
+          <div
+            style={{
+              margin: "20px auto",
+              color: "red",
+              width: "300px",
+              textAlign: "center",
+              fontSize: "22px",
+            }}
+          >
+            email or password not correct
+          </div>
+        ) : (
+          ""
+        )}
+        <div>
+          <GoogleLogin
+            clientId="788133413345-7e8m2mkms0qvf91jvr8m4j7p7sr8329h.apps.googleusercontent.com"
+            onSuccess={ResponseGoogle}
+            onFailure={ResponseGoogle}
+          />
+        </div>
+        <p>
+          {" "}
+          Do not have an account ?
+          <span>
+            <Link className="render" to="/register">
+              {" "}
+              Sign Up
+            </Link>
+          </span>
+        </p>{" "}
+        <p>
+          Join as a{" "}
+          <span>
+            <Link className="render" to="/doctorInfo">
+              Doctor
+            </Link>
+          </span>
+        </p>
       </div>
-      <p>
-        {" "}
-        Do not have an account ?
-        <span>
-          <Link className="render" to="/register">
-            {" "}
-            Sign Up
-          </Link>
-        </span>
-      </p>{" "}
-      <p>
-        Join as a{" "}
-        <span>
-          <Link className="render" to="/doctorInfo">
-            Doctor
-          </Link>
-        </span>
-      </p>
-    </div>
     </div>
   );
 };

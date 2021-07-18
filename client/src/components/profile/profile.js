@@ -8,10 +8,10 @@ function Profile() {
   const [result, setResult] = useState([]);
   const history = useHistory();
   localStorage.setItem("user_info", JSON.stringify(result));
-                  
+
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_SERVER}/profile`, {
+      .get(`/profile`, {
         headers: {
           authorization: "Bearer " + token,
         },
@@ -23,7 +23,7 @@ function Profile() {
         console.log(err);
       });
   });
-        
+
   return (
     <div className="profile-page">
       <div className="profile">
@@ -35,36 +35,34 @@ function Profile() {
           )}
         </div>
         <div className="profile-info">
-          <p style={{marginTop:"0px"}}>
+          <p style={{ marginTop: "0px" }}>
             <span>FirstName: </span>
             {result.firstName}
           </p>
-          <p style={{marginTop:"0px"}}>
+          <p style={{ marginTop: "0px" }}>
             <span>LastName: </span> {result.lastName}
           </p>
-          <p style={{marginTop:"0px"}}>
+          <p style={{ marginTop: "0px" }}>
             <span>Age: </span>
             {result.age}
           </p>
-          <p style={{marginTop:"0px"}}>
+          <p style={{ marginTop: "0px" }}>
             <span>Email: </span>
             {result.email}
           </p>
-        
         </div>
         <div className="buttons">
-        <div className="buttons-child-2">
-         
-          <button
-            onClick={() => {
-              history.push("/edit/profile");
-            }}
-          >
-            update
-          </button>
-          <DeleteUser />
+          <div className="buttons-child-2">
+            <button
+              onClick={() => {
+                history.push("/edit/profile");
+              }}
+            >
+              update
+            </button>
+            <DeleteUser />
+          </div>
         </div>
-      </div>
       </div>
     </div>
   );

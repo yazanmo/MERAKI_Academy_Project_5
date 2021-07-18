@@ -5,7 +5,7 @@ import axios from "axios";
 const AvgRating = (id) => {
   const getAcgRating = () => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_SERVER}/review/${id}`)
+      .get(`/review/${id}`)
       .then((res) => {
         console.log(res);
       })

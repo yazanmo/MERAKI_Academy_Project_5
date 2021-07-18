@@ -24,7 +24,7 @@ const MyDoctor = ({
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_SERVER}/mydoctor`, {
+      .get(`/mydoctor`, {
         headers: {
           authorization: "Bearer " + token,
         },

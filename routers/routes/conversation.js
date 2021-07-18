@@ -11,6 +11,6 @@ const conversation = express.Router();
 
 conversation.post("/conversation", authentication, newConversation);
 conversation.post("/conversation/message", newMessages);
-conversation.post("/conver", getConversation);
+conversation.post("/conversation/con", getConversation);
 
 module.exports = conversation;

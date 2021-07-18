@@ -9,7 +9,7 @@ const Date = () => {
   useEffect(() => {
     axios
       .get(
-        `${process.env.REACT_APP_BACKEND_SERVER}/schedule`,
+        `/schedule`,
 
         {
           headers: {

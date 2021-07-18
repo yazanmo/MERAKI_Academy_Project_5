@@ -14,7 +14,7 @@ const Admin = () => {
 
   const info = () => {
     axios
-      .post(`${process.env.REACT_APP_BACKEND_SERVER}/info`, {
+      .post(`/info`, {
         firstName,
         lastName,
         age,
@@ -33,82 +33,82 @@ const Admin = () => {
   };
   return (
     <div className="background2">
-    <div className="join-doctor">
-      <h3>We will be glad to have you join our family</h3>
-      <p>An email will be sent to you if you are approved</p>
+      <div className="join-doctor">
+        <h3>We will be glad to have you join our family</h3>
+        <p>An email will be sent to you if you are approved</p>
 
-      <form>
-        <input
-          type="text"
-          placeholder=" First Name "
-          required
-          onChange={(e) => {
-            setFirstName(e.target.value);
-          }}
-        />
-        <input
-          type="text"
-          placeholder=" Last Name "
-          required
-          onChange={(e) => {
-            setLastName(e.target.value);
-          }}
-        />
-        <input
-          type="number"
-          placeholder=" Age "
-          required
-          onChange={(e) => {
-            setAge(e.target.value);
-          }}
-        />
+        <form>
+          <input
+            type="text"
+            placeholder=" First Name "
+            required
+            onChange={(e) => {
+              setFirstName(e.target.value);
+            }}
+          />
+          <input
+            type="text"
+            placeholder=" Last Name "
+            required
+            onChange={(e) => {
+              setLastName(e.target.value);
+            }}
+          />
+          <input
+            type="number"
+            placeholder=" Age "
+            required
+            onChange={(e) => {
+              setAge(e.target.value);
+            }}
+          />
 
-        <input
-          type="email"
-          placeholder=" Email "
-          required
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <input
-          type="text"
-          placeholder=" description "
-          required
-          onChange={(e) => {
-            setdescription(e.target.value);
-          }}
-        />
-        <input
-          type="text"
-          placeholder=" Qualifications "
-          required
-          onChange={(e) => {
-            setQualifications(e.target.value);
-          }}
-        />
-        <input
-          type="text"
-          placeholder=" practicalExperiences "
-          required
-          onChange={(e) => {
-            setpracticalExperiences(e.target.value);
-          }}
-        />
-        <input
-          type="text"
-          placeholder=" qualificationsFile "
-          required
-          onChange={(e) => {
-            setqualificationsFile(e.target.value);
-          }}
-        />
-        <button onClick={info}>submit</button>
-        <div className="info">
-          <p></p>{" "}
-        </div>
-      </form>
-    </div>
+          <input
+            type="email"
+            placeholder=" Email "
+            required
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <input
+            type="text"
+            placeholder=" description "
+            required
+            onChange={(e) => {
+              setdescription(e.target.value);
+            }}
+          />
+          <input
+            type="text"
+            placeholder=" Qualifications "
+            required
+            onChange={(e) => {
+              setQualifications(e.target.value);
+            }}
+          />
+          <input
+            type="text"
+            placeholder=" practicalExperiences "
+            required
+            onChange={(e) => {
+              setpracticalExperiences(e.target.value);
+            }}
+          />
+          <input
+            type="text"
+            placeholder=" qualificationsFile "
+            required
+            onChange={(e) => {
+              setqualificationsFile(e.target.value);
+            }}
+          />
+          <button onClick={info}>submit</button>
+          <div className="info">
+            <p></p>{" "}
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

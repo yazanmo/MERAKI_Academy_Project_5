@@ -17,7 +17,7 @@ const Schedule = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_SERVER}/doctor/${id}`)
+      .get(`/doctor/${id}`)
       .then((result) => {
         setResult(result.data);
       })
@@ -27,7 +27,7 @@ const Schedule = () => {
   const info = (req, res) => {
     axios
       .post(
-        `${process.env.REACT_APP_BACKEND_SERVER}/schedule/${id}`,
+        `/schedule/${id}`,
         {
           time,
           date,

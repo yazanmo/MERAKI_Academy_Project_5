@@ -42,7 +42,7 @@ const Dinner = ({ date }) => {
   useEffect(() => {
     axios
       .post(
-        `${process.env.REACT_APP_BACKEND_SERVER}/dinner`,
+        `/dinner`,
         { date },
         {
           headers: {
@@ -102,7 +102,7 @@ const Dinner = ({ date }) => {
                       onClick={() => {
                         axios
                           .post(
-                            `${process.env.REACT_APP_BACKEND_SERVER}/add/dinner`,
+                            `/add/dinner`,
                             {
                               name,
                               calories,
@@ -165,14 +165,11 @@ const Dinner = ({ date }) => {
                             style={{ height: "20px", width: "20px" }}
                             onClick={() => {
                               axios
-                                .delete(
-                                  `${process.env.REACT_APP_BACKEND_SERVER}/dinner/${element.dinner_id}`,
-                                  {
-                                    headers: {
-                                      authorization: "Bearer " + token,
-                                    },
-                                  }
-                                )
+                                .delete(`/dinner/${element.dinner_id}`, {
+                                  headers: {
+                                    authorization: "Bearer " + token,
+                                  },
+                                })
                                 .then((res) => {
                                   console.log(res);
                                 })
