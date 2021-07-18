@@ -581,7 +581,14 @@ body {
   padding: 2% 0px;
   border: none;
   font-weight: bold;
+  
 }
 .decs-home button:hover {
   background-color: #a6cc98;
+}
+
+.btn-home{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }

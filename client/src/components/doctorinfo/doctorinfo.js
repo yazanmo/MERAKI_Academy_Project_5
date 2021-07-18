@@ -32,6 +32,7 @@ const Admin = () => {
       .catch((err) => {});
   };
   return (
+    <div className="background2">
     <div className="join-doctor">
       <h3>We will be glad to have you join our family</h3>
       <p>An email will be sent to you if you are approved</p>
@@ -107,6 +108,7 @@ const Admin = () => {
           <p></p>{" "}
         </div>
       </form>
+    </div>
     </div>
   );
 };

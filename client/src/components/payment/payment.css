@@ -1,20 +1,28 @@
+.pay{
+    padding-top: 5%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
 .FormGroup {
     margin: 0 15px 20px;
     padding: 0;
     border-style: none;
-    background-color: #7795F8;
+    background-color: #1A1F71;
     will-change: opacity, transform;
     box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #829FFF;
     border-radius: 4px;
+    width: 30%;
+    height: 15rem;
+   color: #FFCD42;
 }
-
 .FormRow {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
     align-items: center;
     margin-left: 15px;
-    border-top: 1px solid #819EFC;
 }
 .StripeElement--webkit-autofill {
     background: transparent !important;
@@ -26,10 +34,9 @@
 .payButton {
     display: block;
     font-size: 16px;
-    width: calc(100% - 30px);
+    width: 5%;
     height: 40px;
-    margin: 40px 15px 0;
-    background-color: #F6A4EB;
+        background-color: #F7B600;
     box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #FFB9F6;
     border-radius: 4px;
     color: #fff;
@@ -39,11 +46,8 @@
     will-change: transform, background-color, box-shadow;
     border: none;
 }
-
-
-
 .payButton:active {
-    background-color: #D782D9;
+    background-color: #F7B600;
     box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #E298D8;
     transform: scale(0.99);
 }
@@ -52,4 +56,15 @@
 }
 .message{
     font-size: 10px;
+}
+.h3Pay{
+    color:#1a1f71 ;
+   border-bottom:2px #F7B600 solid;
+}
+.h3Payy{
+    padding: 5% 0% 0% 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#1a1f71 ;
 }

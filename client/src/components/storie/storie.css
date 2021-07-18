@@ -3,7 +3,8 @@
   flex-direction: column;
   gap: 20px;
   align-items: center;
-  margin-top: 20px;
+  background-color: #f1f1f1;
+  padding-top: 1.7%;
 }
 
 .story-img {
@@ -13,9 +14,9 @@
 }
 
 .story-img img {
-  height: 50%;
-  width: 100%;
-  border-radius: 20px;
+    height: 33%;
+    width: 100%;
+    border-radius: 5px;
 }
 
 .story-input {
@@ -30,16 +31,18 @@
 }
 textarea {
   width: 650px;
-  height: 200px;
+  height: 130px;
+  border-radius: 5px;
 }
 .story-input button {
-  background-color: black;
+  background-color: #90c873;
   color: white;
   border: none;
   padding: 10px 30px;
   gap: 7px;
   cursor: pointer;
+  border-radius: 5px;
 }
 .story-input button:hover {
-  background-color: rgb(26, 124, 141);
+  background-color: #6c9c55;
 }

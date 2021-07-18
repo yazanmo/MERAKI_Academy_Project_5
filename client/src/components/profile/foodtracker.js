@@ -12,9 +12,9 @@ const FoodTracker = () => {
 
   const today = new Date();
 
-  console.log(date);
   return (
-    <div class="">
+    <div class="food">
+      <div className="input-date">
       <input
         defaultValue={today}
         id="input-date"
@@ -25,6 +25,7 @@ const FoodTracker = () => {
         }}
         min="2021-07-09"
       />
+      </div>
       <Breakfast date={date} />
       <Lunch date={date} />
       <Dinner date={date} />

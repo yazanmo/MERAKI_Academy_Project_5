@@ -160,7 +160,7 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
       <div className="parent">
         <div className="img111">
           <img
-            style={{ width: "350px", height: "300px" }}
+            style={{ width: "350px", height: "100%" }}
             src={result.img ? result.img : <></>}
           />
         </div>
@@ -275,60 +275,38 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
                   }}
                 ></textarea>
               </div>
-              <div>
-                <textarea
-                  className="input-coment1"
-                  placeholder="  Comment Here ...."
-                  onChange={(e) => {
-                    setComment(e.target.value);
-                  }}
-                ></textarea>
-              </div>
               <div className="rating"></div>
+              <button className="btnCommant" onClick={createComment}>
+              {" "}
+              comment
+            </button>
             </div>
           )}
         </>
       ) : (
         ""
       )}
-      {token ? (
-        <>
-          {" "}
-          {role_id == 2 ? (
-            ""
-          ) : (
-            <button className="btnCommant" onClick={createComment}>
-              {" "}
-              comment
-            </button>
-          )}{" "}
-        </>
-      ) : (
-        ""
-      )}
-
+        
       <div>
         <div className="parent-commint">
           <p className="Reviews">Reviews :</p>
           {allComment.map((element, index) => {
             return (
+              <div className="parent-cmt"> 
               <div className="cmt" key={index + 1}>
-                <hr />
+              <div className="cmt-child">
                 <div className="userImg">
                   <img
-                    className="commenterimg"
+                
                     src={element.img}
-                    style={{
-                      width: "75px",
-                      height: "75px",
-                      borderRadius: "5px",
-                    }}
+                  
                   />
+                </div>
 
                   <div className="commenter-details">
-                    <h3 className="commenter">
+                    <p style={{fontWeight:"bold" ,fontSize:"15px"}}>
                       {element.firstName} {element.lastName}
-                    </h3>
+                    </p>
                     <div className="commentRating">
                       <Stars
                         stars={element.rating}
@@ -337,7 +315,7 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
                     </div>
 
                     {updateComment == false ? (
-                      <p className="comments">{element.comment}</p>
+                      <p style={{ marginTop:"7%" }} className="comments">{element.comment}</p>
                     ) : (
                       <div>
                         {element.commenter_id == commenter_id ? (
@@ -353,7 +331,7 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
                               onClick={() => {
                                 updateComments(element.id);
                               }}
-                              style={{ width: "30px", height: "30px" }}
+                              style={{ width: "30px", height: "30px" ,cursor:"pointer" }}
                               src="https://img.icons8.com/wired/50/000000/edit.png"
                             />
                           </>
@@ -370,7 +348,7 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
                           onClick={() => {
                             deleteComment(element.id);
                           }}
-                          style={{ width: "30px", height: "30px" }}
+                          style={{ width: "30px", height: "30px" ,cursor:"pointer" }}
                           src="https://img.icons8.com/ios/50/000000/delete-forever--v1.png"
                         />
 
@@ -379,7 +357,7 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
                             onClick={() => {
                               setUpdateComment(true);
                             }}
-                            style={{ width: "30px", height: "30px" }}
+                            style={{ width: "30px", height: "30px" ,cursor:"pointer" }}
                             src="https://img.icons8.com/wired/50/000000/edit.png"
                           />
                         ) : (
@@ -390,13 +368,16 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
                       ""
                     )}
                   </div>
-                </div>
+                
+              </div>
+              </div>
               </div>
             );
           })}
         </div>
       </div>
     </div>
+    
   );
 };
 const styles = {
@@ -404,11 +385,12 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    margin: "5% 0 0 6%",
+    
   },
   stars: {
     display: "flex",
     flexDirection: "row",
+    marginLeft:"15px"
   },
 };
 export default DoctorDetails;
