@@ -17,7 +17,7 @@ const UpdateUserInfo = () => {
   const updateProfile = () => {
     axios
       .put(
-        `${process.env.REACT_APP_BACKEND_SERVER}/profile`,
+        `/profile`,
         {
           firstName,
           lastName,
@@ -41,16 +41,12 @@ const UpdateUserInfo = () => {
       <img className="profileImage" src={userInfo.img} />
       <div className="update-profile-row">
         <div className="update-profile-desc">
-          
-          
           <p>First Name:</p>
           <p>Last Name:</p>
           <p>Image:</p>
           <p>Age:</p>
         </div>
         <div className="update-profile-info">
-          
-          
           <input
             placeholder={userInfo.firstName}
             defaultValue={userInfo.firstName}
@@ -64,7 +60,7 @@ const UpdateUserInfo = () => {
             onChange={(e) => {
               setLastName(e.target.value);
             }}
-          />           
+          />
           <input
             placeholder={userInfo.img}
             defaultValue={userInfo.img}
@@ -80,17 +76,15 @@ const UpdateUserInfo = () => {
               setAge(e.target.value);
             }}
           />
-          </div>
-          
-        
+        </div>
       </div>
       <button
-            onClick={() => {
-              updateProfile();
-            }}
-          >
-            update
-          </button>
+        onClick={() => {
+          updateProfile();
+        }}
+      >
+        update
+      </button>
     </div>
   );
 };

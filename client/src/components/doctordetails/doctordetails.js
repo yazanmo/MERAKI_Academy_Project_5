@@ -53,7 +53,7 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
   };
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_SERVER}/doctor/${id}`)
+      .get(`/doctor/${id}`)
       .then((result) => {
         console.log("dooooooooooooooooooooooctor", result.data[0]);
         setResult(result.data[0]);
@@ -64,7 +64,7 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
   }, []);
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_SERVER}/doctor/review/${id}`)
+      .get(`/doctor/review/${id}`)
       .then((result) => {
         setAllComment(result.data);
       })
@@ -72,7 +72,7 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
   }, [sa]);
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_SERVER}/review/${id}`)
+      .get(`/review/${id}`)
       .then((res) => {
         setAvgRating(Math.floor(res.data[0].AverageRating));
       })
@@ -82,7 +82,7 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
   const createComment = () => {
     axios
       .post(
-        `${process.env.REACT_APP_BACKEND_SERVER}/doctor/review`,
+        `/doctor/review`,
         {
           comment,
           rating,
@@ -111,7 +111,7 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
   const updateComments = (id) => {
     axios
       .put(
-        `${process.env.REACT_APP_BACKEND_SERVER}/doctor/review/${id}`,
+        `/doctor/review/${id}`,
         {
           updateText,
         },
@@ -135,7 +135,7 @@ const DoctorDetails = ({ setPaymentId, setPaymentReceiver, setPrice }) => {
 
   const deleteComment = (id) => {
     axios
-      .delete(`${process.env.REACT_APP_BACKEND_SERVER}/review/${id}`, {
+      .delete(`/review/${id}`, {
         headers: {
           authorization: "Bearer " + token,
         },

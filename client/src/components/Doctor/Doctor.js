@@ -15,7 +15,7 @@ const Doctor = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_SERVER}/doctor`, { num1, num2 })
+      .get(`/doctor`, { num1, num2 })
       .then((response) => {
         setDoctor(response.data);
       })
@@ -24,7 +24,7 @@ const Doctor = () => {
 
   const callType_1 = () => {
     axios
-      .post(`${process.env.REACT_APP_BACKEND_SERVER}/doctors`, { num1, num2 })
+      .post(`/doctors`, { num1, num2 })
       .then((response) => {
         setfilter(response.data);
         setDoctor([]);
@@ -34,7 +34,7 @@ const Doctor = () => {
 
   const searchDoctor = (name) => {
     axios
-      .post(`${process.env.REACT_APP_BACKEND_SERVER}/search`, {
+      .post(`/search`, {
         DoctorName: name,
       })
       .then((res) => {
@@ -48,7 +48,7 @@ const Doctor = () => {
 
   const getAcgRating = (id) => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_SERVER}/review/${id}`)
+      .get(`/review/${id}`)
       .then((res) => {
         console.log(res);
       })
@@ -58,7 +58,7 @@ const Doctor = () => {
   //admin can delete any doctor
   const deleteDoctor = (id) => {
     axios
-      .put(`${process.env.REACT_APP_BACKEND_SERVER}/admin/delete/${id}`)
+      .put(`/admin/delete/${id}`)
       .then((result) => {
         history.push("/");
       })

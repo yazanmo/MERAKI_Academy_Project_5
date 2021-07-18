@@ -10,7 +10,7 @@ socket = io(CONNECTION_PORT);
 
 const Conversation = (props) => {
   const history = useHistory();
-  const { sender, receiver, firstName, lastName, img,setVideo } = props;
+  const { sender, receiver, firstName, lastName, img, setVideo } = props;
 
   const userId = localStorage.getItem("user_id");
   const [result, setResult] = useState([]);
@@ -43,7 +43,7 @@ const Conversation = (props) => {
     socket.emit("send_message", messageContent);
     setMessageList([...messageList, messageContent.message]);
     axios
-      .post(`${process.env.REACT_APP_BACKEND_SERVER}/conversation/message`, {
+      .post(`/conversation/message`, {
         message,
         id: userId,
         room,
@@ -55,12 +55,11 @@ const Conversation = (props) => {
   };
   useEffect(() => {
     axios
-      .post(`${process.env.REACT_APP_BACKEND_SERVER}/conversation/con`, { sender, receiver })
+      .post(`/conversation/con`, { sender, receiver })
       .then((result) => {
         setRoom(result.data.conversation.conversation[0].id);
         setResult(result.data.result.result);
-        setVideo(result.data.conversation.conversation[0].id)
-        
+        setVideo(result.data.conversation.conversation[0].id);
       })
       .catch((err) => {
         console.log(err);
@@ -80,7 +79,8 @@ const Conversation = (props) => {
           <p>
             {firstNameUse} {lastNameUse}
           </p>
-          <svg className="video-img"
+          <svg
+            className="video-img"
             onClick={() => {
               history.push("/video");
             }}
@@ -92,7 +92,6 @@ const Conversation = (props) => {
             viewBox="0 0 16 16"
             color="white"
             cursor="pointer"
-
           >
             <path
               fill-rule="evenodd"

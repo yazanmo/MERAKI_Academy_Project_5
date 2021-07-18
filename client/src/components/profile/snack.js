@@ -42,7 +42,7 @@ const Snack = ({ date }) => {
   useEffect(() => {
     axios
       .post(
-        `${process.env.REACT_APP_BACKEND_SERVER}/snack`,
+        `/snack`,
         { date },
         {
           headers: {
@@ -100,7 +100,7 @@ const Snack = ({ date }) => {
                       onClick={() => {
                         axios
                           .post(
-                            `${process.env.REACT_APP_BACKEND_SERVER}/add/snack`,
+                            `/add/snack`,
                             {
                               name,
                               calories,
@@ -163,14 +163,11 @@ const Snack = ({ date }) => {
                             style={{ height: "20px", width: "20px" }}
                             onClick={() => {
                               axios
-                                .delete(
-                                  `${process.env.REACT_APP_BACKEND_SERVER}/snack/${element.snack_id}`,
-                                  {
-                                    headers: {
-                                      authorization: "Bearer " + token,
-                                    },
-                                  }
-                                )
+                                .delete(`/snack/${element.snack_id}`, {
+                                  headers: {
+                                    authorization: "Bearer " + token,
+                                  },
+                                })
                                 .then((res) => {
                                   console.log(res);
                                 })

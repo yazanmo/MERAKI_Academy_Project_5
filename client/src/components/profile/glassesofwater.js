@@ -10,7 +10,7 @@ const Dinner = () => {
  
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_SERVER}/glassesofwater`, {
+      .get(`/glassesofwater`, {
         headers: {
           authorization: "Bearer " + token,
         },

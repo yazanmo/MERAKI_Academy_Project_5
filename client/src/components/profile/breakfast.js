@@ -44,7 +44,7 @@ const Breakfast = ({ date }) => {
   useEffect(() => {
     axios
       .post(
-        `${process.env.REACT_APP_BACKEND_SERVER}/breakfast`,
+        `/breakfast`,
         { date },
         {
           headers: {
@@ -104,7 +104,7 @@ const Breakfast = ({ date }) => {
                       onClick={() => {
                         axios
                           .post(
-                            `${process.env.REACT_APP_BACKEND_SERVER}/add/breakfast`,
+                            `/add/breakfast`,
                             {
                               name,
                               calories,
@@ -135,7 +135,7 @@ const Breakfast = ({ date }) => {
                       }}
                     >
                       <div className="desc-food-tracker">
-                      <h2>{elem.name}</h2>
+                        <h2>{elem.name}</h2>
                       </div>
                     </div>
                   );
@@ -170,14 +170,11 @@ const Breakfast = ({ date }) => {
                             style={{ height: "20px", width: "20px" }}
                             onClick={() => {
                               axios
-                                .delete(
-                                  `${process.env.REACT_APP_BACKEND_SERVER}/${element.breakfast_id}`,
-                                  {
-                                    headers: {
-                                      authorization: "Bearer " + token,
-                                    },
-                                  }
-                                )
+                                .delete(`/${element.breakfast_id}`, {
+                                  headers: {
+                                    authorization: "Bearer " + token,
+                                  },
+                                })
                                 .then((res) => {
                                   console.log(res);
                                 })

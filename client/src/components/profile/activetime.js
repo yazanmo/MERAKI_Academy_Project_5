@@ -44,7 +44,7 @@ const ActiveTime = ({ date }) => {
   useEffect(() => {
     axios
       .post(
-        `${process.env.REACT_APP_BACKEND_SERVER}/breakfast`,
+        `/breakfast`,
         { date },
         {
           headers: {
@@ -104,7 +104,7 @@ const ActiveTime = ({ date }) => {
                       onClick={() => {
                         axios
                           .post(
-                            `${process.env.REACT_APP_BACKEND_SERVER}/add/breakfast`,
+                            `/add/breakfast`,
                             {
                               name,
                               calories,
@@ -169,7 +169,7 @@ const ActiveTime = ({ date }) => {
                             onClick={() => {
                               axios
                                 .delete(
-                                  `${process.env.REACT_APP_BACKEND_SERVER}/breakfast/${element.breakfast_id}`,
+                                  `/breakfast/${element.breakfast_id}`,
                                   {
                                     headers: {
                                       authorization: "Bearer " + token,
