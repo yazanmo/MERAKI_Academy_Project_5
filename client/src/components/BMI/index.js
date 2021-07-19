@@ -16,9 +16,9 @@ export default function BMI() {
     setBMI(finalAnswer);
     if (BMI < 18.5) {
       setStatus("underweight");
-    } else if (BMI < 24.9) {
+    } else if (BMI <= 24.9) {
       setStatus("normal");
-    } else {
+    } else if (BMI > 24.9) {
       setStatus("overweight");
     }
   };

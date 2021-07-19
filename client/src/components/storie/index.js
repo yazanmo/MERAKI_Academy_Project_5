@@ -17,7 +17,7 @@ export default function CreateStories() {
   const add = () => {
     axios
       .post(
-        `${process.env.REACT_APP_BACKEND_SERVER}/story`,
+        `/story`,
         {
           description,
         },

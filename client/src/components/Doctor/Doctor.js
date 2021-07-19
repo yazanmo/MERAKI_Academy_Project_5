@@ -165,7 +165,7 @@ const Doctor = () => {
                       >
                         {elem.firstName} {elem.lastName}
                       </Card.Title>
-                      <Card.Text>{elem.description}</Card.Text>
+
                       <Card.Text style={{ color: "#86cb6a" }}>
                         {elem.price + " $"}
                       </Card.Text>
