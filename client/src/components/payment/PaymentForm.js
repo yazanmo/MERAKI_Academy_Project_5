@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./payment.css";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 export default function Payment({ paymentId, paymentReceiver, price }) {
   let token = localStorage.getItem("token");
+
+  const history = useHistory();
+
   const CARD_OPTIONS = {
     iconStyle: "solid",
     style: {
@@ -106,6 +110,13 @@ export default function Payment({ paymentId, paymentReceiver, price }) {
       ) : (
         <div className="h3Payy">
           <h3>congrats this is the best decision of you're life</h3>
+          <button
+            onClick={() => {
+              history.push("/mydoctor");
+            }}
+          >
+            OK
+          </button>
         </div>
       )}
     </>

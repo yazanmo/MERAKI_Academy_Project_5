@@ -4,16 +4,16 @@
   padding-bottom: 60px;
 }
 .wrapper {
-    display: flex;
-    grid-gap: 55px;
-    gap: 55px;
-    margin-top: 40px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin-left: 10%;
-    justify-content: center;
-    margin-right: 10%;
+  display: flex;
+  grid-gap: 55px;
+  gap: 55px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-left: 10%;
+  justify-content: center;
+  margin-right: 10%;
 }
 .wrapper button {
   width: 40%;
@@ -21,7 +21,7 @@
   border: none;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  margin: 10px auto;
+  margin: auto;
 }
 .wrapper button:hover {
   background-color: #c42e2e;

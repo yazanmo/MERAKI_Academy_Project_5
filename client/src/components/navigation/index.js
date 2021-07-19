@@ -51,7 +51,8 @@ const Navigation = ({ setHomePageSection }) => {
                     </Link>{" "}
                   </li>
                   <Dropdown>
-                    <Dropdown.Toggle variant="success"
+                    <Dropdown.Toggle
+                      variant="success"
                       style={{
                         backgroundColor: "#fff",
                         borderColor: "#fff",
@@ -117,16 +118,17 @@ const Navigation = ({ setHomePageSection }) => {
                   </li>
                   <li>
                     <Dropdown>
-                    <Dropdown.Toggle variant="success"
-                      style={{
-                        backgroundColor: "#fff",
-                        borderColor: "#fff",
-                        color: "#52585c",
-                        marginTop: "-6px",
-                        fontWeight: "550",
-                        fontSize: "1.2rem",
-                      }}
-                    >
+                      <Dropdown.Toggle
+                        variant="success"
+                        style={{
+                          backgroundColor: "#fff",
+                          borderColor: "#fff",
+                          color: "#52585c",
+                          marginTop: "-6px",
+                          fontWeight: "550",
+                          fontSize: "1.2rem",
+                        }}
+                      >
                         Profile
                       </Dropdown.Toggle>
                       <Dropdown.Menu>

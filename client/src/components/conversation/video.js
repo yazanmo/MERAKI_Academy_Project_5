@@ -7,7 +7,7 @@ import React, { useEffect, useRef, useState } from "react"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 import Peer from "simple-peer"
 import io from "socket.io-client"
-const socket = io.connect(`${process.env.REACT_APP_BACKEND_SERVER}`)
+const socket = io.connect(`https://theateam00.herokuapp.com/`)
 const Video=()=> {
     
 	const [ me, setMe ] = useState("")

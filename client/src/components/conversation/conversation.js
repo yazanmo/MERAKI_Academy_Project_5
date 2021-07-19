@@ -5,7 +5,7 @@ import { io } from "socket.io-client";
 import "./conversation.css";
 
 let socket;
-const CONNECTION_PORT = `${process.env.REACT_APP_BACKEND_SERVER}`;
+const CONNECTION_PORT = `https://theateam00.herokuapp.com/`;
 socket = io(CONNECTION_PORT);
 
 const Conversation = (props) => {
