@@ -170,18 +170,18 @@ const Doctor = () => {
                         {elem.price + " $"}
                       </Card.Text>
                       <Card.Text>{elem.Qualifications}</Card.Text>
+                      {role_id == 3 ? (
+                        <button
+                          onClick={() => {
+                            deleteDoctor(elem.user_id);
+                          }}
+                        >
+                          delete{" "}
+                        </button>
+                      ) : (
+                        <></>
+                      )}
                     </Card.Body>
-                    {role_id == 3 ? (
-                      <button
-                        onClick={() => {
-                          deleteDoctor(elem.user_id);
-                        }}
-                      >
-                        delete{" "}
-                      </button>
-                    ) : (
-                      <></>
-                    )}
                   </Card>
                 </>
               );

@@ -8,7 +8,6 @@
   background-color: #f1f1f1;
   flex: 1;
   padding-bottom: 6.5%;
- 
 }
 .my-doc-card {
   /* display: flex;
@@ -17,7 +16,6 @@
   text-overflow: ellipsis;
   /* width: calc(80%); */
   gap: 10px;
-  
 }
 
 .carddoctor {
@@ -45,4 +43,15 @@
   color: darkgrey;
   word-break: break-all;
   font-size: 30px;
+}
+
+.message-mydoctor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.message-mydoctor img {
+  width: 55%;
+  height: 100%;
+  margin: auto;
 }
