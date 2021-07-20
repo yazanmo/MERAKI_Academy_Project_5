@@ -65,16 +65,26 @@ const Navigation = ({ setHomePageSection }) => {
                       Profile
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                      <Dropdown.Item href="/create/stories">
-                        Your story
+                      <Dropdown.Item>
+                        <Link to="/create/stories" className="links">
+                          Your story
+                        </Link>
                       </Dropdown.Item>
-                      <Dropdown.Item href="/foodtracker">
-                        Your Food
+                      <Dropdown.Item>
+                        <Link to="/foodtracker" className="links">
+                          Your Food
+                        </Link>
                       </Dropdown.Item>
-                      <Dropdown.Item href="/userSchedule">
-                        My Schedule
+                      <Dropdown.Item>
+                        <Link to="/userSchedule" className="links">
+                          My Schedule
+                        </Link>
                       </Dropdown.Item>
-                      <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                      <Dropdown.Item>
+                        <Link to="/profile" className="links">
+                          Profile
+                        </Link>
+                      </Dropdown.Item>
 
                       <Dropdown.Item
                         href="/"
