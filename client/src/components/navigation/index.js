@@ -143,16 +143,19 @@ const Navigation = ({ setHomePageSection }) => {
                         Profile
                       </Dropdown.Toggle>
                       <Dropdown.Menu>
-                        <Dropdown.Item href="/doctorProfile">
-                          Profile
+                        <Dropdown.Item>
+                          <Link to="/doctorProfile" className="links">
+                            Profile
+                          </Link>
                         </Dropdown.Item>
                         <Dropdown.Item
-                          href="/"
                           onClick={() => {
                             localStorage.clear();
                           }}
                         >
-                          Log out
+                          <Link to="/" className="links">
+                            Log out
+                          </Link>
                         </Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>
