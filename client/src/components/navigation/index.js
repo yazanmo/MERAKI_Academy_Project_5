@@ -87,12 +87,13 @@ const Navigation = ({ setHomePageSection }) => {
                       </Dropdown.Item>
 
                       <Dropdown.Item
-                        href="/"
                         onClick={() => {
                           localStorage.clear();
                         }}
                       >
-                        Log out
+                        <Link to="/" className="links">
+                          Log out
+                        </Link>
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
