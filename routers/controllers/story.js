@@ -26,17 +26,17 @@ const getAllSuccessStories = (req, res) => {
    INNER JOIN users ON 
    users.id=Success.user_id WHERE 
    Success.is_deleted=0 `;
-   const page = req.query.page
-   const limit = req.query.limit
-   const starterIndex = (page-1)*limit
-   const endIndex = page * limit
+  const page = req.query.page;
+  const limit = req.query.limit;
+  const starterIndex = (page - 1) * limit;
+  const endIndex = page * limit;
 
-   console.log("stoooories",page,limit);
+  console.log("stoooories", page, limit);
   db.query(command, (err, results) => {
-        if (err) res.status(404).send(err);
-    console.log("storyyyy array",results);
-    const result = results.slice(starterIndex,endIndex)
-    console.log("resultSlice",result);
+    if (err) res.status(404).send(err);
+    console.log("storyyyy array", results);
+    const result = results.slice(starterIndex, endIndex);
+    console.log("resultSlice", result);
     res.status(200).json(result);
   });
 };

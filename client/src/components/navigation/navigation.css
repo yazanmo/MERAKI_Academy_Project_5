@@ -23,6 +23,11 @@
   z-index: 1;
 }
 
+.links {
+  color: #0c0c0c;
+  text-decoration: none;
+}
+
 .logo {
   font-family: "Cookie", cursive;
   font-size: 15px;
